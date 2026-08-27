@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #FAFAF7;
+  --color-ink: #141414;
+  --color-pastel-lilac: #E8DFFF;
+  --color-pastel-peach: #FFE7D6;
+  --color-pastel-sky: #DDEEFF;
+  --color-pastel-mint: #DFF5E6;
+  --color-pastel-yellow: #F4F5C9;
+  --color-accent-primary: #6C4CF1;
+  --color-accent-secondary: #FF8A5C;
+  --color-dark-panel: #141118;
+
+  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  
+  --radius-card: 24px;
+}
+
+:root {
+  --font-display: 'Outfit';
+  --font-sans: 'Plus Jakarta Sans';
+  background-color: var(--color-bg-base);
+  color: var(--color-ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* ── Consistent gap-6 (24px) between consecutive sections on every page ── */
+section + section {
+  margin-top: 1.5rem;
+}
+
+/* Custom Mesh Gradient Animations */
+@keyframes mesh-float-1 {
+  0% { transform: translate(0%, 0%) scale(1); }
+  33% { transform: translate(15%, -10%) scale(1.1); }
+  66% { transform: translate(-10%, 15%) scale(0.95); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+@keyframes mesh-float-2 {
+  0% { transform: translate(0%, 0%) scale(1.05); }
+  40% { transform: translate(-15%, 15%) scale(0.9); }
+  80% { transform: translate(10%, -10%) scale(1.15); }
+  100% { transform: translate(0%, 0%) scale(1.05); }
+}
+
+@keyframes mesh-float-3 {
+  0% { transform: translate(0%, 0%) scale(0.95); }
+  50% { transform: translate(10%, 20%) scale(1.1); }
+  100% { transform: translate(0%, 0%) scale(0.95); }
+}
+
+.mesh-blob-1 {
+  animation: mesh-float-1 20s ease-in-out infinite;
+}
+
+.mesh-blob-2 {
+  animation: mesh-float-2 17s ease-in-out infinite;
+}
+
+.mesh-blob-3 {
+  animation: mesh-float-3 23s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d6ce;
+  border-radius: 999px;
+  border: 2px solid var(--color-bg-base);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b5b5ad;
+}
+
+/* Marquee Infinite Scrolling Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 25s linear infinite;
+}
+
+.animate-marquee:hover, .animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
