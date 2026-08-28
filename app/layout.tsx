@@ -3,6 +3,7 @@ import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import BackgroundBase from "@/components/layout/BackgroundBase";
 
 const outfit = Outfit({
   variable: "--font-display",
@@ -42,10 +43,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
-      <body className="flex flex-col min-h-screen bg-bg-base text-ink antialiased">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+      <body className="flex flex-col min-h-screen bg-white text-ink antialiased relative">
+        <BackgroundBase />
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

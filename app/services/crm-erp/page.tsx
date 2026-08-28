@@ -2,9 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, BarChart3, Database, Workflow, ShieldAlert } from "lucide-react";
+import { ArrowRight, BarChart3, Database, Workflow, ShieldAlert } from "lucide-react";
 
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -67,30 +66,41 @@ export default function CrmErpService() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-bg-base py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
       
       {/* Sub-Hero */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-16 border-b border-zinc-200/50">
+      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-16 border-b border-slate-200">
         <div className="flex items-center gap-2">
-          <Link href="/services" className="text-xs font-semibold text-zinc-400 hover:text-ink">
+          <Link href="/services" className="text-xs font-bold text-slate-500 hover:text-[#0A2540]">
             Services
           </Link>
-          <span className="text-xs text-zinc-400">/</span>
-          <span className="text-xs font-semibold text-accent-primary">CRM & ERP</span>
+          <span className="text-xs text-slate-400">/</span>
+          <span className="text-xs font-bold text-[#0A2540]">CRM &amp; ERP</span>
         </div>
-        <Badge colorTheme="yellow" className="w-fit">
+        <Badge colorTheme="navy" className="w-fit">
           {serviceData.badge}
         </Badge>
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-ink max-w-3xl">
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-ink max-w-3xl font-display">
           {serviceData.title}
         </h1>
-        <p className="text-lg text-zinc-650 leading-relaxed max-w-2xl">
+        <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
           {serviceData.longDescription}
         </p>
+        {/* CRM Dashboard Visual Showcase */}
+        <div className="w-full mt-8 relative rounded-[32px] overflow-hidden border border-white/40 shadow-[0_25px_60px_rgba(0,0,0,0.12)] bg-slate-950/80 backdrop-blur-2xl p-2 md:p-3 group">
+          <div className="relative w-full aspect-[16/9] rounded-[24px] overflow-hidden bg-slate-900">
+            <img
+              src="/images/crm_erp_dashboard.jpg"
+              alt="KK Next Tech CRM & ERP Operations Dashboard"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
+          </div>
+        </div>
       </section>
 
       {/* Grid of features */}
-      <section className="py-20 max-w-7xl px-6 md:px-8 mx-auto border-b border-zinc-200/50">
+      <section className="py-20 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200">
         <div className="flex flex-col gap-12 md:gap-16">
           <SectionHeading
             eyebrow="Capabilities"
@@ -102,13 +112,13 @@ export default function CrmErpService() {
             {erpFeatures.map((feat) => {
               const Icon = feat.icon;
               return (
-                <div key={feat.title} className="flex gap-6 p-8 rounded-3xl bg-white border border-zinc-200/50">
-                  <div className="w-12 h-12 rounded-2xl bg-pastel-yellow flex items-center justify-center text-ink shadow-sm shrink-0">
-                    <Icon className="w-6 h-6 text-accent-primary" />
+                <div key={feat.title} className="flex gap-6 p-8 rounded-3xl bg-white border border-slate-200 shadow-xs">
+                  <div className="w-12 h-12 rounded-2xl bg-[#EBF3FC] flex items-center justify-center text-ink border border-blue-200 shrink-0">
+                    <Icon className="w-6 h-6 text-[#0A2540]" />
                   </div>
                   <div className="flex flex-col gap-2">
                     <h3 className="text-lg font-bold text-ink">{feat.title}</h3>
-                    <p className="text-xs md:text-sm text-zinc-600 leading-relaxed">
+                    <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
                       {feat.desc}
                     </p>
                   </div>
@@ -120,14 +130,14 @@ export default function CrmErpService() {
       </section>
 
       {/* Integration Tools */}
-      <section className="py-16 bg-white border-b border-zinc-200/50">
+      <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <span className="text-xs uppercase font-bold tracking-widest text-zinc-400">
+          <span className="text-xs uppercase font-bold tracking-widest text-slate-500">
             Database Integrations:
           </span>
           <div className="flex flex-wrap items-center gap-2">
             {serviceData.techStack.map((tech) => (
-              <span key={tech} className="text-xs md:text-sm font-mono bg-zinc-50 border border-zinc-200/60 px-4 py-1.5 rounded-full text-ink font-bold">
+              <span key={tech} className="text-xs md:text-sm font-mono bg-slate-50 border border-slate-200 px-4 py-1.5 rounded-full text-[#0A2540] font-bold">
                 {tech}
               </span>
             ))}
@@ -147,15 +157,15 @@ export default function CrmErpService() {
               {crmProjects.map((p) => (
                 <Card key={p.slug} colorBg={p.color as any} className="flex flex-col justify-between">
                   <div className="flex flex-col gap-4">
-                    <Badge colorTheme="ink">{p.category}</Badge>
+                    <Badge colorTheme="navy">{p.category}</Badge>
                     <h3 className="text-xl font-bold text-ink mt-2">{p.title}</h3>
-                    <p className="text-xs md:text-sm text-zinc-665 leading-relaxed">
+                    <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
                       {p.description}
                     </p>
                   </div>
                   <Link
                     href={`/portfolio/${p.slug}`}
-                    className="flex items-center gap-1 text-xs font-bold text-ink hover:text-accent-primary hover:translate-x-1 transition-all mt-6 pt-4 border-t border-zinc-950/5"
+                    className="flex items-center gap-1 text-xs font-bold text-[#0A2540] hover:text-[#1E40AF] hover:translate-x-1 transition-all mt-6 pt-4 border-t border-slate-200"
                   >
                     View Case Study <ArrowRight className="w-3 h-3" />
                   </Link>
@@ -167,7 +177,7 @@ export default function CrmErpService() {
       )}
 
       {/* FAQs */}
-      <div className="border-t border-zinc-200/50">
+      <div className="border-t border-slate-200">
         <FAQSection
           items={crmFAQs}
           eyebrow="Got Questions?"

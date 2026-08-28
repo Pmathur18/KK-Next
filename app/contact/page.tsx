@@ -131,31 +131,31 @@ export default function Contact() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-bg-base py-12 md:py-20 animate-fadeIn">
+    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20 animate-fadeIn">
       
       {/* 1. HEADER SECTION (Schbang Style) */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto text-center pb-12 border-b border-zinc-200/50 flex flex-col items-center gap-4">
-        <Badge colorTheme="violet">Get In Touch</Badge>
+      <section className="max-w-7xl px-6 md:px-8 mx-auto text-center pb-12 border-b border-slate-200 flex flex-col items-center gap-4">
+        <Badge colorTheme="navy">Get In Touch</Badge>
         <h1 className="text-4xl sm:text-6xl font-black text-ink tracking-tight font-display uppercase">
           GOT AN IDEA? <br/>Drop Us A Message
         </h1>
-        <p className="text-zinc-650 text-sm md:text-base leading-relaxed max-w-xl">
-          We simplify digital growth. Send us your project scope inquiries or email us directly at <span className="font-bold text-accent-primary underline">bd@kknextech.com</span>.
+        <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl">
+          We simplify digital growth. Send us your project scope inquiries or email us directly at <span className="font-bold text-[#0A2540] underline">bd@kknextech.com</span>.
         </p>
       </section>
 
       {/* Grid container */}
       <div className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 pt-16 relative z-10">
         
-        {/* Left Column: Contact Form */}
-        <div className="lg:col-span-7 bg-white border border-zinc-200/50 p-6 md:p-10 rounded-[32px] shadow-sm">
+        {/* Left Column: Contact Form (Apple Glass) */}
+        <div className="lg:col-span-7 bg-white/50 backdrop-blur-2xl border border-white/60 p-6 md:p-10 rounded-[36px] shadow-[0_12px_40px_rgba(0,0,0,0.05),inset_0_1px_1px_rgba(255,255,255,0.6)]">
           {formSubmitted ? (
             <div className="flex flex-col items-center justify-center text-center gap-4 py-16 animate-scaleUp">
-              <div className="w-16 h-16 rounded-full bg-pastel-mint border border-green-200 flex items-center justify-center text-accent-secondary mb-2">
+              <div className="w-16 h-16 rounded-full bg-[#EBF3FC] border border-blue-200 flex items-center justify-center text-[#0A2540] mb-2">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <h2 className="text-2xl font-black text-ink font-display">Inquiry Sent Successfully!</h2>
-              <p className="text-sm text-zinc-500 max-w-sm">
+              <p className="text-sm text-slate-500 max-w-sm">
                 Thank you for reaching out. A partner from our chosen office will get back to you within 24 business hours.
               </p>
               <Button variant="secondary" onClick={() => setFormSubmitted(false)} className="mt-2">
@@ -415,23 +415,23 @@ export default function Contact() {
 
           <div className="flex flex-col gap-6">
             {officesList.map((item, idx) => (
-              <div key={idx} className="flex gap-4 border-b border-zinc-150 pb-5 last:border-b-0 last:pb-0">
-                <div className="w-10 h-10 rounded-xl bg-pastel-sky flex items-center justify-center text-accent-primary shrink-0 border border-zinc-250/20 shadow-sm">
+              <div key={idx} className="flex gap-4 border-b border-slate-150 pb-5 last:border-b-0 last:pb-0">
+                <div className="w-10 h-10 rounded-xl bg-[#EBF3FC] flex items-center justify-center text-[#0A2540] shrink-0 border border-blue-200 shadow-xs">
                   <Building2 className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <span className="text-xs font-bold text-ink uppercase tracking-wider">{item.city}</span>
-                  <span className="text-xs text-zinc-500 leading-normal max-w-xs">{item.address}</span>
-                  <span className="text-[10px] text-zinc-400 font-bold font-mono">{item.phone}</span>
+                  <span className="text-xs text-slate-500 leading-normal max-w-xs">{item.address}</span>
+                  <span className="text-[10px] text-slate-400 font-bold font-mono">{item.phone}</span>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Press Contact Section (Schbang-style) */}
-          <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-150 flex flex-col gap-3">
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-3">
             <span className="text-xs font-bold text-ink uppercase tracking-wider flex items-center gap-1.5">
-              <Globe className="w-4 h-4 text-accent-primary" /> Press & Media Contact
+              <Globe className="w-4 h-4 text-[#0A2540]" /> Press &amp; Media Contact
             </span>
             <div className="flex flex-col gap-1 text-[11px] text-zinc-500">
               <p>For press releases & media inquiries, email our relations desk:</p>

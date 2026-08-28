@@ -18,7 +18,7 @@ export default function Blog() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
-  const categories = ["All", "Websites", "Mobile Apps", "Social Media", "CRM/ERP"];
+  const categories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ export default function Blog() {
   });
 
   return (
-    <div className="relative overflow-hidden w-full bg-bg-base py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
       
       {/* Header */}
       <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-12 border-b border-zinc-200/50">
@@ -156,17 +156,18 @@ export default function Blog() {
         )}
       </section>
 
-      {/* Newsletter Block */}
+      {/* Newsletter Block (Apple Glass Design) */}
       <section className="max-w-7xl px-6 md:px-8 mx-auto py-12">
-        <div className="bg-pastel-yellow border border-yellow-250/20 rounded-[32px] p-8 md:p-16 flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div className="flex flex-col gap-3">
-            <span className="text-xs font-semibold tracking-wider uppercase text-accent-primary">
+        <div className="bg-slate-950/80 backdrop-blur-2xl border border-white/15 rounded-[36px] p-8 md:p-16 flex flex-col md:flex-row md:items-center justify-between gap-8 shadow-[0_25px_60px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/15 rounded-full filter blur-[90px] pointer-events-none" />
+          <div className="flex flex-col gap-3 relative z-10">
+            <span className="text-xs font-bold tracking-wider uppercase text-slate-300">
               Newsletter
             </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-display">
               Get technical insights straight to your inbox
             </h2>
-            <p className="text-xs md:text-sm text-zinc-600 leading-relaxed max-w-md">
+            <p className="text-xs md:text-sm text-slate-300 leading-relaxed max-w-md">
               We compile solutions updates, design tokens, and automation advice. Sent once a month. No spam.
             </p>
           </div>

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 interface ButtonProps extends Omit<HTMLMotionProps<"button">, "variant"> {
   variant?: "primary" | "secondary" | "outline" | "pastel" | "link";
-  colorTheme?: "ink" | "violet" | "peach" | "sky" | "mint" | "yellow";
+  colorTheme?: "ink" | "violet" | "peach" | "sky" | "mint" | "yellow" | "navy" | "white";
   className?: string;
   children: React.ReactNode;
 }
@@ -19,25 +19,27 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-center";
+    "inline-flex items-center justify-center font-semibold rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-center";
 
   const sizeStyles = "px-6 py-3 text-sm md:text-base md:px-8 md:py-3.5";
 
   const themes = {
-    ink: "bg-ink text-white hover:bg-ink/90 focus:ring-ink",
-    violet: "bg-accent-primary text-white hover:bg-accent-primary/95 focus:ring-accent-primary",
-    peach: "bg-accent-secondary text-white hover:bg-accent-secondary/95 focus:ring-accent-secondary",
-    sky: "bg-pastel-sky text-ink hover:bg-pastel-sky/80 focus:ring-pastel-sky",
-    mint: "bg-pastel-mint text-ink hover:bg-pastel-mint/80 focus:ring-pastel-mint",
-    yellow: "bg-pastel-yellow text-ink hover:bg-pastel-yellow/80 focus:ring-pastel-yellow",
+    ink: "bg-[#050B14] text-white hover:bg-black focus:ring-black",
+    violet: "bg-[#0A2540] text-white hover:bg-[#050B14] focus:ring-[#0A2540]",
+    navy: "bg-[#0A2540] text-white hover:bg-[#050B14] focus:ring-[#0A2540]",
+    peach: "bg-[#1E40AF] text-white hover:bg-[#1D4ED8] focus:ring-[#1E40AF]",
+    sky: "bg-[#EBF3FC] text-[#0A2540] hover:bg-[#DBEAFE] focus:ring-[#1E40AF]",
+    mint: "bg-[#0F172A] text-white hover:bg-black focus:ring-[#0F172A]",
+    yellow: "bg-[#F8FAFC] text-[#0A2540] border border-slate-200 hover:bg-[#F1F5F9] focus:ring-[#0A2540]",
+    white: "bg-white text-[#0A2540] hover:bg-slate-100 focus:ring-white",
   };
 
   const variants = {
-    primary: themes[colorTheme],
-    secondary: "bg-white text-ink border border-zinc-200 hover:bg-zinc-50 focus:ring-zinc-400",
-    outline: "bg-transparent text-ink border-2 border-ink hover:bg-ink hover:text-white focus:ring-ink",
-    pastel: themes[colorTheme],
-    link: "bg-transparent text-accent-primary hover:underline px-0 py-0 focus:ring-0",
+    primary: themes[colorTheme] || themes.violet,
+    secondary: "bg-white text-[#0A2540] border border-slate-200 hover:bg-slate-50 focus:ring-[#0A2540]",
+    outline: "bg-transparent text-[#050B14] border-2 border-[#0A2540] hover:bg-[#0A2540] hover:text-white focus:ring-[#0A2540]",
+    pastel: themes[colorTheme] || themes.sky,
+    link: "bg-transparent text-[#0A2540] hover:text-[#1E40AF] hover:underline px-0 py-0 focus:ring-0",
   };
 
   const selectedVariantClass = variant === "link" ? variants.link : cn(baseStyles, sizeStyles, variants[variant]);

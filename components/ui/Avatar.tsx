@@ -15,11 +15,11 @@ export default function Avatar({ name, className }: AvatarProps) {
     .slice(0, 2);
 
   const colors = [
-    "bg-pastel-sky border-blue-200/50 text-blue-700",
-    "bg-pastel-peach border-orange-200/50 text-orange-700",
-    "bg-pastel-mint border-green-200/50 text-green-700",
-    "bg-pastel-lilac border-purple-200/50 text-purple-700",
-    "bg-pastel-yellow border-yellow-200/50 text-yellow-700",
+    "bg-[#0A2540] border-[#0A2540] text-white",
+    "bg-[#1E40AF] border-[#1E40AF] text-white",
+    "bg-[#050B14] border-[#050B14] text-white",
+    "bg-[#EBF3FC] border-blue-200 text-[#0A2540]",
+    "bg-slate-100 border-slate-200 text-[#050B14]",
   ];
 
   const charCode = name.charCodeAt(0) || 0;

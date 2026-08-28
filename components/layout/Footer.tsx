@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Linkedin, Twitter, Instagram, Github } from "@/components/ui/BrandIcons";
-import { cn } from "@/lib/utils";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -27,125 +27,175 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-dark-panel text-zinc-400 overflow-hidden pt-20 pb-8 border-t border-zinc-900 animate-fadeIn">
-      {/* Corner animated gradient glow */}
-
+    <footer className="relative bg-[#071E3D] text-slate-200 overflow-hidden pt-16 md:pt-20 pb-6 border-t border-sky-400/20 font-sans animate-fadeIn">
+      {/* Ambient Top Glow */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-sky-500/10 rounded-full blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12 lg:gap-16 pb-16 border-b border-zinc-800">
 
-          {/* Col 2: Company */}
+        {/* ── 1. TOP COLUMNS CONTENT (Original Content Intact) ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12 lg:gap-16 pb-14 border-b border-sky-300/20">
+
+          {/* Col 1: Company */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Company</h3>
-            <ul className="flex flex-col gap-2.5 text-sm">
-              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/career" className="hover:text-white transition-colors">Career</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/portfolio" className="hover:text-white transition-colors">Case Studies</Link></li>
+            <h3 className="font-display text-base md:text-lg font-semibold text-white tracking-normal uppercase">
+              Company
+            </h3>
+            <ul className="flex flex-col gap-3 text-xs md:text-sm text-slate-200/90 font-medium">
+              <li>
+                <Link href="/about" className="inline-block hover:text-sky-300 hover:translate-x-1.5 transition-all duration-300">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/career" className="inline-block hover:text-sky-300 hover:translate-x-1.5 transition-all duration-300">
+                  Career
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="inline-block hover:text-sky-300 hover:translate-x-1.5 transition-all duration-300">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/portfolio" className="inline-block hover:text-sky-300 hover:translate-x-1.5 transition-all duration-300">
+                  Case Studies
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Col 3: Services */}
+          {/* Col 2: Services */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Services</h3>
-            <ul className="flex flex-col gap-2.5 text-sm">
-              <li><Link href="/services/websites" className="hover:text-white transition-colors">Websites & Shopify</Link></li>
-              <li><Link href="/services/mobile-apps" className="hover:text-white transition-colors">Mobile Applications</Link></li>
-              <li><Link href="/services/social-media-management" className="hover:text-white transition-colors">Social Management</Link></li>
-              <li><Link href="/services/crm-erp" className="hover:text-white transition-colors">CRM & ERP Automations</Link></li>
+            <h3 className="font-display text-base md:text-lg font-semibold text-white tracking-normal uppercase">
+              Services
+            </h3>
+            <ul className="flex flex-col gap-3 text-xs md:text-sm text-slate-200/90 font-medium">
+              <li>
+                <Link href="/services#websites" className="inline-block hover:text-sky-300 hover:translate-x-1.5 transition-all duration-300">
+                  Websites &amp; Shopify
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#mobile-apps" className="inline-block hover:text-sky-300 hover:translate-x-1.5 transition-all duration-300">
+                  Mobile Applications
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#social-media" className="inline-block hover:text-sky-300 hover:translate-x-1.5 transition-all duration-300">
+                  Social Management
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/crm-erp" className="inline-block hover:text-sky-300 hover:translate-x-1.5 transition-all duration-300">
+                  CRM &amp; ERP Automations
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Col 4: Newsletter + Contact */}
+          {/* Col 3: Newsletter + Contact */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-white">Stay Tuned</h3>
-              <form onSubmit={handleSubscribe} className="flex relative">
+              <h3 className="font-display text-base md:text-lg font-semibold text-white tracking-normal uppercase">
+                Stay Tuned
+              </h3>
+              <form onSubmit={handleSubscribe} className="flex relative max-w-md">
                 <input
                   type="email"
                   required
                   placeholder="Enter email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-zinc-900 border border-zinc-800 text-white rounded-full px-4 py-2 text-xs focus:outline-none focus:border-zinc-700 placeholder-zinc-600"
+                  className="w-full bg-slate-900/60 border border-sky-300/30 text-white rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-sky-400 placeholder-slate-400"
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 px-3 bg-accent-primary text-white rounded-full flex items-center justify-center hover:bg-accent-primary/95 transition-colors cursor-pointer"
+                  className="absolute right-1 top-1 bottom-1 px-3.5 bg-sky-400 hover:bg-sky-300 text-[#071E3D] rounded-full flex items-center justify-center transition-colors cursor-pointer font-bold"
                   aria-label="Subscribe"
                 >
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </form>
               {subscribed && (
-                <span className="text-xs text-pastel-mint font-medium">
+                <span className="text-xs text-white bg-sky-500/30 border border-sky-400/40 px-3 py-1 rounded-full font-semibold w-fit">
                   Thanks for subscribing!
                 </span>
               )}
             </div>
 
-            <div className="flex flex-col gap-3 text-xs text-zinc-500 leading-normal">
+            <div className="flex flex-col gap-2.5 text-xs text-slate-300 font-medium">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 shrink-0 text-sky-400" />
                 <span>Rajasthan, India</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 shrink-0" />
-                <span>hello@kknextech.com</span>
+                <Mail className="w-3.5 h-3.5 shrink-0 text-sky-400" />
+                <a href="mailto:hello@kknextech.com" className="hover:text-sky-300 transition-colors">
+                  hello@kknextech.com
+                </a>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 shrink-0" />
-                <span>+91 98765 43210</span>
+                <Phone className="w-3.5 h-3.5 shrink-0 text-sky-400" />
+                <a href="tel:+919876543210" className="hover:text-sky-300 transition-colors">
+                  +91 98765 43210
+                </a>
               </div>
             </div>
           </div>
+
         </div>
 
-        {/* Bottom bar */}
-        <div className="relative mt-8 border-t border-zinc-900">
-
-          {/* Watermark — absolutely centered behind the bar */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-            <span className="font-display font-black text-[clamp(2rem,6vw,4.5rem)] tracking-[0.25em] whitespace-nowrap text-white uppercase opacity-[1]">
-              KK NEX TECH SOLUTION
-            </span>
-          </div>
-
-          {/* Bottom row */}
-          <div className="relative z-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        {/* ── 2. BOTTOM BAR (Original Content & Social Icons) ── */}
+        <div className="relative pt-6">
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300 font-medium">
             {/* Copyright */}
             <span className="text-center sm:text-left">
               Proudly created in India. All Right Reserved, All Wrong Reversed.
             </span>
 
-            {/* Social icons — centered with padding */}
-            <div className="flex items-center gap-2 px-2">
+            {/* Social icons */}
+            <div className="flex items-center gap-3">
               {socialLinks.map((item, idx) => (
-                <a
+                <motion.a
                   key={idx}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-600 transition-all hover:scale-110"
+                  whileHover={{ scale: 1.15, rotate: 4 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-9 h-9 rounded-full bg-sky-400/20 hover:bg-sky-300 text-white hover:text-[#071E3D] flex items-center justify-center transition-colors shadow-sm"
                   aria-label={item.label}
                 >
                   <item.icon className="w-4 h-4" />
-                </a>
+                </motion.a>
               ))}
             </div>
 
             {/* Legal links */}
             <div className="flex items-center gap-5">
-              <Link href="/privacy-policy" className="hover:text-zinc-300 transition-colors">
+              <Link href="/privacy-policy" className="hover:text-sky-300 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms-and-conditions" className="hover:text-zinc-300 transition-colors">
+              <Link href="/terms-and-conditions" className="hover:text-sky-300 transition-colors">
                 Terms &amp; Conditions
               </Link>
             </div>
           </div>
-
         </div>
+
+        {/* ── 3. GIANT BRAND WATERMARK (Exact PadiSave Reference Style) ── */}
+        <div className="relative w-full pt-10 pb-0 overflow-hidden select-none pointer-events-none text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="font-display font-black text-[clamp(4.5rem,18vw,14rem)] tracking-tight text-white/12 leading-none whitespace-nowrap block -mb-4 md:-mb-8"
+          >
+            KKNEXTTECH
+          </motion.span>
+        </div>
+
       </div>
     </footer>
   );

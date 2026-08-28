@@ -46,46 +46,46 @@ const cardPalettes: Record<
   { bg: string; accent: string; text: string; badge: string; metric: string; visual: string }
 > = {
   "aurora-boutique": {
-    bg: "from-[#1a0a3c] via-[#2d1065] to-[#1a0a3c]",
-    accent: "#a78bfa",
+    bg: "from-[#050B14] via-[#0A2540] to-[#050B14]",
+    accent: "#93C5FD",
     text: "text-white",
-    badge: "bg-violet-500/20 text-violet-200 border-violet-500/30",
-    metric: "text-violet-300",
-    visual: "bg-violet-900/40 border-violet-500/20",
+    badge: "bg-white/10 text-white border-white/20",
+    metric: "text-blue-200",
+    visual: "bg-slate-900/60 border-slate-700/50",
   },
   "fitquest-app": {
-    bg: "from-[#0a2618] via-[#0d3d22] to-[#0a2618]",
-    accent: "#34d399",
+    bg: "from-[#0A192F] via-[#0F172A] to-[#0A192F]",
+    accent: "#60A5FA",
     text: "text-white",
-    badge: "bg-emerald-500/20 text-emerald-200 border-emerald-500/30",
-    metric: "text-emerald-300",
-    visual: "bg-emerald-900/40 border-emerald-500/20",
+    badge: "bg-white/10 text-white border-white/20",
+    metric: "text-slate-200",
+    visual: "bg-slate-900/60 border-slate-700/50",
   },
   "nexus-social-scale": {
-    bg: "from-[#0f1a3d] via-[#1a2d6b] to-[#0f1a3d]",
-    accent: "#60a5fa",
+    bg: "from-[#050B14] via-[#1E3A8A]/80 to-[#050B14]",
+    accent: "#93C5FD",
     text: "text-white",
-    badge: "bg-blue-500/20 text-blue-200 border-blue-500/30",
-    metric: "text-blue-300",
-    visual: "bg-blue-900/40 border-blue-500/20",
+    badge: "bg-white/10 text-white border-white/20",
+    metric: "text-blue-200",
+    visual: "bg-slate-900/60 border-slate-700/50",
   },
   "apex-erp-pipeline": {
-    bg: "from-[#2d1a00] via-[#4a2c00] to-[#2d1a00]",
-    accent: "#fb923c",
+    bg: "from-[#050B14] via-[#0A2540] to-[#050B14]",
+    accent: "#E2E8F0",
     text: "text-white",
-    badge: "bg-orange-500/20 text-orange-200 border-orange-500/30",
-    metric: "text-orange-300",
-    visual: "bg-orange-900/40 border-orange-500/20",
+    badge: "bg-white/10 text-white border-white/20",
+    metric: "text-white",
+    visual: "bg-slate-900/60 border-slate-700/50",
   },
 };
 
 const fallbackPalette = {
-  bg: "from-[#1a1a2e] via-[#16213e] to-[#1a1a2e]",
-  accent: "#818cf8",
+  bg: "from-[#050B14] via-[#0A2540] to-[#050B14]",
+  accent: "#93C5FD",
   text: "text-white",
-  badge: "bg-indigo-500/20 text-indigo-200 border-indigo-500/30",
-  metric: "text-indigo-300",
-  visual: "bg-indigo-900/40 border-indigo-500/20",
+  badge: "bg-white/10 text-white border-white/20",
+  metric: "text-blue-200",
+  visual: "bg-slate-900/60 border-slate-700/50",
 };
 
 /* ─── Single stacked card ──────────────────────────────────────────────────── */
@@ -298,7 +298,7 @@ export default function Portfolio() {
   });
 
   return (
-    <div className="relative w-full bg-bg-base">
+    <div className="relative w-full bg-transparent">
 
       {/* ══ HERO HEADER ══════════════════════════════════════════════════════ */}
       <section className="pt-16 pb-12 md:pt-24 md:pb-16 max-w-7xl mx-auto px-6 md:px-8">
@@ -311,12 +311,6 @@ export default function Portfolio() {
             visible: { transition: { staggerChildren: 0.1 } },
           }}
         >
-          <motion.span
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-            className="text-xs md:text-sm font-bold tracking-[0.18em] uppercase text-accent-primary"
-          >
-            Our Work
-          </motion.span>
 
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
@@ -324,8 +318,8 @@ export default function Portfolio() {
           >
             Case Studies &{" "}
             <span className="relative inline-block">
-              <span className="relative z-10">Client Wins</span>
-              <span className="absolute bottom-1.5 left-0 w-full h-3 bg-pastel-peach -z-10 rounded-sm" />
+              <span className="relative z-10 text-[#0A2540]">Client Wins</span>
+              <span className="absolute bottom-1.5 left-0 w-full h-3 bg-[#EBF3FC] -z-10 rounded-sm" />
             </span>
           </motion.h1>
 
@@ -333,33 +327,9 @@ export default function Portfolio() {
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
             className="text-lg text-zinc-500 leading-relaxed max-w-2xl"
           >
-            Real outcomes from real projects. Scroll through our client case studies below — each card tells the full story.
+            Real outcomes from real projects. Scroll through our client case studies below each card tells the full story.
           </motion.p>
         </motion.div>
-      </section>
-
-      {/* ══ FILTER TABS ══════════════════════════════════════════════════════ */}
-      <section className="sticky top-0 z-40 bg-bg-base/90 backdrop-blur-md border-b border-zinc-200/50 py-4">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-wrap gap-2">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              id={`filter-${filter.toLowerCase().replace(/\s+/g, "-").replace("/", "-")}`}
-              onClick={() => setSelectedFilter(filter)}
-              className={cn(
-                "px-5 py-2 rounded-full text-xs sm:text-sm font-semibold border transition-all cursor-pointer",
-                selectedFilter === filter
-                  ? "bg-ink text-white border-ink shadow-sm"
-                  : "bg-white text-zinc-600 border-zinc-200 hover:bg-zinc-100"
-              )}
-            >
-              {filter}
-            </button>
-          ))}
-          <span className="ml-auto text-xs text-zinc-400 font-medium self-center hidden sm:block">
-            {filteredProjects.length} project{filteredProjects.length !== 1 ? "s" : ""}
-          </span>
-        </div>
       </section>
 
       {/* ══ STACKED CARDS ════════════════════════════════════════════════════ */}

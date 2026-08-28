@@ -81,11 +81,11 @@ export default function Home() {
   const scrollBlogNext = () => emblaBlogApi && emblaBlogApi.scrollNext();
 
   const steps = [
-    { num: "01", title: "Audit", desc: "Evaluating current performance metrics and code bottlenecks.", color: "bg-pastel-sky" },
-    { num: "02", title: "Design", desc: "Architecting visual wireframes and high-fidelity UX prototypes.", color: "bg-pastel-peach" },
-    { num: "03", title: "Develop", desc: "Bespoke clean code development (Next.js, Tailwind, APIs) with responsive testing.", color: "bg-pastel-lilac" },
-    { num: "04", title: "Deploy", desc: "Safe database migrations, zero-downtime launches, and edge optimization.", color: "bg-pastel-mint" },
-    { num: "05", title: "Support", desc: "24/7 server monitoring, performance audits, and software upgrades.", color: "bg-pastel-yellow" },
+    { num: "01", title: "Audit", desc: "Evaluating current performance metrics and code bottlenecks.", color: "bg-[#0A2540] text-white" },
+    { num: "02", title: "Design", desc: "Architecting visual wireframes and high-fidelity UX prototypes.", color: "bg-[#1E40AF] text-white" },
+    { num: "03", title: "Develop", desc: "Bespoke clean code development (Next.js, Tailwind, APIs) with responsive testing.", color: "bg-[#050B14] text-white" },
+    { num: "04", title: "Deploy", desc: "Safe database migrations, zero-downtime launches, and edge optimization.", color: "bg-[#EBF3FC] text-[#0A2540]" },
+    { num: "05", title: "Support", desc: "24/7 server monitoring, performance audits, and software upgrades.", color: "bg-slate-100 text-[#050B14]" },
   ];
 
   const clientLogos = [
@@ -96,36 +96,36 @@ export default function Home() {
   const solutions = [
     {
       id: "brand",
-      title: "Brand & Web Solutions",
+      title: "Web Development",
       tech: "NEXT.JS · SHOPIFY · HEADLESS",
       desc: "We provide customized commerce portals, Shopify/Next.js store engines, and high-conversion landing systems to scale your presence.",
-      link: "/services/websites",
+      link: "/services#websites",
       clients: ["TATA", "Britannia", "Eureka Forbes", "Kérastase", "Crompton", "Birla Opus"],
-      color: "bg-pastel-peach",
-      textColor: "text-orange-950",
-      borderColor: "border-orange-200/50"
-    },
-    {
-      id: "tech",
-      title: "Tech & Mobile Solutions",
-      tech: "FLUTTER · REACT NATIVE · ODOO",
-      desc: "We optimize People, Processes and Technology by building high-performance APIs, database architectures, and customized CRM setups.",
-      link: "/services/crm-erp",
-      clients: ["L'Oreal", "Dove", "CeraVe", "GAIN", "Titan", "Saint-Gobain"],
-      color: "bg-pastel-sky",
-      textColor: "text-blue-950",
-      borderColor: "border-blue-200/50"
+      color: "bg-[#EBF3FC]",
+      textColor: "text-[#0A2540]",
+      borderColor: "border-blue-200/80"
     },
     {
       id: "media",
-      title: "Media & Growth Solutions",
+      title: "Socials",
       tech: "META ADS · SEO · ANALYTICS",
       desc: "We drive performance marketing campaigns, paid ad strategy, organic search engine optimization, and growth scaling pipelines.",
-      link: "/services/social-media-management",
+      link: "/services#social-media",
       clients: ["Swiggy", "Imagine Meats", "iQOO", "Mia by Tanishq", "Happydent"],
-      color: "bg-pastel-mint",
-      textColor: "text-green-950",
-      borderColor: "border-green-200/50"
+      color: "bg-[#F1F5F9]",
+      textColor: "text-[#050B14]",
+      borderColor: "border-slate-200"
+    },
+    {
+      id: "tech",
+      title: "CRM / ERP Automation",
+      tech: "ZOHO · SALESFORCE · ODOO",
+      desc: "We optimize People, Processes and Technology by building high-performance APIs, database architectures, and customized CRM/ERP setups.",
+      link: "/services/crm-erp",
+      clients: ["L'Oreal", "Dove", "CeraVe", "GAIN", "Titan", "Saint-Gobain"],
+      color: "bg-[#F8FAFC]",
+      textColor: "text-[#1E40AF]",
+      borderColor: "border-slate-200"
     }
   ];
 
@@ -139,22 +139,10 @@ export default function Home() {
   ];
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden w-full bg-bg-base">
+    <div ref={containerRef} className="relative overflow-hidden w-full bg-transparent">
 
       {/* 1. HERO SECTION (Schbang Centered Style) */}
       <section className="relative pt-20 pb-28 overflow-hidden flex flex-col items-center justify-center text-center">
-
-        {/* Animated Mesh Gradient blobs in background */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <motion.div
-            style={{ rotate: blobRotation }}
-            className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full filter blur-[130px] opacity-35 mesh-blob-1"
-          />
-          <motion.div
-            style={{ rotate: blobRotation }}
-            className="absolute bottom-[-5%] right-[-5%] w-[550px] h-[550px] rounded-full filter blur-[130px] opacity-35 mesh-blob-2"
-          />
-        </div>
 
         <div className="relative z-10 max-w-5xl px-6 md:px-8 w-full flex flex-col items-center gap-8">
 
@@ -171,7 +159,7 @@ export default function Home() {
               className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight text-ink font-display"
             >
               Your Creative, Media & <br />
-              <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#050B14] via-[#0A2540] to-[#1E40AF] bg-clip-text text-transparent">
                 Technology Engineering Partner
               </span>
             </motion.h1>
@@ -185,7 +173,7 @@ export default function Home() {
 
             <motion.div variants={fadeUp()} className="flex flex-wrap items-center justify-center gap-4 mt-2">
               <Link href="/contact">
-                <Button variant="primary" colorTheme="violet">
+                <Button variant="primary" colorTheme="navy">
                   IT'S TIME TO CREATE A TECH EVOLUTION →
                 </Button>
               </Link>
@@ -203,7 +191,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="flex flex-col gap-0.5 text-left">
-                <div className="flex text-accent-secondary">
+                <div className="flex text-[#0A2540]">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}
@@ -213,29 +201,43 @@ export default function Home() {
                 </span>
               </div>
             </motion.div>
+            {/* Hero Dashboard Showcase Visual */}
+            <motion.div
+              variants={fadeUp()}
+              className="w-full max-w-5xl mt-12 relative rounded-[32px] overflow-hidden border border-white/40 shadow-[0_25px_60px_rgba(0,0,0,0.15)] bg-slate-950/80 backdrop-blur-2xl p-2 md:p-3 group"
+            >
+              <div className="relative w-full aspect-[16/9] rounded-[24px] overflow-hidden bg-slate-900">
+                <img
+                  src="/images/hero_dashboard.jpg"
+                  alt="KK Next Tech Solution Dashboard Showcase"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </motion.div>
           </motion.div>
 
         </div>
 
         {/* Hero Bottom Ticker (Schbang-style) */}
-        <div className="w-full mt-16 py-4 bg-white border-y border-zinc-200/50 overflow-hidden relative z-10">
+        <div className="w-full mt-16 py-4 bg-white/25 backdrop-blur-xl border-y border-white/40 overflow-hidden relative z-10">
           <div className="animate-marquee gap-8 pr-8 items-center text-xs font-extrabold uppercase tracking-widest text-zinc-400 font-mono">
             {[...Array(4)].map((_, r) => (
               <React.Fragment key={r}>
                 <span>IT'S TIME TO EVOLVE WITH KK NEX TECH</span>
-                <span className="text-accent-primary text-sm">✦</span>
+                <span className="text-[#0A2540] text-sm">✦</span>
                 <span>CODE QUALITY FIRST</span>
-                <span className="text-accent-secondary text-sm">★</span>
+                <span className="text-[#1E40AF] text-sm">★</span>
                 <span>PREMIUM USER AESTHETICS</span>
-                <span className="text-accent-primary text-sm">✦</span>
+                <span className="text-[#0A2540] text-sm">✦</span>
               </React.Fragment>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. SOLUTIONS SECTION (Schbang-style) */}
-      <section className="py-20 md:py-28 bg-white border-y border-zinc-200/50 relative z-10">
+      {/* 4. SOLUTIONS SECTION (Apple Glass Design) */}
+      <section className="py-20 md:py-28 bg-white/20 backdrop-blur-xl border-y border-white/30 relative z-10">
         <div className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-28 h-fit">
@@ -256,19 +258,19 @@ export default function Home() {
                   key={sol.id}
                   onClick={() => setActiveSolution(sol.id)}
                   className={cn(
-                    "w-full text-left px-5 py-4 rounded-2xl border transition-all flex items-center justify-between group cursor-pointer",
+                    "w-full text-left px-5 py-4 rounded-2xl border transition-all flex items-center justify-between group cursor-pointer backdrop-blur-md",
                     activeSolution === sol.id
                       ? `${sol.color} ${sol.borderColor} shadow-md`
-                      : "bg-zinc-50 border-zinc-150 hover:bg-zinc-100"
+                      : "bg-white/40 border-white/50 hover:bg-white/60 text-ink"
                   )}
                 >
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold text-zinc-400 font-mono tracking-wider">{sol.tech}</span>
+                    <span className="text-[10px] font-bold text-zinc-500 font-mono tracking-wider">{sol.tech}</span>
                     <span className="text-sm font-bold text-ink group-hover:text-accent-primary transition-colors">{sol.title}</span>
                   </div>
                   <div className={cn(
                     "w-8 h-8 rounded-full flex items-center justify-center border transition-all",
-                    activeSolution === sol.id ? "bg-zinc-900 border-zinc-800 text-white" : "bg-white border-zinc-200 text-ink"
+                    activeSolution === sol.id ? "bg-zinc-900 border-zinc-800 text-white" : "bg-white/80 border-white/60 text-ink"
                   )}>
                     <ArrowRight className="w-4 h-4" />
                   </div>
@@ -318,46 +320,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. WHY CHOOSE US / STATS BAND */}
-      <section className="py-16 md:py-20 bg-pastel-yellow border-b border-zinc-200/50 relative z-10">
-        <div className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 items-center">
+      {/* 5. WHY CHOOSE US / STATS BAND (Apple Glass Design) */}
+      <section className="py-8 md:py-12 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
+        <div className="rounded-[32px] md:rounded-[36px] bg-slate-950/75 backdrop-blur-2xl border border-white/15 p-8 md:p-14 shadow-[0_20px_50px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] relative overflow-hidden">
+          {/* Glass light reflection overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
 
-          <div className="flex flex-col gap-2">
-            <span className="text-3xl md:text-5xl font-black text-ink font-display flex items-baseline">
-              <AnimatedCounter value={150} suffix="+" />
-            </span>
-            <span className="text-xs uppercase tracking-wider text-zinc-600 font-bold">
-              Projects Delivered
-            </span>
+          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 items-center text-center lg:text-left">
+            <div className="flex flex-col gap-2">
+              <span className="text-3xl md:text-5xl font-black text-white font-display flex items-baseline justify-center lg:justify-start">
+                <AnimatedCounter value={150} suffix="+" />
+              </span>
+              <span className="text-xs uppercase tracking-wider text-slate-300 font-bold">
+                Projects Delivered
+              </span>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <span className="text-3xl md:text-5xl font-black text-white font-display flex items-baseline justify-center lg:justify-start">
+                <AnimatedCounter value={98} suffix="%" />
+              </span>
+              <span className="text-xs uppercase tracking-wider text-slate-300 font-bold">
+                Client Satisfaction
+              </span>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <span className="text-3xl md:text-5xl font-black text-white font-display flex items-baseline justify-center lg:justify-start">
+                <AnimatedCounter value={40} suffix="+" />
+              </span>
+              <span className="text-xs uppercase tracking-wider text-slate-300 font-bold">
+                Team Experts
+              </span>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <span className="text-3xl md:text-5xl font-black text-white font-display flex items-baseline justify-center lg:justify-start">
+                <AnimatedCounter value={24} suffix="/7" />
+              </span>
+              <span className="text-xs uppercase tracking-wider text-slate-300 font-bold">
+                Support Active
+              </span>
+            </div>
           </div>
-
-          <div className="flex flex-col gap-2">
-            <span className="text-3xl md:text-5xl font-black text-ink font-display flex items-baseline">
-              <AnimatedCounter value={98} suffix="%" />
-            </span>
-            <span className="text-xs uppercase tracking-wider text-zinc-600 font-bold">
-              Client Satisfaction
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <span className="text-3xl md:text-5xl font-black text-ink font-display flex items-baseline">
-              <AnimatedCounter value={40} suffix="+" />
-            </span>
-            <span className="text-xs uppercase tracking-wider text-zinc-600 font-bold">
-              Team Experts
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <span className="text-3xl md:text-5xl font-black text-ink font-display flex items-baseline">
-              <AnimatedCounter value={24} suffix="/7" />
-            </span>
-            <span className="text-xs uppercase tracking-wider text-zinc-600 font-bold">
-              Support Active
-            </span>
-          </div>
-
         </div>
       </section>
 
@@ -424,8 +429,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. METRIC CARDS / TRUST PROOF (Workflow Steps) */}
-      <section className="py-20 md:py-28 bg-zinc-50 border-y border-zinc-200/50 relative z-10">
+      {/* 7. METRIC CARDS / TRUST PROOF (Workflow Steps - Apple Glass) */}
+      <section className="py-20 md:py-28 bg-white/20 backdrop-blur-xl border-y border-white/30 relative z-10">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
           <SectionHeading
             eyebrow="Our Workflow"
@@ -437,15 +442,15 @@ export default function Home() {
           {/* Desktop Timeline */}
           <div className="hidden lg:grid grid-cols-5 gap-6 relative">
             {/* Connector Line */}
-            <div className="absolute top-[35px] left-[10%] right-[10%] h-0.5 bg-zinc-200" />
+            <div className="absolute top-[35px] left-[10%] right-[10%] h-0.5 bg-slate-300/60" />
 
             {steps.map((step, idx) => (
               <div key={idx} className="flex flex-col items-center text-center gap-4 relative z-10">
-                <div className={cn("w-14 h-14 rounded-full flex items-center justify-center font-display font-black text-lg border-2 border-white shadow-md text-ink", step.color)}>
+                <div className={cn("w-14 h-14 rounded-full flex items-center justify-center font-display font-black text-lg border-2 border-white shadow-md text-ink backdrop-blur-md", step.color)}>
                   {step.num}
                 </div>
                 <h3 className="font-bold text-lg text-ink">{step.title}</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed max-w-[200px]">
+                <p className="text-xs text-slate-600 leading-relaxed max-w-[200px]">
                   {step.desc}
                 </p>
               </div>
@@ -453,14 +458,14 @@ export default function Home() {
           </div>
 
           {/* Mobile Timeline */}
-          <div className="flex lg:hidden flex-col gap-8 pl-4 border-l-2 border-zinc-200">
+          <div className="flex lg:hidden flex-col gap-8 pl-4 border-l-2 border-slate-300/60">
             {steps.map((step, idx) => (
               <div key={idx} className="flex flex-col gap-2 relative">
                 <div className={cn("absolute -left-[37px] top-0 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-xs border border-white text-ink", step.color)}>
                   {step.num}
                 </div>
                 <h3 className="font-bold text-base text-ink pl-2">{step.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed pl-2">
+                <p className="text-sm text-slate-600 leading-relaxed pl-2">
                   {step.desc}
                 </p>
               </div>
@@ -482,14 +487,14 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <button
                 onClick={scrollPrev}
-                className="w-11 h-11 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-zinc-50 transition-colors cursor-pointer text-ink"
+                className="w-11 h-11 rounded-full border border-white/60 bg-white/40 backdrop-blur-md flex items-center justify-center hover:bg-white/70 transition-colors cursor-pointer text-ink shadow-xs"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={scrollNext}
-                className="w-11 h-11 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-zinc-50 transition-colors cursor-pointer text-ink"
+                className="w-11 h-11 rounded-full border border-white/60 bg-white/40 backdrop-blur-md flex items-center justify-center hover:bg-white/70 transition-colors cursor-pointer text-ink shadow-xs"
                 aria-label="Next slide"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -497,29 +502,31 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Testimonial slider track */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
-              {testimonials.map((test) => (
-                <div key={test.id} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 px-4">
-                  <div className="bg-white rounded-3xl p-8 border border-zinc-200/50 flex flex-col justify-between h-full min-h-[300px]">
+              {testimonials.map((t, idx) => (
+                <div
+                  key={idx}
+                  className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 px-3"
+                >
+                  <div className="bg-white/45 backdrop-blur-xl rounded-[28px] p-8 border border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between h-full min-h-[300px]">
                     <div className="flex flex-col gap-4">
-                      <div className="flex text-accent-secondary">
-                        {[...Array(test.rating)].map((_, i) => (
+                      <div className="flex text-[#0A2540]">
+                        {[...Array(t.rating)].map((_, i) => (
                           <Star key={i} className="w-4 h-4 fill-current" />
                         ))}
                       </div>
-                      <p className="text-zinc-650 text-sm md:text-base leading-relaxed italic">
-                        "{test.quote}"
+                      <p className="text-ink font-medium text-sm md:text-base leading-relaxed italic">
+                        "{t.quote}"
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-4 mt-6 pt-6 border-t border-zinc-100">
-                      <Avatar name={test.name} className="w-11 h-11 text-xs shrink-0" />
+                    <div className="flex items-center gap-3 pt-6 border-t border-slate-200/50">
+                      <Avatar name={t.name} className="w-10 h-10 border border-white shadow-xs text-xs" />
                       <div className="flex flex-col">
-                        <span className="text-sm font-bold text-ink">{test.name}</span>
-                        <span className="text-xs text-zinc-400">
-                          {test.role}, {test.company}
-                        </span>
+                        <span className="font-bold text-sm text-ink">{t.name}</span>
+                        <span className="text-xs text-slate-500 font-medium">{t.role}, {t.company}</span>
                       </div>
                     </div>
                   </div>
@@ -531,9 +538,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. TRENDING NOW SECTION (Schbang-style Blog) */}
-      <section className="py-20 md:py-28 bg-white border-t border-zinc-200/50 relative z-10">
-        <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12 md:gap-16">
+      {/* 9. BLOG / INSIGHTS CAROUSEL */}
+      <section className="py-20 md:py-28 relative z-10">
+        <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
+
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <SectionHeading
               eyebrow="Insights"
@@ -543,14 +551,14 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <button
                 onClick={scrollBlogPrev}
-                className="w-11 h-11 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-zinc-50 transition-colors cursor-pointer text-ink"
+                className="w-11 h-11 rounded-full border border-white/60 bg-white/40 backdrop-blur-md flex items-center justify-center hover:bg-white/70 transition-colors cursor-pointer text-ink shadow-xs"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={scrollBlogNext}
-                className="w-11 h-11 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-zinc-50 transition-colors cursor-pointer text-ink"
+                className="w-11 h-11 rounded-full border border-white/60 bg-white/40 backdrop-blur-md flex items-center justify-center hover:bg-white/70 transition-colors cursor-pointer text-ink shadow-xs"
                 aria-label="Next slide"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -562,27 +570,27 @@ export default function Home() {
             <div className="flex">
               {blogPosts.map((post) => (
                 <div key={post.slug} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 px-4 group">
-                  <div className="flex flex-col gap-4 bg-zinc-50 border border-zinc-150 p-5 rounded-[28px] h-full justify-between">
+                  <div className="flex flex-col gap-4 bg-white/45 backdrop-blur-xl border border-white/60 p-5 rounded-[28px] h-full justify-between shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                     <div className="flex flex-col gap-4">
-                      <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-zinc-200/50 bg-zinc-150">
+                      <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/40 bg-slate-100">
                         <GraphicPlaceholder type="blog" slug={post.slug} />
                       </div>
-                      <div className="flex items-center gap-4 text-xs text-zinc-400">
+                      <div className="flex items-center gap-4 text-xs text-slate-400">
                         <span>{post.date}</span>
                         <span>·</span>
                         <span>{post.readTime}</span>
                       </div>
-                      <h3 className="font-bold text-lg text-ink group-hover:text-accent-primary transition-colors line-clamp-2">
+                      <h3 className="font-bold text-lg text-ink group-hover:text-[#0A2540] transition-colors line-clamp-2">
                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                       </h3>
-                      <p className="text-sm text-zinc-500 leading-relaxed line-clamp-2">
+                      <p className="text-sm text-slate-600 leading-relaxed line-clamp-2">
                         {post.summary}
                       </p>
                     </div>
 
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="text-xs font-bold text-ink group-hover:text-accent-primary flex items-center gap-1.5 mt-6 pt-4 border-t border-zinc-200/40"
+                      className="flex items-center gap-1 text-xs font-bold text-[#0A2540] hover:translate-x-1 transition-all mt-4 pt-4 border-t border-slate-200/50"
                     >
                       Read Post <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
@@ -594,52 +602,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. PARTNERS SLIDER (Schbang-style) */}
-      <section className="py-16 bg-zinc-50 border-t border-zinc-200/50 relative z-10 overflow-hidden">
+      {/* 10. PARTNERS SLIDER (Apple Glass Design) */}
+      <section className="py-16 bg-white/20 backdrop-blur-xl border-t border-white/30 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-8 mb-8 text-center flex flex-col gap-2">
-          <span className="text-xs font-bold tracking-widest text-zinc-400 uppercase">Integrations Network</span>
-          <h3 className="text-xl font-bold text-ink">Technology & Platform Partners</h3>
+          <span className="text-xs font-bold tracking-widest text-slate-500 uppercase">Integrations Network</span>
+          <h3 className="text-xl font-bold text-ink">Technology &amp; Platform Partners</h3>
         </div>
 
         <div className="w-full relative flex overflow-hidden">
-          <div className="animate-marquee gap-8 pr-8 items-center">
+          <div className="animate-marquee gap-8 pr-8 items-center flex">
             {partners.map((pt, idx) => (
               <div
                 key={idx}
-                className="flex flex-col gap-1 p-5 rounded-2xl border border-zinc-200/50 bg-white min-w-[240px] max-w-[280px] shadow-sm"
+                className="flex flex-col gap-1 p-5 rounded-2xl border border-white/60 bg-white/50 backdrop-blur-md min-w-[240px] max-w-[280px] shadow-xs"
               >
                 <span className="text-xs font-bold text-ink font-display">{pt.name}</span>
-                <span className="text-[10px] text-zinc-500 leading-normal">{pt.desc}</span>
+                <span className="text-[10px] text-slate-600 leading-normal">{pt.desc}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 11. CTA BANNER */}
-      <section className="py-20 md:py-28 relative z-10 bg-dark-panel text-white overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-primary/20 rounded-full filter blur-[120px] pointer-events-none" />
+      {/* 11. CTA BANNER (Apple Glass Design) */}
+      <section className="py-12 md:py-20 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
+        <div className="rounded-[36px] bg-slate-950/80 backdrop-blur-2xl border border-white/15 p-10 md:p-16 text-white shadow-[0_25px_60px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.2)] text-center flex flex-col items-center gap-8 relative overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-80 h-80 bg-blue-500/20 rounded-full filter blur-[100px] pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-purple-500/20 rounded-full filter blur-[100px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-4xl px-6 md:px-8 mx-auto text-center flex flex-col items-center gap-8">
-          <SectionHeading
-            eyebrow="Start Today"
-            title="Ready to build something great?"
-            description="Get in touch for a custom engineering estimate or layout consultation. Let's make your digital vision a reality."
-            align="center"
-            theme="dark"
-          />
+          <div className="relative z-10 max-w-3xl flex flex-col items-center gap-6">
+            <SectionHeading
+              eyebrow="Start Today"
+              title="Ready to build something great?"
+              description="Get in touch for a custom engineering estimate or layout consultation. Let's make your digital vision a reality."
+              align="center"
+              theme="dark"
+            />
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/contact">
-              <Button variant="primary" colorTheme="violet">
-                Contact Us
-              </Button>
-            </Link>
-            <Link href="/portfolio">
-              <Button variant="outline" className="!border-white !text-white hover:!bg-white hover:!text-ink">
-                View Showcase
-              </Button>
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+              <Link href="/contact">
+                <Button variant="primary" colorTheme="navy">
+                  Contact Us
+                </Button>
+              </Link>
+              <Link href="/portfolio">
+                <Button variant="outline" className="!border-white/40 !text-white hover:!bg-white/10">
+                  View Showcase
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

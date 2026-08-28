@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-base: #FAFAF7;
-  --color-ink: #141414;
-  --color-pastel-lilac: #E8DFFF;
-  --color-pastel-peach: #FFE7D6;
-  --color-pastel-sky: #DDEEFF;
-  --color-pastel-mint: #DFF5E6;
-  --color-pastel-yellow: #F4F5C9;
-  --color-accent-primary: #6C4CF1;
-  --color-accent-secondary: #FF8A5C;
-  --color-dark-panel: #141118;
+  --color-bg-base: #FFFFFF;
+  --color-ink: #050B14;
+  --color-pastel-lilac: #F1F5F9;
+  --color-pastel-peach: #F8FAFC;
+  --color-pastel-sky: #EBF3FC;
+  --color-pastel-mint: #F1F5F9;
+  --color-pastel-yellow: #F8FAFC;
+  --color-accent-primary: #0A2540;
+  --color-accent-secondary: #1E40AF;
+  --color-dark-panel: #050B14;
+  --color-navy-base: #0A192F;
+  --color-navy-card: #0F172A;
+  --color-ice-blue: #EBF3FC;
 
   --font-display: var(--font-display), system-ui, sans-serif;
   --font-sans: var(--font-sans), system-ui, sans-serif;
@@ -42,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-/* ── Consistent gap-6 (24px) between consecutive sections on every page ── */
+/* ── Consistent padding/spacing 4 (1rem / 16px) between consecutive sections on every page ── */
 section + section {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
-/* Custom Mesh Gradient Animations */
+/* Custom Mesh Gradient Animations — Pure Navy/Black Radial Glows */
 @keyframes mesh-float-1 {
   0% { transform: translate(0%, 0%) scale(1); }
   33% { transform: translate(15%, -10%) scale(1.1); }
@@ -69,14 +72,17 @@ section + section {
 }
 
 .mesh-blob-1 {
+  background: radial-gradient(circle, rgba(10, 37, 64, 0.22) 0%, rgba(30, 64, 175, 0.08) 60%, transparent 80%);
   animation: mesh-float-1 20s ease-in-out infinite;
 }
 
 .mesh-blob-2 {
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.18) 0%, rgba(10, 25, 47, 0.06) 60%, transparent 80%);
   animation: mesh-float-2 17s ease-in-out infinite;
 }
 
 .mesh-blob-3 {
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.15) 0%, rgba(10, 37, 64, 0.05) 60%, transparent 80%);
   animation: mesh-float-3 23s ease-in-out infinite;
 }
 
@@ -85,15 +91,15 @@ section + section {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-base);
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d6d6ce;
+  background: #0A2540;
   border-radius: 999px;
-  border: 2px solid var(--color-bg-base);
+  border: 2px solid #FFFFFF;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b5b5ad;
+  background: #050B14;
 }
 
 /* Marquee Infinite Scrolling Animation */

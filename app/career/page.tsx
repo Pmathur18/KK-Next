@@ -75,10 +75,10 @@ export default function Career() {
   };
 
   const perks = [
-    { title: "Remote-First", desc: "Work from anywhere in India with full home-office setup stipends.", icon: Home, color: "bg-pastel-sky" },
-    { title: "Continuous Growth", desc: "Twice-a-year feedback cycles, mentor matches, and direct pathing.", icon: Briefcase, color: "bg-pastel-peach" },
-    { title: "Learning Allowance", desc: "Annual budgets for certifications, books, and technology courses.", icon: GraduationCap, color: "bg-pastel-yellow" },
-    { title: "Health Benefits", desc: "Comprehensive insurance coverage for yourself and immediate family.", icon: Heart, color: "bg-pastel-mint" },
+    { title: "Remote-First", desc: "Work from anywhere in India with full home-office setup stipends.", icon: Home, color: "bg-[#EBF3FC]" },
+    { title: "Continuous Growth", desc: "Twice-a-year feedback cycles, mentor matches, and direct pathing.", icon: Briefcase, color: "bg-[#F8FAFC]" },
+    { title: "Learning Allowance", desc: "Annual budgets for certifications, books, and technology courses.", icon: GraduationCap, color: "bg-[#F1F5F9]" },
+    { title: "Health Benefits", desc: "Comprehensive insurance coverage for yourself and immediate family.", icon: Heart, color: "bg-[#050B14] text-white" },
   ];
 
   const positions = [
@@ -124,27 +124,31 @@ export default function Career() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-bg-base py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
       
       {/* Hero */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pb-20 border-b border-zinc-200/50">
+      <section className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pb-20 border-b border-slate-200">
         <div className="lg:col-span-7 flex flex-col gap-6">
-          <span className="text-xs md:text-sm font-semibold tracking-[0.15em] uppercase text-accent-primary">
+          <span className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase text-[#0A2540]">
             Careers
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-ink">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-ink font-display">
             Join the tech solution force.
           </h1>
-          <p className="text-lg text-zinc-650 leading-relaxed max-w-xl">
+          <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
             We are building a remote-friendly software agency dedicated to clean code base patterns and outstanding design aesthetics. Explore our perks and open positions.
           </p>
         </div>
 
         <div className="lg:col-span-5 relative w-full h-[300px] md:h-[350px]">
-          <div className="absolute inset-0 bg-pastel-yellow rounded-[32px] rotate-[2deg] opacity-60" />
-          <div className="absolute inset-0 bg-white border border-zinc-200 rounded-[32px] overflow-hidden p-3 shadow-xl flex items-center justify-center">
-            <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-zinc-100">
-              <GraphicPlaceholder type="collage-career" />
+          <div className="absolute inset-0 bg-blue-500/20 border border-white/40 rounded-[32px] rotate-[2deg] backdrop-blur-md" />
+          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-2xl border border-white/20 rounded-[32px] overflow-hidden p-3 shadow-xl flex items-center justify-center">
+            <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-slate-900">
+              <img
+                src="/images/tech_team_workspace.jpg"
+                alt="KK Next Tech Workspace & Engineering Team"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -255,9 +259,9 @@ export default function Career() {
         </div>
       </section>
 
-      {/* Resume Application Form */}
+      {/* Resume Application Form (Apple Glass) */}
       <section id="apply-form" className="py-20 md:py-28 max-w-7xl px-6 md:px-8 mx-auto">
-        <div className="max-w-3xl mx-auto bg-white border border-zinc-200/50 p-8 md:p-12 rounded-[32px] shadow-lg flex flex-col gap-8">
+        <div className="max-w-3xl mx-auto bg-white/50 backdrop-blur-2xl border border-white/60 p-8 md:p-12 rounded-[36px] shadow-[0_12px_40px_rgba(0,0,0,0.05),inset_0_1px_1px_rgba(255,255,255,0.6)] flex flex-col gap-8">
           <div className="flex flex-col gap-2 text-center items-center">
             <Badge colorTheme="violet" className="w-fit">Submission</Badge>
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink mt-2">
@@ -269,10 +273,10 @@ export default function Career() {
           </div>
 
           {formSubmitted ? (
-            <div className="p-8 rounded-2xl bg-pastel-mint/30 border border-green-200/50 text-center flex flex-col items-center gap-4">
-              <CheckCircle2 className="w-12 h-12 text-accent-primary shrink-0" />
-              <h3 className="text-lg font-bold text-ink">Application Sent Successfully!</h3>
-              <p className="text-xs text-zinc-500 max-w-sm">
+            <div className="p-8 rounded-2xl bg-[#EBF3FC] border border-blue-200 text-center flex flex-col items-center gap-4">
+              <CheckCircle2 className="w-12 h-12 text-[#0A2540] shrink-0" />
+              <h3 className="text-lg font-bold text-ink font-display">Application Sent Successfully!</h3>
+              <p className="text-xs text-slate-500 max-w-sm">
                 Thank you for applying. Our talent acquisition team will review your details and contact you via email inside 3-5 business days.
               </p>
               <Button variant="secondary" onClick={() => setFormSubmitted(false)} className="mt-2">

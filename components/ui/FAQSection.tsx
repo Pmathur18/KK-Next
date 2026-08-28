@@ -41,10 +41,10 @@ function FAQAccordionItem({
     <motion.div
       initial={false}
       className={cn(
-        "rounded-2xl border overflow-hidden transition-colors duration-200",
+        "rounded-2xl border overflow-hidden transition-all duration-200 backdrop-blur-xl",
         isOpen
-          ? "bg-white border-accent-primary/25 shadow-md"
-          : "bg-white border-zinc-200/70 hover:border-zinc-300"
+          ? "bg-white/65 border-white/80 shadow-md"
+          : "bg-white/40 border-white/50 hover:bg-white/60 hover:border-white/70 shadow-xs"
       )}
     >
       <button

@@ -16,16 +16,16 @@ export default function PrivacyPolicy() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-bg-base py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
       <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
         
         {/* Header */}
-        <section className="flex flex-col gap-4 pb-8 border-b border-zinc-200/50">
-          <Badge colorTheme="violet" className="w-fit">Legal Documentation</Badge>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">
+        <section className="flex flex-col gap-4 pb-8 border-b border-slate-200">
+          <Badge colorTheme="navy" className="w-fit">Legal Documentation</Badge>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink font-display">
             Privacy Policy
           </h1>
-          <p className="text-xs text-zinc-400">
+          <p className="text-xs text-slate-400">
             Last Updated: August 28, 2026 · 6 min read
           </p>
         </section>
@@ -34,16 +34,16 @@ export default function PrivacyPolicy() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left: Sticky Table of Contents */}
-          <aside className="lg:col-span-4 sticky top-28 hidden lg:flex flex-col gap-4 bg-white border border-zinc-250/50 p-6 rounded-2xl">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-ink pb-2 border-b border-zinc-100">
+          <aside className="lg:col-span-4 sticky top-28 hidden lg:flex flex-col gap-4 bg-white border border-slate-200 p-6 rounded-2xl shadow-xs">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-ink pb-2 border-b border-slate-100">
               Table of Contents
             </h3>
-            <nav className="flex flex-col gap-2.5 text-xs font-semibold text-zinc-500">
+            <nav className="flex flex-col gap-2.5 text-xs font-semibold text-slate-600">
               {sections.map((sec) => (
                 <a
                   key={sec.id}
                   href={`#${sec.id}`}
-                  className="hover:text-accent-primary transition-colors hover:translate-x-0.5 duration-200"
+                  className="hover:text-[#0A2540] transition-colors hover:translate-x-0.5 duration-200"
                 >
                   {sec.title}
                 </a>

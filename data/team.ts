@@ -64,7 +64,7 @@ export const values: Value[] = [
     tagline: "Business outcomes, not buzzwords.",
     description:
       "We don't hide behind confusing tech jargon. Every report, every conversation, every strategy is framed in terms your CFO cares about — leads, revenue, and ROI.",
-    color: "bg-pastel-peach",
+    color: "bg-[#EBF3FC]",
     icon: "shield"
   },
   {
@@ -72,7 +72,7 @@ export const values: Value[] = [
     tagline: "In the digital world, the slow die first.",
     description:
       "We obsess over fast website load speeds, agile two-week development sprints, and same-day turnarounds on urgent fixes. Velocity is a competitive advantage.",
-    color: "bg-pastel-sky",
+    color: "bg-[#F8FAFC]",
     icon: "zap"
   },
   {
@@ -80,7 +80,7 @@ export const values: Value[] = [
     tagline: "We don't guess. We measure.",
     description:
       "We track analytics, user behavior heatmaps, session recordings, and A/B test everything. Every optimization decision is backed by numbers, not hunches.",
-    color: "bg-pastel-mint",
+    color: "bg-[#F1F5F9]",
     icon: "bar-chart"
   },
   {
@@ -88,7 +88,7 @@ export const values: Value[] = [
     tagline: "Your business is our business.",
     description:
       "We treat your business as our own. If a campaign isn't converting or a feature ships with bugs, we take full responsibility and fix it — no finger-pointing, no excuses.",
-    color: "bg-pastel-lilac",
+    color: "bg-[#050B14]",
     icon: "award"
   }
 ];

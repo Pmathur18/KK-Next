@@ -101,18 +101,12 @@ export default function About() {
   return (
     <>
       {/* ── SEO Meta (App Router: export const metadata in layout / server component) */}
-      <div className="relative overflow-hidden w-full bg-bg-base">
+      <div className="relative overflow-hidden w-full bg-transparent">
 
         {/* ════════════════════════════════════════════════════════════════════
             1. HERO
         ════════════════════════════════════════════════════════════════════ */}
         <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
-          {/* Background blobs */}
-          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-            <div className="mesh-blob-1 absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-pastel-lilac opacity-50 blur-3xl" />
-            <div className="mesh-blob-2 absolute top-20 -right-40 w-[500px] h-[500px] rounded-full bg-pastel-sky opacity-40 blur-3xl" />
-          </div>
-
           <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
             {/* Left: Text */}
@@ -124,35 +118,35 @@ export default function About() {
             >
               <motion.span
                 variants={fadeUp(0)}
-                className="text-xs md:text-sm font-bold tracking-[0.18em] uppercase text-accent-primary"
+                className="text-xs md:text-sm font-bold tracking-[0.18em] uppercase text-[#0A2540]"
               >
                 Who We Are
               </motion.span>
 
               <motion.h1
                 variants={fadeUp(0.05)}
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-ink"
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-ink font-display"
               >
                 The Tech Partners Who{" "}
                 <span className="relative inline-block">
-                  <span className="relative z-10">Care About</span>
-                  <span className="absolute bottom-1 left-0 w-full h-3 bg-pastel-peach -z-10 rounded-sm" />
+                  <span className="relative z-10 text-[#0A2540]">Care About</span>
+                  <span className="absolute bottom-1 left-0 w-full h-3 bg-[#EBF3FC] -z-10 rounded-sm" />
                 </span>{" "}
                 Your Bottom Line.
               </motion.h1>
 
               <motion.p
                 variants={fadeUp(0.1)}
-                className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-2xl"
+                className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl"
               >
                 We are a collective of developers, strategists, and problem-solvers who{" "}
                 <strong className="text-ink font-semibold">hate boring tech</strong> and love{" "}
-                <strong className="text-accent-primary font-semibold">massive ROI</strong>.
+                <strong className="text-[#0A2540] font-semibold">massive ROI</strong>.
               </motion.p>
 
               <motion.div variants={fadeUp(0.15)} className="flex flex-wrap gap-4 mt-2">
                 <Link href="/contact">
-                  <Button variant="primary" colorTheme="violet" className="gap-2 flex items-center">
+                  <Button variant="primary" colorTheme="navy" className="gap-2 flex items-center">
                     Work With Us <ArrowRight className="w-4 h-4" />
                   </Button>
                 </Link>
@@ -171,24 +165,28 @@ export default function About() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             >
-              {/* Mission card */}
-              <div className="relative rounded-[32px] bg-ink text-white p-8 md:p-10 shadow-2xl overflow-hidden">
-                <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-accent-primary opacity-20 blur-2xl" />
-                <div className="absolute -bottom-12 -left-12 w-56 h-56 rounded-full bg-pastel-sky opacity-10 blur-2xl" />
+              {/* Mission card with workspace image background */}
+              <div className="relative rounded-[32px] bg-[#050B14] text-white p-8 md:p-10 shadow-2xl overflow-hidden border border-white/20 group">
+                <img
+                  src="/images/tech_team_workspace.jpg"
+                  alt="KK Next Tech Team & Engineering Studio"
+                  className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/90 to-[#050B14]/80 pointer-events-none" />
                 <div className="relative z-10 flex flex-col gap-6">
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent-primary/80">
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-slate-400">
                     Our Mission
                   </span>
                   <p className="text-xl md:text-2xl font-bold leading-snug">
                     Empower businesses with cutting-edge digital solutions and aggressive marketing that{" "}
-                    <span className="text-pastel-peach">eliminates friction</span> and drives{" "}
-                    <span className="text-pastel-mint">exponential growth.</span>
+                    <span className="text-blue-300">eliminates friction</span> and drives{" "}
+                    <span className="text-white font-black underline decoration-blue-500">exponential growth.</span>
                   </p>
                   <hr className="border-white/10" />
                   <span className="text-xs font-bold tracking-[0.2em] uppercase text-white/50">
                     Our Vision
                   </span>
-                  <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
+                  <p className="text-sm md:text-base text-slate-400 leading-relaxed">
                     To be the most trusted, results-oriented tech and growth agency globally —
                     known for building products that actually matter.
                   </p>
@@ -196,13 +194,13 @@ export default function About() {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-6 bg-white border border-zinc-200 rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-pastel-mint flex items-center justify-center">
-                  <CheckCircle2 className="w-5 h-5 text-green-700" />
+              <div className="absolute -bottom-4 -left-6 bg-white border border-slate-200 rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#EBF3FC] flex items-center justify-center border border-blue-200">
+                  <CheckCircle2 className="w-5 h-5 text-[#0A2540]" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-ink">98% Client Retention</p>
-                  <p className="text-[11px] text-zinc-500">Since 2020</p>
+                  <p className="text-[11px] text-slate-500">Since 2020</p>
                 </div>
               </div>
             </motion.div>
@@ -211,15 +209,17 @@ export default function About() {
         </section>
 
         {/* ════════════════════════════════════════════════════════════════════
-            2. STATS BAR
+            2. STATS BAR (Apple Glass Design)
         ════════════════════════════════════════════════════════════════════ */}
-        <section className="bg-ink py-12 md:py-16">
-          <div className="max-w-7xl mx-auto px-6 md:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+        <section className="py-8 md:py-12 max-w-7xl mx-auto px-6 md:px-8">
+          <div className="rounded-[32px] md:rounded-[36px] bg-slate-950/75 backdrop-blur-2xl border border-white/15 p-8 md:p-14 shadow-[0_20px_50px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] relative overflow-hidden">
+            {/* Subtle glass reflection gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+            <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  className="flex flex-col items-center text-center gap-1"
+                  className="flex flex-col items-center text-center gap-1.5"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -228,7 +228,7 @@ export default function About() {
                   <span className="text-4xl md:text-5xl font-black text-white font-display">
                     <AnimatedNumber value={stat.num} suffix={stat.suffix} />
                   </span>
-                  <span className="text-xs md:text-sm text-zinc-400 font-medium max-w-[140px]">
+                  <span className="text-xs md:text-sm text-slate-300 font-medium max-w-[150px]">
                     {stat.label}
                   </span>
                 </motion.div>
@@ -256,26 +256,26 @@ export default function About() {
               {/* Stacked quote cards */}
               <div className="relative h-[400px] md:h-[480px]">
                 {/* Card 3 — farthest */}
-                <div className="absolute top-8 left-4 right-4 bottom-0 rounded-[28px] bg-pastel-yellow border border-yellow-200/60 rotate-3" />
+                <div className="absolute top-8 left-4 right-4 bottom-0 rounded-[28px] bg-slate-100 border border-slate-200 rotate-3" />
                 {/* Card 2 */}
-                <div className="absolute top-4 left-2 right-2 bottom-0 rounded-[28px] bg-pastel-peach border border-orange-200/60 rotate-1" />
+                <div className="absolute top-4 left-2 right-2 bottom-0 rounded-[28px] bg-[#EBF3FC] border border-blue-200/70 rotate-1" />
                 {/* Card 1 — front */}
-                <div className="absolute inset-0 rounded-[28px] bg-white border border-zinc-200 shadow-xl overflow-hidden flex flex-col justify-between p-8 md:p-10">
-                  <div className="text-5xl text-accent-primary/20 font-black font-display select-none">"</div>
+                <div className="absolute inset-0 rounded-[28px] bg-white border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between p-8 md:p-10">
+                  <div className="text-5xl text-[#0A2540]/20 font-black font-display select-none">"</div>
                   <div className="flex flex-col gap-4">
                     <p className="text-lg md:text-xl font-semibold text-ink leading-snug">
                       Dev agencies build great code but have zero marketing sense.
                       Marketing agencies run great ads but send traffic to slow, crashing websites.
                     </p>
-                    <p className="text-sm text-zinc-500 font-medium italic">
+                    <p className="text-sm text-slate-500 font-medium italic">
                       — The exact problem that built KK NEX TECH SOLUTION.
                     </p>
                   </div>
-                  <div className="flex items-center gap-3 pt-4 border-t border-zinc-100">
-                    <div className="w-9 h-9 rounded-full bg-accent-primary flex items-center justify-center text-white text-sm font-black">K</div>
+                  <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
+                    <div className="w-9 h-9 rounded-full bg-[#0A2540] flex items-center justify-center text-white text-sm font-black">K</div>
                     <div>
                       <p className="text-sm font-bold text-ink">Kartik Krishnan</p>
-                      <p className="text-xs text-zinc-500">Founder & CEO</p>
+                      <p className="text-xs text-slate-500">Founder &amp; CEO</p>
                     </div>
                   </div>
                 </div>
@@ -459,12 +459,12 @@ export default function About() {
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ delay: idx * 0.1 }}
                 >
-                  <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-200/50 bg-zinc-100 shadow-md">
-                    <div className="w-full h-full bg-gradient-to-br from-pastel-lilac to-pastel-sky flex items-center justify-center">
+                  <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-slate-200 bg-slate-100 shadow-md">
+                    <div className="w-full h-full bg-gradient-to-br from-[#F1F5F9] to-[#EBF3FC] flex items-center justify-center">
                       <Avatar name={member.name} className="w-24 h-24 text-2xl border-4 border-white shadow-lg" />
                     </div>
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-accent-primary/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-4">
+                    <div className="absolute inset-0 bg-[#0A2540]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-4">
                       <p className="text-white text-sm font-semibold text-center leading-relaxed">
                         Passionate about building digital products that drive real business results.
                       </p>
@@ -495,26 +495,26 @@ export default function About() {
         <section className="py-24 md:py-32 max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-            {/* Work With Us */}
+            {/* Work With Us (Apple Glass Design) */}
             <motion.div
-              className="relative overflow-hidden rounded-[32px] bg-ink p-10 md:p-12 flex flex-col gap-6"
+              className="relative overflow-hidden rounded-[36px] bg-slate-950/80 backdrop-blur-2xl p-10 md:p-12 flex flex-col gap-6 text-white border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55 }}
             >
-              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-accent-primary opacity-15 blur-3xl pointer-events-none" />
-              <span className="text-xs font-bold tracking-[0.18em] uppercase text-accent-primary">
+              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-blue-500/20 opacity-40 blur-3xl pointer-events-none" />
+              <span className="text-xs font-bold tracking-[0.18em] uppercase text-slate-300">
                 Work With Us
               </span>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug font-display">
                 Ready to build something that actually moves the needle?
               </h2>
-              <p className="text-sm text-zinc-400 leading-relaxed">
+              <p className="text-sm text-slate-300 leading-relaxed">
                 No fluff. No jargon. Just a straight conversation about your goals and how we can exceed them.
               </p>
               <Link href="/contact" className="mt-2 w-fit">
-                <Button variant="primary" colorTheme="violet" className="flex items-center gap-2">
+                <Button variant="primary" colorTheme="navy" className="flex items-center gap-2">
                   Start a Project <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
@@ -522,19 +522,19 @@ export default function About() {
 
             {/* Join the Team */}
             <motion.div
-              className="relative overflow-hidden rounded-[32px] bg-pastel-lilac border border-purple-200/50 p-10 md:p-12 flex flex-col gap-6"
+              className="relative overflow-hidden rounded-[32px] bg-[#EBF3FC] border border-blue-200 p-10 md:p-12 flex flex-col gap-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.1 }}
             >
-              <span className="text-xs font-bold tracking-[0.18em] uppercase text-accent-primary">
+              <span className="text-xs font-bold tracking-[0.18em] uppercase text-[#0A2540]">
                 Join the Team
               </span>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-ink tracking-tight leading-snug">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-ink tracking-tight leading-snug font-display">
                 Looking for your next big engineering or growth challenge?
               </h2>
-              <p className="text-sm text-zinc-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 We are constantly seeking remote-friendly developers, designers, and data architects who obsess over results as much as we do.
               </p>
               <Link href="/career" className="mt-2 w-fit">
