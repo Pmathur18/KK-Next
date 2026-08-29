@@ -3,7 +3,7 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Star, ChevronLeft, ChevronRight, Laptop, Share2, Database, Smartphone, CheckCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Star, ChevronLeft, ChevronRight, Laptop, Share2, Database, Smartphone, Sparkles, Calendar as CalendarIcon, MessageSquare, BarChart3, TrendingUp } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
 import Button from "@/components/ui/Button";
@@ -74,57 +74,42 @@ export default function Home() {
   const scrollBlogPrev = () => emblaBlogApi && emblaBlogApi.scrollPrev();
   const scrollBlogNext = () => emblaBlogApi && emblaBlogApi.scrollNext();
 
-  const heroFeatureCards = [
-    {
-      icon: Laptop,
-      title: "Web Development",
-      desc: "Custom Shopify Headless, Next.js & High-Conversion Storefronts",
-      color: "bg-purple-50 text-purple-700 border-purple-100",
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile Apps",
-      desc: "Cross-platform iOS & Android Apps with Native Performance",
-      color: "bg-violet-50 text-violet-700 border-violet-100",
-    },
-    {
-      icon: Share2,
-      title: "Socials & Ads",
-      desc: "Data-driven Growth Marketing, Meta Ads & SEO Campaigns",
-      color: "bg-indigo-50 text-indigo-700 border-indigo-100",
-    },
-    {
-      icon: Database,
-      title: "CRM / ERP",
-      desc: "Custom Enterprise Automations, Zoho & Salesforce Integrations",
-      color: "bg-fuchsia-50 text-fuchsia-700 border-fuchsia-100",
-    },
-  ];
-
   const solutions = [
     {
       id: "websites",
-      title: "Web Development",
-      subtitle: "Effortless Web & Commerce Engineering at Your Fingertips",
+      title: "Calendar",
+      displayTitle: "Web Development",
+      subtitle: "Effortless Scheduling & Engineering at Your Fingertips",
       desc: "We provide customized commerce portals, Shopify/Next.js store engines, and high-conversion landing systems to scale your presence.",
       link: "/services#websites",
       clients: ["TATA", "Britannia", "Eureka Forbes", "Kérastase", "Crompton", "Birla Opus"],
     },
     {
       id: "socials",
-      title: "Socials & Marketing",
-      subtitle: "Data-Driven Performance Scaling & Creative Campaigns",
+      title: "Chat",
+      displayTitle: "Socials & Marketing",
+      subtitle: "Intuitive Conversational AI & Growth Scaling Pipelines",
       desc: "We drive performance marketing campaigns, paid ad strategy, organic search engine optimization, and growth scaling pipelines.",
       link: "/services#social-media",
       clients: ["Swiggy", "Imagine Meats", "iQOO", "Mia by Tanishq", "Happydent"],
     },
     {
       id: "crm",
-      title: "CRM / ERP Automation",
-      subtitle: "Centralized Business Operations & Automated Workflows",
+      title: "CRM",
+      displayTitle: "CRM Automation",
+      subtitle: "Streamlined CRM for Sales, Marketing & Customer Success",
       desc: "We optimize People, Processes and Technology by building high-performance APIs, database architectures, and customized CRM/ERP setups.",
       link: "/services/crm-erp",
       clients: ["L'Oreal", "Dove", "CeraVe", "GAIN", "Titan", "Saint-Gobain"],
+    },
+    {
+      id: "erp",
+      title: "ERP",
+      displayTitle: "One Soft ERP",
+      subtitle: "Complete Enterprise Operations & Financial Management",
+      desc: "Integrate ERP records with real-time analytics, automated purchase orders, and inventory ledgers.",
+      link: "/services/crm-erp",
+      clients: ["TATA", "Titan", "Saint-Gobain", "L'Oreal", "Dove"],
     },
   ];
 
@@ -155,7 +140,7 @@ export default function Home() {
             <motion.div variants={fadeUp()} className="flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-purple-200/80 shadow-sm">
               <Sparkles className="w-4 h-4 text-purple-600" />
               <span className="text-xs font-bold text-purple-900 tracking-wide">
-                All-in-One Tech &amp; Growth Solutions
+                All-in-One Software &amp; Tech Platform
               </span>
             </motion.div>
 
@@ -164,9 +149,9 @@ export default function Home() {
               variants={fadeUp()}
               className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1] text-slate-900 font-display max-w-4xl"
             >
-              Your Creative, Media &amp;{" "}
+              Boost Business <br />
               <span className="bg-gradient-to-r from-purple-700 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                Technology Engineering Partner
+                All-in-One Software
               </span>
             </motion.h1>
 
@@ -175,7 +160,7 @@ export default function Home() {
               variants={fadeUp()}
               className="text-base md:text-xl text-slate-600 leading-relaxed max-w-2xl text-center font-normal"
             >
-              We're a team of software engineers delivering award-winning web platforms, high-performance mobile applications, and customized business automation pipelines globally.
+              Boost your business with our integrated software, combining essential tools into one powerful platform for greater efficiency.
             </motion.p>
 
             {/* Inline Email Input + Pill CTA Bar (Reference Image Style) */}
@@ -185,20 +170,20 @@ export default function Home() {
             >
               <input
                 type="email"
-                placeholder="Enter your email address..."
+                placeholder="Enter your email address"
                 value={heroEmail}
                 onChange={(e) => setHeroEmail(e.target.value)}
                 className="w-full bg-transparent px-4 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none font-medium"
               />
               <Link href="/contact">
                 <Button variant="primary" colorTheme="violet" className="!py-3 !px-6 !text-sm whitespace-nowrap">
-                  Book a Call
+                  Request Demo
                 </Button>
               </Link>
             </motion.div>
 
             {/* Rating Stars row */}
-            <motion.div variants={fadeUp()} className="flex items-center gap-4 mt-4 pt-4 text-left">
+            <motion.div variants={fadeUp()} className="flex items-center gap-4 mt-2 text-left">
               <div className="flex -space-x-2">
                 {["Ananya Sen", "Dr. Rohan Joshi", "Amit Mehra", "Neha Nair"].map((name, idx) => (
                   <Avatar key={idx} name={name} className="w-8 h-8 text-[9px] border-2 border-white shadow-sm" />
@@ -216,12 +201,12 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* 4 Feature Cards Row (Matching Reference Layout Pixel-for-Pixel) */}
+            {/* 4 Hero Cards (Matching Reference Visual Layout Pixel-for-Pixel) */}
             <motion.div
               variants={fadeUp()}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full mt-10"
             >
-              {/* Card 1: Calendar / Web Dev */}
+              {/* Card 1: Calendar */}
               <div className="bg-white/90 backdrop-blur-md rounded-3xl p-5 border border-purple-100/90 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-4 hover:-translate-y-1 transition-all duration-300 group">
                 <div className="w-full h-24 rounded-2xl bg-purple-50/80 border border-purple-100 p-3 flex flex-col justify-between overflow-hidden">
                   <div className="flex items-center justify-between text-[10px] text-slate-400 font-semibold">
@@ -242,7 +227,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Card 2: Chat / Mobile Apps */}
+              {/* Card 2: Chat */}
               <div className="bg-white/90 backdrop-blur-md rounded-3xl p-5 border border-purple-100/90 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-4 hover:-translate-y-1 transition-all duration-300 group">
                 <div className="w-full h-24 rounded-2xl bg-violet-50/80 border border-violet-100 p-3 flex flex-col justify-center gap-2 overflow-hidden">
                   <div className="flex items-center gap-2">
@@ -287,7 +272,7 @@ export default function Home() {
               {/* Card 4: ERP Chart */}
               <div className="bg-white/90 backdrop-blur-md rounded-3xl p-5 border border-purple-100/90 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-4 hover:-translate-y-1 transition-all duration-300 group">
                 <div className="w-full h-24 rounded-2xl bg-fuchsia-50/80 border border-fuchsia-100 p-3 flex flex-col justify-between overflow-hidden">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col text-left">
                     <span className="text-[9px] text-slate-400 font-semibold">Total Revenue</span>
                     <span className="text-xs font-black text-slate-900">$570.80</span>
                   </div>
@@ -306,6 +291,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+
             </motion.div>
           </motion.div>
         </div>
@@ -331,9 +317,9 @@ export default function Home() {
                 key={sol.id}
                 onClick={() => setActiveSolution(sol.id)}
                 className={cn(
-                  "px-6 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer",
+                  "px-6 py-2 rounded-full text-xs font-bold transition-all cursor-pointer",
                   activeSolution === sol.id
-                    ? "bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white shadow-md"
+                    ? "bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 text-white shadow-md"
                     : "text-slate-600 hover:text-slate-900 hover:bg-purple-50/50"
                 )}
               >
@@ -349,7 +335,7 @@ export default function Home() {
             <div className="lg:col-span-5 bg-white/90 backdrop-blur-md rounded-[32px] p-8 md:p-12 border border-purple-100/80 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-6 min-h-[380px]">
               <div className="flex flex-col gap-4">
                 <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight font-display">
-                  Effortless Scheduling at Your Fingertips
+                  {activeSolutionData.subtitle}
                 </h3>
                 <p className="text-sm md:text-base text-slate-600 leading-relaxed">
                   {activeSolutionData.desc}
@@ -371,7 +357,7 @@ export default function Home() {
 
               <Link href={activeSolutionData.link} className="mt-2">
                 <Button variant="primary" colorTheme="violet" className="!py-3 !px-6 !text-sm">
-                  Get Started
+                  Get Started <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </Link>
             </div>
@@ -442,7 +428,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* ══ 3. INTEGRATED TOOLS / PROCESS (Matching Reference Section) ═════════ */}
       <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="bg-white/80 backdrop-blur-xl rounded-[36px] p-10 md:p-16 border border-purple-100 shadow-xl shadow-purple-950/5 text-center flex flex-col items-center gap-8 relative overflow-hidden">
@@ -450,7 +435,7 @@ export default function Home() {
             Integrations Network
           </span>
           <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 max-w-lg font-display">
-            Your Essential Integrated Tools &amp; Ecosystem
+            Your Essential Integrated Tools
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 w-full mt-4">
@@ -654,7 +639,7 @@ export default function Home() {
             <div className="w-full max-w-md mt-2 bg-white/10 backdrop-blur-xl p-2 rounded-full border border-white/20 flex items-center justify-between gap-2 shadow-xl">
               <input
                 type="email"
-                placeholder="Enter your email address..."
+                placeholder="Enter your email address"
                 value={ctaEmail}
                 onChange={(e) => setCtaEmail(e.target.value)}
                 className="w-full bg-transparent px-4 py-2 text-sm text-white placeholder-slate-300 focus:outline-none font-medium"
@@ -682,4 +667,5 @@ export default function Home() {
     </div>
   );
 }
+
 
