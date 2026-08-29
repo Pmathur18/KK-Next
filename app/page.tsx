@@ -576,10 +576,4 @@ export default function Home() {
     </div>
   );
 }
-y."
-        />
-      </div>
 
-    </div>
-  );
-}
