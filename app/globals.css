@@ -1,31 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-base: #FFFFFF;
-  --color-ink: #050B14;
-  --color-pastel-lilac: #F1F5F9;
-  --color-pastel-peach: #F8FAFC;
-  --color-pastel-sky: #EBF3FC;
-  --color-pastel-mint: #F1F5F9;
-  --color-pastel-yellow: #F8FAFC;
-  --color-accent-primary: #0A2540;
-  --color-accent-secondary: #1E40AF;
-  --color-dark-panel: #050B14;
-  --color-navy-base: #0A192F;
-  --color-navy-card: #0F172A;
-  --color-ice-blue: #EBF3FC;
-
+  --color-bg-base: #FAF8FF;
+  --color-ink: #1E1B4B;
+  --color-purple-primary: #7C3AED;
+  --color-purple-accent: #8B5CF6;
+  --color-purple-light: #F5F3FF;
+  --color-purple-glow: #DDD6FE;
+  --color-indigo-dark: #0F172A;
+  --color-slate-text: #475569;
+  
   --font-display: var(--font-display), system-ui, sans-serif;
   --font-sans: var(--font-sans), system-ui, sans-serif;
   
-  --radius-card: 24px;
+  --radius-card: 28px;
 }
 
 :root {
   --font-display: 'Outfit';
   --font-sans: 'Plus Jakarta Sans';
-  background-color: var(--color-bg-base);
-  color: var(--color-ink);
+  background-color: #FAF8FF;
+  color: #1E1B4B;
 }
 
 * {
@@ -33,8 +28,8 @@
 }
 
 body {
-  background-color: var(--color-bg-base);
-  color: var(--color-ink);
+  background-color: #FAF8FF;
+  color: #1E1B4B;
   font-family: var(--font-sans);
   overflow-x: hidden;
   margin: 0;
@@ -45,61 +40,50 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-/* ── Consistent padding/spacing 4 (1rem / 16px) between consecutive sections on every page ── */
+/* ── Section Spacing ── */
 section + section {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
-/* Custom Mesh Gradient Animations — Pure Navy/Black Radial Glows */
-@keyframes mesh-float-1 {
+/* Custom Mesh Gradient Animations — Purple & Violet Glows */
+@keyframes mesh-float-purple-1 {
   0% { transform: translate(0%, 0%) scale(1); }
-  33% { transform: translate(15%, -10%) scale(1.1); }
-  66% { transform: translate(-10%, 15%) scale(0.95); }
+  33% { transform: translate(12%, -8%) scale(1.12); }
+  66% { transform: translate(-8%, 12%) scale(0.95); }
   100% { transform: translate(0%, 0%) scale(1); }
 }
 
-@keyframes mesh-float-2 {
+@keyframes mesh-float-purple-2 {
   0% { transform: translate(0%, 0%) scale(1.05); }
-  40% { transform: translate(-15%, 15%) scale(0.9); }
-  80% { transform: translate(10%, -10%) scale(1.15); }
+  40% { transform: translate(-12%, 10%) scale(0.92); }
+  80% { transform: translate(8%, -8%) scale(1.15); }
   100% { transform: translate(0%, 0%) scale(1.05); }
 }
 
-@keyframes mesh-float-3 {
-  0% { transform: translate(0%, 0%) scale(0.95); }
-  50% { transform: translate(10%, 20%) scale(1.1); }
-  100% { transform: translate(0%, 0%) scale(0.95); }
+.mesh-blob-purple-1 {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(124, 58, 237, 0.15) 50%, transparent 80%);
+  animation: mesh-float-purple-1 18s ease-in-out infinite;
 }
 
-.mesh-blob-1 {
-  background: radial-gradient(circle, rgba(10, 37, 64, 0.22) 0%, rgba(30, 64, 175, 0.08) 60%, transparent 80%);
-  animation: mesh-float-1 20s ease-in-out infinite;
-}
-
-.mesh-blob-2 {
-  background: radial-gradient(circle, rgba(15, 23, 42, 0.18) 0%, rgba(10, 25, 47, 0.06) 60%, transparent 80%);
-  animation: mesh-float-2 17s ease-in-out infinite;
-}
-
-.mesh-blob-3 {
-  background: radial-gradient(circle, rgba(30, 64, 175, 0.15) 0%, rgba(10, 37, 64, 0.05) 60%, transparent 80%);
-  animation: mesh-float-3 23s ease-in-out infinite;
+.mesh-blob-purple-2 {
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.32) 0%, rgba(96, 165, 250, 0.12) 55%, transparent 80%);
+  animation: mesh-float-purple-2 22s ease-in-out infinite;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+  background: #FAF8FF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0A2540;
+  background: #A855F7;
   border-radius: 999px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #FAF8FF;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #050B14;
+  background: #7C3AED;
 }
 
 /* Marquee Infinite Scrolling Animation */
@@ -128,3 +112,4 @@ section + section {
 .animate-marquee:hover, .animate-marquee-reverse:hover {
   animation-play-state: paused;
 }
+

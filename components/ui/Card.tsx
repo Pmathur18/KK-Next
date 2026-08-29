@@ -25,10 +25,10 @@ export default function Card({
     <div
       onClick={onClick}
       className={cn(
-        "rounded-[24px] p-8 md:p-10 relative overflow-hidden transition-all duration-300 backdrop-blur-xl",
+        "rounded-[28px] p-7 md:p-9 relative overflow-hidden transition-all duration-300 backdrop-blur-md",
         isDark 
-          ? "text-white border border-white/15 bg-slate-950/60 shadow-[0_20px_50px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)]" 
-          : "text-ink border border-white/60 bg-white/50 shadow-[0_8px_30px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.6)]",
+          ? "text-white border border-purple-400/20 bg-slate-950/80 shadow-2xl" 
+          : "text-slate-900 border border-purple-100/80 bg-white/90 shadow-xl shadow-purple-950/5",
         onClick ? "cursor-pointer" : "",
         className
       )}
@@ -41,8 +41,8 @@ export default function Card({
     return (
       <motion.div
         whileHover={{
-          y: -6,
-          boxShadow: "0 20px 40px -15px rgba(10, 37, 64, 0.12)",
+          y: -5,
+          boxShadow: "0 25px 45px -15px rgba(124, 58, 237, 0.12)",
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
@@ -53,3 +53,4 @@ export default function Card({
 
   return cardContent;
 }
+

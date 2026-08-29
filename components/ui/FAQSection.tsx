@@ -41,10 +41,10 @@ function FAQAccordionItem({
     <motion.div
       initial={false}
       className={cn(
-        "rounded-2xl border overflow-hidden transition-all duration-200 backdrop-blur-xl",
+        "rounded-2xl border overflow-hidden transition-all duration-200 backdrop-blur-md",
         isOpen
-          ? "bg-white/65 border-white/80 shadow-md"
-          : "bg-white/40 border-white/50 hover:bg-white/60 hover:border-white/70 shadow-xs"
+          ? "bg-white border-purple-200 shadow-md shadow-purple-900/5"
+          : "bg-white/80 border-purple-100/70 hover:bg-white hover:border-purple-200 shadow-xs"
       )}
     >
       <button
@@ -58,8 +58,8 @@ function FAQAccordionItem({
           className={cn(
             "text-sm md:text-base font-semibold leading-snug transition-colors",
             isOpen
-              ? "text-accent-primary"
-              : "text-ink group-hover:text-accent-primary"
+              ? "text-purple-700 font-bold"
+              : "text-slate-900 group-hover:text-purple-700"
           )}
         >
           {item.q}
@@ -68,8 +68,8 @@ function FAQAccordionItem({
           className={cn(
             "shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors mt-0.5",
             isOpen
-              ? "bg-accent-primary text-white"
-              : "bg-zinc-100 text-zinc-500 group-hover:bg-zinc-200"
+              ? "bg-purple-600 text-white"
+              : "bg-purple-50 text-purple-600 group-hover:bg-purple-100"
           )}
         >
           {isOpen ? (
@@ -93,8 +93,8 @@ function FAQAccordionItem({
             transition={{ duration: 0.28, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <div className="px-6 pb-6 border-t border-zinc-100 pt-4">
-              <p className="text-sm text-zinc-600 leading-relaxed">{item.a}</p>
+            <div className="px-6 pb-6 border-t border-purple-50/80 pt-4">
+              <p className="text-sm text-slate-600 leading-relaxed">{item.a}</p>
             </div>
           </motion.div>
         )}
@@ -121,7 +121,7 @@ export default function FAQSection({
   return (
     <section
       className={cn(
-        "py-20 md:py-28 max-w-7xl mx-auto px-6 md:px-8",
+        "py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-8",
         className
       )}
     >
@@ -169,3 +169,4 @@ export default function FAQSection({
     </section>
   );
 }
+

@@ -13,15 +13,15 @@ export default function Badge({
   className,
 }: BadgeProps) {
   const themes = {
-    lilac: "bg-slate-100 text-[#0A2540] border border-slate-200",
-    peach: "bg-[#EBF3FC] text-[#1E40AF] border border-blue-200/60",
-    sky: "bg-[#EBF3FC] text-[#0A2540] border border-blue-200/60",
-    mint: "bg-slate-100 text-[#0A2540] border border-slate-200",
-    yellow: "bg-slate-50 text-[#0A2540] border border-slate-200",
-    violet: "bg-[#0A2540] text-white",
-    navy: "bg-[#0A2540] text-white",
-    ink: "bg-[#050B14] text-white",
-    white: "bg-white text-[#0A2540] border border-slate-200",
+    lilac: "bg-purple-100/80 text-purple-900 border border-purple-200",
+    peach: "bg-violet-100/80 text-violet-900 border border-violet-200",
+    sky: "bg-purple-100/80 text-purple-900 border border-purple-200",
+    mint: "bg-indigo-100/80 text-indigo-900 border border-indigo-200",
+    yellow: "bg-purple-50 text-purple-900 border border-purple-200",
+    violet: "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-sm",
+    navy: "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-sm",
+    ink: "bg-indigo-950 text-white",
+    white: "bg-white text-purple-900 border border-purple-200 shadow-sm",
   };
 
   return (
@@ -36,3 +36,4 @@ export default function Badge({
     </span>
   );
 }
+
