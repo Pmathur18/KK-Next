@@ -13,21 +13,21 @@ export default function Badge({
   className,
 }: BadgeProps) {
   const themes = {
-    lilac: "bg-purple-100/80 text-purple-900 border border-purple-200",
-    peach: "bg-violet-100/80 text-violet-900 border border-violet-200",
-    sky: "bg-purple-100/80 text-purple-900 border border-purple-200",
-    mint: "bg-indigo-100/80 text-indigo-900 border border-indigo-200",
-    yellow: "bg-purple-50 text-purple-900 border border-purple-200",
-    violet: "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-sm",
-    navy: "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-sm",
-    ink: "bg-indigo-950 text-white",
-    white: "bg-white text-purple-900 border border-purple-200 shadow-sm",
+    lilac: "bg-purple-100 text-purple-700 border border-purple-200/60",
+    peach: "bg-purple-100 text-purple-700 border border-purple-200/60",
+    sky: "bg-purple-50 text-purple-700 border border-purple-200/60",
+    mint: "bg-cyan-50 text-cyan-700 border border-cyan-200/60",
+    yellow: "bg-amber-50 text-amber-700 border border-amber-200/60",
+    violet: "bg-[#7C3AED] text-white shadow-sm shadow-purple-500/20",
+    navy: "bg-purple-100 text-purple-700 border border-purple-200/60",
+    ink: "bg-slate-900 text-white",
+    white: "bg-white text-purple-700 border border-purple-100 shadow-sm",
   };
 
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider",
+        "inline-flex items-center rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider",
         themes[colorTheme] || themes.navy,
         className
       )}

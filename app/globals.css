@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-base: #FAF8FF;
-  --color-ink: #1E1B4B;
-  --color-purple-primary: #7C3AED;
-  --color-purple-accent: #8B5CF6;
-  --color-purple-light: #F5F3FF;
-  --color-purple-glow: #DDD6FE;
-  --color-indigo-dark: #0F172A;
-  --color-slate-text: #475569;
-  
+  --color-bg-base: #FFFFFF;
+  --color-ink: #0F172A;
+  --color-[#050B14]: #0F172A;
+  --color-[#0A2540]: #7C3AED;
+  --color-[#1E40AF]: #8B5CF6;
+  --color-[#EBF3FC]: #F3E8FF;
+  --color-[#F1F5F9]: #FAF5FF;
+  --color-[#F8FAFC]: #F5F3FF;
+  --color-accent-primary: #7C3AED;
+  --color-accent-secondary: #8B5CF6;
+  --color-dark-panel: #1E1B4B;
+  --color-navy-base: #0F172A;
+  --color-navy-card: #1E1B4B;
+  --color-ice-blue: #F3E8FF;
+
   --font-display: var(--font-display), system-ui, sans-serif;
   --font-sans: var(--font-sans), system-ui, sans-serif;
   
-  --radius-card: 28px;
+  --radius-card: 24px;
 }
 
 :root {
   --font-display: 'Outfit';
   --font-sans: 'Plus Jakarta Sans';
-  background-color: #FAF8FF;
-  color: #1E1B4B;
+  background-color: var(--color-bg-base);
+  color: var(--color-ink);
 }
 
 * {
@@ -28,8 +34,8 @@
 }
 
 body {
-  background-color: #FAF8FF;
-  color: #1E1B4B;
+  background-color: var(--color-bg-base);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   overflow-x: hidden;
   margin: 0;
@@ -38,52 +44,73 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+  color: #0F172A;
 }
 
-/* ── Section Spacing ── */
+/* ── Consistent padding/spacing between sections ── */
 section + section {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
-/* Custom Mesh Gradient Animations — Purple & Violet Glows */
-@keyframes mesh-float-purple-1 {
+/* Custom Mesh Gradient Animations — Purple / Fuchsia / Cyan Radial Glows */
+@keyframes mesh-float-1 {
   0% { transform: translate(0%, 0%) scale(1); }
-  33% { transform: translate(12%, -8%) scale(1.12); }
+  33% { transform: translate(12%, -8%) scale(1.1); }
   66% { transform: translate(-8%, 12%) scale(0.95); }
   100% { transform: translate(0%, 0%) scale(1); }
 }
 
-@keyframes mesh-float-purple-2 {
+@keyframes mesh-float-2 {
   0% { transform: translate(0%, 0%) scale(1.05); }
-  40% { transform: translate(-12%, 10%) scale(0.92); }
+  40% { transform: translate(-12%, 12%) scale(0.9); }
   80% { transform: translate(8%, -8%) scale(1.15); }
   100% { transform: translate(0%, 0%) scale(1.05); }
 }
 
-.mesh-blob-purple-1 {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(124, 58, 237, 0.15) 50%, transparent 80%);
-  animation: mesh-float-purple-1 18s ease-in-out infinite;
+@keyframes mesh-float-3 {
+  0% { transform: translate(0%, 0%) scale(0.95); }
+  50% { transform: translate(8%, 16%) scale(1.1); }
+  100% { transform: translate(0%, 0%) scale(0.95); }
 }
 
-.mesh-blob-purple-2 {
-  background: radial-gradient(circle, rgba(192, 132, 252, 0.32) 0%, rgba(96, 165, 250, 0.12) 55%, transparent 80%);
-  animation: mesh-float-purple-2 22s ease-in-out infinite;
+.mesh-blob-1 {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(124, 58, 237, 0.12) 60%, transparent 80%);
+  animation: mesh-float-1 20s ease-in-out infinite;
+}
+
+.mesh-blob-2 {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(168, 85, 247, 0.08) 60%, transparent 80%);
+  animation: mesh-float-2 17s ease-in-out infinite;
+}
+
+.mesh-blob-3 {
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.22) 0%, rgba(139, 92, 246, 0.06) 60%, transparent 80%);
+  animation: mesh-float-3 23s ease-in-out infinite;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF8FF;
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #A855F7;
+  background: #7C3AED;
   border-radius: 999px;
-  border: 2px solid #FAF8FF;
+  border: 2px solid #FFFFFF;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7C3AED;
+  background: #6D28D9;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Marquee Infinite Scrolling Animation */

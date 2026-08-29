@@ -307,6 +307,14 @@ export default function ServicesPage() {
                   );
                 })}
               </div>
+              <div className="flex items-center justify-between pt-4 border-t border-slate-200">
+                <span className="text-sm font-semibold text-slate-600">Want to see our interactive content scheduler &amp; analytics suite?</span>
+                <Link href="/services/social-media-management">
+                  <Button variant="primary" colorTheme="violet" className="!py-2.5 !px-6 !text-sm">
+                    Explore Dedicated Social Platform →
+                  </Button>
+                </Link>
+              </div>
             </div>
 
             {/* Metrics Grid */}

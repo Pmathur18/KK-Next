@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, ChevronDown } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/utils";
 
@@ -41,10 +41,10 @@ function FAQAccordionItem({
     <motion.div
       initial={false}
       className={cn(
-        "rounded-2xl border overflow-hidden transition-all duration-200 backdrop-blur-md",
+        "rounded-2xl border overflow-hidden transition-all duration-200 bg-white",
         isOpen
-          ? "bg-white border-purple-200 shadow-md shadow-purple-900/5"
-          : "bg-white/80 border-purple-100/70 hover:bg-white hover:border-purple-200 shadow-xs"
+          ? "border-purple-300 shadow-md shadow-purple-500/5"
+          : "border-purple-100/80 hover:border-purple-200 shadow-xs"
       )}
     >
       <button
@@ -52,31 +52,27 @@ function FAQAccordionItem({
         aria-expanded={isOpen}
         aria-controls={answerId}
         onClick={() => setOpen(isOpen ? null : idx)}
-        className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left cursor-pointer group"
+        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer group"
       >
         <span
           className={cn(
-            "text-sm md:text-base font-semibold leading-snug transition-colors",
+            "text-sm md:text-base font-bold leading-snug transition-colors",
             isOpen
-              ? "text-purple-700 font-bold"
-              : "text-slate-900 group-hover:text-purple-700"
+              ? "text-[#7C3AED]"
+              : "text-slate-800 group-hover:text-[#7C3AED]"
           )}
         >
           {item.q}
         </span>
         <span
           className={cn(
-            "shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors mt-0.5",
+            "shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all",
             isOpen
-              ? "bg-purple-600 text-white"
-              : "bg-purple-50 text-purple-600 group-hover:bg-purple-100"
+              ? "bg-[#7C3AED] text-white rotate-180"
+              : "bg-purple-50 text-[#7C3AED] group-hover:bg-purple-100"
           )}
         >
-          {isOpen ? (
-            <Minus className="w-3.5 h-3.5" />
-          ) : (
-            <Plus className="w-3.5 h-3.5" />
-          )}
+          <ChevronDown className="w-4 h-4 transition-transform duration-200" />
         </span>
       </button>
 
@@ -93,7 +89,7 @@ function FAQAccordionItem({
             transition={{ duration: 0.28, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <div className="px-6 pb-6 border-t border-purple-50/80 pt-4">
+            <div className="px-6 pb-6 border-t border-purple-50 pt-4">
               <p className="text-sm text-slate-600 leading-relaxed">{item.a}</p>
             </div>
           </motion.div>
@@ -135,7 +131,6 @@ export default function FAQSection({
 
         {/* Two-column grid — left & right */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
-
           {/* Left column */}
           <div className="flex flex-col gap-3">
             {leftItems.map((item, i) => (
@@ -163,7 +158,6 @@ export default function FAQSection({
               />
             ))}
           </div>
-
         </div>
       </div>
     </section>
