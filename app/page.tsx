@@ -216,27 +216,96 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* 4 Feature Cards Row (Matching Reference Layout) */}
+            {/* 4 Feature Cards Row (Matching Reference Layout Pixel-for-Pixel) */}
             <motion.div
               variants={fadeUp()}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full mt-10"
             >
-              {heroFeatureCards.map((card, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white/90 backdrop-blur-md rounded-3xl p-6 border border-purple-100/90 shadow-xl shadow-purple-950/5 flex flex-col items-start text-left gap-3 hover:-translate-y-1 transition-all duration-300 group"
-                >
-                  <div className={cn("w-10 h-10 rounded-2xl flex items-center justify-center border", card.color)}>
-                    <card.icon className="w-5 h-5" />
+              {/* Card 1: Calendar / Web Dev */}
+              <div className="bg-white/90 backdrop-blur-md rounded-3xl p-5 border border-purple-100/90 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-4 hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-full h-24 rounded-2xl bg-purple-50/80 border border-purple-100 p-3 flex flex-col justify-between overflow-hidden">
+                  <div className="flex items-center justify-between text-[10px] text-slate-400 font-semibold">
+                    <span>&lt; August 2026 &gt;</span>
                   </div>
-                  <h3 className="font-bold text-slate-900 text-base group-hover:text-purple-700 transition-colors">
-                    {card.title}
+                  <div className="bg-white rounded-xl p-2 shadow-xs border border-purple-100 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-purple-600 shrink-0" />
+                    <span className="text-[10px] font-bold text-slate-800 truncate">Meeting with John</span>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-bold text-slate-900 text-sm group-hover:text-purple-700 transition-colors">
+                    One Soft Calendar
                   </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    {card.desc}
+                  <p className="text-[11px] text-slate-500 leading-relaxed">
+                    Effortless Calendar Management for Teams, Professionals, and Busy Entrepreneurs
                   </p>
                 </div>
-              ))}
+              </div>
+
+              {/* Card 2: Chat / Mobile Apps */}
+              <div className="bg-white/90 backdrop-blur-md rounded-3xl p-5 border border-purple-100/90 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-4 hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-full h-24 rounded-2xl bg-violet-50/80 border border-violet-100 p-3 flex flex-col justify-center gap-2 overflow-hidden">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-violet-600 text-white text-[8px] font-bold flex items-center justify-center">A</div>
+                    <div className="bg-white rounded-lg px-2 py-1 text-[9px] text-slate-600 border border-violet-100 shadow-xs">Hello, how can I help?</div>
+                  </div>
+                  <div className="flex items-center gap-2 justify-end">
+                    <div className="bg-violet-600 text-white rounded-lg px-2 py-1 text-[9px] font-medium shadow-xs">Let's build an app!</div>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-bold text-slate-900 text-sm group-hover:text-purple-700 transition-colors">
+                    One Soft Chat
+                  </h3>
+                  <p className="text-[11px] text-slate-500 leading-relaxed">
+                    Intuitive Chatbot for Customer Support, Lead Generation, and Enhanced Engagement
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3: CRM */}
+              <div className="bg-white/90 backdrop-blur-md rounded-3xl p-5 border border-purple-100/90 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-4 hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-full h-24 rounded-2xl bg-indigo-50/80 border border-indigo-100 p-3 flex flex-col justify-center gap-2 overflow-hidden">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-slate-700">08:30</span>
+                    <span className="bg-emerald-100 text-emerald-700 text-[8px] font-extrabold px-2 py-0.5 rounded-full">ACTIVE</span>
+                  </div>
+                  <div className="w-full bg-white rounded-lg h-3 border border-indigo-100 overflow-hidden p-0.5">
+                    <div className="bg-indigo-600 h-full rounded-md w-[75%]" />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-bold text-slate-900 text-sm group-hover:text-purple-700 transition-colors">
+                    One Soft CRM
+                  </h3>
+                  <p className="text-[11px] text-slate-500 leading-relaxed">
+                    Streamlined CRM for Sales Teams, Marketers, and Customer Success Managers
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 4: ERP Chart */}
+              <div className="bg-white/90 backdrop-blur-md rounded-3xl p-5 border border-purple-100/90 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-4 hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-full h-24 rounded-2xl bg-fuchsia-50/80 border border-fuchsia-100 p-3 flex flex-col justify-between overflow-hidden">
+                  <div className="flex flex-col">
+                    <span className="text-[9px] text-slate-400 font-semibold">Total Revenue</span>
+                    <span className="text-xs font-black text-slate-900">$570.80</span>
+                  </div>
+                  <div className="flex items-end justify-between gap-1 h-8 pt-1">
+                    {[40, 65, 30, 90, 50, 75].map((h, i) => (
+                      <div key={i} className="w-full bg-purple-600/80 rounded-t-sm" style={{ height: `${h}%` }} />
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-bold text-slate-900 text-sm group-hover:text-purple-700 transition-colors">
+                    One Soft ERP
+                  </h3>
+                  <p className="text-[11px] text-slate-500 leading-relaxed">
+                    Complete ERP Solution for Efficient Operations, Financial Management, and Growth
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -280,7 +349,7 @@ export default function Home() {
             <div className="lg:col-span-5 bg-white/90 backdrop-blur-md rounded-[32px] p-8 md:p-12 border border-purple-100/80 shadow-xl shadow-purple-950/5 flex flex-col justify-between items-start text-left gap-6 min-h-[380px]">
               <div className="flex flex-col gap-4">
                 <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight font-display">
-                  {activeSolutionData.subtitle}
+                  Effortless Scheduling at Your Fingertips
                 </h3>
                 <p className="text-sm md:text-base text-slate-600 leading-relaxed">
                   {activeSolutionData.desc}
@@ -302,32 +371,68 @@ export default function Home() {
 
               <Link href={activeSolutionData.link} className="mt-2">
                 <Button variant="primary" colorTheme="violet" className="!py-3 !px-6 !text-sm">
-                  Get Started <ArrowRight className="w-4 h-4 ml-1" />
+                  Get Started
                 </Button>
               </Link>
             </div>
 
-            {/* Right Card: Vibrant Gradient Box with UI Mockup Widget */}
-            <div className="lg:col-span-7 bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 rounded-[32px] p-6 md:p-10 shadow-2xl shadow-purple-950/20 relative overflow-hidden flex items-center justify-center min-h-[380px] lg:min-h-[440px]">
+            {/* Right Card: Radiant Purple/Blue Gradient Box with Calendar UI Mockup (Exact Reference Style) */}
+            <div className="lg:col-span-7 bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 rounded-[32px] p-6 md:p-10 shadow-2xl shadow-purple-950/20 relative overflow-hidden flex items-center justify-center min-h-[380px] lg:min-h-[420px]">
               <div className="pointer-events-none absolute -top-20 -left-20 w-64 h-64 bg-white/20 rounded-full blur-2xl" />
-              <div className="w-full h-full rounded-[24px] overflow-hidden bg-white/95 backdrop-blur-2xl p-6 shadow-2xl border border-white/40 flex flex-col justify-between gap-6">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-xs">
-                      KK
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-slate-900">Live Client Project Dashboard</span>
-                      <span className="text-[10px] text-slate-400 font-medium">Real-Time Performance Metrics</span>
+              
+              <div className="w-full rounded-[24px] overflow-hidden bg-white/95 backdrop-blur-2xl p-6 shadow-2xl border border-white/50 flex flex-col md:flex-row gap-6 items-center">
+                {/* Left Side: Meeting details card */}
+                <div className="flex flex-col gap-4 text-left w-full md:w-1/2">
+                  <div className="flex items-center gap-2">
+                    <Avatar name="Sebastian Moran" className="w-7 h-7 text-[9px]" />
+                    <span className="text-xs font-bold text-slate-700">Sebastian Moran</span>
+                  </div>
+                  <h4 className="font-bold text-slate-900 text-lg leading-snug">
+                    Daily follow-up meeting with designer
+                  </h4>
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-1.5">
+                      {["A", "B", "C", "D"].map((n, i) => (
+                        <div key={i} className="w-6 h-6 rounded-full bg-purple-600 text-white text-[8px] font-bold flex items-center justify-center border border-white">
+                          {n}
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <span className="text-[11px] font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full">
-                    Active Solution
-                  </span>
+                  <div className="flex items-center gap-3 text-xs text-slate-500 font-semibold pt-2">
+                    <span>🕒 11:00 - 12:00</span>
+                    <span>🎥 Zoom</span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    Review design updates, align on creative direction, and address any challenges.
+                  </p>
                 </div>
 
-                <div className="h-56 relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
-                  <GraphicPlaceholder type="project" slug="aurora-boutique" />
+                {/* Right Side: Mini Calendar Grid */}
+                <div className="w-full md:w-1/2 bg-slate-50 rounded-2xl p-4 border border-purple-100 flex flex-col gap-3 text-center">
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+                    <span>&lt;</span>
+                    <span>November 2026</span>
+                    <span>&gt;</span>
+                  </div>
+                  <div className="grid grid-cols-7 gap-1 text-[10px] font-bold text-slate-400">
+                    <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+                  </div>
+                  <div className="grid grid-cols-7 gap-1 text-[11px] font-semibold text-slate-700">
+                    {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
+                      <div
+                        key={day}
+                        className={cn(
+                          "w-6 h-6 rounded-full flex items-center justify-center mx-auto text-[10px]",
+                          day === 18
+                            ? "bg-purple-600 text-white font-bold shadow-md"
+                            : "hover:bg-purple-100"
+                        )}
+                      >
+                        {day}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -336,6 +441,7 @@ export default function Home() {
 
         </div>
       </section>
+
 
       {/* ══ 3. INTEGRATED TOOLS / PROCESS (Matching Reference Section) ═════════ */}
       <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
