@@ -12,6 +12,11 @@ import Badge from "@/components/ui/Badge";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GraphicPlaceholder from "@/components/ui/GraphicPlaceholder";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import Tilt3DCard from "@/components/ui/Tilt3DCard";
+import ParticleField from "@/components/ui/ParticleField";
+import GlowingOrb from "@/components/ui/GlowingOrb";
+import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import { cn } from "@/lib/utils";
 
 const careerFAQs: FAQItem[] = [
@@ -124,38 +129,52 @@ export default function Career() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-white py-12 md:py-20 animate-fadeIn">
+      <ParticleField count={30} color="124, 58, 237" opacity={0.12} />
+      <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={400} opacity={0.08} blur={100} />
       
       {/* Hero */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pb-20 border-b border-slate-200">
+      <section className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pb-20 border-b border-purple-100 relative z-10">
         <div className="lg:col-span-7 flex flex-col gap-6">
-          <span className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase text-[#0A2540]">
-            Careers
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-ink font-display">
-            Join the tech solution force.
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
-            We are building a remote-friendly software agency dedicated to clean code base patterns and outstanding design aesthetics. Explore our perks and open positions.
-          </p>
+          <ScrollReveal>
+            <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
+              Careers
+            </Badge>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={0.1}>
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-900 font-display">
+              Join the tech solution{" "}
+              <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
+                force.
+              </AnimatedGradientText>
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <p className="text-lg text-slate-500 leading-relaxed max-w-xl">
+              We are building a remote-friendly software agency dedicated to clean codebase patterns and outstanding design aesthetics. Explore our perks and open positions.
+            </p>
+          </ScrollReveal>
         </div>
 
         <div className="lg:col-span-5 relative w-full h-[300px] md:h-[350px]">
-          <div className="absolute inset-0 bg-blue-500/20 border border-white/40 rounded-[32px] rotate-[2deg] backdrop-blur-md" />
-          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-2xl border border-white/20 rounded-[32px] overflow-hidden p-3 shadow-xl flex items-center justify-center">
-            <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-slate-900">
-              <img
-                src="/images/tech_team_workspace.jpg"
-                alt="KK Next Tech Workspace & Engineering Team"
-                className="w-full h-full object-cover"
-              />
+          <Tilt3DCard intensity={8} className="w-full h-full">
+            <div className="w-full h-full bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 border border-purple-500/20 rounded-[32px] overflow-hidden p-3 shadow-2xl flex items-center justify-center">
+              <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-slate-900">
+                <img
+                  src="/images/tech_team_workspace.jpg"
+                  alt="KK Next Tech Workspace & Engineering Team"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-          </div>
+          </Tilt3DCard>
         </div>
       </section>
 
       {/* Perks Grid */}
-      <section className="py-20 md:py-28 max-w-7xl px-6 md:px-8 mx-auto border-b border-zinc-200/50">
+      <section className="py-20 md:py-28 max-w-7xl px-6 md:px-8 mx-auto border-b border-purple-100">
         <div className="flex flex-col gap-12 md:gap-16">
           <SectionHeading
             eyebrow="Benefits"
@@ -165,18 +184,22 @@ export default function Career() {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {perks.map((p) => {
+            {perks.map((p, idx) => {
               const Icon = p.icon;
               return (
-                <Card key={p.title} colorBg={p.color as any} className="flex flex-col gap-5 min-h-[200px]">
-                  <div className="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-ink shadow-sm border border-zinc-200/50">
-                    <Icon className="w-5.5 h-5.5 text-accent-primary" />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <h3 className="font-bold text-lg text-ink">{p.title}</h3>
-                    <p className="text-xs text-zinc-650 leading-relaxed">{p.desc}</p>
-                  </div>
-                </Card>
+                <ScrollReveal key={p.title} delay={idx * 0.08}>
+                  <Tilt3DCard intensity={8} className="h-full">
+                    <div className="h-full p-6 rounded-3xl bg-white border border-purple-100/80 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all flex flex-col gap-5">
+                      <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-700 shadow-xs border border-purple-100">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <div className="flex flex-col gap-1.5">
+                        <h3 className="font-extrabold text-lg text-slate-900 font-display">{p.title}</h3>
+                        <p className="text-xs text-slate-500 leading-relaxed">{p.desc}</p>
+                      </div>
+                    </div>
+                  </Tilt3DCard>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -268,7 +291,7 @@ export default function Career() {
               Send us your profile
             </h2>
             <p className="text-xs md:text-sm text-zinc-550 leading-relaxed max-w-md">
-              Don't see a perfect match? Send us your resume anyway. We are always hiring talented generalists.
+              Don&apos;t see a perfect match? Send us your resume anyway. We are always hiring talented generalists.
             </p>
           </div>
 

@@ -209,7 +209,7 @@ export default function SocialMediaPage() {
                   </span>
                 </div>
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 flex flex-col gap-1 text-xs text-slate-700 font-medium">
-                  <p className="line-clamp-2">"5 B2B Growth Engines Driving High-Ticket Lead Conversions in 2026..."</p>
+                  <p className="line-clamp-2">&ldquo;5 B2B Growth Engines Driving High-Ticket Lead Conversions in 2026...&rdquo;</p>
                 </div>
                 <div className="flex items-center justify-between text-[11px] text-slate-500 font-semibold pt-1">
                   <span>Impressions: 42.1k</span>

@@ -20,6 +20,14 @@ import Badge from "@/components/ui/Badge";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import Tilt3DCard from "@/components/ui/Tilt3DCard";
+import GlowingOrb from "@/components/ui/GlowingOrb";
+import BentoCard from "@/components/ui/BentoCard";
+import SpotlightSection from "@/components/ui/SpotlightSection";
+import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
+import GlassCard from "@/components/ui/GlassCard";
+import BeamBorder from "@/components/ui/BeamBorder";
 import { projects } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -131,42 +139,57 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
-      
+    <div className="relative overflow-hidden w-full bg-white py-12 md:py-20">
+
       {/* ── 1. HERO SECTION ── */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-16 border-b border-slate-200">
-        <span className="text-xs md:text-sm font-bold tracking-[0.15em] uppercase text-[#0A2540]">
-          Our Services
-        </span>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-ink max-w-4xl font-display">
-          High-performance engineering, creative media &amp; enterprise software.
-        </h1>
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl">
-          We blend award-winning design aesthetics with production-ready software engineering. Explore our core services below or jump directly to what your business needs.
-        </p>
+      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-16 border-b border-purple-100/60 relative">
+        <GlowingOrb className="top-[-50%] right-[-10%]" color="#7C3AED" size={400} opacity={0.07} blur={100} />
+
+        <ScrollReveal>
+          <Badge colorTheme="navy" className="w-fit !bg-purple-100 !text-purple-700 !border-purple-200">
+            Our Services
+          </Badge>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1}>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-slate-900 max-w-4xl font-display">
+            High-performance engineering,{" "}
+            <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
+              creative media &amp; enterprise software.
+            </AnimatedGradientText>
+          </h1>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.2}>
+          <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-3xl">
+            We blend award-winning design with production-ready engineering. Explore our core services below or jump directly to what your business needs.
+          </p>
+        </ScrollReveal>
 
         {/* Quick Nav Pills */}
-        <div className="flex flex-wrap items-center gap-3 pt-4">
-          <a
-            href="#websites"
-            className="px-4 py-2 rounded-full bg-[#EBF3FC] hover:bg-[#DBEAFE] text-[#0A2540] text-xs font-bold transition-all border border-blue-200 flex items-center gap-1.5"
-          >
-            <Laptop className="w-3.5 h-3.5 text-[#0A2540]" /> Web Development
-          </a>
-          <a
-            href="#social-media"
-            className="px-4 py-2 rounded-full bg-[#F1F5F9] hover:bg-slate-200 text-[#050B14] text-xs font-bold transition-all border border-slate-200 flex items-center gap-1.5"
-          >
-            <Share2 className="w-3.5 h-3.5 text-[#0A2540]" /> Socials
-          </a>
-          <Link
-            href="/services/crm-erp"
-            className="px-4 py-2 rounded-full bg-[#050B14] hover:bg-black text-white text-xs font-bold transition-all border border-black flex items-center gap-1.5 group"
-          >
-            <Database className="w-3.5 h-3.5 text-white" /> CRM / ERP Automation
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-        </div>
+        <ScrollReveal delay={0.3}>
+          <div className="flex flex-wrap items-center gap-3 pt-4">
+            <a
+              href="#websites"
+              className="group px-5 py-2.5 rounded-full bg-purple-50 hover:bg-purple-600 text-purple-700 hover:text-white text-xs font-bold transition-all border border-purple-200 hover:border-purple-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-purple-500/20 hover:-translate-y-0.5"
+            >
+              <Laptop className="w-3.5 h-3.5" /> Web Development
+            </a>
+            <a
+              href="#social-media"
+              className="group px-5 py-2.5 rounded-full bg-fuchsia-50 hover:bg-fuchsia-600 text-fuchsia-700 hover:text-white text-xs font-bold transition-all border border-fuchsia-200 hover:border-fuchsia-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-fuchsia-500/20 hover:-translate-y-0.5"
+            >
+              <Share2 className="w-3.5 h-3.5" /> Socials &amp; Growth
+            </a>
+            <Link
+              href="/services/crm-erp"
+              className="group px-5 py-2.5 rounded-full bg-slate-900 hover:bg-purple-700 text-white text-xs font-bold transition-all border border-slate-800 hover:border-purple-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-purple-500/30 hover:-translate-y-0.5"
+            >
+              <Database className="w-3.5 h-3.5" /> CRM / ERP Automation
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* ── 2. SERVICE 1: WEBSITES & E-COMMERCE ── */}
@@ -194,31 +217,35 @@ export default function ServicesPage() {
 
           {/* Web Packages / Capabilities */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {webPackages.map((pkg) => (
-              <Card key={pkg.name} className={cn("p-8 flex flex-col justify-between rounded-3xl", pkg.color)}>
-                <div className="flex flex-col gap-6">
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-bold text-ink">{pkg.name}</h3>
-                    <p className="text-xs text-slate-500 min-h-[32px]">{pkg.desc}</p>
+            {webPackages.map((pkg, idx) => (
+              <ScrollReveal key={pkg.name} delay={idx * 0.1}>
+                <Tilt3DCard intensity={8} className="h-full">
+                  <div className={cn("h-full p-8 flex flex-col justify-between rounded-3xl border shadow-lg", pkg.color)}>
+                    <div className="flex flex-col gap-6">
+                      <div className="flex flex-col gap-2">
+                        <h3 className="text-xl font-bold text-slate-900 font-display">{pkg.name}</h3>
+                        <p className="text-xs text-slate-500 min-h-[32px] leading-relaxed">{pkg.desc}</p>
+                      </div>
+                      <div className="text-3xl font-extrabold text-slate-900 font-display">
+                        {pkg.price}
+                      </div>
+                      <ul className="flex flex-col gap-3 text-xs text-slate-600">
+                        {pkg.features.map((feat) => (
+                          <li key={feat} className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Link href="/contact" className="mt-8">
+                      <Button variant="outline" className="w-full !text-xs !py-2.5">
+                        Choose {pkg.name}
+                      </Button>
+                    </Link>
                   </div>
-                  <div className="text-3xl font-extrabold text-ink font-display">
-                    {pkg.price}
-                  </div>
-                  <ul className="flex flex-col gap-3 text-xs text-slate-700">
-                    {pkg.features.map((feat) => (
-                      <li key={feat} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#0A2540] shrink-0" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Link href="/contact" className="mt-8">
-                  <Button variant="outline" className="w-full !text-xs !py-2.5">
-                    Choose {pkg.name}
-                  </Button>
-                </Link>
-              </Card>
+                </Tilt3DCard>
+              </ScrollReveal>
             ))}
           </div>
 

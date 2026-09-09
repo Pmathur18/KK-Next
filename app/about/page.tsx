@@ -18,6 +18,11 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import Tilt3DCard from "@/components/ui/Tilt3DCard";
+import GlowingOrb from "@/components/ui/GlowingOrb";
+import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
+import GlassCard from "@/components/ui/GlassCard";
 import { milestones, values, teamMembers } from "@/data/team";
 import { fadeUp, staggerContainer, slideInLeft, slideInRight } from "@/lib/animations";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
@@ -261,7 +266,7 @@ export default function About() {
                 <div className="absolute top-4 left-2 right-2 bottom-0 rounded-[28px] bg-[#EBF3FC] border border-blue-200/70 rotate-1" />
                 {/* Card 1 — front */}
                 <div className="absolute inset-0 rounded-[28px] bg-white border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between p-8 md:p-10">
-                  <div className="text-5xl text-[#0A2540]/20 font-black font-display select-none">"</div>
+                  <div className="text-5xl text-[#0A2540]/20 font-black font-display select-none">&ldquo;</div>
                   <div className="flex flex-col gap-4">
                     <p className="text-lg md:text-xl font-semibold text-ink leading-snug">
                       Dev agencies build great code but have zero marketing sense.
@@ -351,7 +356,7 @@ export default function About() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {values.map((val, idx) => {
-                const Icon = valueIconMap[val.icon] ?? Award;
+                const Icon: React.ElementType = (valueIconMap[val.icon] ?? Award) as React.ElementType;
                 return (
                   <motion.div
                     key={val.title}
@@ -360,10 +365,10 @@ export default function About() {
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ delay: idx * 0.1, duration: 0.5 }}
                   >
-                    <Card colorBg={val.color as any} className="flex flex-col gap-5 h-full group hover:shadow-lg transition-shadow duration-300">
+                    <Card colorBg={val.color as Parameters<typeof Card>[0]["colorBg"]} className="flex flex-col gap-5 h-full group hover:shadow-lg transition-shadow duration-300">
                       <div className="flex items-start justify-between gap-4">
                         <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-zinc-100 flex items-center justify-center text-accent-primary shrink-0">
-                          <Icon className="w-6 h-6" />
+                          {React.createElement(Icon as React.FC<{ className?: string }>, { className: "w-6 h-6" })}
                         </div>
                         <span className="text-3xl font-black text-ink/5 font-display select-none">
                           0{idx + 1}
@@ -451,39 +456,36 @@ export default function About() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {teamMembers.map((member, idx) => (
-                <motion.div
-                  key={member.name}
-                  className="flex flex-col gap-4 group"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ delay: idx * 0.1 }}
-                >
-                  <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-slate-200 bg-slate-100 shadow-md">
-                    <div className="w-full h-full bg-gradient-to-br from-[#F1F5F9] to-[#EBF3FC] flex items-center justify-center">
-                      <Avatar name={member.name} className="w-24 h-24 text-2xl border-4 border-white shadow-lg" />
+                <ScrollReveal key={member.name} delay={idx * 0.1}>
+                  <Tilt3DCard intensity={8} className="h-full">
+                    <div className="flex flex-col gap-4 group h-full bg-white p-4 rounded-3xl border border-purple-100/80 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all">
+                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-purple-100 bg-slate-100 shadow-xs">
+                        <div className="w-full h-full bg-gradient-to-br from-purple-50/50 to-indigo-50/50 flex items-center justify-center">
+                          <Avatar name={member.name} className="w-24 h-24 text-2xl border-4 border-white shadow-lg" />
+                        </div>
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-purple-950/90 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-4 text-center">
+                          <p className="text-white text-xs font-semibold leading-relaxed">
+                            Passionate about building digital products that drive real business results.
+                          </p>
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-purple-700 hover:scale-110 transition-transform shadow-md"
+                            aria-label={`${member.name} LinkedIn`}
+                          >
+                            <Linkedin className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-0.5 px-1 pb-1">
+                        <h3 className="font-black text-lg text-slate-900 font-display tracking-tight">{member.name}</h3>
+                        <span className="text-xs text-purple-600 font-bold uppercase tracking-wider">{member.role}</span>
+                      </div>
                     </div>
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-[#0A2540]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-4">
-                      <p className="text-white text-sm font-semibold text-center leading-relaxed">
-                        Passionate about building digital products that drive real business results.
-                      </p>
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-accent-primary hover:scale-105 transition-transform"
-                        aria-label={`${member.name} LinkedIn`}
-                      >
-                        <Linkedin className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-0.5 px-1">
-                    <h3 className="font-extrabold text-lg text-ink tracking-tight">{member.name}</h3>
-                    <span className="text-sm text-zinc-500 font-medium">{member.role}</span>
-                  </div>
-                </motion.div>
+                  </Tilt3DCard>
+                </ScrollReveal>
               ))}
             </div>
           </div>

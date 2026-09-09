@@ -96,7 +96,7 @@ export default function TermsAndConditions() {
             <div id="limits" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">5. Disclaimers & Limits</h2>
               <p>
-                KK NEX TECH SOLUTION delivers software assets "as is" without implied performance guarantees. We are not liable for direct, indirect, or operational profit losses resulting from server offline periods.
+                KK NEX TECH SOLUTION delivers software assets &ldquo;as is&rdquo; without implied performance guarantees. We are not liable for direct, indirect, or operational profit losses resulting from server offline periods.
               </p>
             </div>
 
@@ -112,7 +112,7 @@ export default function TermsAndConditions() {
             <div id="contact" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">7. Contact Legal Team</h2>
               <p>
-                For legal inquiries, terms reviews, or clarification requests, please write to hello@kknextech.com with the subject line "Terms Query."
+                For legal inquiries, terms reviews, or clarification requests, please write to hello@kknextech.com with the subject line &ldquo;Terms Query.&rdquo;
               </p>
             </div>
 

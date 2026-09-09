@@ -19,19 +19,22 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "KK NEX TECH SOLUTION | IT Services & Software Solutions",
-    template: "%s | KK NEX TECH SOLUTION",
+    default: "KK Next Tech Solution | Custom Web Development & Digital Growth Agency",
+    template: "%s | KK Next Tech Solution",
   },
   description:
-    "Build, launch, and scale your digital products with KK NEX TECH SOLUTION. Expert custom web development, mobile applications, social media management, and custom CRM/ERP integrations.",
+    "Scale your brand with high-performance web development, high-converting Shopify stores, ROI-focused performance marketing, and enterprise CRM/ERP consultations. Schedule your free tech audit today!",
   keywords: [
-    "IT Services",
-    "Web Development",
-    "Mobile Apps",
-    "Social Media Management",
-    "CRM Solutions",
-    "ERP Solutions",
-    "KK NEX TECH SOLUTION",
+    "Custom Web Development & Performance Marketing Agency",
+    "Shopify e-commerce solutions",
+    "enterprise CRM consultation",
+    "scalable web application architecture",
+    "data-driven digital growth",
+    "enterprise web development",
+    "full-funnel digital marketing",
+    "scalable CRM integration",
+    "custom WordPress solutions",
+    "KK Next Tech Solution",
   ],
   metadataBase: new URL("https://kknextech.com"),
 };

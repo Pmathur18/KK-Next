@@ -20,8 +20,11 @@ export default function Header() {
   const borderOpacity = useTransform(scrollY, [0, 40], [0.08, 0.15]);
 
   useEffect(() => {
-    setIsOpen(false);
-    setMegaMenuOpen(false);
+    const t = setTimeout(() => {
+      setIsOpen(false);
+      setMegaMenuOpen(false);
+    }, 0);
+    return () => clearTimeout(t);
   }, [pathname]);
 
   // Close menus on resize
@@ -73,20 +76,20 @@ export default function Header() {
           backgroundColor: useTransform(bgOpacity, (v) => `rgba(255, 255, 255, ${v})`),
           backdropFilter: useTransform(backdropBlur, (v) => `blur(${v}px)`),
         }}
-        className="sticky top-0 z-50 w-full transition-all duration-200 border-b border-purple-100/60 shadow-xs"
+        className="sticky top-0 z-50 w-full transition-all duration-300 border-b border-purple-100/60 shadow-sm"
       >
         <div className="mx-auto max-w-7xl px-6 md:px-8 py-3.5 flex items-center justify-between">
           {/* Logo Mark */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group" aria-label="KK NEX TECH SOLUTION Home">
             <img
               src="/logo.png"
               alt="KK Next Tech Solutions Logo"
-              className="h-10 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-10 md:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(124,58,237,0.5)]"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8 bg-white/60 backdrop-blur-md px-6 py-2 rounded-full border border-purple-100/60 shadow-sm">
+          <nav className="hidden lg:flex items-center gap-8 bg-white/70 backdrop-blur-xl px-6 py-2 rounded-full border border-purple-100/80 shadow-md">
             {navLinks.map((link) => {
               if (link.hasDropdown) {
                 return (
@@ -98,7 +101,7 @@ export default function Header() {
                   >
                     <button
                       className={cn(
-                        "flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-[#7C3AED] transition-colors cursor-pointer",
+                        "flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-[#7C3AED] transition-all cursor-pointer hover:drop-shadow-[0_0_8px_rgba(124,58,237,0.3)]",
                         pathname.startsWith("/services") ? "text-[#7C3AED] font-bold" : ""
                       )}
                     >
@@ -193,7 +196,7 @@ export default function Header() {
           {/* Desktop Right CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <Link href="/contact">
-              <Button variant="primary" colorTheme="violet" className="!py-2.5 !px-6 !text-sm">
+              <Button variant="primary" colorTheme="violet" className="!py-2.5 !px-6 !text-sm shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all duration-200">
                 Book a Call
               </Button>
             </Link>
