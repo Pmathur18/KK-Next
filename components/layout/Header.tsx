@@ -101,7 +101,7 @@ export default function Header() {
                   >
                     <button
                       className={cn(
-                        "flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-[#7C3AED] transition-all cursor-pointer hover:drop-shadow-[0_0_8px_rgba(124,58,237,0.3)]",
+                        "flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-[#7C3AED] transition-all cursor-pointer hover:drop-shadow-[0_0_8px_rgba(124,58,237,0.3)] outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1",
                         pathname.startsWith("/services") ? "text-[#7C3AED] font-bold" : ""
                       )}
                     >
@@ -176,7 +176,7 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-sm font-semibold text-slate-700 hover:text-[#7C3AED] transition-colors relative py-1",
+                    "text-sm font-semibold text-slate-700 hover:text-[#7C3AED] transition-colors relative py-1 px-1 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md",
                     isActive ? "text-[#7C3AED] font-bold" : ""
                   )}
                 >

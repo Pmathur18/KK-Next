@@ -10,7 +10,6 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import SectionHeading from "@/components/ui/SectionHeading";
-import GraphicPlaceholder from "@/components/ui/GraphicPlaceholder";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";

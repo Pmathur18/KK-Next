@@ -459,10 +459,19 @@ export default function About() {
                 <ScrollReveal key={member.name} delay={idx * 0.1}>
                   <Tilt3DCard intensity={8} className="h-full">
                     <div className="flex flex-col gap-4 group h-full bg-white p-4 rounded-3xl border border-purple-100/80 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all">
-                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-purple-100 bg-slate-100 shadow-xs">
-                        <div className="w-full h-full bg-gradient-to-br from-purple-50/50 to-indigo-50/50 flex items-center justify-center">
-                          <Avatar name={member.name} className="w-24 h-24 text-2xl border-4 border-white shadow-lg" />
-                        </div>
+                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 shadow-xs">
+                        {member.avatar ? (
+                          <img
+                            src={member.avatar}
+                            alt={member.name}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-purple-50/50 to-indigo-50/50 flex items-center justify-center">
+                            <Avatar name={member.name} className="w-24 h-24 text-2xl border-4 border-white shadow-lg" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
                         {/* Hover Overlay */}
                         <div className="absolute inset-0 bg-purple-950/90 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-4 text-center">
                           <p className="text-white text-xs font-semibold leading-relaxed">

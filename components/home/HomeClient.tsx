@@ -32,7 +32,6 @@ import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
-import GraphicPlaceholder from "@/components/ui/GraphicPlaceholder";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
@@ -837,8 +836,13 @@ export default function HomeClient() {
                       <p className="text-slate-600 text-sm leading-relaxed">{project.description}</p>
                     </div>
 
-                    <div className="relative w-full h-[220px] rounded-2xl overflow-hidden border border-purple-100">
-                      <GraphicPlaceholder type="project" slug={project.slug} />
+                    <div className="relative w-full h-[230px] rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/img">
+                      <img
+                        src={project.imageUrl}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
                     </div>
 
                     <div className="pt-4 border-t border-purple-50 flex items-center justify-between">
@@ -855,6 +859,75 @@ export default function HomeClient() {
                       >
                         View Case Study <ChevronRight className="w-4 h-4" />
                       </Link>
+                    </div>
+                  </div>
+                </Tilt3DCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* ═══════════════════════════════════════════════════════════════════
+          SECTION 6.5: CLIENT TESTIMONIALS & TRUST PROOF
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="py-24 md:py-32 bg-gradient-to-b from-white via-purple-50/30 to-slate-50/40 relative overflow-hidden border-t border-purple-100/60">
+        <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
+          <div className="flex flex-col items-center gap-4 text-center max-w-3xl mx-auto">
+            <ScrollReveal>
+              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
+                Client Testimonials
+              </Badge>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight leading-tight">
+                Trusted by Forward-Thinking Brands &amp;{" "}
+                <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
+                  Enterprise Leaders
+                </AnimatedGradientText>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                Read how our custom development, performance marketing, and operational CRM automations have delivered measurable business ROI.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {testimonials.map((t, idx) => (
+              <ScrollReveal key={t.id} delay={idx * 0.08}>
+                <Tilt3DCard intensity={6} className="h-full">
+                  <div className="h-full p-6 rounded-3xl bg-white border border-purple-100/80 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex flex-col justify-between gap-6 group">
+                    <div className="flex flex-col gap-4">
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-1 text-amber-400">
+                        {[...Array(t.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-current" />
+                        ))}
+                      </div>
+                      <p className="text-slate-700 text-sm leading-relaxed italic">
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-purple-50 flex items-center gap-3">
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-purple-200 shrink-0 shadow-sm bg-purple-50">
+                        {t.avatar ? (
+                          <img
+                            src={t.avatar}
+                            alt={t.name}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                        ) : (
+                          <Avatar name={t.name} className="w-full h-full text-xs" />
+                        )}
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-sm font-bold text-slate-900 truncate font-display">{t.name}</span>
+                        <span className="text-[11px] text-purple-600 font-semibold truncate">{t.role}</span>
+                        <span className="text-[10px] text-slate-400 truncate">{t.company}</span>
+                      </div>
                     </div>
                   </div>
                 </Tilt3DCard>
@@ -894,7 +967,7 @@ export default function HomeClient() {
                   </Badge>
 
                   {/* Section 8 Headline */}
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-#38BDF8 font-display tracking-tight leading-tight">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white font-display tracking-tight leading-tight">
                     Ready to Engineer Your Next Phase of{" "}
                     <AnimatedGradientText from="#A855F7" via="#EC4899" to="#38BDF8">
                       Digital Growth?

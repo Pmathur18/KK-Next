@@ -6,7 +6,6 @@ import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
 import Avatar from "@/components/ui/Avatar";
-import GraphicPlaceholder from "@/components/ui/GraphicPlaceholder";
 import { blogPosts } from "@/data/blog";
 
 interface PostPageProps {
@@ -96,8 +95,13 @@ export default async function PostPage({ params }: PostPageProps) {
         </section>
 
         {/* Cover Image */}
-        <div className="relative w-full aspect-[16/9] rounded-[32px] overflow-hidden border border-slate-200 bg-slate-100 mt-4">
-          <GraphicPlaceholder type="blog" slug={post.slug} />
+        <div className="relative w-full aspect-[16/9] rounded-[32px] overflow-hidden border border-purple-100/80 bg-slate-900 shadow-xl mt-4 group">
+          <img
+            src={post.imageUrl}
+            alt={post.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Article Body */}

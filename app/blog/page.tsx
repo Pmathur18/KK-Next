@@ -9,7 +9,6 @@ import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
-import GraphicPlaceholder from "@/components/ui/GraphicPlaceholder";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import ParticleField from "@/components/ui/ParticleField";
@@ -77,8 +76,13 @@ export default function Blog() {
           <ScrollReveal>
             <Tilt3DCard intensity={5}>
               <div className="rounded-[32px] overflow-hidden border border-purple-200/80 bg-white grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-8 shadow-xl shadow-purple-900/5 hover:shadow-2xl hover:border-purple-300 transition-all">
-                <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto w-full rounded-2xl overflow-hidden border border-purple-100 bg-slate-50">
-                  <GraphicPlaceholder type="blog" slug={featuredPost.slug} />
+                <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto w-full rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/featured min-h-[260px]">
+                  <img
+                    src={featuredPost.imageUrl}
+                    alt={featuredPost.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover/featured:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 <div className="lg:col-span-5 flex flex-col justify-between py-2">
@@ -147,8 +151,13 @@ export default function Blog() {
                 <Tilt3DCard intensity={6} className="h-full">
                   <div className="flex flex-col justify-between group bg-white border border-purple-100/80 p-6 rounded-3xl shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all h-full">
                     <div className="flex flex-col gap-4">
-                      <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-purple-100 bg-slate-50">
-                        <GraphicPlaceholder type="blog" slug={post.slug} />
+                      <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/card">
+                        <img
+                          src={post.imageUrl}
+                          alt={post.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
                       </div>
                       <div className="flex items-center justify-between">
                         <Badge colorTheme={post.category === "Websites" ? "sky" : (post.category === "Mobile Apps" ? "peach" : (post.category === "Social Media" ? "mint" : "yellow"))}>

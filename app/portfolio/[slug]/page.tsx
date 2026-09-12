@@ -6,7 +6,6 @@ import { ArrowLeft, CheckCircle2, ChevronRight, AlertCircle, Cpu, Tag } from "lu
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import GraphicPlaceholder from "@/components/ui/GraphicPlaceholder";
 import { projects } from "@/data/portfolio";
 
 interface CaseStudyProps {
@@ -102,8 +101,21 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
         </section>
 
         {/* Big Banner Image */}
-        <section className="relative w-full h-[320px] md:h-[480px] rounded-[32px] overflow-hidden border border-white/40 bg-slate-100 shadow-md">
-          <GraphicPlaceholder type="project" slug={project.slug} />
+        <section className="relative w-full h-[340px] md:h-[500px] rounded-[32px] overflow-hidden border border-purple-200/60 bg-slate-900 shadow-2xl group">
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between z-10">
+            <span className="text-xs font-bold uppercase tracking-wider text-purple-200 bg-purple-950/80 px-4 py-1.5 rounded-full border border-purple-400/30 backdrop-blur-md">
+              {project.category} · {project.client}
+            </span>
+            <span className="text-xs font-mono font-bold text-white bg-white/10 px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md hidden sm:inline-block">
+              {project.resultMetric}
+            </span>
+          </div>
         </section>
 
         {/* ── PAIN POINTS & OUR SOLUTION ── */}

@@ -29,12 +29,17 @@ export default function SectionHeading({
         className
       )}
     >
-      <span className="text-xs md:text-sm font-semibold tracking-[0.15em] uppercase text-accent-primary">
+      <span
+        className={cn(
+          "text-xs md:text-sm font-bold tracking-[0.15em] uppercase",
+          isDark ? "text-purple-300" : "text-accent-primary font-semibold"
+        )}
+      >
         {eyebrow}
       </span>
       <h2
         className={cn(
-          "text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight",
+          "text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight",
           isDark ? "text-white" : "text-ink"
         )}
       >
@@ -43,8 +48,8 @@ export default function SectionHeading({
       {description && (
         <p
           className={cn(
-            "text-base md:text-lg leading-relaxed max-w-2xl",
-            isDark ? "text-zinc-400" : "text-zinc-600"
+            "text-base md:text-lg leading-relaxed max-w-2xl font-normal",
+            isDark ? "text-slate-300" : "text-zinc-600"
           )}
         >
           {description}

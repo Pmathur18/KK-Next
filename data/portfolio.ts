@@ -47,7 +47,7 @@ export const projects: Project[] = [
       "4.5s → 1.2s improvement in average site load speed",
       "40% drop in cart abandonment rate"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/ecommerce_showcase.jpg",
     metaTitle: "D2C Fashion Brand Shopify Headless Rebuild | 315% Revenue Growth Case Study",
     metaDescription: "See how KK Next Tech Solution rebuilt a D2C fashion brand's Shopify store, cut load time to 1.2s, and drove a 315% revenue increase in 6 months.",
     keywords: ["Shopify headless development", "D2C ecommerce growth", "Shopify speed optimization", "cart abandonment reduction", "ecommerce CRO case study"]
@@ -113,7 +113,7 @@ export const projects: Project[] = [
       "55% reduction in Cost Per Acquisition (CPA)",
       "Page 1 rankings achieved for 15+ competitive keywords"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/social_marketing_showcase.jpg",
     metaTitle: "B2B SaaS Lead Generation Case Study | 1,200+ Qualified Leads in Q1",
     metaDescription: "How KK Next Tech Solution combined SEO, LinkedIn Lead Gen, and Google Ads to generate 1,200+ B2B leads and cut CPA by 55% for a SaaS startup.",
     keywords: ["B2B lead generation", "SaaS SEO agency", "LinkedIn lead gen campaigns", "B2B performance marketing", "reduce cost per acquisition"]
@@ -278,7 +278,7 @@ export const projects: Project[] = [
       "65% faster quote turnaround time",
       "40% reduction in production planning errors"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/web_architecture_showcase.jpg",
     metaTitle: "B2B Manufacturing WordPress & ERP Case Study | Faster RFQs, More Leads",
     metaDescription: "See how KK Next Tech Solution combined a fast WordPress site with ERP automation for a B2B manufacturer, tripling inbound RFQ volume.",
     keywords: ["B2B manufacturing website design", "ERP for manufacturing", "WordPress development for industrial companies", "RFQ automation", "B2B website SEO"]
@@ -311,7 +311,7 @@ export const projects: Project[] = [
       "2.4x increase in repeat course enrollments",
       "33% uplift in average revenue per learner"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/mobile_app_showcase.jpg",
     metaTitle: "AI Recommendation Engine for EdTech Platforms | Custom Development Case Study",
     metaDescription: "KK Next Tech Solution built a custom EdTech platform with an AI recommendation engine, boosting course completion by 58%.",
     keywords: ["AI recommendation engine development", "custom EdTech platform development", "AI in education technology", "custom web app development", "learning platform personalization"]

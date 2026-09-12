@@ -20,7 +20,8 @@ import {
   Sliders,
   Bell,
   Eye,
-  Check
+  Check,
+  Play
 } from "lucide-react";
 
 import Button from "@/components/ui/Button";
@@ -28,7 +29,6 @@ import Badge from "@/components/ui/Badge";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
-import GraphicPlaceholder from "@/components/ui/GraphicPlaceholder";
 import { cn } from "@/lib/utils";
 import { services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
@@ -178,8 +178,22 @@ export default function SocialMediaPage() {
                     Best Time ✨
                   </span>
                 </div>
-                <div className="h-28 bg-purple-50 rounded-xl flex flex-col items-center justify-center border border-purple-100 relative overflow-hidden">
-                  <GraphicPlaceholder type="blog" slug="social-media-growth" />
+                <div className="h-32 rounded-xl border border-purple-100 relative overflow-hidden bg-slate-900 group">
+                  <img
+                    src="/images/social_marketing_showcase.jpg"
+                    alt="Social Media Reel Growth Showcase"
+                    className="w-full h-full object-cover opacity-85 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-9 h-9 rounded-full bg-white/30 backdrop-blur-md border border-white/60 flex items-center justify-center shadow-lg text-white">
+                      <Play className="w-4 h-4 fill-current ml-0.5" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between z-10 text-[9px] font-bold text-white">
+                    <span className="bg-purple-950/80 px-2 py-0.5 rounded-full border border-purple-400/30 backdrop-blur-xs">▶ 0:45 · 4K 60fps</span>
+                    <span className="text-emerald-400 font-mono">⚡ Trending #1</span>
+                  </div>
                 </div>
                 <div className="flex items-center justify-between text-[11px] text-slate-500 font-semibold pt-1">
                   <span>Likes: 4.8k</span>

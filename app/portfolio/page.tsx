@@ -24,7 +24,6 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
-import GraphicPlaceholder from "@/components/ui/GraphicPlaceholder";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import SpotlightSection from "@/components/ui/SpotlightSection";
@@ -295,9 +294,11 @@ export default function PortfolioPage() {
                     muted={isMuted}
                     playsInline
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
-                    poster="/images/crm_erp_dashboard.jpg"
+                    poster="/images/hero_dashboard.jpg"
                   >
-                    <source src="https://upmail.co.in/EmailerAdmin/uploadDigital/uploadDigital.mp4" type="video/mp4" />
+                    <source src="/videos/showreel.webm" type="video/webm" />
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                   </video>
 
                   {/* Gradient Overlay */}
