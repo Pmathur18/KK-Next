@@ -911,23 +911,13 @@ export default function HomeClient() {
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-purple-50 flex items-center gap-3">
-                      <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-purple-200 shrink-0 shadow-sm bg-purple-50">
-                        {t.avatar ? (
-                          <img
-                            src={t.avatar}
-                            alt={t.name}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                          />
-                        ) : (
-                          <Avatar name={t.name} className="w-full h-full text-xs" />
-                        )}
-                      </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="text-sm font-bold text-slate-900 truncate font-display">{t.name}</span>
-                        <span className="text-[11px] text-purple-600 font-semibold truncate">{t.role}</span>
-                        <span className="text-[10px] text-slate-400 truncate">{t.company}</span>
-                      </div>
+                    <div className="pt-4 border-t border-purple-50 flex items-center justify-between">
+                      <span className="text-xs text-purple-700 font-bold uppercase tracking-wider font-display">
+                        {t.role}
+                      </span>
+                      <span className="text-[11px] font-semibold text-emerald-600 bg-emerald-50 border border-emerald-200/60 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-500" /> Verified Client
+                      </span>
                     </div>
                   </div>
                 </Tilt3DCard>

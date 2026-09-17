@@ -112,7 +112,7 @@ export default function TermsAndConditions() {
             <div id="contact" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">7. Contact Legal Team</h2>
               <p>
-                For legal inquiries, terms reviews, or clarification requests, please write to hello@kknextech.com with the subject line &ldquo;Terms Query.&rdquo;
+                For legal inquiries, terms reviews, or clarification requests, please write to info@kknexttech.com with the subject line &ldquo;Terms Query.&rdquo;
               </p>
             </div>
 

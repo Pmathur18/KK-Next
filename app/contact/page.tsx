@@ -99,22 +99,22 @@ export default function Contact() {
 
   const handleServiceToggle = (val: string) => {
     const isSelected = selectedServices.includes(val);
-    const updated = isSelected 
-      ? selectedServices.filter(s => s !== val) 
+    const updated = isSelected
+      ? selectedServices.filter(s => s !== val)
       : [...selectedServices, val];
     setValue("services", updated, { shouldValidate: true });
   };
 
   const handleSourceToggle = (val: string) => {
     const isSelected = selectedSource.includes(val);
-    const updated = isSelected 
-      ? selectedSource.filter(s => s !== val) 
+    const updated = isSelected
+      ? selectedSource.filter(s => s !== val)
       : [...selectedSource, val];
     setValue("source", updated, { shouldValidate: true });
   };
 
   const serviceOptions = [
-    "Branding", "SEO Search Campaigns", "Performance Media", 
+    "Branding", "SEO Search Campaigns", "Performance Media",
     "Web Development", "Mobile Applications", "CRM & ERP Integrations"
   ];
 
@@ -143,7 +143,7 @@ export default function Contact() {
       <ParticleField count={40} color="124, 58, 237" opacity={0.15} />
       <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={450} opacity={0.1} blur={120} />
       <GlowingOrb className="bottom-[10%] left-[-5%]" color="#38bdf8" size={350} opacity={0.08} blur={100} />
-      
+
       {/* 1. HEADER SECTION */}
       <section className="max-w-7xl px-6 md:px-8 mx-auto text-center pb-12 border-b border-purple-100 flex flex-col items-center gap-4 relative z-10">
         <ScrollReveal>
@@ -154,7 +154,7 @@ export default function Contact() {
 
         <ScrollReveal delay={0.1}>
           <h1 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight font-display uppercase">
-            GOT AN IDEA? <br/>
+            GOT AN IDEA? <br />
             <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
               Drop Us A Message
             </AnimatedGradientText>
@@ -163,14 +163,14 @@ export default function Contact() {
 
         <ScrollReveal delay={0.2}>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-xl">
-            We simplify digital growth. Send us your project scope inquiries or email us directly at <span className="font-bold text-purple-700 underline">hello@kknextech.com</span>.
+            We simplify digital growth. Send us your project scope inquiries or email us directly at <span className="font-bold text-purple-700 underline">info@kknexttech.com</span>.
           </p>
         </ScrollReveal>
       </section>
 
       {/* Grid container */}
       <div className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 pt-16 relative z-10">
-        
+
         {/* Left Column: Contact Form with Spotlight */}
         <div className="lg:col-span-7">
           <ScrollReveal direction="left">
@@ -191,7 +191,7 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {/* Name */}
                       <div className="flex flex-col gap-1.5">
@@ -206,7 +206,6 @@ export default function Contact() {
                             "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
                             errors.name ? "border-red-500" : ""
                           )}
-                          placeholder="Prakhar Mathur"
                         />
                         {errors.name && (
                           <span className="text-xs font-semibold text-red-500">{errors.name.message}</span>
@@ -226,7 +225,6 @@ export default function Contact() {
                             "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
                             errors.orgName ? "border-red-500" : ""
                           )}
-                          placeholder="Acme Corp"
                         />
                         {errors.orgName && (
                           <span className="text-xs font-semibold text-red-500">{errors.orgName.message}</span>
@@ -248,7 +246,6 @@ export default function Contact() {
                             "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
                             errors.email ? "border-red-500" : ""
                           )}
-                          placeholder="prakhar@example.com"
                         />
                         {errors.email && (
                           <span className="text-xs font-semibold text-red-500">{errors.email.message}</span>
@@ -268,7 +265,6 @@ export default function Contact() {
                             "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
                             errors.phone ? "border-red-500" : ""
                           )}
-                          placeholder="+91 98765 43210"
                         />
                         {errors.phone && (
                           <span className="text-xs font-semibold text-red-500">{errors.phone.message}</span>
@@ -287,7 +283,6 @@ export default function Contact() {
                         type="url"
                         {...register("socialLink")}
                         className="bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium"
-                        placeholder="https://yourcompany.com"
                       />
                     </div>
 
@@ -364,7 +359,6 @@ export default function Contact() {
                           "bg-purple-50/30 border border-purple-100 rounded-2xl p-4 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium resize-none",
                           errors.message ? "border-red-500" : ""
                         )}
-                        placeholder="Tell us about your project, timeline, and goals..."
                       />
                       {errors.message && (
                         <span className="text-xs font-semibold text-red-500">{errors.message.message}</span>
@@ -430,12 +424,12 @@ export default function Contact() {
 
         {/* Right Column: Direct Info & 3D Office Cards */}
         <div className="lg:col-span-5 flex flex-col gap-8">
-          
+
           <ScrollReveal direction="right">
             <Tilt3DCard intensity={6}>
               <div className="p-8 rounded-[32px] bg-gradient-to-br from-slate-900 via-purple-950 to-slate-950 text-white border border-purple-500/20 shadow-2xl flex flex-col gap-6 relative overflow-hidden">
                 <GlowingOrb className="top-[-20%] right-[-20%]" color="#7C3AED" size={200} opacity={0.3} blur={60} />
-                
+
                 <div className="relative z-10 flex flex-col gap-4">
                   <span className="text-xs font-bold uppercase tracking-widest text-purple-300">
                     Direct Contact
@@ -449,11 +443,11 @@ export default function Contact() {
                 </div>
 
                 <div className="relative z-10 flex flex-col gap-4 pt-4 border-t border-purple-500/20 text-sm">
-                  <a href="mailto:hello@kknextech.com" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
+                  <a href="mailto:info@kknexttech.com" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
                     <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">
                       <Mail className="w-4 h-4" />
                     </div>
-                    <span>hello@kknextech.com</span>
+                    <span>info@kknexttech.com</span>
                   </a>
                   <a href="tel:+919876543210" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
                     <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">
@@ -471,29 +465,6 @@ export default function Contact() {
               </div>
             </Tilt3DCard>
           </ScrollReveal>
-
-          {/* Global Presence List */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-black uppercase tracking-widest text-slate-400">
-              Global Office Presence
-            </h3>
-            <div className="grid grid-cols-1 gap-3">
-              {officesList.map((off, idx) => (
-                <ScrollReveal key={off.city} delay={idx * 0.05}>
-                  <div className="p-4 rounded-2xl bg-white border border-purple-100 shadow-sm hover:border-purple-300 transition-all flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 shrink-0 mt-0.5">
-                      <Building2 className="w-4 h-4" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-extrabold text-slate-900 font-display">{off.city}</span>
-                      <span className="text-xs text-slate-500">{off.address}</span>
-                      <span className="text-xs text-purple-700 font-bold mt-1">{off.phone}</span>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
 
         </div>
 

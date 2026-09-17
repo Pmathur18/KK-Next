@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -8,10 +8,6 @@ import {
   ArrowUpRight,
   Sparkles,
   CheckCircle2,
-  Volume2,
-  VolumeX,
-  Play,
-  RotateCcw,
   Zap,
   TrendingUp,
   Shield,
@@ -32,7 +28,6 @@ import ParticleField from "@/components/ui/ParticleField";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import BeamBorder from "@/components/ui/BeamBorder";
 import NumberTicker from "@/components/ui/NumberTicker";
-import Avatar from "@/components/ui/Avatar";
 import { projects, Project } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -135,32 +130,27 @@ const flipCardsData = [
 /* ─── Testimonials Data (Upload Digital Style Switcher) ──────────────────────── */
 const clientTestimonials = [
   {
-    name: "Ashutosh Ananth",
-    role: "Co-Founder, Rescript Sustainable Stationery",
+    role: "Co-Founder",
     quote: "Working with KK NEX TECH SOLUTION has been a transformative experience. Over the past three years, they have played a pivotal role in shaping our brand identity and ecommerce tech. Their speed, strategic approach, and attention to detail ensured our brand resonates strongly with our audience.",
     metric: "+315% Ecommerce Growth",
   },
   {
-    name: "Vishal Raj Menon",
-    role: "Founder, Fireflies Logistics",
+    role: "Founder",
     quote: "The team went above and beyond to build a custom CRM and tracking dashboard that is visually striking and user-friendly. Their use of modern templates and automated webhooks brought our ops to life. Highly recommended!",
     metric: "120+ Hrs Saved Weekly",
   },
   {
-    name: "Hari Prasad",
-    role: "Founder, Beyond Sustainability",
+    role: "Founder",
     quote: "KK NEX TECH has truly delivered. The platform they built for us is visually appealing and highly functional, catering specifically to climate tech. Every element is designed to engage visitors and drive our mission forward.",
     metric: "58% Completion Lift",
   },
   {
-    name: "Himanshu Garg",
-    role: "CEO & Founder, Fanztar",
+    role: "CEO & Founder",
     quote: "We started working with KK NEX TECH right from the pre-launch days. They helped us set up our digital presence and conceptualized communication narratives for our audiences. Execution was flawlesly executed.",
     metric: "1,200+ Qualified Leads",
   },
   {
-    name: "Kritika Sarin",
-    role: "Head of Marketing, The Earth Collective",
+    role: "Head of Marketing",
     quote: "Their work has significantly reduced my stress in having to imagine, design, and implement a new design language. Having worked with them for over two years, we greatly value their dedication and consistent performance.",
     metric: "3.1x Return on Ad Spend",
   },
@@ -169,9 +159,6 @@ const clientTestimonials = [
 export default function PortfolioPage() {
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const filters = ["All", "Websites", "Mobile Apps", "Social Media", "CRM/ERP"];
 
@@ -182,24 +169,6 @@ export default function PortfolioPage() {
 
   const featuredProjects = filteredProjects.slice(0, 4);
   const secondaryProjects = filteredProjects.slice(4);
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
   return (
     <div className="relative w-full bg-white text-slate-900 min-h-screen overflow-hidden font-sans">
@@ -255,78 +224,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
-          2. INTERACTIVE 3D TABLET SHOWREEL SECTION (Upload Digital Tablet Mockup)
-      ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-12 md:py-20 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <ScrollReveal>
-          <div className="flex flex-col items-center gap-8">
-            <div className="text-center flex flex-col items-center gap-2">
-              <span className="text-xs font-black uppercase tracking-widest text-purple-600">
-                Visual Experience
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-slate-900 tracking-tight">
-                It is Showreel Time!
-              </h2>
-            </div>
 
-            {/* 3D Perspective Tablet Device Frame */}
-            <Tilt3DCard intensity={5} className="w-full max-w-5xl">
-              <div className="relative w-full rounded-[36px] bg-gradient-to-b from-slate-900 via-purple-950 to-slate-950 p-4 md:p-6 border border-purple-500/30 shadow-[0_30px_90px_rgba(124,58,237,0.2)]">
-                {/* Tablet Frame Header Dots */}
-                <div className="flex items-center justify-between pb-3 px-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                  </div>
-                  <span className="text-[11px] font-mono text-purple-300/70 font-semibold">
-                    kknextech-showreel-2026.mp4
-                  </span>
-                </div>
-
-                {/* Video Screen */}
-                <div className="relative w-full aspect-[16/9] rounded-[24px] overflow-hidden bg-slate-900 shadow-inner group">
-                  <video
-                    ref={videoRef}
-                    autoPlay
-                    loop
-                    muted={isMuted}
-                    playsInline
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
-                    poster="/images/hero_dashboard.jpg"
-                  >
-                    <source src="/videos/showreel.webm" type="video/webm" />
-                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Video Control Buttons */}
-                  <div className="absolute bottom-4 right-4 flex items-center gap-2 z-20">
-                    <button
-                      onClick={togglePlay}
-                      className="px-4 py-2 rounded-full bg-slate-900/80 backdrop-blur-xl border border-white/20 text-white text-xs font-bold flex items-center gap-1.5 hover:bg-purple-600 transition-colors cursor-pointer shadow-lg"
-                    >
-                      {isPlaying ? <RotateCcw className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-                      <span>{isPlaying ? "Pause" : "Play"}</span>
-                    </button>
-                    <button
-                      onClick={toggleMute}
-                      className="px-4 py-2 rounded-full bg-purple-600 backdrop-blur-xl border border-purple-400 text-white text-xs font-bold flex items-center gap-1.5 hover:bg-purple-700 transition-colors cursor-pointer shadow-lg"
-                    >
-                      {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-                      <span>{isMuted ? "Unmute Sound" : "Mute Sound"}</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </Tilt3DCard>
-          </div>
-        </ScrollReveal>
-      </section>
 
       {/* ════════════════════════════════════════════════════════════════════
           3. FEATURED CASE STUDIES GRID (Upload Digital 2-Column Showcase Cards)
@@ -630,20 +528,25 @@ export default function PortfolioPage() {
 
           {/* Testimonial Tabs Switcher */}
           <div className="flex flex-col items-center gap-8">
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               {clientTestimonials.map((t, idx) => (
                 <button
-                  key={t.name}
+                  key={idx}
                   onClick={() => setActiveTestimonial(idx)}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-2 rounded-full border transition-all cursor-pointer",
+                    "flex items-center gap-2 px-4 py-2 rounded-full border transition-all cursor-pointer text-xs font-bold",
                     activeTestimonial === idx
                       ? "bg-slate-900 text-white border-slate-900 shadow-lg scale-105"
                       : "bg-white text-slate-600 border-purple-100 hover:border-purple-300"
                   )}
                 >
-                  <Avatar name={t.name} className="w-7 h-7 text-[10px]" />
-                  <span className="text-xs font-bold">{t.name}</span>
+                  <span>{t.role}</span>
+                  <span className={cn(
+                    "text-[10px] px-2 py-0.5 rounded-full font-mono",
+                    activeTestimonial === idx ? "bg-purple-800 text-purple-200" : "bg-purple-50 text-purple-700"
+                  )}>
+                    {t.metric}
+                  </span>
                 </button>
               ))}
             </div>
@@ -660,14 +563,11 @@ export default function PortfolioPage() {
                     {clientTestimonials[activeTestimonial].quote}
                   </p>
 
-                  <div className="flex flex-col items-center gap-1 pt-4 border-t border-purple-200/60">
-                    <span className="text-base font-black text-slate-900 font-display">
-                      {clientTestimonials[activeTestimonial].name}
-                    </span>
-                    <span className="text-xs text-purple-700 font-bold">
+                  <div className="flex flex-col items-center gap-2 pt-4 border-t border-purple-200/60">
+                    <span className="text-sm font-bold text-purple-700 uppercase tracking-wide font-display">
                       {clientTestimonials[activeTestimonial].role}
                     </span>
-                    <span className="text-[11px] font-extrabold px-3 py-1 rounded-full bg-purple-100 text-purple-800 mt-2 font-mono">
+                    <span className="text-[11px] font-extrabold px-3 py-1 rounded-full bg-purple-100 text-purple-800 font-mono">
                       {clientTestimonials[activeTestimonial].metric}
                     </span>
                   </div>

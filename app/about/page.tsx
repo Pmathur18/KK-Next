@@ -10,20 +10,12 @@ import {
   Award,
   ShieldCheck,
   CheckCircle2,
-  Mail,
 } from "lucide-react";
-import { Linkedin } from "@/components/ui/BrandIcons";
 
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Avatar from "@/components/ui/Avatar";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import Tilt3DCard from "@/components/ui/Tilt3DCard";
-import GlowingOrb from "@/components/ui/GlowingOrb";
-import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import GlassCard from "@/components/ui/GlassCard";
-import { milestones, values, teamMembers } from "@/data/team";
+import { milestones, values } from "@/data/team";
 import { fadeUp, staggerContainer, slideInLeft, slideInRight } from "@/lib/animations";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 
@@ -276,13 +268,6 @@ export default function About() {
                       — The exact problem that built KK NEX TECH SOLUTION.
                     </p>
                   </div>
-                  <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                    <div className="w-9 h-9 rounded-full bg-[#0A2540] flex items-center justify-center text-white text-sm font-black">K</div>
-                    <div>
-                      <p className="text-sm font-bold text-ink">Kartik Krishnan</p>
-                      <p className="text-xs text-slate-500">Founder &amp; CEO</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -443,62 +428,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* ════════════════════════════════════════════════════════════════════
-            6. TEAM GRID
-        ════════════════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-32 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
-          <div className="flex flex-col gap-16">
-            <SectionHeading
-              eyebrow="Leadership"
-              title="Meet the experts behind your growth."
-              description="A tight-knit team of engineers, strategists, and designers who are obsessively focused on your results — not billable hours."
-            />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {teamMembers.map((member, idx) => (
-                <ScrollReveal key={member.name} delay={idx * 0.1}>
-                  <Tilt3DCard intensity={8} className="h-full">
-                    <div className="flex flex-col gap-4 group h-full bg-white p-4 rounded-3xl border border-purple-100/80 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all">
-                      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 shadow-xs">
-                        {member.avatar ? (
-                          <img
-                            src={member.avatar}
-                            alt={member.name}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-purple-50/50 to-indigo-50/50 flex items-center justify-center">
-                            <Avatar name={member.name} className="w-24 h-24 text-2xl border-4 border-white shadow-lg" />
-                          </div>
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-                        {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-purple-950/90 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-4 text-center">
-                          <p className="text-white text-xs font-semibold leading-relaxed">
-                            Passionate about building digital products that drive real business results.
-                          </p>
-                          <a
-                            href={member.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-purple-700 hover:scale-110 transition-transform shadow-md"
-                            aria-label={`${member.name} LinkedIn`}
-                          >
-                            <Linkedin className="w-4 h-4" />
-                          </a>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-0.5 px-1 pb-1">
-                        <h3 className="font-black text-lg text-slate-900 font-display tracking-tight">{member.name}</h3>
-                        <span className="text-xs text-purple-600 font-bold uppercase tracking-wider">{member.role}</span>
-                      </div>
-                    </div>
-                  </Tilt3DCard>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ════════════════════════════════════════════════════════════════════
             7. FINAL CTA

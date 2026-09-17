@@ -112,7 +112,7 @@ export default function PrivacyPolicy() {
             <div id="contact" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">7. Contact Legal Team</h2>
               <p>
-                For questions regarding data protection, legal compliance, or database inquiries, please contact hello@kknextech.com with the subject line &ldquo;Legal Query.&rdquo;
+                For questions regarding data protection, legal compliance, or database inquiries, please contact info@kknexttech.com with the subject line &ldquo;Legal Query.&rdquo;
               </p>
             </div>
 

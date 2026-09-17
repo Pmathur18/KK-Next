@@ -31,7 +31,6 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
 import { cn } from "@/lib/utils";
 import { services } from "@/data/services";
-import { testimonials } from "@/data/testimonials";
 
 const socialFAQs: FAQItem[] = [
   {
