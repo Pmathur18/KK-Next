@@ -36,6 +36,16 @@ export const metadata: Metadata = {
     "custom WordPress solutions",
     "KK Next Tech Solution",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   metadataBase: new URL("https://kknextech.com"),
 };
 
