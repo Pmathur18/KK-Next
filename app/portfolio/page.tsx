@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -13,7 +13,11 @@ import {
   Shield,
   Clock,
   Layers,
-  ChevronRight
+  ChevronRight,
+  RotateCcw,
+  Play,
+  VolumeX,
+  Volume2,
 } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
@@ -159,6 +163,9 @@ const clientTestimonials = [
 export default function PortfolioPage() {
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const filters = ["All", "Websites", "Mobile Apps", "Social Media", "CRM/ERP"];
 
@@ -169,6 +176,24 @@ export default function PortfolioPage() {
 
   const featuredProjects = filteredProjects.slice(0, 4);
   const secondaryProjects = filteredProjects.slice(4);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <div className="relative w-full bg-white text-slate-900 min-h-screen overflow-hidden font-sans">
@@ -224,7 +249,78 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      {/* ════════════════════════════════════════════════════════════════════
+          2. INTERACTIVE 3D TABLET SHOWREEL SECTION (Upload Digital Tablet Mockup)
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="py-12 md:py-20 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <ScrollReveal>
+          <div className="flex flex-col items-center gap-8">
+            <div className="text-center flex flex-col items-center gap-2">
+              <span className="text-xs font-black uppercase tracking-widest text-purple-600">
+                Visual Experience
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-slate-900 tracking-tight">
+                It is Showreel Time!
+              </h2>
+            </div>
 
+            {/* 3D Perspective Tablet Device Frame */}
+            <Tilt3DCard intensity={5} className="w-full max-w-5xl">
+              <div className="relative w-full rounded-[36px] bg-gradient-to-b from-slate-900 via-purple-950 to-slate-950 p-4 md:p-6 border border-purple-500/30 shadow-[0_30px_90px_rgba(124,58,237,0.2)]">
+                {/* Tablet Frame Header Dots */}
+                <div className="flex items-center justify-between pb-3 px-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <span className="text-[11px] font-mono text-purple-300/70 font-semibold">
+                    kknextech-showreel-2026.mp4
+                  </span>
+                </div>
+
+                {/* Video Screen */}
+                <div className="relative w-full aspect-[16/9] rounded-[24px] overflow-hidden bg-slate-900 shadow-inner group">
+                  <video
+                    ref={videoRef}
+                    autoPlay
+                    loop
+                    muted={isMuted}
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+                    poster="/images/hero_dashboard.jpg"
+                  >
+                    <source src="/videos/showreel.webm" type="video/webm" />
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Video Control Buttons */}
+                  <div className="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+                    <button
+                      onClick={togglePlay}
+                      className="px-4 py-2 rounded-full bg-slate-900/80 backdrop-blur-xl border border-white/20 text-white text-xs font-bold flex items-center gap-1.5 hover:bg-purple-600 transition-colors cursor-pointer shadow-lg"
+                    >
+                      {isPlaying ? <RotateCcw className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+                      <span>{isPlaying ? "Pause" : "Play"}</span>
+                    </button>
+                    <button
+                      onClick={toggleMute}
+                      className="px-4 py-2 rounded-full bg-purple-600 backdrop-blur-xl border border-purple-400 text-white text-xs font-bold flex items-center gap-1.5 hover:bg-purple-700 transition-colors cursor-pointer shadow-lg"
+                    >
+                      {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+                      <span>{isMuted ? "Unmute Sound" : "Mute Sound"}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Tilt3DCard>
+          </div>
+        </ScrollReveal>
+      </section>
 
       {/* ════════════════════════════════════════════════════════════════════
           3. FEATURED CASE STUDIES GRID (Upload Digital 2-Column Showcase Cards)
@@ -242,7 +338,7 @@ export default function PortfolioPage() {
               <ScrollReveal key={project.slug} delay={idx * 0.1}>
                 <Tilt3DCard intensity={6} className="h-full">
                   <div className="group relative flex flex-col justify-between rounded-[32px] overflow-hidden bg-white border border-purple-100/90 shadow-xl shadow-purple-900/5 hover:shadow-2xl hover:border-purple-300 transition-all duration-300 h-full">
-                    
+
                     {/* Top Graphic Showcase */}
                     <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-900 border-b border-purple-100 flex items-center justify-center">
                       <img
@@ -454,7 +550,7 @@ export default function PortfolioPage() {
                 <ScrollReveal key={card.no} delay={idx * 0.1}>
                   <div className="group h-[260px] [perspective:1000px] cursor-pointer">
                     <div className="relative h-full w-full rounded-3xl transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-purple-900/5 border border-purple-100">
-                      
+
                       {/* FRONT FACE */}
                       <div className="absolute inset-0 h-full w-full rounded-3xl bg-white p-6 flex flex-col justify-between [backface-visibility:hidden]">
                         <div className="flex items-center justify-between">
