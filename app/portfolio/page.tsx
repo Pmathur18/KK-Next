@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -160,6 +160,13 @@ const clientTestimonials = [
 ];
 
 export default function PortfolioPage() {
+  const [managedProjects, setManagedProjects] = useState<typeof projects | null>(null);
+  useEffect(() => {
+    fetch("/api/content", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).then((content) => {
+      if (content?.portfolios) setManagedProjects(content.portfolios);
+    }).catch(() => undefined);
+  }, []);
+  const visibleProjects = managedProjects ?? projects;
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
@@ -168,7 +175,7 @@ export default function PortfolioPage() {
 
   const filters = ["All", "Websites", "Mobile Apps", "Social Media", "CRM/ERP"];
 
-  const filteredProjects = projects.filter((project) => {
+  const filteredProjects = visibleProjects.filter((project) => {
     if (selectedFilter === "All") return true;
     return project.category === selectedFilter;
   });

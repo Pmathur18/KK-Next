@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,6 +17,7 @@ import ParticleField from "@/components/ui/ParticleField";
 import GlowingOrb from "@/components/ui/GlowingOrb";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import { cn } from "@/lib/utils";
+import type { JobOpening } from "@/lib/admin-store";
 
 const careerFAQs: FAQItem[] = [
   {
@@ -58,6 +59,13 @@ type FormValues = z.infer<typeof schema>;
 export default function Career() {
   const [expandedRole, setExpandedRole] = useState<string | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [managedPositions, setManagedPositions] = useState<JobOpening[] | null>(null);
+
+  useEffect(() => {
+    fetch("/api/content", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).then((content) => {
+      if (content?.jobOpenings) setManagedPositions(content.jobOpenings);
+    }).catch(() => undefined);
+  }, []);
 
   const {
     register,
@@ -86,7 +94,7 @@ export default function Career() {
     { title: "Health Benefits", desc: "Comprehensive insurance coverage for yourself and immediate family.", icon: Heart, color: "bg-[#050B14] text-white" },
   ];
 
-  const positions = [
+  const fallbackPositions: JobOpening[] = [
     {
       id: "p1",
       title: "Senior React Native Engineer",
@@ -98,7 +106,8 @@ export default function Career() {
         "4+ years of professional React Native engineering.",
         "Deep familiarity with SQLite on-device caches and data sync engines.",
         "Strict typescript standards and modular architecture guidelines."
-      ]
+      ],
+      active: true
     },
     {
       id: "p2",
@@ -111,7 +120,8 @@ export default function Career() {
         "3+ years engineering Next.js applications.",
         "Strong CSS skills (Tailwind, PostCSS, keyframe loops).",
         "Experience mapping Shopify Storefront or similar headless APIs."
-      ]
+      ],
+      active: true
     },
     {
       id: "p3",
@@ -124,9 +134,11 @@ export default function Career() {
         "2+ years running Meta/Google search campaigns.",
         "Data-driven mindset focusing on CPL and conversion CTR numbers.",
         "Familiarity with visual wireframing tools (Figma, Canva)."
-      ]
+      ],
+      active: true
     }
   ];
+  const positions = managedPositions ?? fallbackPositions;
 
   return (
     <div className="relative overflow-hidden w-full bg-white py-12 md:py-20 animate-fadeIn">
@@ -369,9 +381,7 @@ export default function Career() {
                     )}
                   >
                     <option value="">Select a role...</option>
-                    <option value="react-native">Senior React Native Engineer</option>
-                    <option value="nextjs-frontend">Lead Frontend Developer (Next.js)</option>
-                    <option value="ads-specialist">Social Advertising Specialist</option>
+                    {positions.map((position) => <option key={position.id} value={position.title}>{position.title}</option>)}
                     <option value="generalist">General Engineering Application</option>
                   </select>
                   {errors.role && (

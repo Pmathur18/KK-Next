@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
@@ -20,8 +20,16 @@ export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [managedPosts, setManagedPosts] = useState<typeof blogPosts | null>(null);
 
-  const categories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
+  useEffect(() => {
+    fetch("/api/content", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).then((content) => {
+      if (content?.blogs) setManagedPosts(content.blogs);
+    }).catch(() => undefined);
+  }, []);
+
+  const posts = managedPosts ?? blogPosts;
+  const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,8 +40,8 @@ export default function Blog() {
     }
   };
 
-  const featuredPost = blogPosts.find((p) => p.featured) || blogPosts[0];
-  const regularPosts = blogPosts.filter((p) => p.slug !== featuredPost.slug);
+  const featuredPost = posts.find((p) => p.featured) || posts[0];
+  const regularPosts = posts.filter((p) => p.slug !== featuredPost.slug);
 
   const filteredPosts = regularPosts.filter((p) => {
     if (selectedCategory === "All") return true;

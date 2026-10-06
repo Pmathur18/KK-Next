@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: Request) {
   const body = await request.json() as {
-    resource: "blogs" | "testimonials" | "contacts" | "careers";
+    resource: "blogs" | "testimonials" | "contacts" | "careers" | "portfolios" | "jobOpenings";
     action: "create" | "update" | "delete";
     data: Parameters<typeof mutateAdminData>[2];
   };

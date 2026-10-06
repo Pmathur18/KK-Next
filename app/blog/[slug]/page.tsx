@@ -8,6 +8,9 @@ import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Avatar from "@/components/ui/Avatar";
 import { blogPosts } from "@/data/blog";
+import { getPublicContent } from "@/lib/admin-store";
+
+export const dynamic = "force-dynamic";
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;
@@ -21,7 +24,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = (await getPublicContent()).blogs.find((p) => p.slug === slug);
 
   if (!post) {
     return {
@@ -43,14 +46,15 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const content = await getPublicContent();
+  const post = content.blogs.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
   }
 
   // Related posts calculation (excluding current)
-  const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
+  const relatedPosts = content.blogs.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
     <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">

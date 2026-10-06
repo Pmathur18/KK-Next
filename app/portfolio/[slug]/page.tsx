@@ -8,6 +8,9 @@ import { ArrowLeft, CheckCircle2, ChevronRight, AlertCircle, Cpu, Tag } from "lu
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { projects } from "@/data/portfolio";
+import { getPublicContent } from "@/lib/admin-store";
+
+export const dynamic = "force-dynamic";
 
 interface CaseStudyProps {
   params: Promise<{ slug: string }>;
@@ -21,7 +24,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: CaseStudyProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = (await getPublicContent()).portfolios.find((p) => p.slug === slug);
 
   if (!project) {
     return {
@@ -43,15 +46,16 @@ export async function generateMetadata({ params }: CaseStudyProps): Promise<Meta
 
 export default async function CaseStudyPage({ params }: CaseStudyProps) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const content = await getPublicContent();
+  const project = content.portfolios.find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
   }
 
   // Next case study calculation
-  const projectIdx = projects.findIndex((p) => p.slug === slug);
-  const nextProject = projects[(projectIdx + 1) % projects.length];
+  const projectIdx = content.portfolios.findIndex((p) => p.slug === slug);
+  const nextProject = content.portfolios[(projectIdx + 1) % content.portfolios.length];
 
   return (
     <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
