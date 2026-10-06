@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Menu, X, Laptop, Share2, Database, ArrowRight } from "lucide-react";
@@ -17,7 +18,8 @@ export default function Header() {
   // Glass frosted navbar bg scroll animation
   const bgOpacity = useTransform(scrollY, [0, 40], [0.8, 0.95]);
   const backdropBlur = useTransform(scrollY, [0, 40], [8, 16]);
-  const borderOpacity = useTransform(scrollY, [0, 40], [0.08, 0.15]);
+  const backgroundColor = useTransform(bgOpacity, (v) => `rgba(255, 255, 255, ${v})`);
+  const backdropFilter = useTransform(backdropBlur, (v) => `blur(${v}px)`);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -69,21 +71,25 @@ export default function Header() {
     },
   ];
 
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <>
       <motion.header
         style={{
-          backgroundColor: useTransform(bgOpacity, (v) => `rgba(255, 255, 255, ${v})`),
-          backdropFilter: useTransform(backdropBlur, (v) => `blur(${v}px)`),
+          backgroundColor,
+          backdropFilter,
         }}
         className="sticky top-0 z-50 w-full transition-all duration-300 border-b border-purple-100/60 shadow-sm"
       >
         <div className="mx-auto max-w-7xl px-6 md:px-8 py-3.5 flex items-center justify-between">
           {/* Logo Mark */}
           <Link href="/" className="flex items-center gap-3 group" aria-label="KK NEX TECH SOLUTION Home">
-            <img
+            <Image
               src="/logo.png"
               alt="KK Next Tech Solutions Logo"
+              width={160}
+              height={104}
               className="h-10 md:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(124,58,237,0.5)]"
             />
           </Link>
@@ -100,6 +106,10 @@ export default function Header() {
                     onMouseLeave={() => setMegaMenuOpen(false)}
                   >
                     <button
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded={megaMenuOpen}
+                      onClick={() => setMegaMenuOpen((open) => !open)}
                       className={cn(
                         "flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-[#7C3AED] transition-all cursor-pointer hover:drop-shadow-[0_0_8px_rgba(124,58,237,0.3)] outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1",
                         pathname.startsWith("/services") ? "text-[#7C3AED] font-bold" : ""
@@ -207,6 +217,8 @@ export default function Header() {
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-slate-800 hover:text-[#7C3AED] transition-colors focus:outline-none cursor-pointer"
             aria-label="Toggle navigation"
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -217,6 +229,7 @@ export default function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

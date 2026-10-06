@@ -16,15 +16,15 @@
   --color-navy-card: #1E1B4B;
   --color-ice-blue: #F3E8FF;
 
-  --font-display: var(--font-display), system-ui, sans-serif;
-  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-display: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
   
   --radius-card: 24px;
 }
 
 :root {
-  --font-display: 'Outfit';
-  --font-sans: 'Plus Jakarta Sans';
+  --font-display: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
   background-color: var(--color-bg-base);
   color: var(--color-ink);
 }
@@ -265,6 +265,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ── SECTION SPACING ─────────────────────────────────────────────────── */
-section + section {
-  margin-top: 0;
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
@@ -11,8 +11,6 @@ import {
   ShieldCheck,
   Zap,
   CheckCircle2,
-  Cpu,
-  Layers,
   Sparkles,
   GitBranch,
   RefreshCw,
@@ -30,10 +28,8 @@ import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import GlowingOrb from "@/components/ui/GlowingOrb";
-import BentoCard from "@/components/ui/BentoCard";
 import SpotlightSection from "@/components/ui/SpotlightSection";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import GlassCard from "@/components/ui/GlassCard";
 import BeamBorder from "@/components/ui/BeamBorder";
 import FloatingBadge from "@/components/ui/FloatingBadge";
 import ParticleField from "@/components/ui/ParticleField";
@@ -246,9 +242,10 @@ export default function CrmErpService() {
           <Tilt3DCard intensity={6} className="w-full">
             <div className="w-full relative rounded-[32px] overflow-hidden border border-purple-200/80 shadow-[0_25px_60px_rgba(124,58,237,0.12)] bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 p-2 md:p-3.5 group">
               <div className="relative w-full aspect-[16/9] rounded-[24px] overflow-hidden bg-slate-900">
-                <img
+                <Image
                   src="/images/crm_erp_dashboard.jpg"
                   alt="KK Next Tech CRM & ERP Operations Dashboard"
+                  fill
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />

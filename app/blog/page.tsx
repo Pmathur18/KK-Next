@@ -2,19 +2,18 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
-import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
-import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import ParticleField from "@/components/ui/ParticleField";
 import GlowingOrb from "@/components/ui/GlowingOrb";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import { blogPosts, BlogPost } from "@/data/blog";
+import { blogPosts } from "@/data/blog";
 import { cn } from "@/lib/utils";
 
 export default function Blog() {
@@ -77,9 +76,10 @@ export default function Blog() {
             <Tilt3DCard intensity={5}>
               <div className="rounded-[32px] overflow-hidden border border-purple-200/80 bg-white grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-8 shadow-xl shadow-purple-900/5 hover:shadow-2xl hover:border-purple-300 transition-all">
                 <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto w-full rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/featured min-h-[260px]">
-                  <img
+                  <Image
                     src={featuredPost.imageUrl}
                     alt={featuredPost.title}
+                    fill
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/featured:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
@@ -152,9 +152,10 @@ export default function Blog() {
                   <div className="flex flex-col justify-between group bg-white border border-purple-100/80 p-6 rounded-3xl shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all h-full">
                     <div className="flex flex-col gap-4">
                       <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/card">
-                        <img
+                        <Image
                           src={post.imageUrl}
                           alt={post.title}
+                          fill
                           className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />

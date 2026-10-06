@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CheckCircle2, ChevronDown, ChevronUp, Briefcase, GraduationCap, Heart, Home, Paperclip, Send } from "lucide-react";
 
 import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
@@ -68,14 +68,15 @@ export default function Career() {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: FormValues) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        setFormSubmitted(true);
-        reset();
-        resolve(true);
-      }, 1500);
+  const onSubmit = async (values: FormValues) => {
+    const response = await fetch("/api/career", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
     });
+    if (!response.ok) throw new Error("Unable to submit application");
+    setFormSubmitted(true);
+    reset();
   };
 
   const perks = [
@@ -161,9 +162,10 @@ export default function Career() {
           <Tilt3DCard intensity={8} className="w-full h-full">
             <div className="w-full h-full bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 border border-purple-500/20 rounded-[32px] overflow-hidden p-3 shadow-2xl flex items-center justify-center">
               <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-slate-900">
-                <img
+                <Image
                   src="/images/tech_team_workspace.jpg"
                   alt="KK Next Tech Workspace & Engineering Team"
+                  fill
                   className="w-full h-full object-cover"
                 />
               </div>

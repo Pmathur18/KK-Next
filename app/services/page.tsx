@@ -23,12 +23,7 @@ import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import GlowingOrb from "@/components/ui/GlowingOrb";
-import BentoCard from "@/components/ui/BentoCard";
-import SpotlightSection from "@/components/ui/SpotlightSection";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import GlassCard from "@/components/ui/GlassCard";
-import BeamBorder from "@/components/ui/BeamBorder";
-import { projects } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
 const allServicesFAQs: FAQItem[] = [

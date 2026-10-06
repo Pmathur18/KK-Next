@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Sphere, Line, OrbitControls } from "@react-three/drei";
+import { Sphere, Line } from "@react-three/drei";
 import * as THREE from "three";
 
 function WireframeGlobe() {
@@ -25,7 +25,7 @@ function WireframeGlobe() {
   for (let lat = -80; lat <= 80; lat += 20) {
     const points: THREE.Vector3[] = [];
     const phi = (lat * Math.PI) / 180;
-    for (let lng = 0; lng <= 360; lng += 4) {
+    for (let lng = 0; lng <= 360; lng += 8) {
       const theta = (lng * Math.PI) / 180;
       points.push(
         new THREE.Vector3(
@@ -42,7 +42,7 @@ function WireframeGlobe() {
   for (let lng = 0; lng < 360; lng += 20) {
     const points: THREE.Vector3[] = [];
     const theta = (lng * Math.PI) / 180;
-    for (let lat = -90; lat <= 90; lat += 4) {
+    for (let lat = -90; lat <= 90; lat += 8) {
       const phi = (lat * Math.PI) / 180;
       points.push(
         new THREE.Vector3(
@@ -57,8 +57,8 @@ function WireframeGlobe() {
 
   // Glowing dots on intersections
   const dots: [number, number, number][] = [];
-  for (let lat = -60; lat <= 60; lat += 20) {
-    for (let lng = 0; lng < 360; lng += 20) {
+    for (let lat = -60; lat <= 60; lat += 30) {
+    for (let lng = 0; lng < 360; lng += 30) {
       const phi = (lat * Math.PI) / 180;
       const theta = (lng * Math.PI) / 180;
       dots.push([
@@ -116,13 +116,13 @@ export default function GlobeOrb({ className, size = 480 }: GlobeOrbProps) {
     >
       <Canvas
         camera={{ position: [0, 0, 4], fov: 45 }}
+        dpr={[1, 1.25]}
         style={{ background: "transparent" }}
       >
         <ambientLight intensity={0.8} />
         <pointLight position={[5, 5, 5]} intensity={1.2} color="#7C3AED" />
         <pointLight position={[-5, -5, -5]} intensity={0.5} color="#38bdf8" />
         <WireframeGlobe />
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate={false} />
       </Canvas>
     </div>
   );

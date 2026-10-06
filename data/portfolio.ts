@@ -47,7 +47,7 @@ export const projects: Project[] = [
       "4.5s → 1.2s improvement in average site load speed",
       "40% drop in cart abandonment rate"
     ],
-    imageUrl: "/images/ecommerce_showcase.jpg",
+    imageUrl: "/images/portfolio-ecommerce-v2.png",
     metaTitle: "D2C Fashion Brand Shopify Headless Rebuild | 315% Revenue Growth Case Study",
     metaDescription: "See how KK Next Tech Solution rebuilt a D2C fashion brand's Shopify store, cut load time to 1.2s, and drove a 315% revenue increase in 6 months.",
     keywords: ["Shopify headless development", "D2C ecommerce growth", "Shopify speed optimization", "cart abandonment reduction", "ecommerce CRO case study"]
@@ -80,7 +80,7 @@ export const projects: Project[] = [
       "Zero data loss incidents since go-live",
       "60% increase in Client Satisfaction Score (CSAT)"
     ],
-    imageUrl: "/images/crm_erp_dashboard.jpg",
+    imageUrl: "/images/portfolio-crm-v2.png",
     metaTitle: "Custom CRM for Logistics Companies | Real-Time Shipment Tracking Case Study",
     metaDescription: "KK Next Tech Solution built a custom CRM and dashboard for a global logistics firm, saving 120+ hours weekly and eliminating data loss.",
     keywords: ["custom CRM development", "logistics software solutions", "workflow automation for logistics", "custom business dashboard", "CRM implementation case study"]
@@ -113,7 +113,7 @@ export const projects: Project[] = [
       "55% reduction in Cost Per Acquisition (CPA)",
       "Page 1 rankings achieved for 15+ competitive keywords"
     ],
-    imageUrl: "/images/social_marketing_showcase.jpg",
+    imageUrl: "/images/portfolio-growth-v2.png",
     metaTitle: "B2B SaaS Lead Generation Case Study | 1,200+ Qualified Leads in Q1",
     metaDescription: "How KK Next Tech Solution combined SEO, LinkedIn Lead Gen, and Google Ads to generate 1,200+ B2B leads and cut CPA by 55% for a SaaS startup.",
     keywords: ["B2B lead generation", "SaaS SEO agency", "LinkedIn lead gen campaigns", "B2B performance marketing", "reduce cost per acquisition"]
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       "98% in-stock rate maintained on top-selling SKUs",
       "150+ hours saved monthly on manual reconciliation"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/portfolio-crm-v2.png",
     metaTitle: "AI Demand Forecasting for Wholesale Distributors | ERP Automation Case Study",
     metaDescription: "KK Next Tech Solution deployed AI demand forecasting and ERP automation for a wholesale distributor, cutting dead stock by 34% and boosting stock accuracy.",
     keywords: ["AI demand forecasting", "ERP implementation for distributors", "inventory automation software", "wholesale supply chain automation", "ERP consultation services"]
@@ -179,7 +179,7 @@ export const projects: Project[] = [
       "27% reduction in emergency restocking costs",
       "10+ hrs/week saved per location on manual stock counts"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/portfolio-ecommerce-v2.png",
     metaTitle: "Omnichannel Inventory Automation for Retail Chains | InventO Case Study",
     metaDescription: "See how InventO by KK Next Tech Solution synced stock across Shopify, marketplaces, and stores for a retail franchise, eliminating overselling.",
     keywords: ["omnichannel inventory management", "retail inventory automation", "InventO software", "Shopify inventory sync", "franchise stock management system"]
@@ -212,7 +212,7 @@ export const projects: Project[] = [
       "45% increase in lead-to-viewing conversion rate",
       "100% of leads now captured with full communication history"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/portfolio-crm-v2.png",
     metaTitle: "Real Estate CRM Automation Case Study | Faster Lead Response, More Closings",
     metaDescription: "KK Next Tech Solution implemented CRM and lead automation for a real estate agency, cutting response time by 70% and boosting conversions by 45%.",
     keywords: ["real estate CRM implementation", "lead automation for real estate", "CRM for property agencies", "sales pipeline automation", "real estate lead nurturing"]
@@ -245,7 +245,7 @@ export const projects: Project[] = [
       "3.1x return on ad spend (ROAS) within 4 months",
       "22% average order value increase via bundling"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/portfolio-ecommerce-v2.png",
     metaTitle: "D2C Skincare Brand Shopify Launch Case Study | Subscription & Marketing Automation",
     metaDescription: "KK Next Tech Solution launched a D2C skincare brand on Shopify with subscription flows and marketing automation, driving 3.1x ROAS.",
     keywords: ["D2C Shopify store launch", "ecommerce subscription model", "Shopify marketing automation", "D2C brand growth agency", "email SMS automation ecommerce"]
@@ -278,7 +278,7 @@ export const projects: Project[] = [
       "65% faster quote turnaround time",
       "40% reduction in production planning errors"
     ],
-    imageUrl: "/images/web_architecture_showcase.jpg",
+    imageUrl: "/images/portfolio-architecture-v2.png",
     metaTitle: "B2B Manufacturing WordPress & ERP Case Study | Faster RFQs, More Leads",
     metaDescription: "See how KK Next Tech Solution combined a fast WordPress site with ERP automation for a B2B manufacturer, tripling inbound RFQ volume.",
     keywords: ["B2B manufacturing website design", "ERP for manufacturing", "WordPress development for industrial companies", "RFQ automation", "B2B website SEO"]
@@ -311,7 +311,7 @@ export const projects: Project[] = [
       "2.4x increase in repeat course enrollments",
       "33% uplift in average revenue per learner"
     ],
-    imageUrl: "/images/mobile_app_showcase.jpg",
+    imageUrl: "/images/portfolio-mobile-v2.png",
     metaTitle: "AI Recommendation Engine for EdTech Platforms | Custom Development Case Study",
     metaDescription: "KK Next Tech Solution built a custom EdTech platform with an AI recommendation engine, boosting course completion by 58%.",
     keywords: ["AI recommendation engine development", "custom EdTech platform development", "AI in education technology", "custom web app development", "learning platform personalization"]
@@ -344,7 +344,7 @@ export const projects: Project[] = [
       "80% of routine scheduling queries now handled by AI",
       "35% reduction in front-desk administrative workload"
     ],
-    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "/images/portfolio-mobile-v2.png",
     metaTitle: "AI Chatbot Booking Automation for Healthcare Clinics | Case Study",
     metaDescription: "KK Next Tech Solution built an AI chatbot and custom booking platform for a healthcare network, cutting no-shows by 52%.",
     keywords: ["AI chatbot for healthcare", "custom clinic booking system", "healthcare CRM automation", "reduce patient no-shows software", "AI automation for clinics"]

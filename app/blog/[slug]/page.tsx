@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
@@ -96,9 +97,10 @@ export default async function PostPage({ params }: PostPageProps) {
 
         {/* Cover Image */}
         <div className="relative w-full aspect-[16/9] rounded-[32px] overflow-hidden border border-purple-100/80 bg-slate-900 shadow-xl mt-4 group">
-          <img
+          <Image
             src={post.imageUrl}
             alt={post.title}
+            fill
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />

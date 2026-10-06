@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -31,8 +31,7 @@ import GlowingOrb from "@/components/ui/GlowingOrb";
 import ParticleField from "@/components/ui/ParticleField";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import BeamBorder from "@/components/ui/BeamBorder";
-import NumberTicker from "@/components/ui/NumberTicker";
-import { projects, Project } from "@/data/portfolio";
+import { projects } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
 /* ─── FAQ Data ──────────────────────────────────────────────────────────────── */
@@ -63,7 +62,7 @@ const portfolioFAQs: FAQItem[] = [
 const whyUsBlocks = [
   {
     title: "We are B2B & Enterprise domain experts",
-    desc: "We take the time to understand your commercial goals & operational challenges, deploying tailored engineering patterns that guarantee return on investment.",
+    desc: "We take the time to understand your commercial goals and operational challenges, then deploy tailored engineering patterns tied to measurable outcomes.",
     icon: Shield,
     color: "from-purple-500/10 via-purple-500/5 to-transparent",
   },
@@ -81,7 +80,7 @@ const whyUsBlocks = [
   },
   {
     title: "We've got your back post-launch",
-    desc: "Even after we deploy your application or campaign, our engineering team provides 24/7 SLAs, security patches, and continuous feature updates.",
+    desc: "After launch, our engineering team provides priority support, agreed response-time SLAs, security patches, and continuous feature updates.",
     icon: Zap,
     color: "from-emerald-500/10 via-emerald-500/5 to-transparent",
   },
@@ -94,13 +93,13 @@ const flipCardsData = [
     frontTitle: "Outbound & Performance Media",
     frontSub: "meta.ads / google.search",
     backTitle: "High-Ticket Lead Generation",
-    backSub: "3.5x ROAS Guarantee",
+    backSub: "ROAS-focused campaign strategy",
     frontIcon: Zap,
   },
   {
     no: "02",
     frontTitle: "Brand System & Identity",
-    frontSub: "kknextech.com/branding",
+    frontSub: "brand systems / visual identity",
     backTitle: "Global Market Recognition",
     backSub: "Distinctive Visual Edge",
     frontIcon: Sparkles,
@@ -150,7 +149,7 @@ const clientTestimonials = [
   },
   {
     role: "CEO & Founder",
-    quote: "We started working with KK NEX TECH right from the pre-launch days. They helped us set up our digital presence and conceptualized communication narratives for our audiences. Execution was flawlesly executed.",
+    quote: "We started working with KK NEX TECH right from the pre-launch days. They helped us set up our digital presence and conceptualized communication narratives for our audiences. Their execution was flawless.",
     metric: "1,200+ Qualified Leads",
   },
   {
@@ -260,7 +259,7 @@ export default function PortfolioPage() {
                 Visual Experience
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-slate-900 tracking-tight">
-                It is Showreel Time!
+                A closer look at our work
               </h2>
             </div>
 
@@ -275,7 +274,7 @@ export default function PortfolioPage() {
                     <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                   </div>
                   <span className="text-[11px] font-mono text-purple-300/70 font-semibold">
-                    kknextech-showreel-2026.mp4
+                    KK Next portfolio showreel · WebM
                   </span>
                 </div>
 
@@ -283,15 +282,17 @@ export default function PortfolioPage() {
                 <div className="relative w-full aspect-[16/9] rounded-[24px] overflow-hidden bg-slate-900 shadow-inner group">
                   <video
                     ref={videoRef}
+                    aria-label="KK Next Tech Solution portfolio showreel"
                     autoPlay
                     loop
                     muted={isMuted}
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
-                    poster="/images/hero_dashboard.jpg"
+                    poster="/images/portfolio-architecture-v2.png"
                   >
                     <source src="/videos/showreel.webm" type="video/webm" />
-                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+                    Your browser does not support the showreel video.
                     Your browser does not support the video tag.
                   </video>
 
@@ -302,6 +303,7 @@ export default function PortfolioPage() {
                   <div className="absolute bottom-4 right-4 flex items-center gap-2 z-20">
                     <button
                       onClick={togglePlay}
+                      aria-label={isPlaying ? "Pause showreel" : "Play showreel"}
                       className="px-4 py-2 rounded-full bg-slate-900/80 backdrop-blur-xl border border-white/20 text-white text-xs font-bold flex items-center gap-1.5 hover:bg-purple-600 transition-colors cursor-pointer shadow-lg"
                     >
                       {isPlaying ? <RotateCcw className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
@@ -309,6 +311,7 @@ export default function PortfolioPage() {
                     </button>
                     <button
                       onClick={toggleMute}
+                      aria-label={isMuted ? "Unmute showreel" : "Mute showreel"}
                       className="px-4 py-2 rounded-full bg-purple-600 backdrop-blur-xl border border-purple-400 text-white text-xs font-bold flex items-center gap-1.5 hover:bg-purple-700 transition-colors cursor-pointer shadow-lg"
                     >
                       {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
@@ -341,9 +344,10 @@ export default function PortfolioPage() {
 
                     {/* Top Graphic Showcase */}
                     <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-900 border-b border-purple-100 flex items-center justify-center">
-                      <img
+                      <Image
                         src={project.imageUrl}
                         alt={project.title}
+                        fill
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent pointer-events-none" />
@@ -433,9 +437,10 @@ export default function PortfolioPage() {
                     <div className="group flex flex-col justify-between rounded-3xl bg-white border border-purple-100/80 p-6 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all h-full">
                       <div className="flex flex-col gap-4">
                         <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-purple-100">
-                          <img
+                          <Image
                             src={project.imageUrl}
                             alt={project.title}
+                            fill
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                           <div className="absolute top-3 right-3 bg-purple-950/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-purple-300 border border-purple-400/30">
@@ -491,7 +496,7 @@ export default function PortfolioPage() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white">
               Domain Expertise &amp;{" "}
               <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
-                Execution Guarantee
+                Execution You Can Measure
               </AnimatedGradientText>
             </h2>
             <p className="text-slate-400 text-sm md:text-base leading-relaxed">

@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
@@ -16,7 +17,7 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { milestones, values } from "@/data/team";
-import { fadeUp, staggerContainer, slideInLeft, slideInRight } from "@/lib/animations";
+import { fadeUp, staggerContainer, slideInLeft } from "@/lib/animations";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 
 const aboutFAQs: FAQItem[] = [
@@ -164,9 +165,10 @@ export default function About() {
             >
               {/* Mission card with workspace image background */}
               <div className="relative rounded-[32px] bg-[#050B14] text-white p-8 md:p-10 shadow-2xl overflow-hidden border border-white/20 group">
-                <img
+                <Image
                   src="/images/tech_team_workspace.jpg"
                   alt="KK Next Tech Team & Engineering Studio"
+                  fill
                   className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/90 to-[#050B14]/80 pointer-events-none" />

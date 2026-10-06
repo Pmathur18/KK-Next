@@ -1,8 +1,11 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 
 export default function BackgroundBase() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) return null;
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none bg-white">
       {/* 1. Subtle Grid Texture */}

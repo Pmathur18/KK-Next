@@ -1,25 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Share2,
   Calendar,
   MessageSquare,
   BarChart3,
   Users,
-  Sparkles,
   ArrowRight,
   CheckCircle2,
-  Star,
-  Clock,
-  Send,
-  Zap,
-  TrendingUp,
-  Sliders,
-  Bell,
-  Eye,
   Check,
   Play
 } from "lucide-react";
@@ -131,7 +122,9 @@ export default function SocialMediaPage() {
           >
             <div className="bg-white/90 backdrop-blur-xl border border-purple-100 rounded-full p-2 shadow-2xl shadow-purple-900/10 flex items-center justify-between gap-2">
               <input
+                id="social-business-email"
                 type="email"
+                aria-label="Business email"
                 placeholder="Enter your business email..."
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
@@ -178,9 +171,10 @@ export default function SocialMediaPage() {
                   </span>
                 </div>
                 <div className="h-32 rounded-xl border border-purple-100 relative overflow-hidden bg-slate-900 group">
-                  <img
+                  <Image
                     src="/images/social_marketing_showcase.jpg"
                     alt="Social Media Reel Growth Showcase"
+                    fill
                     className="w-full h-full object-cover opacity-85 transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent pointer-events-none" />

@@ -2,6 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Linkedin, Twitter, Instagram, Github } from "@/components/ui/BrandIcons";
@@ -33,6 +35,8 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) return null;
   return (
     <footer
       className="relative overflow-hidden pt-20 md:pt-28 pb-6 font-sans"
@@ -55,9 +59,11 @@ export default function Footer() {
           <ScrollReveal delay={0}>
             <div className="flex flex-col gap-3">
               <Link href="/" className="block">
-                <img
+                <Image
                   src="/logo.png"
                   alt="KK NEX TECH SOLUTION"
+                  width={140}
+                  height={92}
                   className="h-10 w-auto object-contain"
                 />
               </Link>

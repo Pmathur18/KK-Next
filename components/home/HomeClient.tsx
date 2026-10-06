@@ -1,25 +1,22 @@
 "use client";
 
-import React, { useRef, useState, Suspense } from "react";
+import React, { useRef, Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Star,
   Zap,
   Laptop,
-  Share2,
   Database,
   Code,
   CheckCircle2,
   BarChart3,
   Shield,
   Workflow,
-  Globe,
-  Users,
   TrendingUp,
   ChevronRight,
-  Play,
   Check,
   Cpu,
   LineChart,
@@ -30,23 +27,18 @@ import {
 
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
-import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import SpotlightSection from "@/components/ui/SpotlightSection";
 import GlowingOrb from "@/components/ui/GlowingOrb";
-import BentoCard from "@/components/ui/BentoCard";
-import NumberTicker from "@/components/ui/NumberTicker";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import GlassCard from "@/components/ui/GlassCard";
 import ParticleField from "@/components/ui/ParticleField";
 import BeamBorder from "@/components/ui/BeamBorder";
 
 import { projects } from "@/data/portfolio";
 import { testimonials } from "@/data/testimonials";
-import { blogPosts } from "@/data/blog";
 import { cn } from "@/lib/utils";
 
 // Lazy load GlobeOrb (heavy Three.js)
@@ -214,7 +206,7 @@ const partnerLogos = [
   { name: "Salesforce", type: "Enterprise CRM" },
   { name: "HubSpot", type: "Growth CRM" },
   { name: "WordPress Headless", type: "CMS Platform" },
-  { name: "Next.js 15", type: "Web Architecture" },
+  { name: "Next.js 16", type: "Web Architecture" },
   { name: "AWS Cloud", type: "Infrastructure" },
   { name: "Meta Business", type: "Paid Media" },
   { name: "Google Cloud", type: "Enterprise Cloud" },
@@ -226,8 +218,6 @@ const partnerLogos = [
 export default function HomeClient() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const [auditEmail, setAuditEmail] = useState("");
-  const [submittedAudit, setSubmittedAudit] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -237,13 +227,6 @@ export default function HomeClient() {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const globeScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-
-  const handleAuditSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (auditEmail.trim()) {
-      setSubmittedAudit(true);
-    }
-  };
 
   return (
     <div ref={containerRef} className="relative overflow-hidden w-full bg-white font-sans">
@@ -837,9 +820,10 @@ export default function HomeClient() {
                     </div>
 
                     <div className="relative w-full h-[230px] rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/img">
-                      <img
+                      <Image
                         src={project.imageUrl}
                         alt={project.title}
+                        fill
                         className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />

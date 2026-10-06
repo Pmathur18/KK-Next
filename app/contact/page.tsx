@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { CheckCircle2, Mail, Phone, MapPin, Clock, Send, Link as LinkIcon, Building2, Globe, Sparkles, MessageSquare } from "lucide-react";
-import { Linkedin, Twitter, Instagram } from "@/components/ui/BrandIcons";
+import { CheckCircle2, Mail, Phone, Clock, Send, Link as LinkIcon } from "lucide-react";
 
 import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import SectionHeading from "@/components/ui/SectionHeading";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
@@ -18,8 +15,6 @@ import SpotlightSection from "@/components/ui/SpotlightSection";
 import GlowingOrb from "@/components/ui/GlowingOrb";
 import ParticleField from "@/components/ui/ParticleField";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import BeamBorder from "@/components/ui/BeamBorder";
-import FloatingBadge from "@/components/ui/FloatingBadge";
 import { cn } from "@/lib/utils";
 
 const contactFAQs: FAQItem[] = [
@@ -70,7 +65,7 @@ export default function Contact() {
     register,
     handleSubmit,
     setValue,
-    watch,
+    control,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
@@ -83,18 +78,19 @@ export default function Contact() {
     }
   });
 
-  const selectedServices = watch("services") || [];
-  const selectedSource = watch("source") || [];
-  const selectedOffice = watch("office") || "";
+  const selectedServices = useWatch({ control, name: "services" }) || [];
+  const selectedSource = useWatch({ control, name: "source" }) || [];
+  const selectedOffice = useWatch({ control, name: "office" }) || "";
 
-  const onSubmit = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        setFormSubmitted(true);
-        reset();
-        resolve(true);
-      }, 1500);
+  const onSubmit = async (values: FormValues) => {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
     });
+    if (!response.ok) throw new Error("Unable to submit inquiry");
+    setFormSubmitted(true);
+    reset();
   };
 
   const handleServiceToggle = (val: string) => {
@@ -128,14 +124,6 @@ export default function Contact() {
     { id: "gurugram", name: "Gurugram" },
     { id: "london", name: "London (UK)" },
     { id: "amsterdam", name: "Amsterdam" }
-  ];
-
-  const officesList = [
-    { city: "Mumbai (HQ)", address: "402, Creative Hub, Lower Parel, Mumbai, MH, India", phone: "+91 22 4567 8910" },
-    { city: "Bangalore", address: "139, Oxford Tower, Kodihalli, Bangalore, KA, India", phone: "+91 80 4321 0987" },
-    { city: "Gurugram (NCR)", address: "6th Floor, Platina Tower, M.G. Road, Gurugram, HR, India", phone: "+91 124 555 1234" },
-    { city: "London, UK", address: "71-75 Shelton Street, Covent Garden, London, WC2H 9JQ", phone: "+44 20 7946 0958" },
-    { city: "Amsterdam", address: "Weesperstraat 388, 1018 DN Amsterdam, Netherlands", phone: "+31 20 794 8472" }
   ];
 
   return (

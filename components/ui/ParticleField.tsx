@@ -29,6 +29,7 @@ export default function ParticleField({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
   const particlesRef = useRef<Particle[]>([]);
+  const runningRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,10 +45,17 @@ export default function ParticleField({
       }
     };
 
+    const parent = canvas.parentElement;
+    if (!parent) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const particleCount = reducedMotion ? Math.min(count, 12) : isCoarsePointer ? Math.min(count, 24) : count;
+
     resize();
     window.addEventListener("resize", resize);
 
-    particlesRef.current = Array.from({ length: count }, () => ({
+    particlesRef.current = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * speed,
@@ -56,7 +64,14 @@ export default function ParticleField({
       alpha: Math.random() * opacity + 0.1,
     }));
 
-    const draw = () => {
+    let lastFrame = 0;
+    const draw = (timestamp = 0) => {
+      if (!runningRef.current || document.hidden) return;
+      if (timestamp - lastFrame < 32) {
+        animRef.current = requestAnimationFrame(draw);
+        return;
+      }
+      lastFrame = timestamp;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const particles = particlesRef.current;
 
@@ -94,11 +109,29 @@ export default function ParticleField({
       animRef.current = requestAnimationFrame(draw);
     };
 
-    draw();
+    const start = () => {
+      if (runningRef.current) return;
+      runningRef.current = true;
+      draw();
+    };
+    const stop = () => {
+      runningRef.current = false;
+      cancelAnimationFrame(animRef.current);
+    };
+    const visibilityChange = () => (document.hidden ? stop() : start());
+    const observer = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? start() : stop()),
+      { rootMargin: "240px" }
+    );
+
+    observer.observe(canvas);
+    document.addEventListener("visibilitychange", visibilityChange);
 
     return () => {
-      cancelAnimationFrame(animRef.current);
+      stop();
+      observer.disconnect();
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", visibilityChange);
     };
   }, [count, color, opacity, speed]);
 
