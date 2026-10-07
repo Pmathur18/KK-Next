@@ -7,7 +7,7 @@ import { BriefcaseBusiness, FileText, Inbox, MessageSquareQuote, Pencil, Plus, S
 import type { BlogPost } from "@/data/blog";
 import type { Project } from "@/data/portfolio";
 import type { Testimonial } from "@/data/testimonials";
-import type { CareerRecord, ContactRecord, JobOpening } from "@/lib/admin-store";
+import type { CareerRecord, ContactRecord, JobOpening } from "@/lib/supabase-store";
 
 type Tab = "overview" | "contacts" | "careers" | "jobs" | "portfolio" | "blogs" | "testimonials";
 type AdminData = { blogs: BlogPost[]; testimonials: Testimonial[]; contacts: ContactRecord[]; careers: CareerRecord[]; portfolios: Project[]; jobOpenings: JobOpening[] };

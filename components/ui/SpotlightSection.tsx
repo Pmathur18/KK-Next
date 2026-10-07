@@ -14,7 +14,7 @@ interface SpotlightSectionProps {
 export default function SpotlightSection({
   children,
   className,
-  spotlightColor = "rgba(124, 58, 237, 0.12)",
+  spotlightColor = "rgba(7, 89, 213, 0.12)",
   size = 500,
 }: SpotlightSectionProps) {
   const ref = useRef<HTMLDivElement>(null);

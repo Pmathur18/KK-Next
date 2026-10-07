@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X, Laptop, Share2, Database, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
@@ -13,13 +13,6 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { scrollY } = useScroll();
-
-  // Glass frosted navbar bg scroll animation
-  const bgOpacity = useTransform(scrollY, [0, 40], [0.8, 0.95]);
-  const backdropBlur = useTransform(scrollY, [0, 40], [8, 16]);
-  const backgroundColor = useTransform(bgOpacity, (v) => `rgba(255, 255, 255, ${v})`);
-  const backdropFilter = useTransform(backdropBlur, (v) => `blur(${v}px)`);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -76,11 +69,7 @@ export default function Header() {
   return (
     <>
       <motion.header
-        style={{
-          backgroundColor,
-          backdropFilter,
-        }}
-        className="sticky top-0 z-50 w-full transition-all duration-300 border-b border-purple-100/60 shadow-sm"
+        className="sticky top-0 z-50 w-full bg-white/95 border-b border-purple-100/60 shadow-sm"
       >
         <div className="mx-auto max-w-7xl px-6 md:px-8 py-3.5 flex items-center justify-between">
           {/* Logo Mark */}

@@ -8,7 +8,7 @@ import { ArrowLeft, CheckCircle2, ChevronRight, AlertCircle, Cpu, Tag } from "lu
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { projects } from "@/data/portfolio";
-import { getPublicContent } from "@/lib/admin-store";
+import { getPublicContent } from "@/lib/supabase-store";
 
 export const dynamic = "force-dynamic";
 

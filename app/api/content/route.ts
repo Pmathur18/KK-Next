@@ -1,4 +1,4 @@
-import { getPublicContent } from "@/lib/admin-store";
+import { getPublicContent } from "@/lib/supabase-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

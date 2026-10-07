@@ -21,7 +21,7 @@ interface Particle {
 
 export default function ParticleField({
   count = 60,
-  color = "124, 58, 237",
+  color = "7, 89, 213",
   opacity = 0.4,
   className,
   speed = 0.3,
@@ -50,7 +50,8 @@ export default function ParticleField({
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
-    const particleCount = reducedMotion ? Math.min(count, 12) : isCoarsePointer ? Math.min(count, 24) : count;
+    const particleCount = reducedMotion ? Math.min(count, 10) : isCoarsePointer ? Math.min(count, 16) : Math.min(count, 28);
+    const drawConnections = !reducedMotion && !isCoarsePointer;
 
     resize();
     window.addEventListener("resize", resize);
@@ -67,7 +68,7 @@ export default function ParticleField({
     let lastFrame = 0;
     const draw = (timestamp = 0) => {
       if (!runningRef.current || document.hidden) return;
-      if (timestamp - lastFrame < 32) {
+      if (timestamp - lastFrame < 41) {
         animRef.current = requestAnimationFrame(draw);
         return;
       }
@@ -75,19 +76,21 @@ export default function ParticleField({
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const particles = particlesRef.current;
 
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(${color}, ${(1 - dist / 120) * 0.15})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
+      // Keep the optional network effect bounded; this loop is quadratic.
+      if (drawConnections) {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(${color}, ${(1 - dist / 120) * 0.15})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
           }
         }
       }

@@ -18,8 +18,8 @@ export default function BeamBorder({
   children,
   className,
   duration = 4,
-  colorFrom = "#7C3AED",
-  colorTo = "#38bdf8",
+  colorFrom = "#0759D5",
+  colorTo = "#08A7F5",
   borderWidth = 1.5,
   borderRadius = "1.5rem",
 }: BeamBorderProps) {

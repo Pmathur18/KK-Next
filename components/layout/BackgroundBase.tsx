@@ -13,8 +13,8 @@ export default function BackgroundBase() {
         className="absolute inset-0 opacity-25"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(124, 58, 237, 0.04) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(124, 58, 237, 0.04) 1px, transparent 1px)
+            linear-gradient(to right, rgba(7, 89, 213, 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(7, 89, 213, 0.04) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
           maskImage: "radial-gradient(ellipse 80% 60% at 50% 20%, black 40%, transparent 90%)",
@@ -24,30 +24,30 @@ export default function BackgroundBase() {
 
       {/* 2. Primary Top Hero Soft Purple Blur Mesh */}
       <div
-        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[1200px] h-[750px] rounded-full opacity-70 blur-[130px]"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[1200px] h-[750px] rounded-full opacity-70 blur-[80px]"
         style={{
           background: `radial-gradient(ellipse at center,
-            rgba(168, 85, 247, 0.35) 0%,
-            rgba(124, 58, 237, 0.25) 30%,
-            rgba(56, 189, 248, 0.2) 60%,
-            rgba(236, 72, 153, 0.15) 80%,
+            rgba(8, 116, 227, 0.35) 0%,
+            rgba(7, 89, 213, 0.25) 30%,
+            rgba(8, 167, 245, 0.2) 60%,
+            rgba(10, 131, 238, 0.15) 80%,
             transparent 100%)`,
         }}
       />
 
       {/* 3. Left Purple Orb */}
       <div
-        className="absolute top-10 -left-24 w-[600px] h-[600px] rounded-full opacity-50 blur-[110px]"
+        className="absolute top-10 -left-24 w-[600px] h-[600px] rounded-full opacity-50 blur-[64px]"
         style={{
-          background: "radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(216, 180, 254, 0.2) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(10, 131, 238, 0.35) 0%, rgba(105, 204, 250, 0.2) 50%, transparent 80%)",
         }}
       />
 
       {/* 4. Right Cyan / Sky Blue Orb */}
       <div
-        className="absolute top-20 -right-24 w-[650px] h-[650px] rounded-full opacity-45 blur-[120px]"
+        className="absolute top-20 -right-24 w-[650px] h-[650px] rounded-full opacity-45 blur-[72px]"
         style={{
-          background: "radial-gradient(circle, rgba(56, 189, 248, 0.32) 0%, rgba(168, 85, 247, 0.18) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(8, 167, 245, 0.32) 0%, rgba(7, 89, 213, 0.18) 50%, transparent 80%)",
         }}
       />
 
@@ -61,9 +61,9 @@ export default function BackgroundBase() {
 
       {/* 6. Subtle secondary purple glow for mid page content */}
       <div
-        className="absolute top-[1200px] left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full opacity-20 blur-[140px]"
+        className="absolute top-[1200px] left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full opacity-20 blur-[88px]"
         style={{
-          background: "radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(8, 116, 227, 0.25) 0%, rgba(8, 167, 245, 0.2) 50%, transparent 80%)",
         }}
       />
     </div>

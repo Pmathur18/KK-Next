@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { getAdminData, mutateAdminData } from "@/lib/admin-store";
+import { getAdminData, mutateAdminData, type AdminResource } from "@/lib/supabase-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: Request) {
   const body = await request.json() as {
-    resource: "blogs" | "testimonials" | "contacts" | "careers" | "portfolios" | "jobOpenings";
+    resource: AdminResource;
     action: "create" | "update" | "delete";
     data: Parameters<typeof mutateAdminData>[2];
   };

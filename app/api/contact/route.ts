@@ -1,4 +1,4 @@
-import { mutateAdminData, type ContactRecord } from "@/lib/admin-store";
+import { mutateAdminData, type ContactRecord } from "@/lib/supabase-store";
 
 export const runtime = "nodejs";
 

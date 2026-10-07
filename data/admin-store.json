@@ -28,5 +28,64 @@
     }
   ],
   "contacts": [],
-  "careers": []
+  "careers": [],
+  "portfolios": [],
+  "deletedPortfolioSlugs": [],
+  "jobOpenings": [
+    {
+      "id": "p1",
+      "title": "Senior React Native Engineer",
+      "dept": "Engineering",
+      "loc": "Remote (India)",
+      "type": "Full-Time",
+      "desc": "We are seeking a senior mobile engineer to lead development on high-performance iOS/Android applications.",
+      "reqs": [
+        "4+ years of professional React Native engineering.",
+        "Deep familiarity with SQLite and data sync engines.",
+        "Strict TypeScript standards and modular architecture."
+      ],
+      "active": true
+    },
+    {
+      "id": "p2",
+      "title": "Lead Frontend Developer (Next.js)",
+      "dept": "Engineering",
+      "loc": "Remote / Noida",
+      "type": "Full-Time",
+      "desc": "Join our core web engineering team and lead fast, accessible Next.js experiences.",
+      "reqs": [
+        "3+ years engineering Next.js applications.",
+        "Strong CSS and Tailwind skills.",
+        "Experience with headless commerce APIs."
+      ],
+      "active": true
+    },
+    {
+      "id": "p3",
+      "title": "Social Advertising Specialist",
+      "dept": "Marketing",
+      "loc": "Remote (India)",
+      "type": "Full-Time",
+      "desc": "Manage high-growth paid social campaigns on Meta, Google, and LinkedIn.",
+      "reqs": [
+        "2+ years running Meta or Google campaigns.",
+        "Data-driven mindset focused on CPL and conversion metrics.",
+        "Familiarity with Figma or Canva."
+      ],
+      "active": true
+    },
+    {
+      "id": "job-test-qa-20261006",
+      "title": "QA Test Frontend Engineer",
+      "type": "Full-time",
+      "desc": "Temporary QA job post created to verify the admin panel flow.",
+      "dept": "Engineering",
+      "active": true,
+      "reqs": [
+        "React and TypeScript",
+        "Debugging and testing"
+      ],
+      "loc": "Remote"
+    }
+  ]
 }

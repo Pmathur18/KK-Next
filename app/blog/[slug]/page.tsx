@@ -8,7 +8,7 @@ import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Avatar from "@/components/ui/Avatar";
 import { blogPosts } from "@/data/blog";
-import { getPublicContent } from "@/lib/admin-store";
+import { getPublicContent } from "@/lib/supabase-store";
 
 export const dynamic = "force-dynamic";
 

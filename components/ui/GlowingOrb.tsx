@@ -15,7 +15,7 @@ interface GlowingOrbProps {
 
 export default function GlowingOrb({
   className,
-  color = "#7C3AED",
+  color = "#0759D5",
   size = 400,
   opacity = 0.25,
   duration = 8,
@@ -28,7 +28,8 @@ export default function GlowingOrb({
         width: size,
         height: size,
         background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-        filter: `blur(${blur}px)`,
+        // Cap large blur radii: oversized animated filters are expensive to repaint while scrolling.
+        filter: `blur(${Math.min(blur, 64)}px)`,
         opacity,
       }}
       animate={{

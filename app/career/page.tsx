@@ -17,7 +17,7 @@ import ParticleField from "@/components/ui/ParticleField";
 import GlowingOrb from "@/components/ui/GlowingOrb";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import { cn } from "@/lib/utils";
-import type { JobOpening } from "@/lib/admin-store";
+import type { JobOpening } from "@/lib/supabase-store";
 
 const careerFAQs: FAQItem[] = [
   {

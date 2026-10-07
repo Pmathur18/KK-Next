@@ -14,9 +14,9 @@ interface AnimatedGradientTextProps {
 export default function AnimatedGradientText({
   children,
   className,
-  from = "#7C3AED",
-  via = "#9333EA",
-  to = "#38bdf8",
+  from = "#0750BE",
+  via = "#0759D5",
+  to = "#08A7F5",
 }: AnimatedGradientTextProps) {
   return (
     <span

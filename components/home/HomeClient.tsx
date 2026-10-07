@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, Suspense } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -40,9 +40,6 @@ import BeamBorder from "@/components/ui/BeamBorder";
 import { projects } from "@/data/portfolio";
 import { testimonials } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
-
-// Lazy load GlobeOrb (heavy Three.js)
-const GlobeOrb = React.lazy(() => import("@/components/ui/GlobeOrb"));
 
 // Section 7: FAQs from user spec
 const homeFAQs: FAQItem[] = [
@@ -226,7 +223,6 @@ export default function HomeClient() {
 
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const globeScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
 
   return (
     <div ref={containerRef} className="relative overflow-hidden w-full bg-white font-sans">
@@ -352,31 +348,22 @@ export default function HomeClient() {
             </motion.div>
           </motion.div>
 
-          {/* Right Hero Graphic: 3D Interactive Globe */}
+          {/* Right Hero Graphic: lightweight static brand mark */}
           <motion.div
-            style={{ scale: globeScale, opacity: heroOpacity }}
+            style={{ opacity: heroOpacity }}
             className="flex-1 flex items-center justify-center relative w-full"
           >
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div
-                className="w-80 h-80 rounded-full animate-float-slow"
-                style={{
-                  background: "radial-gradient(circle, rgba(124,58,237,0.2) 0%, rgba(147,51,234,0.08) 50%, transparent 80%)",
-                  filter: "blur(30px)",
-                }}
+            <div className="relative flex min-h-[380px] w-full max-w-[520px] items-center justify-center">
+              <div className="absolute h-72 w-72 rounded-full bg-blue-100/60 opacity-70" />
+              <div className="absolute h-56 w-56 rounded-full border border-blue-200/70 bg-white/60 shadow-xl shadow-blue-900/10" />
+              <Image
+                src="/logo.png"
+                alt="KK Next Tech Solution"
+                width={380}
+                height={245}
+                priority
+                className="relative z-10 h-auto w-[290px] drop-shadow-[0_18px_30px_rgba(7,89,213,0.18)]"
               />
-            </div>
-
-            <div className="animate-float-slow">
-              <Suspense
-                fallback={
-                  <div className="w-[380px] h-[380px] rounded-full border-2 border-purple-200/40 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full border-2 border-purple-300/60 animate-ping" />
-                  </div>
-                }
-              >
-                <GlobeOrb size={440} />
-              </Suspense>
             </div>
 
             {/* Floating Live Stat Badges */}
