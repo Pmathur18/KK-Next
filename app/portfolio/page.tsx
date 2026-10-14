@@ -81,7 +81,7 @@ const whyUsBlocks = [
     title: "We've got your back post-launch",
     desc: "Even after we deploy your application or campaign, our engineering team provides 24/7 SLAs, security patches, and continuous feature updates.",
     icon: Zap,
-    color: "from-emerald-500/10 via-emerald-500/5 to-transparent",
+    color: "from-cyan-500/10 via-cyan-500/5 to-transparent",
   },
 ];
 
@@ -218,13 +218,10 @@ export default function PortfolioPage() {
 
                       {/* Content Section Below Image */}
                       <div className="flex flex-col gap-3">
-                        {/* Badges Row: Category & Result Metric */}
-                        <div className="flex items-center justify-between gap-2">
+                        {/* Category Badge */}
+                        <div className="flex items-center">
                           <span className="text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200/80 px-2.5 py-1 rounded-full font-display">
                             {project.category}
-                          </span>
-                          <span className="text-[11px] font-black text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-full font-mono">
-                            {project.resultMetric}
                           </span>
                         </div>
 
