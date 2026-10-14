@@ -47,13 +47,12 @@ import CTABanner from "@/components/ui/CTABanner";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import { cn } from "@/lib/utils";
 
-// ── 12 Features from FRD Modules ──────────────────────────────────────────────
+// ── 12 Features from Core Platform ──────────────────────────────────────────
 const frdFeatures = [
   {
     id: "ocr-capture",
     title: "Expense capture & OCR receipts",
     desc: "Snap paper bills on mobile or upload PDFs. Smart neural OCR extracts merchant, date, amount, currency, and line items in seconds.",
-    badge: "Module 01",
     icon: Smartphone,
     color: "from-purple-500/10 to-indigo-500/5 text-purple-700 border-purple-200",
   },
@@ -61,7 +60,6 @@ const frdFeatures = [
     id: "expense-reports",
     title: "Expense reports",
     desc: "Bundle individual claims into organized monthly, client, or trip reports with automatic categorization and cost-center allocations.",
-    badge: "Module 02",
     icon: FileSpreadsheet,
     color: "from-blue-500/10 to-cyan-500/5 text-blue-700 border-blue-200",
   },
@@ -69,7 +67,6 @@ const frdFeatures = [
     id: "configurable-approvals",
     title: "Configurable approvals",
     desc: "Design multi-tier approval chains based on claim amounts, department hierarchies, or category thresholds with automated routing.",
-    badge: "Module 03",
     icon: Workflow,
     color: "from-emerald-500/10 to-teal-500/5 text-emerald-700 border-emerald-200",
   },
@@ -77,7 +74,6 @@ const frdFeatures = [
     id: "policy-engine",
     title: "Policy engine",
     desc: "Enforce per-diem limits, receipt mandates, weekend spending restrictions, and out-of-policy warning banners before submission.",
-    badge: "Module 04",
     icon: Shield,
     color: "from-amber-500/10 to-orange-500/5 text-amber-700 border-amber-200",
   },
@@ -85,7 +81,6 @@ const frdFeatures = [
     id: "gst-tax",
     title: "GST & tax details",
     desc: "Auto-verify vendor GSTIN numbers in real-time, auto-split CGST, SGST, and IGST, and generate audit-ready tax credit reconciliation data.",
-    badge: "Module 05",
     icon: FileCheck2,
     color: "from-fuchsia-500/10 to-pink-500/5 text-fuchsia-700 border-fuchsia-200",
   },
@@ -93,7 +88,6 @@ const frdFeatures = [
     id: "reimbursements-advances",
     title: "Reimbursements & advances",
     desc: "Track employee cash advances, automatically reconcile balances against final expense claims, and record settlement reference numbers.",
-    badge: "Module 06",
     icon: DollarSign,
     color: "from-purple-500/10 to-violet-500/5 text-purple-700 border-purple-200",
   },
@@ -101,7 +95,6 @@ const frdFeatures = [
     id: "travel-mileage",
     title: "Travel, mileage & per diem",
     desc: "Google Maps GPS distance tracking with custom 2-wheeler and 4-wheeler rates, plus automated metro vs non-metro per-diem rules.",
-    badge: "Module 07",
     icon: Compass,
     color: "from-cyan-500/10 to-blue-500/5 text-cyan-700 border-cyan-200",
   },
@@ -109,7 +102,6 @@ const frdFeatures = [
     id: "multi-currency",
     title: "Multi-currency",
     desc: "Automated conversion for international business trips with live exchange rate logging and base currency normalization.",
-    badge: "Module 08",
     icon: Globe,
     color: "from-indigo-500/10 to-purple-500/5 text-indigo-700 border-indigo-200",
   },
@@ -117,7 +109,6 @@ const frdFeatures = [
     id: "dashboards-analytics",
     title: "Dashboards & analytics",
     desc: "Instant executive clarity on corporate burn, top spending employees, category trends, and policy violation frequency.",
-    badge: "Module 09",
     icon: BarChart3,
     color: "from-violet-500/10 to-purple-500/5 text-violet-700 border-violet-200",
   },
@@ -125,7 +116,6 @@ const frdFeatures = [
     id: "accounting-export",
     title: "Accounting export & API",
     desc: "1-Click ledger-ready exports structured for Tally Prime, QuickBooks, and SAP, with REST APIs for custom enterprise ERP sync.",
-    badge: "Module 10",
     icon: Layers,
     color: "from-blue-500/10 to-indigo-500/5 text-blue-700 border-blue-200",
   },
@@ -133,7 +123,6 @@ const frdFeatures = [
     id: "audit-trail",
     title: "Audit trail",
     desc: "Immutable, timestamped logs of every expense submission, approval, modification, rejection, and payout note for 100% audit readiness.",
-    badge: "Module 11",
     icon: Clock,
     color: "from-emerald-500/10 to-green-500/5 text-emerald-700 border-emerald-200",
   },
@@ -141,7 +130,6 @@ const frdFeatures = [
     id: "security-tenant",
     title: "Security & tenant isolation",
     desc: "Role-based access permissions, strict data encryption at rest and in transit, and isolated tenant architecture with Indian data hosting.",
-    badge: "Module 12",
     icon: Lock,
     color: "from-slate-500/10 to-purple-500/5 text-slate-700 border-slate-200",
   },
@@ -478,7 +466,7 @@ export default function ExpenseManagementPage() {
           <div className="text-center flex flex-col items-center gap-4 max-w-3xl mx-auto">
             <ScrollReveal>
               <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                12 Core Modules
+                12 Core Capabilities
               </Badge>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
@@ -491,7 +479,7 @@ export default function ExpenseManagementPage() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                Twelve specialized modules mapped directly to corporate financial governance, approval routing, and compliance needs.
+                Twelve specialized capabilities mapped directly to corporate financial governance, approval routing, and compliance needs.
               </p>
             </ScrollReveal>
           </div>
@@ -506,13 +494,8 @@ export default function ExpenseManagementPage() {
                     <div className="h-full p-7 rounded-3xl bg-white border border-purple-100/80 shadow-md shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex flex-col justify-between gap-5 group">
                       
                       <div className="flex flex-col gap-4">
-                        <div className="flex items-center justify-between">
-                          <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center border p-3", feat.color)}>
-                            <Icon className="w-6 h-6" />
-                          </div>
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-1 rounded-md border border-purple-100">
-                            {feat.badge}
-                          </span>
+                        <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center border p-3", feat.color)}>
+                          <Icon className="w-6 h-6" />
                         </div>
 
                         <div>
@@ -523,10 +506,6 @@ export default function ExpenseManagementPage() {
                             {feat.desc}
                           </p>
                         </div>
-                      </div>
-
-                      <div className="pt-3 border-t border-purple-50 flex items-center gap-1.5 text-xs font-bold text-purple-600">
-                        <Check className="w-3.5 h-3.5" /> FRD Module Compliant
                       </div>
 
                     </div>
@@ -548,7 +527,7 @@ export default function ExpenseManagementPage() {
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
             <ScrollReveal>
               <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Workflow 5.1
+                Streamlined Workflow
               </Badge>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
@@ -610,7 +589,7 @@ export default function ExpenseManagementPage() {
                     <span className="text-xs font-mono text-slate-400 ml-2 hidden sm:inline">app.kknexttech.com/expense/reimbursements</span>
                   </div>
                   <span className="text-xs font-bold text-purple-300 bg-purple-950/80 px-3 py-1 rounded-full border border-purple-800/60">
-                    Live Platform Preview · FRD 5.1 Architecture
+                    Live Platform Preview · Expense Management Architecture
                   </span>
                 </div>
                 <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mt-4 border border-white/10">
