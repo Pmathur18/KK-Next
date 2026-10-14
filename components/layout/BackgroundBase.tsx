@@ -4,7 +4,14 @@ import React from "react";
 
 export default function BackgroundBase() {
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none bg-white">
+    <div
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none bg-white"
+      style={{
+        transform: "translate3d(0, 0, 0)",
+        contain: "paint layout size",
+        willChange: "transform",
+      }}
+    >
       {/* 1. Subtle Grid Texture */}
       <div
         className="absolute inset-0 opacity-25"
@@ -21,30 +28,30 @@ export default function BackgroundBase() {
 
       {/* 2. Primary Top Hero Soft Purple Blur Mesh */}
       <div
-        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[1200px] h-[750px] rounded-full opacity-70 blur-[130px]"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[1100px] h-[650px] rounded-full opacity-65 blur-[64px]"
         style={{
           background: `radial-gradient(ellipse at center,
             rgba(168, 85, 247, 0.35) 0%,
-            rgba(124, 58, 237, 0.25) 30%,
-            rgba(56, 189, 248, 0.2) 60%,
-            rgba(236, 72, 153, 0.15) 80%,
+            rgba(124, 58, 237, 0.22) 35%,
+            rgba(56, 189, 248, 0.16) 65%,
+            rgba(236, 72, 153, 0.1) 85%,
             transparent 100%)`,
         }}
       />
 
       {/* 3. Left Purple Orb */}
       <div
-        className="absolute top-10 -left-24 w-[600px] h-[600px] rounded-full opacity-50 blur-[110px]"
+        className="absolute top-10 -left-24 w-[550px] h-[550px] rounded-full opacity-45 blur-[54px]"
         style={{
-          background: "radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(216, 180, 254, 0.2) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(216, 180, 254, 0.18) 50%, transparent 80%)",
         }}
       />
 
       {/* 4. Right Cyan / Sky Blue Orb */}
       <div
-        className="absolute top-20 -right-24 w-[650px] h-[650px] rounded-full opacity-45 blur-[120px]"
+        className="absolute top-20 -right-24 w-[580px] h-[580px] rounded-full opacity-40 blur-[54px]"
         style={{
-          background: "radial-gradient(circle, rgba(56, 189, 248, 0.32) 0%, rgba(168, 85, 247, 0.18) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, rgba(168, 85, 247, 0.15) 50%, transparent 80%)",
         }}
       />
 
@@ -58,9 +65,9 @@ export default function BackgroundBase() {
 
       {/* 6. Subtle secondary purple glow for mid page content */}
       <div
-        className="absolute top-[1200px] left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full opacity-20 blur-[140px]"
+        className="absolute top-[1200px] left-1/2 -translate-x-1/2 w-[800px] h-[450px] rounded-full opacity-20 blur-[64px]"
         style={{
-          background: "radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, rgba(56, 189, 248, 0.16) 50%, transparent 80%)",
         }}
       />
     </div>

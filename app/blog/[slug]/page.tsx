@@ -52,7 +52,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
-    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-transparent py-8 md:py-12">
       <div className="max-w-4xl px-6 md:px-8 mx-auto flex flex-col gap-8">
         
         {/* Back Link */}

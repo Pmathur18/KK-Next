@@ -3,21 +3,26 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Menu, X, Laptop, Share2, Database, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, Menu, X, Laptop, Share2, Database, ArrowRight, Receipt } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const { scrollY } = useScroll();
 
-  // Glass frosted navbar bg scroll animation
-  const bgOpacity = useTransform(scrollY, [0, 40], [0.8, 0.95]);
-  const backdropBlur = useTransform(scrollY, [0, 40], [8, 16]);
-  const borderOpacity = useTransform(scrollY, [0, 40], [0.08, 0.15]);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 20;
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -67,16 +72,24 @@ export default function Header() {
       icon: Database,
       color: "bg-cyan-50 text-cyan-600",
     },
+    {
+      title: "Expense Management",
+      desc: "Smart expense capture, approval flows & reconciliation.",
+      href: "/services/expense-management",
+      icon: Receipt,
+      color: "bg-emerald-50 text-emerald-600",
+    },
   ];
 
   return (
     <>
-      <motion.header
-        style={{
-          backgroundColor: useTransform(bgOpacity, (v) => `rgba(255, 255, 255, ${v})`),
-          backdropFilter: useTransform(backdropBlur, (v) => `blur(${v}px)`),
-        }}
-        className="sticky top-0 z-50 w-full transition-all duration-300 border-b border-purple-100/60 shadow-sm"
+      <header
+        className={cn(
+          "sticky top-0 z-50 w-full transition-[background-color,border-color,box-shadow] duration-200 border-b",
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md border-purple-100/80 shadow-sm"
+            : "bg-white/80 backdrop-blur-sm border-purple-100/40"
+        )}
       >
         <div className="mx-auto max-w-7xl px-6 md:px-8 py-3.5 flex items-center justify-between">
           {/* Logo Mark */}
@@ -211,7 +224,7 @@ export default function Header() {
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Drawer menu */}
       <AnimatePresence>

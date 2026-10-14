@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
-import { Linkedin, Twitter, Instagram, Github } from "@/components/ui/BrandIcons";
+import { Linkedin, Instagram } from "@/components/ui/BrandIcons";
 import GlowingOrb from "@/components/ui/GlowingOrb";
 import ParticleField from "@/components/ui/ParticleField";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -18,24 +18,31 @@ const footerLinks = {
     { label: "Contact", href: "/contact" },
   ],
   Services: [
-    { label: "Websites & Shopify", href: "/services#websites" },
-    { label: "Mobile Applications", href: "/services" },
+    { label: "Expense Management", href: "/services/expense-management" },
+    { label: "Websites & Web Apps", href: "/services/websites" },
+    { label: "Mobile Applications", href: "/services/mobile-apps" },
     { label: "Social Management", href: "/services/social-media-management" },
     { label: "CRM & ERP", href: "/services/crm-erp" },
   ],
 };
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Github, href: "https://github.com", label: "GitHub" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/kknexttechsolution/?viewAsMember=true",
+    label: "LinkedIn",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/kknexttechsolution",
+    label: "Instagram",
+  },
 ];
 
 export default function Footer() {
   return (
     <footer
-      className="relative overflow-hidden pt-20 md:pt-28 pb-6 font-sans"
+      className="relative overflow-hidden pt-12 md:pt-16 pb-6 font-sans"
       style={{ background: "linear-gradient(160deg, #faf5ff 0%, #f0f4ff 50%, #f5f8ff 100%)" }}
     >
       {/* Particle field */}
@@ -58,6 +65,8 @@ export default function Footer() {
                 <img
                   src="/logo.png"
                   alt="KK NEX TECH SOLUTION"
+                  loading="lazy"
+                  decoding="async"
                   className="h-10 w-auto object-contain"
                 />
               </Link>
@@ -106,11 +115,17 @@ export default function Footer() {
                   </div>
                   info@kknexttech.com
                 </a>
+                <a href="mailto:kknexttechsolution@gmail.com" className="flex items-center gap-2 text-sm text-slate-500 hover:text-purple-600 transition-colors group font-medium">
+                  <div className="w-7 h-7 rounded-lg bg-purple-100/80 flex items-center justify-center shrink-0 group-hover:bg-purple-200/80 transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-purple-600" />
+                  </div>
+                  kknexttechsolution@gmail.com
+                </a>
                 <a href="tel:+919876543210" className="flex items-center gap-2 text-sm text-slate-500 hover:text-purple-600 transition-colors group font-medium">
                   <div className="w-7 h-7 rounded-lg bg-purple-100/80 flex items-center justify-center shrink-0 group-hover:bg-purple-200/80 transition-colors">
                     <Phone className="w-3.5 h-3.5 text-purple-600" />
                   </div>
-                  +91 98765 43210
+                  +91 9001360054
                 </a>
                 <div className="flex items-center gap-2 text-sm text-slate-500 font-medium">
                   <div className="w-7 h-7 rounded-lg bg-purple-100/80 flex items-center justify-center shrink-0">

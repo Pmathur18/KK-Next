@@ -29,6 +29,8 @@ import Badge from "@/components/ui/Badge";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
+import CTABanner from "@/components/ui/CTABanner";
+import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import { cn } from "@/lib/utils";
 import { services } from "@/data/services";
 
@@ -55,7 +57,7 @@ const socialFAQs: FAQItem[] = [
   }
 ];
 
-// Zoho Social platform brand badges data
+// Supported social media platform brand badges data
 const platforms = [
   { name: "Instagram", icon: "📸", color: "from-pink-500 via-red-500 to-yellow-500", handle: "@brand.official", followers: "48.2k" },
   { name: "Facebook", icon: "👤", color: "from-blue-600 to-indigo-600", handle: "Brand Page", followers: "120k" },
@@ -84,8 +86,8 @@ export default function SocialMediaPage() {
   return (
     <div className="relative w-full bg-transparent min-h-screen">
 
-      {/* ══ 1. HERO SECTION (Replicating Zoho Social floating animation UI) ══ */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden flex flex-col items-center justify-center text-center">
+      {/* ══ 1. HERO SECTION (Floating animation UI) ══ */}
+      <section className="relative pt-12 pb-14 md:pt-16 md:pb-16 overflow-hidden flex flex-col items-center justify-center text-center">
         <div className="relative z-10 max-w-6xl px-6 md:px-8 w-full flex flex-col items-center gap-8">
 
           {/* Top Pill Badge */}
@@ -122,7 +124,7 @@ export default function SocialMediaPage() {
             Accelerate your social growth. We craft bespoke content calendars, manage targeted paid search/social advertising accounts, run community conversations, and compile analytical reports to maximize your ROAS.
           </motion.p>
 
-          {/* Combined Email / CTA Pill Bar (Zoho Social signup style) */}
+          {/* Combined Email / CTA Pill Bar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,7 +150,7 @@ export default function SocialMediaPage() {
             </span>
           </motion.div>
 
-          {/* Floating Platform Mockups Animation Bar (Replicating Zoho Social UI) */}
+          {/* Floating Platform Mockups Animation Bar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -296,8 +298,8 @@ export default function SocialMediaPage() {
         </div>
       </section>
 
-      {/* ══ 3. INTERACTIVE CAPABILITIES SHOWCASE TABS (Zoho Social Replica) ══ */}
-      <section className="py-16 md:py-24 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
+      {/* ══ 3. INTERACTIVE CAPABILITIES SHOWCASE TABS ══ */}
+      <section className="py-10 md:py-14 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
         <div className="flex flex-col gap-12 text-center">
 
           <div className="flex flex-col items-center gap-3">
@@ -631,7 +633,7 @@ export default function SocialMediaPage() {
       </section>
 
       {/* ══ 4. FEATURE SHOWCASE GRID (Alternating Cards Layout) ══════════════ */}
-      <section className="py-16 md:py-24 bg-white relative z-10">
+      <section className="py-10 md:py-14 bg-white relative z-10">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
           <SectionHeading
             eyebrow="Growth Services"
@@ -668,7 +670,7 @@ export default function SocialMediaPage() {
       </section>
 
       {/* ══ 5. CLIENT REVIEWS & METRICS BAND ═════════════════════════════════ */}
-      <section className="py-12 md:py-20 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
+      <section className="py-8 md:py-12 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
         <div className="rounded-3xl bg-gradient-to-r from-[#1E1B4B] via-[#2E1065] to-[#0F172A] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden text-center md:text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 flex flex-col gap-4">
@@ -691,25 +693,19 @@ export default function SocialMediaPage() {
         </div>
       </section>
 
-      {/* ══ 6. CTA BANNER & FAQS ═════════════════════════════════════════════ */}
-      <section className="py-12 md:py-20 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
-        <div className="rounded-3xl bg-gradient-to-r from-purple-100/90 via-fuchsia-50/60 to-cyan-100/90 border border-purple-200/80 p-10 md:p-16 text-slate-900 shadow-xl shadow-purple-900/5 text-center flex flex-col items-center gap-8 relative overflow-hidden">
-          <div className="relative z-10 max-w-3xl flex flex-col items-center gap-6">
-            <Badge colorTheme="navy">Ready to Scale Social?</Badge>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 font-display tracking-tight leading-tight">
-              Start Scaling Your Social Presence &amp; Lead Engine Today
-            </h2>
-            <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-2xl">
-              Get in touch for a custom social media strategy audit and content calendar preview.
-            </p>
-            <Link href="/contact">
-              <Button variant="primary" colorTheme="violet" className="!py-3.5 !px-8 text-base shadow-lg">
-                Book a Strategy Call →
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* ══ 6. CTA BANNER ═════════════════════════════════════════════════ */}
+      <CTABanner
+        badge="Ready to Build Your Win?"
+        title={
+          <>
+            Start Scaling Your Social Presence &amp;{" "}
+            <AnimatedGradientText>Lead Engine Today</AnimatedGradientText>
+          </>
+        }
+        description="Get in touch for a custom social media strategy audit and content calendar preview."
+        buttonText="Book a Strategy Call →"
+        buttonLink="/contact"
+      />
 
       {/* FAQs */}
       <div className="border-t border-purple-100">

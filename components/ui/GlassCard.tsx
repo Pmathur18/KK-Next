@@ -29,8 +29,8 @@ export default function GlassCard({
       className={cn(
         "relative rounded-3xl overflow-hidden border transition-all duration-300",
         dark
-          ? "bg-white/5 backdrop-blur-2xl border-white/10 shadow-2xl"
-          : "bg-white/80 backdrop-blur-2xl border-purple-100/80 shadow-xl shadow-purple-900/5",
+          ? "bg-white/5 backdrop-blur-md border-white/10 shadow-2xl"
+          : "bg-white/85 backdrop-blur-md border-purple-100/80 shadow-xl shadow-purple-900/5",
         className
       )}
       style={{ transformStyle: "preserve-3d" }}

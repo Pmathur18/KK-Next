@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface GlowingOrbProps {
@@ -19,26 +18,23 @@ export default function GlowingOrb({
   size = 400,
   opacity = 0.25,
   duration = 8,
-  blur = 80,
+  blur = 60,
 }: GlowingOrbProps) {
+  // Cap blur radius to prevent rasterization bottlenecks while maintaining visual glow
+  const safeBlur = Math.min(blur, 45);
+
   return (
-    <motion.div
-      className={cn("absolute rounded-full pointer-events-none", className)}
+    <div
+      className={cn("absolute rounded-full pointer-events-none animate-orb-pulse", className)}
       style={{
         width: size,
         height: size,
         background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-        filter: `blur(${blur}px)`,
+        filter: `blur(${safeBlur}px)`,
         opacity,
-      }}
-      animate={{
-        scale: [1, 1.15, 1],
-        opacity: [opacity, opacity * 1.3, opacity],
-      }}
-      transition={{
-        duration,
-        repeat: Infinity,
-        ease: "easeInOut",
+        animationDuration: `${duration}s`,
+        transform: "translate3d(0, 0, 0)",
+        willChange: "transform, opacity",
       }}
     />
   );

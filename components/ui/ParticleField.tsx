@@ -20,21 +20,27 @@ interface Particle {
 }
 
 export default function ParticleField({
-  count = 60,
+  count = 45,
   color = "124, 58, 237",
-  opacity = 0.4,
+  opacity = 0.35,
   className,
-  speed = 0.3,
+  speed = 0.25,
 }: ParticleFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
+  const isVisibleRef = useRef<boolean>(true);
   const particlesRef = useRef<Particle[]>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
+
+    // Adapt count for smaller mobile screens to maintain 60 FPS
+    const effectiveCount = typeof window !== "undefined" && window.innerWidth < 768
+      ? Math.min(count, 24)
+      : count;
 
     const resize = () => {
       const parent = canvas.parentElement;
@@ -45,40 +51,51 @@ export default function ParticleField({
     };
 
     resize();
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", resize, { passive: true });
 
-    particlesRef.current = Array.from({ length: count }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
+    particlesRef.current = Array.from({ length: effectiveCount }, () => ({
+      x: Math.random() * (canvas.width || 400),
+      y: Math.random() * (canvas.height || 400),
       vx: (Math.random() - 0.5) * speed,
       vy: (Math.random() - 0.5) * speed,
       r: Math.random() * 1.5 + 0.5,
-      alpha: Math.random() * opacity + 0.1,
+      alpha: Math.random() * opacity + 0.08,
     }));
 
+    const maxDist = 110;
+    const maxDistSq = maxDist * maxDist;
+
     const draw = () => {
+      if (!isVisibleRef.current) return;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const particles = particlesRef.current;
+      const len = particles.length;
 
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+      // Draw connections — optimized with distance squared check first
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < len; i++) {
+        const p1 = particles[i];
+        for (let j = i + 1; j < len; j++) {
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distSq = dx * dx + dy * dy;
+
+          if (distSq < maxDistSq) {
+            const dist = Math.sqrt(distSq);
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(${color}, ${(1 - dist / 120) * 0.15})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(${color}, ${(1 - dist / maxDist) * 0.14})`;
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
             ctx.stroke();
           }
         }
       }
 
       // Draw particles
-      for (const p of particles) {
+      for (let i = 0; i < len; i++) {
+        const p = particles[i];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${color}, ${p.alpha})`;
@@ -94,10 +111,25 @@ export default function ParticleField({
       animRef.current = requestAnimationFrame(draw);
     };
 
-    draw();
+    // Pause animation when offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          cancelAnimationFrame(animRef.current);
+          animRef.current = requestAnimationFrame(draw);
+        } else {
+          cancelAnimationFrame(animRef.current);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(canvas);
 
     return () => {
       cancelAnimationFrame(animRef.current);
+      observer.disconnect();
       window.removeEventListener("resize", resize);
     };
   }, [count, color, opacity, speed]);
@@ -106,6 +138,7 @@ export default function ParticleField({
     <canvas
       ref={canvasRef}
       className={`absolute inset-0 w-full h-full pointer-events-none ${className ?? ""}`}
+      style={{ willChange: "transform", transform: "translate3d(0, 0, 0)" }}
     />
   );
 }

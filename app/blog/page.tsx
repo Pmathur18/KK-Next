@@ -14,6 +14,7 @@ import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import ParticleField from "@/components/ui/ParticleField";
 import GlowingOrb from "@/components/ui/GlowingOrb";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
+import CTABanner from "@/components/ui/CTABanner";
 import { blogPosts, BlogPost } from "@/data/blog";
 import { cn } from "@/lib/utils";
 
@@ -42,12 +43,12 @@ export default function Blog() {
   });
 
   return (
-    <div className="relative overflow-hidden w-full bg-white py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-white py-8 md:py-12">
       <ParticleField count={30} color="124, 58, 237" opacity={0.12} />
       <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={400} opacity={0.08} blur={100} />
       
       {/* Header */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-12 border-b border-purple-100 relative z-10">
+      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-8 border-b border-purple-100 relative z-10">
         <ScrollReveal>
           <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
             Our Insights
@@ -191,42 +192,38 @@ export default function Blog() {
         )}
       </section>
 
-      {/* Newsletter Block (Apple Glass Design) */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto py-12">
-        <div className="bg-slate-950/80 backdrop-blur-2xl border border-white/15 rounded-[36px] p-8 md:p-16 flex flex-col md:flex-row md:items-center justify-between gap-8 shadow-[0_25px_60px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/15 rounded-full filter blur-[90px] pointer-events-none" />
-          <div className="flex flex-col gap-3 relative z-10">
-            <span className="text-xs font-bold tracking-wider uppercase text-slate-300">
-              Newsletter
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-display">
-              Get technical insights straight to your inbox
-            </h2>
-            <p className="text-xs md:text-sm text-slate-300 leading-relaxed max-w-md">
-              We compile solutions updates, design tokens, and automation advice. Sent once a month. No spam.
-            </p>
-          </div>
-
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto md:max-w-md">
-            <input
-              type="email"
-              required
-              placeholder="Your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-white border border-zinc-200 rounded-full px-5 py-3 text-sm focus:outline-none focus:border-zinc-400 placeholder-zinc-400 text-ink w-full min-w-[240px]"
-            />
-            <Button type="submit" variant="primary" colorTheme="ink" className="flex items-center justify-center gap-2 whitespace-nowrap">
-              <Mail className="w-4 h-4 shrink-0" /> Subscribe
-            </Button>
-            {subscribed && (
-              <span className="text-xs text-accent-primary font-bold block mt-2 sm:absolute sm:mt-14">
-                Thank you for subscribing!
-              </span>
-            )}
-          </form>
-        </div>
-      </section>
+      {/* Newsletter Block */}
+      <CTABanner
+        badge="Ready to Build Your Win?"
+        title={
+          <>
+            Get technical insights straight to your{" "}
+            <AnimatedGradientText>inbox</AnimatedGradientText>
+          </>
+        }
+        description="We compile solutions updates, design tokens, and automation advice. Sent once a month. No spam."
+        buttonText=""
+        buttonLink=""
+      >
+        <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 w-full max-w-md my-2">
+          <input
+            type="email"
+            required
+            placeholder="Your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="bg-white border border-purple-200 rounded-full px-5 py-3 text-sm focus:outline-none focus:border-purple-600 placeholder-slate-400 text-slate-800 w-full shadow-sm"
+          />
+          <Button type="submit" variant="primary" colorTheme="violet" className="flex items-center justify-center gap-2 whitespace-nowrap !py-3 !px-7 shadow-lg shadow-purple-500/25">
+            <Mail className="w-4 h-4 shrink-0" /> Subscribe
+          </Button>
+        </form>
+        {subscribed && (
+          <span className="text-xs text-emerald-600 font-bold block">
+            Thank you for subscribing!
+          </span>
+        )}
+      </CTABanner>
 
     </div>
   );

@@ -18,7 +18,7 @@
 
   --font-display: var(--font-display), system-ui, sans-serif;
   --font-sans: var(--font-sans), system-ui, sans-serif;
-  
+
   --radius-card: 24px;
 }
 
@@ -46,7 +46,12 @@ body {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   color: inherit;
 }
@@ -55,27 +60,37 @@ h1, h2, h3, h4, h5, h6 {
 .perspective-1000 {
   perspective: 1000px;
 }
+
 .perspective-1500 {
   perspective: 1500px;
 }
+
 .preserve-3d {
   transform-style: preserve-3d;
 }
 
 /* ── GRADIENT SHIMMER ANIMATION (AnimatedGradientText) ───────────────── */
 @keyframes gradient-shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* ── NEON GLOW PULSE ─────────────────────────────────────────────────── */
 @keyframes neon-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     text-shadow:
       0 0 10px rgba(124, 58, 237, 0.6),
       0 0 30px rgba(124, 58, 237, 0.4),
       0 0 60px rgba(124, 58, 237, 0.2);
   }
+
   50% {
     text-shadow:
       0 0 20px rgba(124, 58, 237, 0.9),
@@ -90,89 +105,171 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── FLOATING ANIMATION ──────────────────────────────────────────────── */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(2deg); }
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(2deg);
+  }
 }
 
 @keyframes float-badge {
-  0%, 100% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-8px) scale(1.03); }
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0) scale(1.03);
+  }
 }
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+  will-change: transform;
 }
+
 .animate-float-slow {
   animation: float-slow 6s ease-in-out infinite;
+  will-change: transform;
 }
+
 .animate-float-badge {
   animation: float-badge 3.5s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* ── BEAM ORBIT ANIMATION ────────────────────────────────────────────── */
 @keyframes beam-orbit {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: rotate(360deg) translate3d(0, 0, 0);
+  }
 }
 
 /* ── SHIMMER SCAN LINE ───────────────────────────────────────────────── */
 @keyframes shimmer-scan {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
 }
 
 .shimmer-scan::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.15) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.15) 50%,
+      transparent 100%);
   animation: shimmer-scan 2.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ── ORB PULSE ANIMATION (GPU accelerated) ───────────────────────────── */
+@keyframes orb-pulse {
+  0%,
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+}
+
+.animate-orb-pulse {
+  animation: orb-pulse 8s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* ── MESH GRADIENT ANIMATIONS ────────────────────────────────────────── */
 @keyframes mesh-float-1 {
-  0% { transform: translate(0%, 0%) scale(1); }
-  33% { transform: translate(12%, -8%) scale(1.1); }
-  66% { transform: translate(-8%, 12%) scale(0.95); }
-  100% { transform: translate(0%, 0%) scale(1); }
+  0% {
+    transform: translate3d(0%, 0%, 0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(12%, -8%, 0) scale(1.08);
+  }
+
+  66% {
+    transform: translate3d(-8%, 12%, 0) scale(0.96);
+  }
+
+  100% {
+    transform: translate3d(0%, 0%, 0) scale(1);
+  }
 }
 
 @keyframes mesh-float-2 {
-  0% { transform: translate(0%, 0%) scale(1.05); }
-  40% { transform: translate(-12%, 12%) scale(0.9); }
-  80% { transform: translate(8%, -8%) scale(1.15); }
-  100% { transform: translate(0%, 0%) scale(1.05); }
+  0% {
+    transform: translate3d(0%, 0%, 0) scale(1.04);
+  }
+
+  40% {
+    transform: translate3d(-12%, 12%, 0) scale(0.92);
+  }
+
+  80% {
+    transform: translate3d(8%, -8%, 0) scale(1.12);
+  }
+
+  100% {
+    transform: translate3d(0%, 0%, 0) scale(1.04);
+  }
 }
 
 @keyframes mesh-float-3 {
-  0% { transform: translate(0%, 0%) scale(0.95); }
-  50% { transform: translate(8%, 16%) scale(1.1); }
-  100% { transform: translate(0%, 0%) scale(0.95); }
+  0% {
+    transform: translate3d(0%, 0%, 0) scale(0.96);
+  }
+
+  50% {
+    transform: translate3d(8%, 16%, 0) scale(1.08);
+  }
+
+  100% {
+    transform: translate3d(0%, 0%, 0) scale(0.96);
+  }
 }
 
 .mesh-blob-1 {
   background: radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(124, 58, 237, 0.12) 60%, transparent 80%);
   animation: mesh-float-1 20s ease-in-out infinite;
+  will-change: transform;
 }
 
 .mesh-blob-2 {
   background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(168, 85, 247, 0.08) 60%, transparent 80%);
   animation: mesh-float-2 17s ease-in-out infinite;
+  will-change: transform;
 }
 
 .mesh-blob-3 {
   background: radial-gradient(circle, rgba(236, 72, 153, 0.22) 0%, rgba(139, 92, 246, 0.06) 60%, transparent 80%);
   animation: mesh-float-3 23s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* ── CARD DEPTH SHADOW SYSTEM ────────────────────────────────────────── */
@@ -207,6 +304,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(32px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 .scroll-fade-in.in-view {
   opacity: 1;
   transform: translateY(0);
@@ -216,14 +314,17 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #FFFFFF;
 }
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #7C3AED, #9333EA);
   border-radius: 999px;
   border: 2px solid #FFFFFF;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #6D28D9, #7C3AED);
 }
@@ -232,6 +333,7 @@ h1, h2, h3, h4, h5, h6 {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -239,32 +341,45 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── MARQUEE ─────────────────────────────────────────────────────────── */
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .animate-marquee {
   display: flex;
   width: max-content;
   animation: marquee 25s linear infinite;
+  will-change: transform;
 }
 
 @keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
 }
 
 .animate-marquee-reverse {
   display: flex;
   width: max-content;
   animation: marquee-reverse 25s linear infinite;
+  will-change: transform;
 }
 
-.animate-marquee:hover, .animate-marquee-reverse:hover {
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
   animation-play-state: paused;
 }
 
 /* ── SECTION SPACING ─────────────────────────────────────────────────── */
-section + section {
+section+section {
   margin-top: 0;
 }

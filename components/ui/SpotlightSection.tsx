@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useRef, useCallback } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React, { useRef, useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 interface SpotlightSectionProps {
@@ -18,29 +17,34 @@ export default function SpotlightSection({
   size = 500,
 }: SpotlightSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(-size);
-  const mouseY = useMotionValue(-size);
+  const spotlightRef = useRef<HTMLDivElement>(null);
+  const rafId = useRef<number>(0);
 
-  const springX = useSpring(mouseX, { stiffness: 120, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 120, damping: 20 });
-
-  const background = useTransform(
-    [springX, springY],
-    ([x, y]) =>
-      `radial-gradient(${size}px circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      cancelAnimationFrame(rafId.current);
+      rafId.current = requestAnimationFrame(() => {
+        const rect = ref.current?.getBoundingClientRect();
+        if (!rect || !spotlightRef.current) return;
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        spotlightRef.current.style.background = `radial-gradient(${size}px circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`;
+        spotlightRef.current.style.opacity = "1";
+      });
+    },
+    [spotlightColor, size]
   );
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  }, [mouseX, mouseY]);
-
   const handleMouseLeave = useCallback(() => {
-    mouseX.set(-size);
-    mouseY.set(-size);
-  }, [mouseX, mouseY, size]);
+    cancelAnimationFrame(rafId.current);
+    if (spotlightRef.current) {
+      spotlightRef.current.style.opacity = "0";
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => cancelAnimationFrame(rafId.current);
+  }, []);
 
   return (
     <div
@@ -49,9 +53,10 @@ export default function SpotlightSection({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <motion.div
-        className="pointer-events-none absolute inset-0 z-0 rounded-[inherit]"
-        style={{ background }}
+      <div
+        ref={spotlightRef}
+        className="pointer-events-none absolute inset-0 z-0 rounded-[inherit] transition-opacity duration-300 opacity-0"
+        style={{ willChange: "background, opacity" }}
       />
       <div className="relative z-10">{children}</div>
     </div>

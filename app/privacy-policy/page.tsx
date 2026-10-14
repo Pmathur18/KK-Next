@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-transparent py-8 md:py-12">
       <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
         
         {/* Header */}
@@ -112,7 +112,7 @@ export default function PrivacyPolicy() {
             <div id="contact" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">7. Contact Legal Team</h2>
               <p>
-                For questions regarding data protection, legal compliance, or database inquiries, please contact info@kknexttech.com with the subject line &ldquo;Legal Query.&rdquo;
+                For questions regarding data protection, legal compliance, or database inquiries, please contact info@kknexttech.com or kknexttechsolution@gmail.com with the subject line &ldquo;Legal Query.&rdquo;
               </p>
             </div>
 

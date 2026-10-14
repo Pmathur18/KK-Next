@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   description:
     "Scale your brand with high-performance web development, high-converting Shopify stores, ROI-focused performance marketing, and enterprise CRM/ERP consultations. Schedule your free tech audit today!",
   keywords: [
-    "Custom Web Development & Performance Marketing Agency",
     "Shopify e-commerce solutions",
     "enterprise CRM consultation",
     "scalable web application architecture",

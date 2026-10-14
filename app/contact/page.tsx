@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CheckCircle2, Mail, Phone, MapPin, Clock, Send, Link as LinkIcon, Building2, Globe, Sparkles, MessageSquare } from "lucide-react";
-import { Linkedin, Twitter, Instagram } from "@/components/ui/BrandIcons";
+import { Linkedin, Instagram } from "@/components/ui/BrandIcons";
 
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -139,13 +139,13 @@ export default function Contact() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-white py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-white py-8 md:py-12">
       <ParticleField count={40} color="124, 58, 237" opacity={0.15} />
       <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={450} opacity={0.1} blur={120} />
       <GlowingOrb className="bottom-[10%] left-[-5%]" color="#38bdf8" size={350} opacity={0.08} blur={100} />
 
       {/* 1. HEADER SECTION */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto text-center pb-12 border-b border-purple-100 flex flex-col items-center gap-4 relative z-10">
+      <section className="max-w-7xl px-6 md:px-8 mx-auto text-center pb-8 border-b border-purple-100 flex flex-col items-center gap-4 relative z-10">
         <ScrollReveal>
           <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
             Get In Touch
@@ -169,7 +169,7 @@ export default function Contact() {
       </section>
 
       {/* Grid container */}
-      <div className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 pt-16 relative z-10">
+      <div className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 pt-10 relative z-10">
 
         {/* Left Column: Contact Form with Spotlight */}
         <div className="lg:col-span-7">
@@ -449,11 +449,17 @@ export default function Contact() {
                     </div>
                     <span>info@kknexttech.com</span>
                   </a>
-                  <a href="tel:+919876543210" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
+                  <a href="mailto:kknexttechsolution@gmail.com" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
+                    <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <span>kknexttechsolution@gmail.com</span>
+                  </a>
+                  <a href="tel:+919001360054" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
                     <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">
                       <Phone className="w-4 h-4" />
                     </div>
-                    <span>+91 98765 43210</span>
+                    <span>+91 9001360054</span>
                   </a>
                   <div className="flex items-center gap-3 text-purple-200">
                     <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">
@@ -461,9 +467,51 @@ export default function Contact() {
                     </div>
                     <span>Mon - Sat: 9:00 AM - 7:00 PM IST</span>
                   </div>
+
+                  <div className="pt-3 border-t border-purple-500/20 flex items-center gap-3">
+                    <span className="text-xs font-semibold text-purple-300">Connect with us:</span>
+                    <a
+                      href="https://www.linkedin.com/company/kknexttechsolution/?viewAsMember=true"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300 hover:text-white hover:bg-purple-700 transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-3.5 h-3.5" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/kknexttechsolution"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300 hover:text-white hover:bg-purple-700 transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </Tilt3DCard>
+          </ScrollReveal>
+
+          {/* Visual Engineering Hub Card */}
+          <ScrollReveal direction="right" delay={0.1}>
+            <div className="rounded-[32px] overflow-hidden border border-purple-100 shadow-xl group bg-slate-900 relative">
+              <img
+                src="/images/tech_team_workspace.jpg"
+                alt="KK Next Tech Solution Client Success & Engineering Hub"
+                className="w-full h-[220px] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-5 left-6 right-6 text-white">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-300 block mb-1">
+                  Global Engineering Hub
+                </span>
+                <p className="text-sm font-extrabold font-display">
+                  Serving Startups &amp; Enterprises Globally · 24/7 Deployment Coverage
+                </p>
+              </div>
+            </div>
           </ScrollReveal>
 
         </div>

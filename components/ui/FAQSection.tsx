@@ -117,7 +117,7 @@ export default function FAQSection({
   return (
     <section
       className={cn(
-        "py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-8",
+        "py-10 md:py-14 max-w-7xl mx-auto px-6 md:px-8",
         className
       )}
     >

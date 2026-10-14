@@ -16,7 +16,7 @@ export default function TermsAndConditions() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-transparent py-8 md:py-12">
       <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
         
         {/* Header */}
@@ -112,7 +112,7 @@ export default function TermsAndConditions() {
             <div id="contact" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">7. Contact Legal Team</h2>
               <p>
-                For legal inquiries, terms reviews, or clarification requests, please write to info@kknexttech.com with the subject line &ldquo;Terms Query.&rdquo;
+                For legal inquiries, terms reviews, or clarification requests, please write to info@kknexttech.com or kknexttechsolution@gmail.com with the subject line &ldquo;Terms Query.&rdquo;
               </p>
             </div>
 

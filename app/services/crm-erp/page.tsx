@@ -35,6 +35,7 @@ import SpotlightSection from "@/components/ui/SpotlightSection";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import GlassCard from "@/components/ui/GlassCard";
 import BeamBorder from "@/components/ui/BeamBorder";
+import CTABanner from "@/components/ui/CTABanner";
 import FloatingBadge from "@/components/ui/FloatingBadge";
 import ParticleField from "@/components/ui/ParticleField";
 import NumberTicker from "@/components/ui/NumberTicker";
@@ -46,19 +47,19 @@ import { cn } from "@/lib/utils";
 const crmFAQs: FAQItem[] = [
   {
     q: "Which CRM and ERP platforms do you work with?",
-    a: "Our primary platforms are Zoho CRM, Zoho One, Salesforce, Odoo, and HubSpot. For custom ERP builds we use Node.js + PostgreSQL backends with React admin dashboards. We choose the platform based on your team size, budget, and existing infrastructure — not based on commission."
+    a: "Our primary platforms are HubSpot, Salesforce, Odoo, and custom microservices. For custom ERP builds we use Node.js + PostgreSQL backends with React admin dashboards. We choose the platform based on your team size, budget, and existing infrastructure — not based on commission."
   },
   {
     q: "Can you migrate our data from an existing CRM?",
     a: "Yes. Data migration is a core part of every CRM implementation. We audit your existing data, clean duplicates, map field structures to the new system, and run parallel testing before the final cutover. You don't lose a single lead record."
   },
   {
-    q: "How much customization is possible with an off-the-shelf CRM like Zoho or Odoo?",
-    a: "Quite a lot. Both Zoho and Odoo support custom modules, workflow automations, webhook integrations, and custom dashboards. For 80% of businesses, a well-configured Zoho or Odoo setup handles everything. If your processes are truly unique, we build custom modules or a fully bespoke system on top."
+    q: "How much customization is possible with an off-the-shelf CRM like HubSpot or Odoo?",
+    a: "Quite a lot. Both HubSpot and Odoo support custom modules, workflow automations, webhook integrations, and custom dashboards. For 80% of businesses, a well-configured setup handles everything. If your processes are truly unique, we build custom modules or a fully bespoke system on top."
   },
   {
     q: "How long does a typical CRM/ERP implementation take?",
-    a: "A standard Zoho CRM setup with custom pipelines and automation takes 3–5 weeks. A full Odoo ERP implementation (inventory, accounting, HR, sales) typically takes 8–16 weeks depending on module count and data complexity. We give you a fixed-scope timeline in writing before kickoff."
+    a: "A standard CRM setup with custom pipelines and automation takes 3–5 weeks. A full Odoo ERP implementation (inventory, accounting, HR, sales) typically takes 8–16 weeks depending on module count and data complexity. We give you a fixed-scope timeline in writing before kickoff."
   },
   {
     q: "Do you provide training for our team after implementation?",
@@ -158,10 +159,10 @@ export default function CrmErpService() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="relative overflow-hidden w-full bg-white py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-white py-8 md:py-12">
 
-      {/* ── 1. HERO SECTION (Salesforce & Zoho Inspired) ── */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-8 pb-16 relative">
+      {/* ── 1. HERO SECTION ── */}
+      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-8 pb-10 relative">
         <ParticleField count={45} color="124, 58, 237" opacity={0.2} />
         <GlowingOrb className="top-[-20%] left-[-10%]" color="#7C3AED" size={450} opacity={0.12} blur={120} />
         <GlowingOrb className="top-[30%] right-[-10%]" color="#38bdf8" size={380} opacity={0.1} blur={100} />
@@ -191,7 +192,7 @@ export default function CrmErpService() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-slate-900 font-display">
                 Automate Your Entire Operation with{" "}
                 <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
-                  Zoho, Salesforce &amp; Odoo
+                  HubSpot, Salesforce &amp; Odoo
                 </AnimatedGradientText>
               </h1>
             </ScrollReveal>
@@ -271,8 +272,8 @@ export default function CrmErpService() {
         </ScrollReveal>
       </section>
 
-      {/* ── 2. INTERACTIVE PIPELINE FLOW (Salesforce/Zoho Style) ── */}
-      <section id="pipeline-demo" className="py-24 bg-gradient-to-b from-purple-50/40 via-white to-purple-50/30 border-y border-purple-100/60 relative scroll-mt-20">
+      {/* ── 2. INTERACTIVE PIPELINE FLOW ── */}
+      <section id="pipeline-demo" className="py-12 md:py-16 bg-gradient-to-b from-purple-50/40 via-white to-purple-50/30 border-y border-purple-100/60 relative scroll-mt-20">
         <SpotlightSection spotlightColor="rgba(124, 58, 237, 0.08)" size={700}>
           <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
             <div className="flex flex-col items-center gap-4 text-center">
@@ -373,12 +374,12 @@ export default function CrmErpService() {
       </section>
 
       {/* ── 3. CORE CAPABILITIES (Bento + 3D Tilt) ── */}
-      <section className="py-24 max-w-7xl px-6 md:px-8 mx-auto">
+      <section className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto">
         <div className="flex flex-col gap-16">
           <SectionHeading
             eyebrow="Capabilities"
             title="Tailored platforms & integrations"
-            description="We build bespoke operations databases and set up configurations for top ERP suites like Zoho, Salesforce, and Odoo."
+            description="We build bespoke operations databases and set up configurations for top ERP suites like HubSpot, Salesforce, and Odoo."
             align="center"
           />
 
@@ -417,7 +418,7 @@ export default function CrmErpService() {
       </section>
 
       {/* ── 4. INTEGRATION TOOLS MARQUEE ── */}
-      <section className="py-16 bg-slate-50/70 border-y border-purple-100">
+      <section className="py-10 md:py-12 bg-slate-50/70 border-y border-purple-100">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col items-center gap-8">
           <span className="text-xs uppercase font-extrabold tracking-widest text-slate-500">
             Supported Enterprise Platforms &amp; API Stacks
@@ -445,7 +446,7 @@ export default function CrmErpService() {
 
       {/* ── 5. RELATED CASE STUDIES ── */}
       {crmProjects.length > 0 && (
-        <section className="py-24 max-w-7xl px-6 md:px-8 mx-auto">
+        <section className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto">
           <div className="flex flex-col gap-12">
             <SectionHeading
               eyebrow="Case Studies"
@@ -483,31 +484,18 @@ export default function CrmErpService() {
       )}
 
       {/* ── 6. CTA BANNER ── */}
-      <section className="py-16 max-w-7xl px-6 md:px-8 mx-auto">
-        <ScrollReveal>
-          <SpotlightSection spotlightColor="rgba(124, 58, 237, 0.12)" size={500}>
-            <BeamBorder colorFrom="#7C3AED" colorTo="#38bdf8" duration={4} borderRadius="2rem">
-              <div className="bg-gradient-to-r from-purple-50 via-white to-cyan-50 rounded-[1.875rem] p-10 md:p-16 text-center flex flex-col items-center gap-6 relative overflow-hidden">
-                <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                  Ready to Automate?
-                </Badge>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight max-w-2xl">
-                  Get a Blueprint for Your{" "}
-                  <AnimatedGradientText>Custom CRM Setup</AnimatedGradientText>
-                </h2>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl">
-                  Book a free 30-minute discovery session. We will map out your exact data flows, webhook triggers, and recommend the best tech stack.
-                </p>
-                <Link href="/contact">
-                  <Button variant="primary" colorTheme="violet" className="!py-4 !px-8 !text-base shadow-xl shadow-purple-500/25">
-                    Schedule Free Architecture Call →
-                  </Button>
-                </Link>
-              </div>
-            </BeamBorder>
-          </SpotlightSection>
-        </ScrollReveal>
-      </section>
+      <CTABanner
+        badge="Ready to Build Your Win?"
+        title={
+          <>
+            Get a Blueprint for Your{" "}
+            <AnimatedGradientText>Custom CRM Setup</AnimatedGradientText>
+          </>
+        }
+        description="Book a free 30-minute discovery session. We will map out your exact data flows, webhook triggers, and recommend the best tech stack."
+        buttonText="Schedule Free Architecture Call →"
+        buttonLink="/contact"
+      />
 
       {/* ── 7. FAQS ── */}
       <div className="border-t border-purple-100">

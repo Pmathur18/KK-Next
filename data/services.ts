@@ -109,12 +109,12 @@ export const services: Service[] = [
     title: "CRM & ERP Solutions",
     slug: "crm-erp",
     badge: "Enterprise Automation",
-    description: "Custom pipelines and automated integrations (Zoho, Salesforce, Odoo) to streamline operations.",
+    description: "Custom pipelines and automated integrations (HubSpot, Salesforce, Odoo) to streamline operations.",
     longDescription: "Optimize company efficiency with customized enterprise resource planning (ERP) and customer relationship management (CRM) setups. We design and integrate custom workflows connecting Sales, Inventory, Finance, and Human Resources in unified dashboards.",
     color: "bg-[#050B14]",
     hoverColor: "hover:bg-black",
     accentColor: "#0A2540",
-    techStack: ["Salesforce", "Zoho CRM", "Odoo", "Python", "Node.js", "PostgreSQL", "AWS Integrations", "Zapier Developer"],
+    techStack: ["Salesforce", "HubSpot CRM", "Odoo", "Python", "Node.js", "PostgreSQL", "AWS Integrations", "Zapier Developer"],
     features: [
       "Bespoke Dashboard & Reports Engineering",
       "Workflow Automation scripts & Webhooks",
@@ -131,6 +131,36 @@ export const services: Service[] = [
       {
         title: "Unified Analytics Controls",
         description: "Aggregate key metrics from separate apps into executive dashboards for actionable performance indicators."
+      }
+    ]
+  },
+  {
+    id: "expense-management",
+    title: "Expense Management",
+    slug: "expense-management",
+    badge: "Spend Automation",
+    description: "Automate receipt OCR capture, approval hierarchies, departmental budgets, and GST reconciliation synced with Tally Prime and banking.",
+    longDescription: "KK Next Expense helps your team submit, approve, and reconcile expenses in one unified cloud system. Enjoy AI receipt autoscan, multi-tier Slack/WhatsApp approvals, automated mileage GPS tracking, corporate card reconciliation, and 1-click ledger posting to Tally Prime and QuickBooks.",
+    color: "bg-[#F3E8FF]",
+    hoverColor: "hover:bg-[#E9D5FF]",
+    accentColor: "#7C3AED",
+    techStack: ["Next.js", "AI OCR", "Tally Prime API", "RazorpayX", "QuickBooks", "WhatsApp Bot", "PostgreSQL"],
+    features: [
+      "AI Autoscan Receipt OCR (99.2% accuracy)",
+      "Multi-Tier Approval Workflows with WhatsApp & Slack Bot",
+      "Department & Project Real-Time Budgets",
+      "Corporate Card Direct Feeds & Auto-Reconciliation",
+      "GPS Mileage & Regional Per Diem Tables",
+      "1-Click Direct Bank Reimbursements & Tally Sync"
+    ],
+    capabilities: [
+      {
+        title: "Zero-Touch Receipt Processing",
+        description: "Camera autoscan extracts merchant, date, amount, taxes, and GSTIN automatically in under 3 seconds."
+      },
+      {
+        title: "Accounting & Bank Synchronization",
+        description: "1-Click direct disbursement via RazorpayX and instant ledger posting to Tally Prime and QuickBooks."
       }
     ]
   }

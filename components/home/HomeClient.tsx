@@ -43,6 +43,7 @@ import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import GlassCard from "@/components/ui/GlassCard";
 import ParticleField from "@/components/ui/ParticleField";
 import BeamBorder from "@/components/ui/BeamBorder";
+import CTABanner from "@/components/ui/CTABanner";
 
 import { projects } from "@/data/portfolio";
 import { testimonials } from "@/data/testimonials";
@@ -175,32 +176,24 @@ const differentiators = [
 // Section 6: Our Proven Growth Process
 const growthProcessSteps = [
   {
-    stepNum: "01",
-    phase: "Discovery & Audit",
     title: "Discovery & Technical Audit",
     desc: "We perform a deep-dive technical audit of your existing software architecture, operational bottlenecks, and market competitive landscape.",
     icon: Zap,
     color: "bg-violet-600 text-white border-violet-500 shadow-purple-500/30",
   },
   {
-    stepNum: "02",
-    phase: "Architecture Mapping",
     title: "Strategy & System Architecture",
     desc: "We map out wireframes, user journeys, software architecture, and full-funnel marketing strategies designed to meet your target KPIs.",
     icon: Workflow,
     color: "bg-blue-600 text-white border-blue-500 shadow-blue-500/30",
   },
   {
-    stepNum: "03",
-    phase: "Agile Development",
     title: "Agile Engineering & Execution",
     desc: "Our developers and digital strategists build out your solution using clean code, rapid sprints, and continuous quality testing.",
     icon: Code,
     color: "bg-purple-600 text-white border-purple-500 shadow-purple-500/30",
   },
   {
-    stepNum: "04",
-    phase: "Launch & Growth",
     title: "Deployment, Optimization & Scaling",
     desc: "We launch your product, execute real-time conversion rate optimization (CRO), monitor infrastructure health, and provide ongoing strategic support.",
     icon: TrendingUp,
@@ -214,7 +207,7 @@ const partnerLogos = [
   { name: "Salesforce", type: "Enterprise CRM" },
   { name: "HubSpot", type: "Growth CRM" },
   { name: "WordPress Headless", type: "CMS Platform" },
-  { name: "Next.js 15", type: "Web Architecture" },
+  { name: "Next.js", type: "Web Architecture" },
   { name: "AWS Cloud", type: "Infrastructure" },
   { name: "Meta Business", type: "Paid Media" },
   { name: "Google Cloud", type: "Enterprise Cloud" },
@@ -267,24 +260,9 @@ export default function HomeClient() {
         <div className="relative z-10 max-w-7xl px-6 md:px-8 w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
           {/* Left Hero Content */}
           <motion.div
-            style={{ y: heroY, opacity: heroOpacity }}
+            style={{ y: heroY, opacity: heroOpacity, willChange: "transform, opacity" }}
             className="flex-1 flex flex-col gap-6 text-left lg:max-w-[58%]"
           >
-            {/* Top Pill Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <BeamBorder colorFrom="#7C3AED" colorTo="#38bdf8" duration={3} borderRadius="999px" className="inline-block">
-                <div className="bg-white px-4 py-1.5 rounded-full shadow-sm">
-                  <span className="text-xs font-bold text-purple-700 flex items-center gap-2">
-                    <Sparkles className="w-3.5 h-3.5 fill-current text-purple-600" />
-                    Custom Web Development &amp; Performance Marketing Agency
-                  </span>
-                </div>
-              </BeamBorder>
-            </motion.div>
 
             {/* Headline */}
             <motion.h1
@@ -334,44 +312,11 @@ export default function HomeClient() {
                 </Button>
               </Link>
             </motion.div>
-
-            {/* Social Proof Row */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="flex flex-wrap items-center gap-6 pt-6 border-t border-purple-100/80 mt-2"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {["Ananya Sen", "Dr. Rohan Joshi", "Amit Mehra", "Neha Nair"].map((name, idx) => (
-                    <Avatar
-                      key={idx}
-                      name={name}
-                      className="w-9 h-9 text-[10px] border-2 border-white shadow-md"
-                    />
-                  ))}
-                </div>
-                <div>
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-xs font-semibold text-slate-600">4.9/5 Rating across 150+ Enterprises</span>
-                </div>
-              </div>
-              <div className="hidden sm:flex items-center gap-4 text-xs font-bold text-slate-500 divide-x divide-slate-200">
-                <span className="pr-4">Custom Architectures</span>
-                <span className="px-4">Full-Funnel ROAS</span>
-                <span className="pl-4">Enterprise CRM</span>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right Hero Graphic: 3D Interactive Globe */}
           <motion.div
-            style={{ scale: globeScale, opacity: heroOpacity }}
+            style={{ scale: globeScale, opacity: heroOpacity, willChange: "transform, opacity" }}
             className="flex-1 flex items-center justify-center relative w-full"
           >
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -400,7 +345,8 @@ export default function HomeClient() {
             <motion.div
               animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[8%] left-[2%] bg-white/90 backdrop-blur-xl border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 flex items-center gap-2.5 pointer-events-none"
+              style={{ willChange: "transform" }}
+              className="absolute top-[8%] left-[2%] bg-white/90 backdrop-blur-md border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 flex items-center gap-2.5 pointer-events-none"
             >
               <div className="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center">
                 <BarChart3 className="w-4 h-4 text-purple-600" />
@@ -414,7 +360,8 @@ export default function HomeClient() {
             <motion.div
               animate={{ y: [0, 10, 0], rotate: [0, -1, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-[12%] right-[2%] bg-white/90 backdrop-blur-xl border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 flex items-center gap-2.5 pointer-events-none"
+              style={{ willChange: "transform" }}
+              className="absolute bottom-[12%] right-[2%] bg-white/90 backdrop-blur-md border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 flex items-center gap-2.5 pointer-events-none"
             >
               <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
@@ -431,7 +378,7 @@ export default function HomeClient() {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 2: TRUST & CREDIBILITY BANNER
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-14 bg-gradient-to-r from-purple-50/50 via-white to-sky-50/50 border-y border-purple-100/70 relative">
+      <section className="py-8 bg-gradient-to-r from-purple-50/50 via-white to-sky-50/50 border-y border-purple-100/70 relative">
         <div className="max-w-7xl px-6 md:px-8 mx-auto text-center mb-6">
           <ScrollReveal>
             <p className="text-sm font-bold uppercase tracking-widest text-slate-500 font-display">
@@ -465,7 +412,7 @@ export default function HomeClient() {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 3: WHO WE ARE (THE VALUE PROPOSITION)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 relative overflow-hidden bg-white">
+      <section className="py-12 md:py-16 relative overflow-hidden bg-white">
         <GlowingOrb className="top-10 left-[-5%]" color="#7C3AED" size={350} opacity={0.07} blur={100} />
         <GlowingOrb className="bottom-10 right-[-5%]" color="#38bdf8" size={300} opacity={0.07} blur={90} />
 
@@ -473,9 +420,6 @@ export default function HomeClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: Heading & Value Proposition */}
             <ScrollReveal direction="left" className="lg:col-span-7 flex flex-col gap-6">
-              <Badge colorTheme="navy" className="w-fit !bg-purple-100 !text-purple-700 !border-purple-200">
-                The Value Proposition
-              </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight leading-tight">
                 Your Next-Generation Technology &amp;{" "}
                 <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
@@ -525,10 +469,9 @@ export default function HomeClient() {
                       <div className="w-3 h-3 rounded-full bg-yellow-500" />
                       <div className="w-3 h-3 rounded-full bg-green-500" />
                     </div>
-                    <span className="text-xs font-mono text-purple-300">kknextech.system.v2</span>
                   </div>
 
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     <span className="text-xs font-bold uppercase tracking-widest text-purple-400">Integrated Growth Ecosystem</span>
                     <h3 className="text-2xl font-black font-display leading-tight">
                       Engineering + Performance Marketing = Unstoppable Scale
@@ -536,6 +479,16 @@ export default function HomeClient() {
                     <p className="text-sm text-slate-300 leading-relaxed">
                       We unify custom web architecture, e-commerce infrastructure, CRM automation, and performance marketing under one accountable agency roof.
                     </p>
+                  </div>
+
+                  {/* Visual Dashboard Snippet */}
+                  <div className="relative w-full h-[180px] rounded-2xl overflow-hidden border border-white/15 bg-slate-900 group/img">
+                    <img
+                      src="/images/hero_dashboard.jpg"
+                      alt="KK Next Tech Architecture & Growth Dashboard"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
                   </div>
 
                   <div className="pt-4 border-t border-white/10 flex items-center justify-between">
@@ -559,7 +512,7 @@ export default function HomeClient() {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 4: CORE SOLUTIONS (SERVICE OFFERINGS)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section id="services" className="py-24 md:py-32 bg-slate-50/60 relative overflow-hidden border-y border-purple-100/60">
+      <section id="services" className="py-12 md:py-16 bg-slate-50/60 relative overflow-hidden border-y border-purple-100/60">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
           <div className="flex flex-col items-center gap-4 text-center">
             <ScrollReveal>
@@ -642,7 +595,7 @@ export default function HomeClient() {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 5: WHY PARTNER WITH US? (THE DIFFERENTIATORS)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-white relative overflow-hidden">
         <GlowingOrb className="top-1/2 left-[-10%]" color="#7C3AED" size={450} opacity={0.06} blur={120} />
 
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
@@ -723,7 +676,7 @@ export default function HomeClient() {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 6: OUR PROVEN GROWTH PROCESS
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 relative overflow-hidden bg-slate-50/60 border-t border-purple-100">
+      <section className="py-12 md:py-16 relative overflow-hidden bg-slate-50/60 border-t border-purple-100">
         <GlowingOrb className="top-0 left-[20%]" color="#7C3AED" size={400} opacity={0.08} blur={120} />
 
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16 relative z-10">
@@ -747,47 +700,47 @@ export default function HomeClient() {
 
           {/* 4-Step Process Timeline Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {growthProcessSteps.map((step, idx) => (
-              <ScrollReveal key={idx} delay={idx * 0.1} direction="up">
-                <Tilt3DCard intensity={8} className="h-full">
-                  <div className="h-full rounded-3xl p-8 border border-purple-100 bg-white shadow-lg shadow-purple-900/5 hover:shadow-2xl hover:border-purple-300 transition-all duration-300 flex flex-col justify-between gap-6 group">
-                    <div className="flex flex-col gap-4">
-                      <div className="flex items-center justify-between">
-                        <div
-                          className={cn(
-                            "w-12 h-12 rounded-2xl flex items-center justify-center border shadow-lg font-display font-black text-lg",
-                            step.color
-                          )}
-                        >
-                          <step.icon className="w-6 h-6 stroke-[2.5]" />
+            {growthProcessSteps.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <ScrollReveal key={idx} delay={idx * 0.1} direction="up">
+                  <Tilt3DCard intensity={8} className="h-full">
+                    <div className="h-full rounded-3xl p-8 border border-purple-100 bg-white shadow-lg shadow-purple-900/5 hover:shadow-2xl hover:border-purple-300 transition-all duration-300 flex flex-col justify-between gap-6 group">
+                      <div className="flex flex-col gap-4">
+                        <div className="flex items-center justify-between">
+                          <div
+                            className={cn(
+                              "w-12 h-12 rounded-2xl flex items-center justify-center border shadow-lg font-display font-black text-lg",
+                              step.color
+                            )}
+                          >
+                            {Icon && <Icon className="w-6 h-6 stroke-[2.5]" />}
+                          </div>
+                          <span className="text-2xl font-black font-display text-purple-300 group-hover:text-purple-600 transition-colors">
+                            {`0${idx + 1}`}
+                          </span>
                         </div>
-                        <span className="text-2xl font-black font-display text-purple-300 group-hover:text-purple-600 transition-colors">
-                          {step.stepNum}
-                        </span>
+
+                        <div>
+                          <h3 className="font-extrabold text-lg text-slate-900 font-display leading-tight">
+                            {step.title}
+                          </h3>
+                        </div>
+
+                        <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                          {step.desc}
+                        </p>
                       </div>
 
-                      <div>
-                        <span className="text-[11px] font-bold text-purple-600 uppercase tracking-widest block mb-1">
-                          Step {step.stepNum} — {step.phase}
-                        </span>
-                        <h3 className="font-extrabold text-lg text-slate-900 font-display leading-tight">
-                          {step.title}
-                        </h3>
+                      <div className="pt-4 border-t border-purple-100/80 flex items-center gap-2 text-xs font-bold text-purple-600">
+                        <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                        Milestone Verified
                       </div>
-
-                      <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                        {step.desc}
-                      </p>
                     </div>
-
-                    <div className="pt-4 border-t border-purple-100/80 flex items-center gap-2 text-xs font-bold text-purple-600">
-                      <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-                      Milestone Verified
-                    </div>
-                  </div>
-                </Tilt3DCard>
-              </ScrollReveal>
-            ))}
+                  </Tilt3DCard>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -795,7 +748,7 @@ export default function HomeClient() {
       {/* ═══════════════════════════════════════════════════════════════════
           FEATURED PORTFOLIO & CASE STUDIES
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-white relative">
+      <section className="py-12 md:py-16 bg-white relative">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <ScrollReveal>
@@ -840,6 +793,8 @@ export default function HomeClient() {
                       <img
                         src={project.imageUrl}
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
@@ -867,11 +822,11 @@ export default function HomeClient() {
           </div>
         </div>
       </section>
-      
+
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 6.5: CLIENT TESTIMONIALS & TRUST PROOF
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-gradient-to-b from-white via-purple-50/30 to-slate-50/40 relative overflow-hidden border-t border-purple-100/60">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-white via-purple-50/30 to-slate-50/40 relative overflow-hidden border-t border-purple-100/60">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
           <div className="flex flex-col items-center gap-4 text-center max-w-3xl mx-auto">
             <ScrollReveal>
@@ -942,51 +897,18 @@ export default function HomeClient() {
       {/* ═══════════════════════════════════════════════════════════════════
           SECTION 8: CONVERSION FOOTER (FINAL CALL-TO-ACTION)
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 max-w-7xl px-6 md:px-8 mx-auto">
-        <ScrollReveal>
-          <SpotlightSection spotlightColor="rgba(124, 58, 237, 0.12)" size={600}>
-            <BeamBorder colorFrom="#7C3AED" colorTo="#38bdf8" duration={5} borderRadius="2.5rem">
-              <div className="bg-gradient-to-r from-purple-950 via-slate-900 to-indigo-950 text-white rounded-[2.35rem] p-10 md:p-16 text-center flex flex-col items-center gap-8 relative overflow-hidden shadow-2xl">
-                <GlowingOrb className="top-0 left-0" color="#7C3AED" size={350} opacity={0.25} blur={90} />
-                <GlowingOrb className="bottom-0 right-0" color="#38bdf8" size={300} opacity={0.2} blur={90} />
-                <ParticleField count={40} color="168, 85, 247" opacity={0.3} speed={0.3} />
-
-                <div className="relative z-10 flex flex-col items-center gap-6 max-w-3xl">
-                  <Badge colorTheme="navy" className="!bg-purple-900/60 !text-purple-200 !border-purple-500/30">
-                    🚀 Next Step
-                  </Badge>
-
-                  {/* Section 8 Headline */}
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white font-display tracking-tight leading-tight">
-                    Ready to Engineer Your Next Phase of{" "}
-                    <AnimatedGradientText from="#A855F7" via="#EC4899" to="#38BDF8">
-                      Digital Growth?
-                    </AnimatedGradientText>
-                  </h2>
-
-                  {/* Section 8 Sub-headline */}
-                  <p className="text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl font-normal">
-                    Schedule a strategic consultation with our lead technical architects and performance strategists today.
-                  </p>
-
-                  {/* Primary CTA */}
-                  <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
-                    <Link href="/contact">
-                      <Button
-                        variant="primary"
-                        colorTheme="violet"
-                        className="!py-4 !px-9 !text-base shadow-xl shadow-purple-500/30 hover:shadow-purple-500/50 hover:-translate-y-1 transition-all duration-300"
-                      >
-                        Schedule Your Strategy Call <ArrowRight className="inline-block w-4 h-4 ml-2" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </BeamBorder>
-          </SpotlightSection>
-        </ScrollReveal>
-      </section>
+      <CTABanner
+        badge="Ready to Build Your Win?"
+        title={
+          <>
+            Ready to Engineer Your Next Phase of{" "}
+            <AnimatedGradientText>Digital Growth?</AnimatedGradientText>
+          </>
+        }
+        description="Schedule a strategic consultation with our lead technical architects and performance strategists today."
+        buttonText="Schedule Your Strategy Call →"
+        buttonLink="/contact"
+      />
     </div>
   );
 }

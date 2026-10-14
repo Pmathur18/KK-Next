@@ -11,10 +11,10 @@ import {
   CheckCircle2, 
   Cpu, 
   Shield, 
-  Layers
+  Layers,
+  Receipt
 } from "lucide-react";
 import { Instagram, Linkedin, Twitter, Facebook } from "@/components/ui/BrandIcons";
-
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -23,12 +23,8 @@ import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import GlowingOrb from "@/components/ui/GlowingOrb";
-import BentoCard from "@/components/ui/BentoCard";
-import SpotlightSection from "@/components/ui/SpotlightSection";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import GlassCard from "@/components/ui/GlassCard";
-import BeamBorder from "@/components/ui/BeamBorder";
-import { projects } from "@/data/portfolio";
+import CTABanner from "@/components/ui/CTABanner";
 import { cn } from "@/lib/utils";
 
 const allServicesFAQs: FAQItem[] = [
@@ -50,7 +46,7 @@ const allServicesFAQs: FAQItem[] = [
   },
   {
     q: "What makes your CRM & ERP service different?",
-    a: "Unlike generic resellers, our engineers specialize in custom webhook pipelines, database synchronization, API middleware, and workflow automation on Zoho, Salesforce, and Odoo — visit our dedicated CRM & ERP page for in-depth capabilities."
+    a: "Unlike generic resellers, our engineers specialize in custom webhook pipelines, database synchronization, API middleware, and workflow automation on HubSpot, Salesforce, and Odoo — visit our dedicated CRM & ERP page for in-depth capabilities."
   },
   {
     q: "Do you offer post-launch maintenance and continuous support?",
@@ -139,10 +135,10 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-white py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-white py-8 md:py-12">
 
       {/* ── 1. HERO SECTION ── */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-16 border-b border-purple-100/60 relative">
+      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-10 border-b border-purple-100/60 relative">
         <GlowingOrb className="top-[-50%] right-[-10%]" color="#7C3AED" size={400} opacity={0.07} blur={100} />
 
         <ScrollReveal>
@@ -188,12 +184,19 @@ export default function ServicesPage() {
               <Database className="w-3.5 h-3.5" /> CRM / ERP Automation
               <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
             </Link>
+            <Link
+              href="/services/expense-management"
+              className="group px-5 py-2.5 rounded-full bg-emerald-50 hover:bg-emerald-600 text-emerald-700 hover:text-white text-xs font-bold transition-all border border-emerald-200 hover:border-emerald-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-emerald-500/20 hover:-translate-y-0.5"
+            >
+              <Receipt className="w-3.5 h-3.5" /> Expense Management
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
         </ScrollReveal>
       </section>
 
       {/* ── 2. SERVICE 1: WEBSITES & E-COMMERCE ── */}
-      <section id="websites" className="py-20 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200 scroll-mt-24">
+      <section id="websites" className="py-12 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200 scroll-mt-24">
         <div className="flex flex-col gap-12">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -213,6 +216,49 @@ export default function ServicesPage() {
                 </span>
               ))}
             </div>
+          </div>
+
+          {/* Web Architecture Visual Showcase */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ScrollReveal direction="left">
+              <div className="rounded-3xl border border-purple-100 overflow-hidden bg-white shadow-lg group">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                  <img
+                    src="/images/web_architecture_showcase.jpg"
+                    alt="Bespoke Modern Web Architecture & Next.js"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                </div>
+                <div className="p-6 flex flex-col gap-2">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-600">Bespoke Full-Stack</span>
+                  <h3 className="text-lg font-black text-slate-900 font-display">Custom Next.js &amp; Headless Architecture</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Ultra-fast sub-second load times, headless CMS setups, and hardened enterprise security standards.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right">
+              <div className="rounded-3xl border border-purple-100 overflow-hidden bg-white shadow-lg group">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                  <img
+                    src="/images/ecommerce_showcase.jpg"
+                    alt="High-Converting Shopify & Ecommerce Stores"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                </div>
+                <div className="p-6 flex flex-col gap-2">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-600">E-Commerce &amp; CRO</span>
+                  <h3 className="text-lg font-black text-slate-900 font-display">High-Conversion Shopify Stores</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Optimized checkout funnels, automated replenishment workflows, and seamless payment gateways.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Web Packages / Capabilities */}
@@ -253,7 +299,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 3. SERVICE 2: MOBILE APPLICATIONS ── */}
-      <section id="mobile-apps" className="py-20 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200 scroll-mt-24">
+      <section id="mobile-apps" className="py-12 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200 scroll-mt-24">
         <div className="flex flex-col gap-12">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -275,27 +321,42 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* Mobile App Pillars Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {appFeatures.map((feat) => {
-              const Icon = feat.icon;
-              return (
-                <Card key={feat.title} colorBg="bg-white" className="p-6 flex flex-col gap-4 border border-slate-200">
-                  <div className="w-12 h-12 rounded-2xl bg-[#EBF3FC] flex items-center justify-center text-ink border border-blue-200/50">
-                    <Icon className="w-6 h-6 text-[#0A2540]" />
-                  </div>
-                  <h3 className="text-lg font-bold text-ink">{feat.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{feat.desc}</p>
-                </Card>
-              );
-            })}
+          {/* Mobile App Visual Showcase & Pillars */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-purple-100 shadow-xl group bg-slate-900">
+              <img
+                src="/images/mobile_app_showcase.jpg"
+                alt="KK Next Tech Mobile App Engineering Showcase"
+                className="w-full h-[380px] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-purple-300 font-bold block mb-1">Cross-Platform Architecture</span>
+                <p className="text-base font-extrabold font-display">iOS &amp; Android · 60 FPS Native Performance</p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {appFeatures.map((feat) => {
+                const Icon = feat.icon;
+                return (
+                  <Card key={feat.title} colorBg="bg-white" className="p-6 flex flex-col gap-4 border border-slate-200">
+                    <div className="w-12 h-12 rounded-2xl bg-[#EBF3FC] flex items-center justify-center text-ink border border-blue-200/50">
+                      <Icon className="w-6 h-6 text-[#0A2540]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-ink">{feat.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">{feat.desc}</p>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
 
         </div>
       </section>
 
       {/* ── 4. SERVICE 3: SOCIAL MEDIA & GROWTH ── */}
-      <section id="social-media" className="py-20 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200 scroll-mt-24">
+      <section id="social-media" className="py-12 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200 scroll-mt-24">
         <div className="flex flex-col gap-12">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -360,11 +421,11 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 5. CRM & ERP DEDICATED SPOTLIGHT (Apple Glass Design) ── */}
-      <section className="py-16 max-w-7xl px-6 md:px-8 mx-auto">
-        <div className="rounded-[36px] bg-slate-950/80 backdrop-blur-2xl text-white border border-white/15 p-8 md:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)]">
+      <section className="py-8 max-w-7xl px-6 md:px-8 mx-auto">
+        <div className="rounded-[36px] bg-slate-950/80 backdrop-blur-2xl text-white border border-white/15 p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)]">
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/15 rounded-full filter blur-[90px] pointer-events-none" />
           
-          <div className="flex flex-col gap-4 max-w-2xl z-10">
+          <div className="flex flex-col gap-4 max-w-xl z-10">
             <div className="flex items-center gap-2">
               <Badge colorTheme="navy">Enterprise Dedicated Solution</Badge>
               <span className="text-xs font-bold text-blue-300 uppercase tracking-widest">★ Dedicated Portal</span>
@@ -373,46 +434,91 @@ export default function ServicesPage() {
               Looking for CRM &amp; ERP Solutions?
             </h2>
             <p className="text-sm md:text-base text-slate-300 leading-relaxed">
-              We offer a dedicated enterprise portal for deep workflow automations, custom database connectors, and enterprise systems including <strong>Zoho CRM</strong>, <strong>Salesforce</strong>, and <strong>Odoo ERP</strong>.
+              We offer a dedicated enterprise portal for deep workflow automations, custom database connectors, and enterprise systems including <strong>HubSpot CRM</strong>, <strong>Salesforce</strong>, and <strong>Odoo ERP</strong>.
             </p>
             <div className="flex flex-wrap items-center gap-2 pt-2">
-              {["Salesforce", "Zoho One", "Odoo ERP", "Python Scripts", "PostgreSQL", "AWS Webhooks"].map((tag) => (
+              {["Salesforce", "HubSpot", "Odoo ERP", "Python Scripts", "PostgreSQL", "AWS Webhooks"].map((tag) => (
                 <span key={tag} className="text-xs font-mono bg-white/10 px-2.5 py-1 rounded-md text-slate-200 border border-white/10 font-semibold backdrop-blur-sm">
                   {tag}
                 </span>
               ))}
             </div>
+            <div className="pt-2">
+              <Link href="/services/crm-erp">
+                <Button variant="primary" colorTheme="peach" className="!py-3.5 !px-7 text-sm font-bold shadow-lg">
+                  Explore Dedicated CRM &amp; ERP Page →
+                </Button>
+              </Link>
+            </div>
           </div>
 
-          <div className="z-10 shrink-0">
-            <Link href="/services/crm-erp">
-              <Button variant="primary" colorTheme="peach" className="!py-4 !px-8 text-sm font-bold shadow-lg">
-                Explore Dedicated CRM &amp; ERP Page →
-              </Button>
-            </Link>
+          <div className="z-10 w-full lg:w-[420px] rounded-2xl overflow-hidden border border-white/20 shadow-2xl shrink-0 group">
+            <img
+              src="/images/crm_erp_dashboard.jpg"
+              alt="KK Next Tech Enterprise CRM & ERP Dashboard"
+              className="w-full h-[240px] object-cover transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
 
         </div>
       </section>
 
-      {/* ── 6. BOTTOM CTA BLOCK (Apple Glass Design) ── */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto py-12">
-        <div className="bg-slate-950/80 backdrop-blur-2xl border border-white/15 text-white rounded-[36px] p-8 md:p-16 text-center flex flex-col items-center gap-8 relative overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)]">
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-purple-500/15 rounded-full filter blur-[90px] pointer-events-none" />
-          <SectionHeading
-            eyebrow="Get Consultation"
-            title="Unsure which stack fits your project?"
-            description="Our solutions architects are available to run a full operations and technical code audit."
-            align="center"
-            theme="dark"
-          />
-          <Link href="/contact">
-            <Button variant="primary" colorTheme="navy">
-              Schedule Free 30-Min Discovery Call
-            </Button>
-          </Link>
+      {/* ── 5B. EXPENSE MANAGEMENT SPOTLIGHT BANNER ── */}
+      <section className="py-6 max-w-7xl px-6 md:px-8 mx-auto">
+        <div className="rounded-[36px] bg-gradient-to-r from-emerald-950 via-slate-900 to-purple-950 text-white border border-emerald-500/30 p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/10 rounded-full filter blur-[90px] pointer-events-none" />
+          
+          <div className="flex flex-col gap-4 max-w-xl z-10">
+            <div className="flex items-center gap-2">
+              <Badge colorTheme="navy">New Product Launch</Badge>
+              <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">★ KK Next Expense</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight font-display">
+              Every expense tracked. Every rupee accounted for.
+            </h2>
+            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+              Automate receipt OCR capture, approval hierarchies, departmental budgets, and GST reconciliation synced directly to Tally Prime, QuickBooks, and RazorpayX.
+            </p>
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              {["Tally Prime", "QuickBooks", "RazorpayX", "SAP Connector", "Slack Approvals", "GST Input Claim"].map((tag) => (
+                <span key={tag} className="text-xs font-mono bg-white/10 px-2.5 py-1 rounded-md text-emerald-200 border border-emerald-500/30 font-semibold backdrop-blur-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="pt-2">
+              <Link href="/services/expense-management">
+                <Button variant="primary" colorTheme="violet" className="!py-3.5 !px-7 text-sm font-bold shadow-lg shadow-purple-500/30">
+                  Explore KK Next Expense →
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          <div className="z-10 w-full lg:w-[420px] rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl shrink-0 group">
+            <img
+              src="/images/expense_management_platform.jpg"
+              alt="KK Next Expense Management Platform"
+              className="w-full h-[240px] object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
         </div>
       </section>
+
+      {/* ── 6. BOTTOM CTA BLOCK ── */}
+      <CTABanner
+        badge="Ready to Build Your Win?"
+        title={
+          <>
+            Unsure which stack fits your{" "}
+            <AnimatedGradientText>commercial goals?</AnimatedGradientText>
+          </>
+        }
+        description="Our solutions architects are available to run a full operations and technical code audit."
+        buttonText="Schedule Free 30-Min Discovery Call →"
+        buttonLink="/contact"
+      />
 
       {/* ── 7. COMPREHENSIVE FAQs ── */}
       <div className="border-t border-slate-200">

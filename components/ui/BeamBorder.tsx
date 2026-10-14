@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface BeamBorderProps {
@@ -28,21 +27,22 @@ export default function BeamBorder({
       className={cn("relative overflow-hidden", className)}
       style={{ borderRadius }}
     >
-      {/* Rotating beam gradient border */}
-      <motion.div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{ borderRadius }}
-        animate={{ rotate: 360 }}
-        transition={{ duration, repeat: Infinity, ease: "linear" }}
+      {/* Rotating beam gradient border - pure CSS compositor animation */}
+      <div
+        className="absolute inset-[-60%] z-0 pointer-events-none animate-[beam-orbit_4s_linear_infinite]"
+        style={{
+          animationDuration: `${duration}s`,
+          willChange: "transform",
+          transform: "translate3d(0, 0, 0)",
+        }}
       >
         <div
-          className="absolute inset-0"
+          className="w-full h-full"
           style={{
             background: `conic-gradient(from 0deg, transparent 0%, ${colorFrom} 20%, ${colorTo} 40%, transparent 60%, transparent 100%)`,
-            borderRadius,
           }}
         />
-      </motion.div>
+      </div>
 
       {/* Inner content — sits on top of beam with solid bg mask */}
       <div

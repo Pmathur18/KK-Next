@@ -16,6 +16,7 @@ import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import ParticleField from "@/components/ui/ParticleField";
 import GlowingOrb from "@/components/ui/GlowingOrb";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
+import CTABanner from "@/components/ui/CTABanner";
 import { cn } from "@/lib/utils";
 
 const careerFAQs: FAQItem[] = [
@@ -128,12 +129,12 @@ export default function Career() {
   ];
 
   return (
-    <div className="relative overflow-hidden w-full bg-white py-12 md:py-20 animate-fadeIn">
+    <div className="relative overflow-hidden w-full bg-white py-8 md:py-12 animate-fadeIn">
       <ParticleField count={30} color="124, 58, 237" opacity={0.12} />
       <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={400} opacity={0.08} blur={100} />
       
       {/* Hero */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pb-20 border-b border-purple-100 relative z-10">
+      <section className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pb-10 border-b border-purple-100 relative z-10">
         <div className="lg:col-span-7 flex flex-col gap-6">
           <ScrollReveal>
             <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
@@ -173,7 +174,7 @@ export default function Career() {
       </section>
 
       {/* Perks Grid */}
-      <section className="py-20 md:py-28 max-w-7xl px-6 md:px-8 mx-auto border-b border-purple-100">
+      <section className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto border-b border-purple-100">
         <div className="flex flex-col gap-12 md:gap-16">
           <SectionHeading
             eyebrow="Benefits"
@@ -206,7 +207,7 @@ export default function Career() {
       </section>
 
       {/* Open Positions Accordion */}
-      <section className="py-20 md:py-28 max-w-7xl px-6 md:px-8 mx-auto border-b border-zinc-200/50">
+      <section className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto border-b border-zinc-200/50">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           
           <div className="lg:col-span-4 flex flex-col gap-6">
@@ -282,7 +283,7 @@ export default function Career() {
       </section>
 
       {/* Resume Application Form (Apple Glass) */}
-      <section id="apply-form" className="py-20 md:py-28 max-w-7xl px-6 md:px-8 mx-auto">
+      <section id="apply-form" className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto">
         <div className="max-w-3xl mx-auto bg-white/50 backdrop-blur-2xl border border-white/60 p-8 md:p-12 rounded-[36px] shadow-[0_12px_40px_rgba(0,0,0,0.05),inset_0_1px_1px_rgba(255,255,255,0.6)] flex flex-col gap-8">
           <div className="flex flex-col gap-2 text-center items-center">
             <Badge colorTheme="violet" className="w-fit">Submission</Badge>
@@ -450,6 +451,20 @@ export default function Career() {
           )}
         </div>
       </section>
+
+      {/* CTA Banner */}
+      <CTABanner
+        badge="Ready to Build Your Win?"
+        title={
+          <>
+            Have a project in mind rather than{" "}
+            <AnimatedGradientText>joining the team?</AnimatedGradientText>
+          </>
+        }
+        description="Book a free 30-minute discovery call to discuss your web application, mobile product, or CRM automation goals."
+        buttonText="Start Your Project →"
+        buttonLink="/contact"
+      />
 
       {/* FAQs */}
       <div className="border-t border-zinc-200/50">

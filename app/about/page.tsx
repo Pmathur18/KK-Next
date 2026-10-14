@@ -18,6 +18,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { milestones, values } from "@/data/team";
 import { fadeUp, staggerContainer, slideInLeft, slideInRight } from "@/lib/animations";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
+import CTABanner from "@/components/ui/CTABanner";
+import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 
 const aboutFAQs: FAQItem[] = [
   {
@@ -103,7 +105,7 @@ export default function About() {
         {/* ════════════════════════════════════════════════════════════════════
             1. HERO
         ════════════════════════════════════════════════════════════════════ */}
-        <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
+        <section className="relative overflow-hidden pt-14 pb-12 md:pt-20 md:pb-16">
           <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
             {/* Left: Text */}
@@ -239,35 +241,34 @@ export default function About() {
         ════════════════════════════════════════════════════════════════════ */}
         <section
           ref={storyRef}
-          className="py-24 md:py-32 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50"
+          className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-            {/* Left: Visual */}
+            {/* Left: Visual Studio & Quote */}
             <motion.div
               className="lg:col-span-5 relative"
               initial="hidden"
               animate={storyInView ? "visible" : "hidden"}
               variants={slideInLeft(0)}
             >
-              {/* Stacked quote cards */}
-              <div className="relative h-[400px] md:h-[480px]">
-                {/* Card 3 — farthest */}
-                <div className="absolute top-8 left-4 right-4 bottom-0 rounded-[28px] bg-slate-100 border border-slate-200 rotate-3" />
-                {/* Card 2 */}
-                <div className="absolute top-4 left-2 right-2 bottom-0 rounded-[28px] bg-[#EBF3FC] border border-blue-200/70 rotate-1" />
-                {/* Card 1 — front */}
-                <div className="absolute inset-0 rounded-[28px] bg-white border border-slate-200 shadow-xl overflow-hidden flex flex-col justify-between p-8 md:p-10">
-                  <div className="text-5xl text-[#0A2540]/20 font-black font-display select-none">&ldquo;</div>
-                  <div className="flex flex-col gap-4">
-                    <p className="text-lg md:text-xl font-semibold text-ink leading-snug">
-                      Dev agencies build great code but have zero marketing sense.
-                      Marketing agencies run great ads but send traffic to slow, crashing websites.
-                    </p>
-                    <p className="text-sm text-slate-500 font-medium italic">
-                      — The exact problem that built KK NEX TECH SOLUTION.
-                    </p>
-                  </div>
+              <div className="relative rounded-[32px] overflow-hidden border border-purple-200 shadow-2xl bg-slate-900 group">
+                <img
+                  src="/images/agency_story_tech_studio.jpg"
+                  alt="KK Next Tech Solution Engineering & Design Studio"
+                  className="w-full h-[440px] md:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
+
+                {/* Floating quote badge */}
+                <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/95 backdrop-blur-md p-6 border border-white/60 shadow-xl flex flex-col gap-2">
+                  <div className="text-2xl text-purple-600 font-black font-display leading-none">&ldquo;</div>
+                  <p className="text-sm font-bold text-slate-900 leading-snug">
+                    Dev agencies build code with zero marketing sense. Marketing agencies run ads to crashing sites.
+                  </p>
+                  <p className="text-xs text-purple-700 font-semibold italic">
+                    — We built KK Next Tech Solution to bridge that exact gap.
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -330,7 +331,7 @@ export default function About() {
         {/* ════════════════════════════════════════════════════════════════════
             4. CORE VALUES — The KK Next DNA
         ════════════════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-32 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
+        <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
           <div className="flex flex-col gap-16">
             <SectionHeading
               eyebrow="The KK Next DNA"
@@ -381,7 +382,7 @@ export default function About() {
         {/* ════════════════════════════════════════════════════════════════════
             5. HISTORY TIMELINE
         ════════════════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-32 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
+        <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
             {/* Sticky left */}
@@ -433,60 +434,18 @@ export default function About() {
         {/* ════════════════════════════════════════════════════════════════════
             7. FINAL CTA
         ════════════════════════════════════════════════════════════════════ */}
-        <section className="py-24 md:py-32 max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-            {/* Work With Us (Apple Glass Design) */}
-            <motion.div
-              className="relative overflow-hidden rounded-[36px] bg-slate-950/80 backdrop-blur-2xl p-10 md:p-12 flex flex-col gap-6 text-white border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
-            >
-              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-blue-500/20 opacity-40 blur-3xl pointer-events-none" />
-              <span className="text-xs font-bold tracking-[0.18em] uppercase text-slate-300">
-                Work With Us
-              </span>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug font-display">
-                Ready to build something that actually moves the needle?
-              </h2>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                No fluff. No jargon. Just a straight conversation about your goals and how we can exceed them.
-              </p>
-              <Link href="/contact" className="mt-2 w-fit">
-                <Button variant="primary" colorTheme="navy" className="flex items-center gap-2">
-                  Start a Project <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-            </motion.div>
-
-            {/* Join the Team */}
-            <motion.div
-              className="relative overflow-hidden rounded-[32px] bg-[#EBF3FC] border border-blue-200 p-10 md:p-12 flex flex-col gap-6"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: 0.1 }}
-            >
-              <span className="text-xs font-bold tracking-[0.18em] uppercase text-[#0A2540]">
-                Join the Team
-              </span>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-ink tracking-tight leading-snug font-display">
-                Looking for your next big engineering or growth challenge?
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                We are constantly seeking remote-friendly developers, designers, and data architects who obsess over results as much as we do.
-              </p>
-              <Link href="/career" className="mt-2 w-fit">
-                <Button variant="primary" colorTheme="ink" className="flex items-center gap-2">
-                  Explore Openings <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-            </motion.div>
-
-          </div>
-        </section>
+        <CTABanner
+          badge="Ready to Build Your Win?"
+          title={
+            <>
+              Ready to build something that{" "}
+              <AnimatedGradientText>actually moves the needle?</AnimatedGradientText>
+            </>
+          }
+          description="No fluff. No jargon. Book a free 30-minute discovery call to discuss your business goals and technical roadmap."
+          buttonText="Start Your Project →"
+          buttonLink="/contact"
+        />
 
         {/* ════ FAQs ════ */}
         <div className="border-t border-zinc-200/50">

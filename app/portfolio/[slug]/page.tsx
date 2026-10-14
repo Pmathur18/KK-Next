@@ -6,6 +6,7 @@ import { ArrowLeft, CheckCircle2, ChevronRight, AlertCircle, Cpu, Tag } from "lu
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
+import CTABanner from "@/components/ui/CTABanner";
 import { projects } from "@/data/portfolio";
 
 interface CaseStudyProps {
@@ -53,7 +54,7 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
   const nextProject = projects[(projectIdx + 1) % projects.length];
 
   return (
-    <div className="relative overflow-hidden w-full bg-transparent py-12 md:py-20">
+    <div className="relative overflow-hidden w-full bg-transparent py-8 md:py-12">
       <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
         
         {/* Back Link */}
@@ -65,7 +66,7 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
         </Link>
 
         {/* Hero header */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pb-16 border-b border-slate-200">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pb-10 border-b border-slate-200">
           <div className="lg:col-span-8 flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <Badge colorTheme="navy">{project.category}</Badge>
@@ -224,6 +225,9 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
             </Button>
           </Link>
         </section>
+
+        {/* CTA Banner */}
+        <CTABanner />
 
       </div>
     </div>

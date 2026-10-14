@@ -43,9 +43,10 @@ export default function FloatingBadge({
       }}
       whileHover={{ scale: 1.06, y: -yOffset - 4 }}
       className={cn(
-        "inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/90 backdrop-blur-xl border border-purple-200/80 shadow-lg shadow-purple-900/10 cursor-pointer select-none transition-shadow hover:shadow-xl hover:border-purple-300",
+        "inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/90 backdrop-blur-md border border-purple-200/80 shadow-lg shadow-purple-900/10 cursor-pointer select-none transition-shadow hover:shadow-xl hover:border-purple-300",
         className
       )}
+      style={{ willChange: "transform" }}
     >
       {icon && (
         <div className="w-8 h-8 rounded-xl bg-purple-100/80 flex items-center justify-center text-purple-700 shrink-0">
