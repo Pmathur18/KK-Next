@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Laptop, Smartphone, Share2, Database, ShoppingBag, TrendingUp, Workflow, Layers, CheckCircle } from "lucide-react";
+import { Laptop, Database, ShoppingBag, TrendingUp, Workflow, Layers, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface GraphicProps {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 interface Tilt3DCardProps {
@@ -18,17 +18,21 @@ export default function Tilt3DCard({
 }: Tilt3DCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const glareRef = useRef<HTMLDivElement>(null);
-  const [canHover, setCanHover] = useState(false);
+  const canHoverRef = useRef<boolean | null>(null);
   const rafId = useRef<number>(0);
 
-  useEffect(() => {
-    // Check if device supports true hover (avoids running on phones/tablets)
-    setCanHover(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
-  }, []);
+  const checkHover = () => {
+    if (canHoverRef.current === null) {
+      canHoverRef.current =
+        typeof window !== "undefined" &&
+        window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    }
+    return canHoverRef.current;
+  };
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!canHover) return;
+      if (!checkHover()) return;
       cancelAnimationFrame(rafId.current);
       rafId.current = requestAnimationFrame(() => {
         const card = cardRef.current;
@@ -50,7 +54,7 @@ export default function Tilt3DCard({
         }
       });
     },
-    [canHover, intensity, glare]
+    [intensity, glare]
   );
 
   const handleMouseLeave = useCallback(() => {
@@ -75,13 +79,12 @@ export default function Tilt3DCard({
       onMouseLeave={handleMouseLeave}
       style={{
         transition: "transform 0.15s ease-out",
-        willChange: canHover ? "transform" : "auto",
         transformStyle: "preserve-3d",
       }}
       className={cn("relative", className)}
     >
       {children}
-      {glare && canHover && (
+      {glare && (
         <div
           ref={glareRef}
           className="absolute inset-0 rounded-[inherit] pointer-events-none z-20 opacity-0 transition-opacity duration-300"

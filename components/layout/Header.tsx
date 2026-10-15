@@ -135,12 +135,13 @@ export default function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 12 }}
                           transition={{ duration: 0.15, ease: "easeOut" }}
-                          className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[640px] bg-white/95 backdrop-blur-2xl rounded-3xl border border-purple-100 p-6 shadow-2xl shadow-purple-900/10 grid grid-cols-2 gap-3"
+                          className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[640px] max-w-[calc(100vw-2rem)] bg-white/95 backdrop-blur-2xl rounded-3xl border border-purple-100 p-6 shadow-2xl shadow-purple-900/10 grid grid-cols-2 gap-3"
                         >
                           {servicesDropdownItems.map((item) => (
                             <Link
                               key={item.title}
                               href={item.href}
+                              onClick={() => setMegaMenuOpen(false)}
                               className="flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-purple-50/70 border border-transparent hover:border-purple-100 transition-all"
                             >
                               <div
@@ -167,6 +168,7 @@ export default function Header() {
                             </span>
                             <Link
                               href="/services"
+                              onClick={() => setMegaMenuOpen(false)}
                               className="text-xs font-bold text-[#7C3AED] hover:text-[#6D28D9] hover:underline flex items-center gap-1"
                             >
                               All Services <ArrowRight className="w-3 h-3" />
@@ -234,7 +236,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[68px] bottom-0 z-40 bg-white/98 backdrop-blur-lg flex flex-col p-6 lg:hidden"
+            className="fixed inset-x-0 top-[68px] bottom-0 z-50 bg-white/98 backdrop-blur-lg flex flex-col p-6 overflow-y-auto lg:hidden"
           >
             <div className="flex flex-col gap-6 mt-4">
               {navLinks.map((link) => {
@@ -249,6 +251,7 @@ export default function Header() {
                           <Link
                             key={item.title}
                             href={item.href}
+                            onClick={() => setIsOpen(false)}
                             className="flex items-center gap-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#7C3AED]"
                           >
                             <div className={cn("w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border border-purple-100", item.color)}>
@@ -271,6 +274,7 @@ export default function Header() {
                   <Link
                     key={link.name}
                     href={link.href}
+                    onClick={() => setIsOpen(false)}
                     className={cn(
                       "text-xl font-bold px-3 py-2 text-slate-800 hover:text-[#7C3AED] transition-colors",
                       isActive ? "text-[#7C3AED] font-black" : ""
@@ -282,8 +286,8 @@ export default function Header() {
               })}
             </div>
 
-            <div className="mt-auto pb-8 flex flex-col gap-4">
-              <Link href="/contact" className="w-full">
+            <div className="mt-auto pt-8 pb-8 flex flex-col gap-4">
+              <Link href="/contact" onClick={() => setIsOpen(false)} className="w-full">
                 <Button variant="primary" colorTheme="violet" className="w-full">
                   Book a Call
                 </Button>

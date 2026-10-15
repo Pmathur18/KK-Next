@@ -2,7 +2,7 @@
 
 import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Sphere, Line, OrbitControls } from "@react-three/drei";
+import { Sphere, Line } from "@react-three/drei";
 import * as THREE from "three";
 
 // Precompute wireframe geometry once so it's not created on every frame
@@ -45,21 +45,41 @@ function useGlobeGeometry(radius = 1.5) {
     }
 
     // Intersection dots
-    const dots: [number, number, number][] = [];
+    const dots: number[] = [];
     for (let lat = -60; lat <= 60; lat += 24) {
       for (let lng = 0; lng < 360; lng += 24) {
         const phi = (lat * Math.PI) / 180;
         const theta = (lng * Math.PI) / 180;
-        dots.push([
+        dots.push(
           radius * Math.cos(phi) * Math.cos(theta),
           radius * Math.sin(phi),
-          radius * Math.cos(phi) * Math.sin(theta),
-        ]);
+          radius * Math.cos(phi) * Math.sin(theta)
+        );
       }
     }
 
     return { lines, dots };
   }, [radius]);
+}
+
+function GlobeDots({ dots }: { dots: number[] }) {
+  const pointsGeometry = useMemo(() => {
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(dots), 3));
+    return geo;
+  }, [dots]);
+
+  return (
+    <points geometry={pointsGeometry}>
+      <pointsMaterial
+        size={0.05}
+        color="#9333EA"
+        transparent
+        opacity={0.8}
+        sizeAttenuation
+      />
+    </points>
+  );
 }
 
 function WireframeGlobe() {
@@ -70,8 +90,8 @@ function WireframeGlobe() {
   // Smooth low-cost auto-rotate
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.25;
-      groupRef.current.rotation.x += delta * 0.04;
+      groupRef.current.rotation.y += delta * 0.22;
+      groupRef.current.rotation.x += delta * 0.03;
     }
   });
 
@@ -89,15 +109,11 @@ function WireframeGlobe() {
         />
       ))}
 
-      {/* Intersection dots */}
-      {dots.map(([x, y, z], i) => (
-        <Sphere key={i} args={[0.02, 6, 6]} position={[x, y, z]}>
-          <meshBasicMaterial color="#9333EA" transparent opacity={0.7} />
-        </Sphere>
-      ))}
+      {/* Single GPU draw call for all intersection dots */}
+      <GlobeDots dots={dots} />
 
       {/* Core glow sphere */}
-      <Sphere ref={meshRef} args={[1.48, 20, 20]}>
+      <Sphere ref={meshRef} args={[1.48, 16, 16]}>
         <meshBasicMaterial
           color="#7C3AED"
           transparent
@@ -114,12 +130,13 @@ interface GlobeOrbProps {
   size?: number;
 }
 
-export default function GlobeOrb({ className, size = 480 }: GlobeOrbProps) {
+export default function GlobeOrb({ className, size = 440 }: GlobeOrbProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
-  // Stop WebGL render loop when GlobeOrb scrolls out of view
   useEffect(() => {
+    setMounted(true);
     const el = containerRef.current;
     if (!el) return;
 
@@ -137,22 +154,23 @@ export default function GlobeOrb({ className, size = 480 }: GlobeOrbProps) {
   return (
     <div
       ref={containerRef}
-      className={`pointer-events-none select-none ${className ?? ""}`}
-      style={{ width: size, height: size }}
+      className={`pointer-events-none select-none max-w-full aspect-square ${className ?? ""}`}
+      style={{ width: size, height: size, maxWidth: "100%" }}
     >
-      <Canvas
-        camera={{ position: [0, 0, 4], fov: 45 }}
-        style={{ background: "transparent" }}
-        dpr={[1, 1.5]}
-        gl={{ powerPreference: "low-power", antialias: true, alpha: true }}
-        frameloop={isInView ? "always" : "never"}
-      >
-        <ambientLight intensity={0.8} />
-        <pointLight position={[5, 5, 5]} intensity={1.2} color="#7C3AED" />
-        <pointLight position={[-5, -5, -5]} intensity={0.5} color="#38bdf8" />
-        <WireframeGlobe />
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate={false} />
-      </Canvas>
+      {mounted && (
+        <Canvas
+          camera={{ position: [0, 0, 4], fov: 45 }}
+          style={{ background: "transparent", width: "100%", height: "100%" }}
+          dpr={[1, 1.5]}
+          gl={{ powerPreference: "low-power", antialias: true, alpha: true }}
+          frameloop={isInView ? "always" : "never"}
+        >
+          <ambientLight intensity={0.8} />
+          <pointLight position={[5, 5, 5]} intensity={1.2} color="#7C3AED" />
+          <pointLight position={[-5, -5, -5]} intensity={0.5} color="#38bdf8" />
+          <WireframeGlobe />
+        </Canvas>
+      )}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, Suspense } from "react";
+import React, { useRef, Suspense } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
@@ -8,46 +8,33 @@ import {
   Star,
   Zap,
   Laptop,
-  Share2,
   Database,
   Code,
   CheckCircle2,
   BarChart3,
   Shield,
   Workflow,
-  Globe,
-  Users,
   TrendingUp,
   ChevronRight,
-  Play,
   Check,
   Cpu,
   LineChart,
   ShoppingBag,
   Layers,
-  Sparkles,
 } from "lucide-react";
 
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
-import SectionHeading from "@/components/ui/SectionHeading";
-import Avatar from "@/components/ui/Avatar";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
-import SpotlightSection from "@/components/ui/SpotlightSection";
 import GlowingOrb from "@/components/ui/GlowingOrb";
-import BentoCard from "@/components/ui/BentoCard";
-import NumberTicker from "@/components/ui/NumberTicker";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import GlassCard from "@/components/ui/GlassCard";
 import ParticleField from "@/components/ui/ParticleField";
-import BeamBorder from "@/components/ui/BeamBorder";
 import CTABanner from "@/components/ui/CTABanner";
 
 import { projects } from "@/data/portfolio";
 import { testimonials } from "@/data/testimonials";
-import { blogPosts } from "@/data/blog";
 import { cn } from "@/lib/utils";
 
 // Lazy load GlobeOrb (heavy Three.js)
@@ -219,8 +206,6 @@ const partnerLogos = [
 export default function HomeClient() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const [auditEmail, setAuditEmail] = useState("");
-  const [submittedAudit, setSubmittedAudit] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -230,13 +215,6 @@ export default function HomeClient() {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const globeScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-
-  const handleAuditSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (auditEmail.trim()) {
-      setSubmittedAudit(true);
-    }
-  };
 
   return (
     <div ref={containerRef} className="relative overflow-hidden w-full bg-white font-sans">
@@ -329,11 +307,11 @@ export default function HomeClient() {
               />
             </div>
 
-            <div className="animate-float-slow">
+            <div className="animate-float-slow w-full max-w-[340px] sm:max-w-[440px] flex items-center justify-center">
               <Suspense
                 fallback={
-                  <div className="w-[380px] h-[380px] rounded-full border-2 border-purple-200/40 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full border-2 border-purple-300/60 animate-ping" />
+                  <div className="w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] rounded-full border-2 border-purple-200/40 flex items-center justify-center">
+                    <div className="w-24 sm:w-32 h-24 sm:h-32 rounded-full border-2 border-purple-300/60 animate-ping" />
                   </div>
                 }
               >
@@ -341,12 +319,12 @@ export default function HomeClient() {
               </Suspense>
             </div>
 
-            {/* Floating Live Stat Badges */}
+            {/* Floating Live Stat Badges (Visible on tablet & desktop to avoid mobile crowding) */}
             <motion.div
               animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               style={{ willChange: "transform" }}
-              className="absolute top-[8%] left-[2%] bg-white/90 backdrop-blur-md border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 flex items-center gap-2.5 pointer-events-none"
+              className="hidden sm:flex absolute top-[8%] left-[2%] bg-white/90 backdrop-blur-md border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 items-center gap-2.5 pointer-events-none"
             >
               <div className="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center">
                 <BarChart3 className="w-4 h-4 text-purple-600" />
@@ -361,7 +339,7 @@ export default function HomeClient() {
               animate={{ y: [0, 10, 0], rotate: [0, -1, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               style={{ willChange: "transform" }}
-              className="absolute bottom-[12%] right-[2%] bg-white/90 backdrop-blur-md border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 flex items-center gap-2.5 pointer-events-none"
+              className="hidden sm:flex absolute bottom-[12%] right-[2%] bg-white/90 backdrop-blur-md border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 items-center gap-2.5 pointer-events-none"
             >
               <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />

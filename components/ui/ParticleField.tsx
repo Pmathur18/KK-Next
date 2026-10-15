@@ -72,8 +72,10 @@ export default function ParticleField({
       const particles = particlesRef.current;
       const len = particles.length;
 
-      // Draw connections — optimized with distance squared check first
+      // Draw connections in a single batched stroke call
       ctx.lineWidth = 0.5;
+      ctx.strokeStyle = `rgba(${color}, 0.12)`;
+      ctx.beginPath();
       for (let i = 0; i < len; i++) {
         const p1 = particles[i];
         for (let j = i + 1; j < len; j++) {
@@ -83,23 +85,20 @@ export default function ParticleField({
           const distSq = dx * dx + dy * dy;
 
           if (distSq < maxDistSq) {
-            const dist = Math.sqrt(distSq);
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(${color}, ${(1 - dist / maxDist) * 0.14})`;
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
           }
         }
       }
+      ctx.stroke();
 
-      // Draw particles
+      // Draw all particle dots in a single batched fill call
+      ctx.fillStyle = `rgba(${color}, ${opacity})`;
+      ctx.beginPath();
       for (let i = 0; i < len; i++) {
         const p = particles[i];
-        ctx.beginPath();
+        ctx.moveTo(p.x + p.r, p.y);
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color}, ${p.alpha})`;
-        ctx.fill();
 
         p.x += p.vx;
         p.y += p.vy;
@@ -107,6 +106,7 @@ export default function ParticleField({
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
       }
+      ctx.fill();
 
       animRef.current = requestAnimationFrame(draw);
     };
