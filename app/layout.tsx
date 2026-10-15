@@ -46,6 +46,7 @@ export const metadata: Metadata = {
     ],
     shortcut: "/favicon.ico",
   },
+  manifest: "/manifest.json",
   metadataBase: new URL("https://kknextech.com"),
 };
 
@@ -57,6 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
       <body className="flex flex-col min-h-screen bg-white text-ink antialiased relative">
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-24Y8Z31Q9X"
           strategy="afterInteractive"
@@ -70,6 +72,24 @@ export default function RootLayout({
             gtag('config', 'G-24Y8Z31Q9X');
           `}
         </Script>
+
+        {/* OneSignal Web Push SDK */}
+        <Script
+          src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+          strategy="afterInteractive"
+        />
+        <Script id="onesignal-init" strategy="afterInteractive">
+          {`
+            window.OneSignalDeferred = window.OneSignalDeferred || [];
+            OneSignalDeferred.push(async function(OneSignal) {
+              await OneSignal.init({
+                appId: "f9ffb707-6b81-4b77-ba2a-e06d10d21767",
+                allowLocalhostAsSecureOrigin: true,
+              });
+            });
+          `}
+        </Script>
+
         <BackgroundBase />
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
