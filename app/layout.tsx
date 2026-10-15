@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -56,6 +57,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
       <body className="flex flex-col min-h-screen bg-white text-ink antialiased relative">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-24Y8Z31Q9X"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-24Y8Z31Q9X');
+          `}
+        </Script>
         <BackgroundBase />
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
