@@ -25,18 +25,41 @@ export async function generateMetadata({ params }: CaseStudyProps): Promise<Meta
 
   if (!project) {
     return {
-      title: "Case Study Not Found | KK Next Tech Solution",
+      title: "Case Study Not Found | KK Next Tech Solutions",
     };
   }
 
+  const pageUrl = `https://kknextech.com/portfolio/${project.slug}`;
+  const title = `${project.metaTitle || project.title} | KK Next Tech Solutions`;
+  const description = project.metaDescription || project.description;
+
   return {
-    title: `${project.metaTitle || project.title} | KK Next Tech Solution`,
-    description: project.metaDescription || project.description,
+    title,
+    description,
     keywords: project.keywords?.join(", "),
+    alternates: {
+      canonical: pageUrl,
+    },
     openGraph: {
-      title: project.metaTitle || project.title,
-      description: project.metaDescription || project.description,
+      title,
+      description,
+      url: pageUrl,
+      siteName: "KK Next Tech Solutions",
       type: "article",
+      images: [
+        {
+          url: project.imageUrl,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [project.imageUrl],
     },
   };
 }
@@ -53,8 +76,35 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
   const projectIdx = projects.findIndex((p) => p.slug === slug);
   const nextProject = projects[(projectIdx + 1) % projects.length];
 
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.title,
+    "headline": project.title,
+    "description": project.metaDescription || project.description,
+    "image": `https://kknextech.com${project.imageUrl}`,
+    "author": {
+      "@type": "Organization",
+      "name": "KK Next Tech Solutions",
+      "url": "https://kknextech.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "KK Next Tech Solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kknextech.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": `https://kknextech.com/portfolio/${project.slug}`
+  };
+
   return (
     <div className="relative overflow-hidden w-full bg-transparent py-8 md:py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
+      />
       <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
         
         {/* Back Link */}

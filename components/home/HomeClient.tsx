@@ -43,24 +43,24 @@ const GlobeOrb = React.lazy(() => import("@/components/ui/GlobeOrb"));
 // Section 7: FAQs from user spec
 const homeFAQs: FAQItem[] = [
   {
-    q: "Do you work exclusively with enterprise brands or startups as well?",
-    a: "We partner with both. For early-stage startups, we build lean MVPs and agile go-to-market strategies. For mid-market and enterprise clients, we deliver secure software modernizations, API integrations, and scalable infrastructure.",
+    q: "Do you work with startups and small businesses?",
+    a: "We partner with businesses of all sizes, from early-stage startups and small businesses to established enterprises. For startups and growing businesses, we build lean MVPs and agile digital marketing strategies. For established companies, we deliver secure software modernizations, API integrations, and scalable infrastructure.",
   },
   {
-    q: "What is the typical timeline for a custom web development project?",
-    a: "Development cycles vary based on technical requirements and system integrations. Typically, custom full-stack web builds take 4 to 12 weeks from initial architectural mapping to production deployment.",
+    q: "How long does a website project usually take?",
+    a: "Development timelines vary based on project requirements and system integrations. Typically, custom full-stack web builds take 4 to 12 weeks from initial architectural mapping to production deployment.",
   },
   {
-    q: "How does your CRM/ERP consultation optimize business operations?",
-    a: "We assess your operational bottlenecks, select the optimal platform (such as HubSpot, Salesforce, or custom systems), and map customized automation flows across your sales, HR, and inventory channels to lower operational overhead.",
+    q: "How can CRM or ERP solutions help my business?",
+    a: "CRM and ERP solutions eliminate operational friction, automate repetitive manual workflows, organize client and inventory records, and unlock actionable business intelligence through custom integrations.",
   },
   {
-    q: "What ongoing technical support and maintenance do you offer after launch?",
-    a: "Every delivery includes dedicated post-launch support. We also provide retainer models covering 24/7 infrastructure monitoring, security updates, continuous SEO optimization, and feature enhancements.",
+    q: "Do you provide support after a website launches?",
+    a: "Every delivery includes dedicated post-launch support and training. We also provide retainer models covering 24/7 infrastructure monitoring, security updates, continuous SEO optimization, and feature enhancements.",
   },
   {
-    q: "How do we kick off a new engagement with KK Next Tech Solution?",
-    a: "You can schedule a free Tech & Growth Audit directly on our website. We analyze your digital presence, outline recommended technical architectures, and deliver a detailed project roadmap within 48 hours.",
+    q: "How do I get started with KK Next Tech?",
+    a: "You can schedule a free Tech & Growth consultation directly on our website. We analyze your goals and digital presence, outline recommended technical architectures, and deliver a detailed project roadmap within 48 hours.",
   },
 ];
 
@@ -128,33 +128,33 @@ const coreSolutions = [
   },
 ];
 
-// Section 5: Why Partner With Us? (The Differentiators)
+// Section 5: Why Partner With Us?
 const differentiators = [
   {
-    capability: "End-to-End Execution",
-    badge: "Unified Delivery",
-    impact: "Eliminates vendor fragmentation by providing a single point of accountability for design, engineering, and marketing.",
+    capability: "One Team for Your Projects",
+    badge: "Coordinated Delivery",
+    impact: "Manage your website, software development and digital marketing with one team, making communication and coordination easier.",
     icon: Layers,
     color: "border-purple-200 bg-purple-50/50 text-purple-700",
   },
   {
-    capability: "Bespoke Architecture",
-    badge: "Zero Bloat",
-    impact: "Zero bloated templates. We build lean, modular code environments engineered specifically for speed and security.",
+    capability: "Solutions Built Around Your Needs",
+    badge: "Custom Development",
+    impact: "We develop solutions based on your business requirements, without adding unnecessary features or generic templates.",
     icon: Cpu,
     color: "border-blue-200 bg-blue-50/50 text-blue-700",
   },
   {
-    capability: "Data-Backed Strategy",
-    badge: "Analytics Validated",
-    impact: "Eliminates guesswork. Every UI/UX decision, technical deployment, and ad spend is validated by real-time analytics.",
+    capability: "Decisions Guided by Data",
+    badge: "Data-Informed Strategy",
+    impact: "We use performance data to understand what's working and identify areas for improvement.",
     icon: BarChart3,
     color: "border-emerald-200 bg-emerald-50/50 text-emerald-700",
   },
   {
-    capability: "Engineered Scalability",
-    badge: "Peak Ready",
-    impact: "Modern infrastructure built to handle hyper-growth and peak traffic loads smoothly.",
+    capability: "Solutions That Can Grow With You",
+    badge: "Scalable Technology",
+    impact: "We plan and build technology that can adapt as your business needs change.",
     icon: Shield,
     color: "border-amber-200 bg-amber-50/50 text-amber-700",
   },
@@ -249,9 +249,9 @@ export default function HomeClient() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] text-slate-900 font-display"
             >
-              Transforming Complex Ideas Into{" "}
+              Web Development, Digital Marketing &amp;{" "}
               <AnimatedGradientText from="#6D28D9" via="#9333EA" to="#38bdf8">
-                High-Yield Digital Realities.
+                Business Automation for Growing Businesses
               </AnimatedGradientText>
             </motion.h1>
 
@@ -262,7 +262,7 @@ export default function HomeClient() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl font-normal"
             >
-              We architect enterprise-grade custom web solutions, execute high-ROI performance marketing, and streamline operations through targeted CRM &amp; ERP consultations.
+              We help businesses build websites and web applications, reach more customers through digital marketing, and simplify everyday work with CRM and ERP solutions. Our team works with you to understand your goals and find the right solution for your business.
             </motion.p>
 
             {/* Primary & Secondary CTAs */}
@@ -405,11 +405,11 @@ export default function HomeClient() {
                 </AnimatedGradientText>
               </h2>
 
-              <div className="flex flex-col gap-4 text-base md:text-lg text-slate-600 leading-relaxed">
-                <p className="font-medium text-slate-700">
-                  At <strong className="text-purple-700 font-bold">KK Next Tech Solution</strong>, we go beyond writing code and running ad campaigns—we build integrated, resilient digital ecosystems engineered to deliver predictable revenue.
+              <div className="flex flex-col gap-4 text-base md:text-lg leading-relaxed">
+                <p className="font-semibold text-slate-900">
+                  At <strong className="text-purple-700 font-bold">KK Next Tech Solutions</strong>, we go beyond writing code and running ad campaigns, we build integrated, resilient digital ecosystems engineered to deliver predictable revenue.
                 </p>
-                <p>
+                <p className="font-normal text-slate-600">
                   Whether you are an agile startup looking to capture market share or an established enterprise modernizing legacy architecture, we deploy targeted technology stacks and precision marketing frameworks aligned directly with your bottom-line business objectives.
                 </p>
               </div>
@@ -419,7 +419,7 @@ export default function HomeClient() {
                 {[
                   { title: "Predictable Revenue Focus", desc: "Digital ecosystems built around bottom-line growth" },
                   { title: "Agile & Enterprise Ready", desc: "From fast startup MVPs to secure enterprise modernization" },
-                  { title: "Integrated Tech & Growth", desc: "No silos—engineering and marketing work in sync" },
+                  { title: "Integrated Tech & Growth", desc: "No silos: engineering and marketing work in sync" },
                   { title: "Bespoke Modern Stacks", desc: "Zero bloat, sub-second load times & hardened security" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-purple-50/60 border border-purple-100">
@@ -580,7 +580,7 @@ export default function HomeClient() {
           <div className="flex flex-col items-center gap-4 text-center">
             <ScrollReveal>
               <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                The Differentiators
+                Why Partner With Us
               </Badge>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
@@ -589,8 +589,8 @@ export default function HomeClient() {
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <p className="text-slate-600 max-w-xl leading-relaxed text-base">
-                Discover the strategic advantages that separate KK Next Tech Solution from conventional software shops and disconnected marketing vendors.
+              <p className="text-slate-600 max-w-2xl leading-relaxed text-base">
+                We bring web development, software solutions and digital marketing together to help businesses work more efficiently and reach their goals.
               </p>
             </ScrollReveal>
           </div>
@@ -735,8 +735,7 @@ export default function HomeClient() {
                   Case Studies
                 </Badge>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight leading-tight">
-                  Realized Client Outcomes &amp;<br />
-                  <AnimatedGradientText>Measurable ROI</AnimatedGradientText>
+                  <AnimatedGradientText>Client Success Stories</AnimatedGradientText>
                 </h2>
               </div>
             </ScrollReveal>
@@ -867,8 +866,8 @@ export default function HomeClient() {
         <FAQSection
           items={homeFAQs}
           eyebrow="Frequently Asked Questions"
-          title="Clear Answers to Your Key Questions"
-          description="Learn how KK Next Tech Solution partners with startups and enterprise clients to engineer high-yield web and digital growth solutions."
+          title="Questions About Our Services?"
+          description="Learn how KK Next Tech Solutions works with startups and established businesses to deliver web development, software and digital marketing services."
         />
       </div>
 
@@ -879,11 +878,11 @@ export default function HomeClient() {
         badge="Ready to Build Your Win?"
         title={
           <>
-            Ready to Engineer Your Next Phase of{" "}
-            <AnimatedGradientText>Digital Growth?</AnimatedGradientText>
+            Let&apos;s Build Your Next{" "}
+            <AnimatedGradientText>Digital Project.</AnimatedGradientText>
           </>
         }
-        description="Schedule a strategic consultation with our lead technical architects and performance strategists today."
+        description="Let's discuss your business goals and explore how our team can help with your website, software or digital marketing needs."
         buttonText="Schedule Your Strategy Call →"
         buttonLink="/contact"
       />

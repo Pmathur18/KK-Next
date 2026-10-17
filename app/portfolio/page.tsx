@@ -133,7 +133,7 @@ const flipCardsData = [
 const clientTestimonials = [
   {
     role: "Co-Founder",
-    quote: "Working with KK NEX TECH SOLUTION has been a transformative experience. Over the past three years, they have played a pivotal role in shaping our brand identity and ecommerce tech. Their speed, strategic approach, and attention to detail ensured our brand resonates strongly with our audience.",
+    quote: "Working with KK Next Tech Solutions has been a transformative experience. Over the past three years, they have played a pivotal role in shaping our brand identity and ecommerce tech. Their speed, strategic approach, and attention to detail ensured our brand resonates strongly with our audience.",
     metric: "+315% Ecommerce Growth",
   },
   {

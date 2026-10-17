@@ -24,18 +24,41 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
   if (!post) {
     return {
-      title: "Article Not Found | KK Next Tech Solution",
+      title: "Article Not Found | KK Next Tech Solutions",
     };
   }
 
+  const pageUrl = `https://kknextech.com/blog/${post.slug}`;
+  const title = `${post.metaTitle || post.title} | KK Next Tech Solutions`;
+  const description = post.metaDescription || post.summary;
+
   return {
-    title: `${post.metaTitle || post.title} | KK Next Tech Solution`,
-    description: post.metaDescription || post.summary,
+    title,
+    description,
     keywords: post.keywords?.join(", "),
+    alternates: {
+      canonical: pageUrl,
+    },
     openGraph: {
-      title: post.metaTitle || post.title,
-      description: post.metaDescription || post.summary,
+      title,
+      description,
+      url: pageUrl,
+      siteName: "KK Next Tech Solutions",
       type: "article",
+      images: [
+        {
+          url: post.imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [post.imageUrl],
     },
   };
 }
@@ -51,8 +74,35 @@ export default async function PostPage({ params }: PostPageProps) {
   // Related posts calculation (excluding current)
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
+  const blogPostSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.metaDescription || post.summary,
+    "image": post.imageUrl,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": post.author?.name || "KK Next Tech Solutions Team",
+      "jobTitle": post.author?.role || "Solutions Architect"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "KK Next Tech Solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kknextech.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": `https://kknextech.com/blog/${post.slug}`
+  };
+
   return (
     <div className="relative overflow-hidden w-full bg-transparent py-8 md:py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
+      />
       <div className="max-w-4xl px-6 md:px-8 mx-auto flex flex-col gap-8">
         
         {/* Back Link */}

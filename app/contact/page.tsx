@@ -499,7 +499,7 @@ export default function Contact() {
             <div className="rounded-[32px] overflow-hidden border border-purple-100 shadow-xl group bg-slate-900 relative">
               <img
                 src="/images/tech_team_workspace.jpg"
-                alt="KK Next Tech Solution Client Success & Engineering Hub"
+                alt="KK Next Tech Solutions Client Success & Engineering Hub"
                 className="w-full h-[220px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />

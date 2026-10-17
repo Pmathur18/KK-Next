@@ -8,7 +8,7 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
-    quote: "KK NEX TECH SOLUTION transformed our outdated e-commerce shop. Load speeds went under a second, and our checkout conversions surged by 3x! They communicate clearly and deliver code on time.",
+    quote: "KK Next Tech Solutions transformed our outdated e-commerce shop. Load speeds went under a second, and our checkout conversions surged by 3x! They communicate clearly and deliver code on time.",
     role: "Director of Marketing",
     rating: 5
   },

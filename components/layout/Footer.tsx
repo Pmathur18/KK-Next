@@ -64,14 +64,14 @@ export default function Footer() {
               <Link href="/" className="block">
                 <img
                   src="/logo.png"
-                  alt="KK NEX TECH SOLUTION"
+                  alt="KK Next Tech Solutions"
                   loading="lazy"
                   decoding="async"
                   className="h-10 w-auto object-contain"
                 />
               </Link>
               <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-xs">
-                Your creative, media &amp; technology engineering partner. Delivering growth at scale.
+                Your Partner in Technology, Creativity &amp; Digital Growth.
               </p>
             </div>
           </ScrollReveal>

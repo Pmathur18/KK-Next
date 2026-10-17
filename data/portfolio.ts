@@ -21,7 +21,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "d2c-fashion-shopify-headless-rebuild",
-    title: "Scaling a D2C Fashion Brand from Sluggish to Sold-Out (Shopify Headless Rebuild)",
+    title: "Improving the Online Store Experience for a D2C Fashion Brand",
     client: "Premium D2C Fashion & Apparel Brand",
     category: "Websites",
     description: "Rebuilding a premium D2C apparel storefront on headless Shopify architecture to eliminate mobile friction and drive revenue.",
@@ -49,12 +49,12 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/ecommerce_showcase.jpg",
     metaTitle: "D2C Fashion Brand Shopify Headless Rebuild | 315% Revenue Growth Case Study",
-    metaDescription: "See how KK Next Tech Solution rebuilt a D2C fashion brand's Shopify store, cut load time to 1.2s, and drove a 315% revenue increase in 6 months.",
+    metaDescription: "See how KK Next Tech Solutions rebuilt a D2C fashion brand's Shopify store, cut load time to 1.2s, and drove a 315% revenue increase in 6 months.",
     keywords: ["Shopify headless development", "D2C ecommerce growth", "Shopify speed optimization", "cart abandonment reduction", "ecommerce CRO case study"]
   },
   {
     slug: "global-logistics-custom-crm-automation",
-    title: "Replacing Excel Chaos with a Real-Time Custom CRM for Global Logistics",
+    title: "Streamlining Logistics Operations with a Custom CRM",
     client: "Global Logistics & Supply Chain Company",
     category: "CRM/ERP",
     description: "Building a custom React/Node.js shipment tracking dashboard and centralized CRM to automate operations and client notifications.",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/crm_erp_dashboard.jpg",
     metaTitle: "Custom CRM for Logistics Companies | Real-Time Shipment Tracking Case Study",
-    metaDescription: "KK Next Tech Solution built a custom CRM and dashboard for a global logistics firm, saving 120+ hours weekly and eliminating data loss.",
+    metaDescription: "KK Next Tech Solutions built a custom CRM and dashboard for a global logistics firm, saving 120+ hours weekly and eliminating data loss.",
     keywords: ["custom CRM development", "logistics software solutions", "workflow automation for logistics", "custom business dashboard", "CRM implementation case study"]
   },
   {
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/social_marketing_showcase.jpg",
     metaTitle: "B2B SaaS Lead Generation Case Study | 1,200+ Qualified Leads in Q1",
-    metaDescription: "How KK Next Tech Solution combined SEO, LinkedIn Lead Gen, and Google Ads to generate 1,200+ B2B leads and cut CPA by 55% for a SaaS startup.",
+    metaDescription: "How KK Next Tech Solutions combined SEO, LinkedIn Lead Gen, and Google Ads to generate 1,200+ B2B leads and cut CPA by 55% for a SaaS startup.",
     keywords: ["B2B lead generation", "SaaS SEO agency", "LinkedIn lead gen campaigns", "B2B performance marketing", "reduce cost per acquisition"]
   },
   {
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/ai_demand_forecasting_dashboard.jpg",
     metaTitle: "AI Demand Forecasting for Wholesale Distributors | ERP Automation Case Study",
-    metaDescription: "KK Next Tech Solution deployed AI demand forecasting and ERP automation for a wholesale distributor, cutting dead stock by 34% and boosting stock accuracy.",
+    metaDescription: "KK Next Tech Solutions deployed AI demand forecasting and ERP automation for a wholesale distributor, cutting dead stock by 34% and boosting stock accuracy.",
     keywords: ["AI demand forecasting", "ERP implementation for distributors", "inventory automation software", "wholesale supply chain automation", "ERP consultation services"]
   },
   {
@@ -181,7 +181,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/omnichannel_retail_pos_dashboard.jpg",
     metaTitle: "Omnichannel Inventory Automation for Retail Chains | InventO Case Study",
-    metaDescription: "See how InventO by KK Next Tech Solution synced stock across Shopify, marketplaces, and stores for a retail franchise, eliminating overselling.",
+    metaDescription: "See how InventO by KK Next Tech Solutions synced stock across Shopify, marketplaces, and stores for a retail franchise, eliminating overselling.",
     keywords: ["omnichannel inventory management", "retail inventory automation", "InventO software", "Shopify inventory sync", "franchise stock management system"]
   },
   {
@@ -214,7 +214,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/real_estate_crm_dashboard.jpg",
     metaTitle: "Real Estate CRM Automation Case Study | Faster Lead Response, More Closings",
-    metaDescription: "KK Next Tech Solution implemented CRM and lead automation for a real estate agency, cutting response time by 70% and boosting conversions by 45%.",
+    metaDescription: "KK Next Tech Solutions implemented CRM and lead automation for a real estate agency, cutting response time by 70% and boosting conversions by 45%.",
     keywords: ["real estate CRM implementation", "lead automation for real estate", "CRM for property agencies", "sales pipeline automation", "real estate lead nurturing"]
   },
   {
@@ -247,7 +247,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/d2c_skincare_ecommerce_mockup.jpg",
     metaTitle: "D2C Skincare Brand Shopify Launch Case Study | Subscription & Marketing Automation",
-    metaDescription: "KK Next Tech Solution launched a D2C skincare brand on Shopify with subscription flows and marketing automation, driving 3.1x ROAS.",
+    metaDescription: "KK Next Tech Solutions launched a D2C skincare brand on Shopify with subscription flows and marketing automation, driving 3.1x ROAS.",
     keywords: ["D2C Shopify store launch", "ecommerce subscription model", "Shopify marketing automation", "D2C brand growth agency", "email SMS automation ecommerce"]
   },
   {
@@ -280,7 +280,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/web_architecture_showcase.jpg",
     metaTitle: "B2B Manufacturing WordPress & ERP Case Study | Faster RFQs, More Leads",
-    metaDescription: "See how KK Next Tech Solution combined a fast WordPress site with ERP automation for a B2B manufacturer, tripling inbound RFQ volume.",
+    metaDescription: "See how KK Next Tech Solutions combined a fast WordPress site with ERP automation for a B2B manufacturer, tripling inbound RFQ volume.",
     keywords: ["B2B manufacturing website design", "ERP for manufacturing", "WordPress development for industrial companies", "RFQ automation", "B2B website SEO"]
   },
   {
@@ -313,7 +313,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/mobile_app_showcase.jpg",
     metaTitle: "AI Recommendation Engine for EdTech Platforms | Custom Development Case Study",
-    metaDescription: "KK Next Tech Solution built a custom EdTech platform with an AI recommendation engine, boosting course completion by 58%.",
+    metaDescription: "KK Next Tech Solutions built a custom EdTech platform with an AI recommendation engine, boosting course completion by 58%.",
     keywords: ["AI recommendation engine development", "custom EdTech platform development", "AI in education technology", "custom web app development", "learning platform personalization"]
   },
   {
@@ -346,7 +346,7 @@ export const projects: Project[] = [
     ],
     imageUrl: "/images/healthcare_ai_booking_platform.jpg",
     metaTitle: "AI Chatbot Booking Automation for Healthcare Clinics | Case Study",
-    metaDescription: "KK Next Tech Solution built an AI chatbot and custom booking platform for a healthcare network, cutting no-shows by 52%.",
+    metaDescription: "KK Next Tech Solutions built an AI chatbot and custom booking platform for a healthcare network, cutting no-shows by 52%.",
     keywords: ["AI chatbot for healthcare", "custom clinic booking system", "healthcare CRM automation", "reduce patient no-shows software", "AI automation for clinics"]
   }
 ];

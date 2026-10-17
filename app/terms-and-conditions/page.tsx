@@ -55,7 +55,7 @@ export default function TermsAndConditions() {
           <main className="lg:col-span-8 flex flex-col gap-10 text-zinc-650 text-sm md:text-base leading-relaxed">
             
             <p>
-              Please read these Terms & Conditions carefully before navigating our website or commissioning software development services from KK NEX TECH SOLUTION.
+              Please read these Terms & Conditions carefully before navigating our website or commissioning software development services from KK Next Tech Solutions.
             </p>
 
             <hr className="border-zinc-200/50" />
@@ -72,7 +72,7 @@ export default function TermsAndConditions() {
             <div id="intellectual" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">2. Intellectual Property</h2>
               <p>
-                All UI designs, custom illustrations, code structures, and text markings published on this site are the exclusive property of KK NEX TECH SOLUTION. Reproducing or copying these files without authorization is strictly prohibited.
+                All UI designs, custom illustrations, code structures, and text markings published on this site are the exclusive property of KK Next Tech Solutions. Reproducing or copying these files without authorization is strictly prohibited.
               </p>
             </div>
 
@@ -96,7 +96,7 @@ export default function TermsAndConditions() {
             <div id="limits" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">5. Disclaimers & Limits</h2>
               <p>
-                KK NEX TECH SOLUTION delivers software assets &ldquo;as is&rdquo; without implied performance guarantees. We are not liable for direct, indirect, or operational profit losses resulting from server offline periods.
+                KK Next Tech Solutions delivers software assets &ldquo;as is&rdquo; without implied performance guarantees. We are not liable for direct, indirect, or operational profit losses resulting from server offline periods.
               </p>
             </div>
 

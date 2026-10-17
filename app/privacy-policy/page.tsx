@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
           <main className="lg:col-span-8 flex flex-col gap-10 text-zinc-650 text-sm md:text-base leading-relaxed">
             
             <p>
-              At KK NEX TECH SOLUTION, we prioritize the protection of your digital information. This document outlines how we collect, store, and leverage analytical logs across our platforms.
+              At KK Next Tech Solutions, we prioritize the protection of your digital information. This document outlines how we collect, store, and leverage analytical logs across our platforms.
             </p>
 
             <hr className="border-zinc-200/50" />

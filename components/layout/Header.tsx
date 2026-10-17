@@ -93,7 +93,7 @@ export default function Header() {
       >
         <div className="mx-auto max-w-7xl px-6 md:px-8 py-3.5 flex items-center justify-between">
           {/* Logo Mark */}
-          <Link href="/" className="flex items-center gap-3 group" aria-label="KK NEX TECH SOLUTION Home">
+          <Link href="/" className="flex items-center gap-3 group" aria-label="KK Next Tech Solutions Home">
             <img
               src="/logo.png"
               alt="KK Next Tech Solutions Logo"

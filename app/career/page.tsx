@@ -472,7 +472,7 @@ export default function Career() {
           items={careerFAQs}
           eyebrow="Got Questions?"
           title="Careers — FAQs"
-          description="Everything you need to know about working and growing at KK NEX TECH SOLUTION."
+          description="Everything you need to know about working and growing at KK Next Tech Solutions."
         />
       </div>
 

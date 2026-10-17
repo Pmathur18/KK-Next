@@ -23,11 +23,11 @@ import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 
 const aboutFAQs: FAQItem[] = [
   {
-    q: "What exactly does KK NEX TECH SOLUTION do?",
+    q: "What exactly does KK Next Tech Solutions do?",
     a: "We are a hybrid tech and growth agency. We build software — websites, mobile apps, CRM/ERP systems — and simultaneously run the marketing strategy that drives traffic and revenue to those products. Most agencies do one or the other. We do both, which means no gaps between your product and your growth."
   },
   {
-    q: "How long has KK NEX TECH SOLUTION been operating?",
+    q: "How long has KK Next Tech Solutions been operating?",
     a: "We were founded in 2020 and have been growing ever since. In that time we've delivered 100+ projects, scaled 50+ e-commerce stores, and maintained a 98% client retention rate — which is something we're extremely proud of."
   },
   {
@@ -255,7 +255,7 @@ export default function About() {
               <div className="relative rounded-[32px] overflow-hidden border border-purple-200 shadow-2xl bg-slate-900 group">
                 <img
                   src="/images/agency_story_tech_studio.jpg"
-                  alt="KK Next Tech Solution Engineering & Design Studio"
+                  alt="KK Next Tech Solutions Engineering & Design Studio"
                   className="w-full h-[440px] md:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
@@ -267,7 +267,7 @@ export default function About() {
                     Dev agencies build code with zero marketing sense. Marketing agencies run ads to crashing sites.
                   </p>
                   <p className="text-xs text-purple-700 font-semibold italic">
-                    — We built KK Next Tech Solution to bridge that exact gap.
+                    — We built KK Next Tech Solutions to bridge that exact gap.
                   </p>
                 </div>
               </div>
@@ -284,7 +284,7 @@ export default function About() {
                 variants={fadeUp(0)}
                 className="text-xs font-bold tracking-[0.18em] uppercase text-accent-primary"
               >
-                The Story Behind KK Next Tech Solution
+                The Story Behind KK Next Tech Solutions
               </motion.span>
               <motion.h2
                 variants={fadeUp(0.05)}
@@ -301,7 +301,7 @@ export default function About() {
                   traffic to slow, crashing websites.
                 </p>
                 <p>
-                  We built KK NEX TECH SOLUTION to{" "}
+                  We built KK Next Tech Solutions to{" "}
                   <span className="font-semibold text-accent-primary">bridge that exact gap.</span> We
                   are a hybrid powerhouse — fusing{" "}
                   <strong className="text-ink">bleeding-edge software engineering</strong> with{" "}
@@ -453,7 +453,7 @@ export default function About() {
             items={aboutFAQs}
             eyebrow="Got Questions?"
             title="About Us — FAQs"
-            description="Everything you've wondered about working with KK NEX TECH SOLUTION, answered directly."
+            description="Everything you've wondered about working with KK Next Tech Solutions, answered directly."
           />
         </div>
 

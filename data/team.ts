@@ -24,7 +24,7 @@ export const milestones: Milestone[] = [
     year: "2020",
     title: "The Frustration That Started It All",
     description:
-      "Frustrated by dev agencies that couldn't market and marketing agencies that couldn't build, our founders launched KK NEX TECH SOLUTION — the hybrid powerhouse the industry was missing."
+      "Frustrated by dev agencies that couldn't market and marketing agencies that couldn't build, our founders launched KK Next Tech Solutions — the hybrid powerhouse the industry was missing."
   },
   {
     year: "2021",

@@ -325,14 +325,14 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "case-studies-scaling-revenue-custom-tech-performance-marketing",
     title: "Case Studies: Scaling Revenue via Custom Tech & Performance Marketing",
-    summary: "See how KK Next Tech Solution has transformed D2C brands, B2B SaaS startups, and global logistics companies with custom web architecture and targeted marketing.",
+    summary: "See how KK Next Tech Solutions has transformed D2C brands, B2B SaaS startups, and global logistics companies with custom web architecture and targeted marketing.",
     category: "Case Studies",
     date: "July 10, 2026",
     readTime: "8 min read",
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     featured: false,
     metaTitle: "Case Studies: Scaling Revenue via Custom Tech & Performance Marketing",
-    metaDescription: "See how KK Next Tech Solution has transformed D2C brands, B2B SaaS startups, and global logistics companies with custom web architecture and targeted marketing.",
+    metaDescription: "See how KK Next Tech Solutions has transformed D2C brands, B2B SaaS startups, and global logistics companies with custom web architecture and targeted marketing.",
     keywords: ["Custom software CRM integration", "performance marketing case study", "Shopify headless rebuild", "D2C e-commerce scaling", "B2B lead generation"],
     author: {
       name: "Sanjay Kumar",
@@ -340,7 +340,7 @@ export const blogPosts: BlogPost[] = [
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
     },
     content: `
-      <p>At KK Next Tech Solution, we don't just talk about growth; we engineer it. We fuse bleeding-edge software development with ruthless, data-driven marketing to ensure our clients dominate their markets. Here is a look at how tailored digital ecosystems drive measurable, exponential results.</p>
+      <p>At KK Next Tech Solutions, we don't just talk about growth; we engineer it. We fuse bleeding-edge software development with ruthless, data-driven marketing to ensure our clients dominate their markets. Here is a look at how tailored digital ecosystems drive measurable, exponential results.</p>
 
       <h2>Case Study 1: E-Commerce Scaling — The Headless Shopify Rebuild</h2>
       <p>A premium D2C fashion brand approached us with a critical issue: they had high traffic, but a painfully slow website was causing massive cart abandonment. We executed a complete headless Shopify rebuild, creating a lightning-fast, highly customized frontend. By optimizing the checkout flow and integrating aggressive abandoned cart email sequences, we improved site speed from 4.5 seconds to a blazing 1.2 seconds. The result? A 40% drop in cart abandonment and a 315% increase in online revenue within six months.</p>
