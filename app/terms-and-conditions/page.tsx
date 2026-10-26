@@ -18,7 +18,7 @@ export default function TermsAndConditions() {
   return (
     <div className="relative overflow-hidden w-full bg-transparent py-8 md:py-12">
       <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
-        
+
         {/* Header */}
         <section className="flex flex-col gap-4 pb-8 border-b border-slate-200">
           <Badge colorTheme="navy" className="w-fit">Legal Documentation</Badge>
@@ -32,7 +32,7 @@ export default function TermsAndConditions() {
 
         {/* Layout: Sidebar + Document */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left: Sticky Table of Contents */}
           <aside className="lg:col-span-4 sticky top-28 hidden lg:flex flex-col gap-4 bg-white border border-slate-200 p-6 rounded-2xl shadow-xs">
             <h3 className="text-xs font-bold uppercase tracking-wider text-ink pb-2 border-b border-slate-100">
@@ -53,7 +53,7 @@ export default function TermsAndConditions() {
 
           {/* Right: Documentation content */}
           <main className="lg:col-span-8 flex flex-col gap-10 text-zinc-650 text-sm md:text-base leading-relaxed">
-            
+
             <p>
               Please read these Terms & Conditions carefully before navigating our website or commissioning software development services from KK Next Tech Solutions.
             </p>

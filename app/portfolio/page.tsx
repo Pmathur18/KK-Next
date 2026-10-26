@@ -15,6 +15,7 @@ import {
   Layers,
   ChevronRight,
   RotateCcw,
+  MousePointerClick,
 } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
@@ -30,6 +31,7 @@ import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import BeamBorder from "@/components/ui/BeamBorder";
 import CTABanner from "@/components/ui/CTABanner";
 import NumberTicker from "@/components/ui/NumberTicker";
+import ScrollStack, { ScrollStackItem } from "@/components/ui/ScrollStack";
 import { projects, Project } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -160,7 +162,7 @@ const clientTestimonials = [
 
 export default function PortfolioPage() {
   return (
-    <div className="relative w-full bg-white text-slate-900 min-h-screen overflow-hidden font-sans">
+    <div className="relative w-full bg-white text-slate-900 min-h-screen overflow-x-clip font-sans">
       <ParticleField count={45} color="124, 58, 237" opacity={0.15} />
       <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={450} opacity={0.1} blur={120} />
       <GlowingOrb className="top-[40%] left-[-10%]" color="#38bdf8" size={380} opacity={0.08} blur={100} />
@@ -188,93 +190,123 @@ export default function PortfolioPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          2. ALL CASE STUDIES (Uniform 3-Column Grid, Clean Image - Content Below)
+          2. ALL CASE STUDIES - INTERACTIVE SCROLL STACK (React Bits)
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-10 md:py-12 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <div className="flex flex-col gap-12">
+      <section className="py-10 md:py-14 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <div className="flex flex-col gap-8 md:gap-10">
           <SectionHeading
             eyebrow="Commercial Implementations"
             title="Recent Client Case Studies"
             description="Explore our high-impact engineering builds across ecommerce, logistics, SaaS, and operations automation."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project: Project, idx: number) => (
-              <ScrollReveal key={project.slug} delay={idx * 0.05}>
-                <Tilt3DCard intensity={6} className="h-full">
-                  <div className="group flex flex-col justify-between rounded-3xl bg-white border border-purple-100/90 p-5 sm:p-6 shadow-lg shadow-purple-900/5 hover:shadow-2xl hover:border-purple-300 transition-all duration-300 h-full">
-                    <div className="flex flex-col gap-5">
+          {/* Full Page Flow ScrollStack */}
+          <div className="w-full relative">
+            <ScrollStack
+              useWindowScroll={true}
+              stackPosition="95px"
+              itemDistance={90}
+              itemStackDistance={24}
+              itemScale={0.035}
+              baseScale={0.88}
+              dimAmount={0.12}
+              blurAmount={0.4}
+              tiltAmount={1}
+              rotationAmount={0.6}
+              holdDistance={160}
+              smoothScroll={false}
+              snap={false}
+            >
+              {projects.map((project: Project, idx: number) => (
+                <ScrollStackItem
+                  key={project.slug}
+                  itemClassName="!h-auto min-h-[380px] md:!h-[24rem] lg:!h-[22rem] !p-6 sm:!p-8 !bg-white !text-slate-900 border border-purple-100/90 shadow-2xl shadow-purple-950/10 rounded-3xl"
+                >
+                  <div className="flex flex-col md:flex-row items-stretch gap-6 h-full">
+                    {/* Left Column: Case Study Details */}
+                    <div className="flex-1 flex flex-col justify-between gap-4">
+                      <div className="flex flex-col gap-3">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200/80 px-2.5 py-1 rounded-full font-display">
+                              {project.category}
+                            </span>
+                            <span className="text-xs font-bold text-slate-400 font-mono">
+                              {project.client}
+                            </span>
+                          </div>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full font-mono">
+                            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+                            {project.resultMetric}
+                          </span>
+                        </div>
 
-                      {/* Top Pure Image (Clean: Absolutely zero content or overlay on the image) */}
-                      <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-purple-100">
+                        <div>
+                          <h3 className="font-black text-xl sm:text-2xl text-slate-900 font-display leading-tight group-hover:text-purple-700 transition-colors">
+                            {project.title}
+                          </h3>
+                        </div>
+
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2 md:line-clamp-3">
+                          {project.description}
+                        </p>
+
+                        <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-purple-50 text-[11px] font-semibold text-purple-700">
+                          {project.tags.slice(0, 4).map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2.5 py-1 rounded-lg bg-purple-50 border border-purple-100/80 text-[11px] font-medium"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="pt-4 border-t border-purple-100/70 flex flex-wrap items-center justify-between gap-3">
+                        <Link
+                          href={`/portfolio/${project.slug}`}
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-extrabold transition-all shadow-md shadow-purple-600/25 hover:shadow-lg hover:shadow-purple-600/35 group cursor-pointer"
+                        >
+                          View Full Case Study <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                        <Link
+                          href="/contact"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-purple-600 transition-colors"
+                        >
+                          Start Similar Project <ArrowUpRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Right Column: High-Fidelity Project Graphic Preview */}
+                    <div className="w-full md:w-[42%] lg:w-[40%] shrink-0">
+                      <Link
+                        href={`/portfolio/${project.slug}`}
+                        className="group/img block relative w-full h-48 md:h-full rounded-2xl overflow-hidden bg-slate-900 border border-purple-100/80 shadow-inner"
+                      >
                         <img
                           src={project.imageUrl}
                           alt={project.title}
                           loading="lazy"
                           decoding="async"
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                         />
-                      </div>
-
-                      {/* Content Section Below Image */}
-                      <div className="flex flex-col gap-3">
-                        {/* Category Badge */}
-                        <div className="flex items-center">
-                          <span className="text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200/80 px-2.5 py-1 rounded-full font-display">
-                            {project.category}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-70 group-hover/img:opacity-50 transition-opacity" />
+                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                          <span className="text-[11px] font-mono font-bold text-white/90 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+                            Case #{String(idx + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-[11px] font-bold text-white bg-purple-600/90 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 border border-purple-400/40">
+                            Read Study <ArrowRight className="w-3 h-3" />
                           </span>
                         </div>
-
-                        {/* Client & Title */}
-                        <div>
-                          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500 block mb-1">
-                            {project.client}
-                          </span>
-                          <h3 className="font-extrabold text-lg sm:text-xl text-slate-900 font-display group-hover:text-purple-700 transition-colors line-clamp-2 leading-snug">
-                            {project.title}
-                          </h3>
-                        </div>
-
-                        {/* Description */}
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
-                          {project.description}
-                        </p>
-
-                        {/* Sub-tags */}
-                        <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-purple-50 text-[11px] font-semibold text-purple-700">
-                          {project.tags.slice(0, 3).map((tag: string, tIdx: number) => (
-                            <React.Fragment key={tag}>
-                              <span>{tag}</span>
-                              {tIdx < Math.min(project.tags.length, 3) - 1 && (
-                                <span className="text-purple-300 font-bold">|</span>
-                              )}
-                            </React.Fragment>
-                          ))}
-                        </div>
-                      </div>
-
-                    </div>
-
-                    {/* Bottom Action Links */}
-                    <div className="mt-5 pt-4 border-t border-purple-100/70 flex items-center justify-between">
-                      <Link
-                        href={`/portfolio/${project.slug}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-purple-700 hover:text-purple-900 transition-all group-hover:translate-x-1"
-                      >
-                        View Case Study <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-400 hover:text-purple-600 transition-colors"
-                      >
-                        Get Similar <ArrowUpRight className="w-3 h-3" />
                       </Link>
                     </div>
-
                   </div>
-                </Tilt3DCard>
-              </ScrollReveal>
-            ))}
+                </ScrollStackItem>
+              ))}
+            </ScrollStack>
           </div>
         </div>
       </section>
