@@ -165,7 +165,7 @@ export default function About() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             >
               {/* Mission card with workspace image background */}
-              <div className="relative rounded-[32px] bg-[#050B14] text-white p-8 md:p-10 shadow-2xl overflow-hidden border border-white/20 group">
+              <div className="relative rounded-[32px] bg-[#050B14] text-white p-8 md:p-10 pb-20 sm:pb-20 md:pb-24 shadow-2xl overflow-hidden border border-white/20 group">
                 <img
                   src="/images/tech_team_workspace.jpg"
                   alt="KK Next Tech Team & Engineering Studio"
@@ -193,13 +193,13 @@ export default function About() {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-6 bg-white border border-slate-200 rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#EBF3FC] flex items-center justify-center border border-blue-200">
+              <div className="absolute -bottom-5 left-4 sm:-left-6 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3.5 z-20">
+                <div className="w-10 h-10 rounded-full bg-[#EBF3FC] flex items-center justify-center border border-blue-200 shrink-0">
                   <CheckCircle2 className="w-5 h-5 text-[#0A2540]" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-ink">98% Client Retention</p>
-                  <p className="text-[11px] text-slate-500">Since 2020</p>
+                  <p className="text-[11px] text-slate-500 font-medium">Since 2020</p>
                 </div>
               </div>
             </motion.div>
