@@ -37,18 +37,6 @@ import { projects } from "@/data/portfolio";
 import { testimonials } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
 
-import dynamic from "next/dynamic";
-
-// Next.js dynamic client-side only import for GlobeOrb (heavy Three.js bundle)
-const GlobeOrb = dynamic(() => import("@/components/ui/GlobeOrb"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] rounded-full border-2 border-purple-200/40 flex items-center justify-center">
-      <div className="w-24 sm:w-32 h-24 sm:h-32 rounded-full border-2 border-purple-300/60 animate-ping" />
-    </div>
-  ),
-});
-
 // Section 7: FAQs from user spec
 const homeFAQs: FAQItem[] = [
   {
@@ -223,7 +211,6 @@ export default function HomeClient() {
 
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const globeScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
 
   return (
     <div ref={containerRef} className="relative overflow-hidden w-full bg-white font-sans">
@@ -232,10 +219,10 @@ export default function HomeClient() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section
         ref={heroRef}
-        className="relative min-h-[92vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-16"
+        className="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-16"
         style={{ background: "linear-gradient(160deg, #faf5ff 0%, #f0f9ff 50%, #fdf4ff 100%)" }}
       >
-        <ParticleField count={50} color="124, 58, 237" opacity={0.25} />
+        <ParticleField count={40} color="124, 58, 237" opacity={0.25} />
 
         <div className="absolute top-[-15%] left-[-10%] w-[600px] h-[600px] mesh-blob-1 opacity-60 pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] mesh-blob-2 opacity-50 pointer-events-none" />
@@ -244,13 +231,12 @@ export default function HomeClient() {
         <GlowingOrb className="top-[-5%] left-[10%]" color="#7C3AED" size={350} opacity={0.12} duration={10} />
         <GlowingOrb className="bottom-[10%] right-[15%]" color="#38bdf8" size={280} opacity={0.1} duration={12} />
 
-        <div className="relative z-10 max-w-7xl px-6 md:px-8 w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
-          {/* Left Hero Content */}
+        <div className="relative z-10 max-w-5xl px-6 md:px-8 w-full flex flex-col items-center text-center mx-auto">
+          {/* Centered Hero Content */}
           <motion.div
             style={{ y: heroY, opacity: heroOpacity, willChange: "transform, opacity" }}
-            className="flex-1 flex flex-col gap-6 text-left lg:max-w-[58%]"
+            className="flex flex-col items-center text-center gap-6 max-w-4xl"
           >
-
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -269,7 +255,7 @@ export default function HomeClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl font-normal"
+              className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl font-normal mx-auto"
             >
               We help businesses build websites and web applications, reach more customers through digital marketing, and simplify everyday work with CRM and ERP solutions. Our team works with you to understand your goals and find the right solution for your business.
             </motion.p>
@@ -279,7 +265,7 @@ export default function HomeClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-2"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mt-2"
             >
               <Link href="/contact">
                 <Button
@@ -298,65 +284,6 @@ export default function HomeClient() {
                   Explore Our Solutions
                 </Button>
               </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Hero Graphic: 3D Interactive Globe */}
-          <motion.div
-            style={{ scale: globeScale, opacity: heroOpacity, willChange: "transform, opacity" }}
-            className="flex-1 flex items-center justify-center relative w-full"
-          >
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div
-                className="w-80 h-80 rounded-full animate-float-slow"
-                style={{
-                  background: "radial-gradient(circle, rgba(124,58,237,0.2) 0%, rgba(147,51,234,0.08) 50%, transparent 80%)",
-                  filter: "blur(30px)",
-                }}
-              />
-            </div>
-
-            <div className="animate-float-slow w-full max-w-[340px] sm:max-w-[440px] flex items-center justify-center">
-              <Suspense
-                fallback={
-                  <div className="w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] rounded-full border-2 border-purple-200/40 flex items-center justify-center">
-                    <div className="w-24 sm:w-32 h-24 sm:h-32 rounded-full border-2 border-purple-300/60 animate-ping" />
-                  </div>
-                }
-              >
-                <GlobeOrb size={440} />
-              </Suspense>
-            </div>
-
-            {/* Floating Live Stat Badges (Visible on tablet & desktop to avoid mobile crowding) */}
-            <motion.div
-              animate={{ y: [0, -8, 0], rotate: [0, 1, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              style={{ willChange: "transform" }}
-              className="hidden sm:flex absolute top-[8%] left-[2%] bg-white/90 backdrop-blur-md border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 items-center gap-2.5 pointer-events-none"
-            >
-              <div className="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center">
-                <BarChart3 className="w-4 h-4 text-purple-600" />
-              </div>
-              <div>
-                <p className="text-[10px] text-slate-500 font-semibold">Growth Benchmark</p>
-                <p className="text-sm font-black text-slate-900">High-ROI ROAS</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 10, 0], rotate: [0, -1, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              style={{ willChange: "transform" }}
-              className="hidden sm:flex absolute bottom-[12%] right-[2%] bg-white/90 backdrop-blur-md border border-purple-100 rounded-2xl px-4 py-2.5 shadow-lg shadow-purple-900/10 items-center gap-2.5 pointer-events-none"
-            >
-              <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              </div>
-              <div>
-                <p className="text-[10px] text-slate-500 font-semibold">PageSpeed Index</p>
-                <p className="text-sm font-black text-slate-900">100/100 Fortified</p>
-              </div>
             </motion.div>
           </motion.div>
         </div>
