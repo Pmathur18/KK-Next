@@ -204,44 +204,7 @@ const partnerLogos = [
   { name: "Stripe", type: "Payments Engine" },
 ];
 
-const heroPillars = [
-  {
-    id: "shopify",
-    label: "Scale Shopify / E-Commerce",
-    icon: ShoppingBag,
-    highlight: "+315% Revenue Lift",
-    description: "Headless Shopify builds, 1-page checkout flows, and sub-1.2s load speeds to eradicate cart abandonment.",
-    serviceQuery: "Web Development",
-    ctaLabel: "Audit My E-Commerce Store",
-  },
-  {
-    id: "crm-erp",
-    label: "Automate Ops with CRM/ERP",
-    icon: Database,
-    highlight: "Cut 40%+ Manual Hours",
-    description: "Centralized inventory, automated dispatch sync, and custom Salesforce / Odoo integrations.",
-    serviceQuery: "CRM & ERP Integrations",
-    ctaLabel: "Audit My Operations & Systems",
-  },
-  {
-    id: "performance",
-    label: "Boost Ad ROAS & Funnels",
-    icon: LineChart,
-    highlight: "3.4x Average ROAS",
-    description: "Eliminate wasted spend with high-intent Meta/Google acquisition and technical SEO funnels.",
-    serviceQuery: "Performance Media",
-    ctaLabel: "Audit My Ad ROAS & Growth",
-  },
-  {
-    id: "custom-web",
-    label: "Custom Web & Mobile App",
-    icon: Laptop,
-    highlight: "99.9% Uptime & Sub-100ms",
-    description: "Full-stack React, Next.js, and Flutter engineering tailored to your proprietary business logic.",
-    serviceQuery: "Web Development",
-    ctaLabel: "Audit My Web Architecture",
-  },
-];
+
 
 const techStackItems = [
   { name: "Next.js 15 & React 19", category: "Frontend", desc: "Server Components, App Router & TurboPack for sub-second page loads.", badge: "Speed", icon: Laptop },
@@ -264,7 +227,6 @@ const auditBenchmarks = [
 export default function HomeClient() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const [selectedPillar, setSelectedPillar] = useState(heroPillars[0]);
   const [stackTab, setStackTab] = useState<string>("All");
 
   const { scrollYProgress } = useScroll({
@@ -323,72 +285,50 @@ export default function HomeClient() {
               Stop losing shoppers to sluggish load times and burning ad spend on unoptimized funnels. We unite full-stack web engineering, custom headless e-commerce, and automated CRM/ERP workflows with ruthless, data-driven acquisition.
             </motion.p>
 
-            {/* Interactive 2-Step Micro-Conversion Audit Selector */}
+            {/* CTA Button Group */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="w-full max-w-3xl mt-4 p-4 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-xl border border-purple-200 shadow-2xl shadow-purple-900/10 flex flex-col gap-4 text-left"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 w-full sm:w-auto"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-purple-100 pb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-700 flex items-center gap-1.5 font-display">
-                  <Zap className="w-4 h-4 text-amber-500 fill-amber-500" /> Choose Your Primary Growth Objective:
-                </span>
-                <span className="text-[11px] font-semibold text-slate-500">
-                  Step 1 of 2 • Customized Strategy Scope
-                </span>
-              </div>
-
-              {/* Pill Selectors */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {heroPillars.map((p) => {
-                  const Icon = p.icon;
-                  const isActive = selectedPillar.id === p.id;
-                  return (
-                    <button
-                      key={p.id}
-                      type="button"
-                      onClick={() => setSelectedPillar(p)}
-                      className={cn(
-                        "p-3 rounded-2xl border text-xs font-bold flex flex-col items-start gap-2 transition-all text-left cursor-pointer",
-                        isActive
-                          ? "bg-purple-600 text-white border-purple-600 shadow-md shadow-purple-600/30 scale-[1.02]"
-                          : "bg-slate-50/70 hover:bg-purple-50/80 text-slate-700 border-slate-200/80 hover:border-purple-200"
-                      )}
-                    >
-                      <Icon className={cn("w-4 h-4", isActive ? "text-white" : "text-purple-600")} />
-                      <span className="leading-tight font-display">{p.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Dynamic Focus Details & CTA */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1 bg-purple-50/40 -mx-4 -mb-4 sm:-mx-6 sm:-mb-6 p-4 sm:p-5 rounded-b-3xl border-t border-purple-100/60">
-                <div className="flex flex-col gap-1 max-w-md">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-extrabold text-emerald-700 bg-emerald-100/80 border border-emerald-300/80 px-2.5 py-0.5 rounded-full">
-                      {selectedPillar.highlight}
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                    {selectedPillar.description}
-                  </p>
-                </div>
-
-                <Link
-                  href={`/contact?service=${encodeURIComponent(selectedPillar.serviceQuery)}`}
-                  className="shrink-0"
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button
+                  variant="primary"
+                  colorTheme="violet"
+                  className="!py-4 !px-8 !text-sm sm:!text-base shadow-xl shadow-purple-600/30 hover:shadow-purple-600/50 flex items-center justify-center gap-2 w-full sm:w-auto group"
                 >
-                  <Button
-                    variant="primary"
-                    colorTheme="violet"
-                    className="!py-3.5 !px-6 !text-xs sm:!text-sm shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 w-full sm:w-auto"
-                  >
-                    {selectedPillar.ctaLabel} <ArrowRight className="inline-block w-4 h-4 ml-1.5" />
-                  </Button>
-                </Link>
-              </div>
+                  <span>Book a Free Architecture Call</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link href="/portfolio" className="w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  colorTheme="violet"
+                  className="!py-4 !px-8 !text-sm sm:!text-base bg-white/80 hover:bg-white w-full sm:w-auto"
+                >
+                  Explore Case Studies
+                </Button>
+              </Link>
+            </motion.div>
+
+            {/* Trust Assurances */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-500 font-medium pt-2"
+            >
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Free 30-min Technical Scope
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" /> NDA Signed Before Scoping
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Direct Senior Engineering Access
+              </span>
             </motion.div>
           </motion.div>
         </div>
@@ -536,11 +476,6 @@ export default function HomeClient() {
       <section id="services" className="py-12 md:py-16 bg-slate-50/60 relative overflow-hidden border-y border-purple-100/60">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
           <div className="flex flex-col items-center gap-4 text-center">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Core Solutions
-              </Badge>
-            </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight max-w-3xl">
                 High-Performance Solutions Engineered for{" "}
@@ -622,12 +557,6 @@ export default function HomeClient() {
 
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-14 relative z-10">
           <div className="flex flex-col items-center gap-4 text-center max-w-3xl mx-auto">
-            <ScrollReveal>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-900/60 border border-purple-500/30 text-purple-300 text-xs font-bold uppercase tracking-widest">
-                <Gauge className="w-4 h-4 text-purple-400" />
-                Technical Proof &amp; Standards
-              </div>
-            </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
@@ -739,11 +668,6 @@ export default function HomeClient() {
 
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
           <div className="flex flex-col items-center gap-4 text-center">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Why Partner With Us
-              </Badge>
-            </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight max-w-2xl">
                 Why Partner With Us?
@@ -820,11 +744,6 @@ export default function HomeClient() {
 
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16 relative z-10">
           <div className="text-center flex flex-col items-center gap-4">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Proven Methodology
-              </Badge>
-            </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight max-w-2xl">
                 Our Proven Growth Process
@@ -892,9 +811,7 @@ export default function HomeClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <ScrollReveal>
               <div className="flex flex-col gap-4">
-                <Badge colorTheme="navy" className="w-fit !bg-purple-100 !text-purple-700 !border-purple-200">
-                  Case Studies
-                </Badge>
+              
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight leading-tight">
                   <AnimatedGradientText>Client Success Stories</AnimatedGradientText>
                 </h2>
@@ -967,11 +884,6 @@ export default function HomeClient() {
       <section className="py-12 md:py-16 bg-gradient-to-b from-white via-purple-50/30 to-slate-50/40 relative overflow-hidden border-t border-purple-100/60">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-16">
           <div className="flex flex-col items-center gap-4 text-center max-w-3xl mx-auto">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Client Testimonials
-              </Badge>
-            </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-display tracking-tight leading-tight">
                 Trusted by Forward-Thinking Brands &amp;{" "}
@@ -1050,7 +962,7 @@ export default function HomeClient() {
           SECTION 8: CONVERSION FOOTER (FINAL CALL-TO-ACTION)
       ═══════════════════════════════════════════════════════════════════ */}
       <CTABanner
-        badge="Zero Commitment Strategy Review"
+  
         title={
           <>
             Stop Guessing. Build Scalable{" "}

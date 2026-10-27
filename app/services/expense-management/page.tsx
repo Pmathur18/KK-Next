@@ -335,7 +335,7 @@ export default function ExpenseManagementPage() {
             <ScrollReveal direction="right">
               <Tilt3DCard intensity={6}>
                 <div className="p-6 sm:p-8 rounded-3xl bg-white border border-purple-100 shadow-2xl shadow-purple-900/10 flex flex-col gap-6 relative overflow-hidden">
-                  
+
                   {/* Card Header */}
                   <div className="flex items-center justify-between border-b border-purple-50 pb-4">
                     <div>
@@ -462,7 +462,7 @@ export default function ExpenseManagementPage() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section id="features" className="py-12 md:py-16 bg-slate-50/60 border-y border-purple-100/70 relative">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-12">
-          
+
           <div className="text-center flex flex-col items-center gap-4 max-w-3xl mx-auto">
             <ScrollReveal>
               <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
@@ -492,7 +492,7 @@ export default function ExpenseManagementPage() {
                 <ScrollReveal key={feat.id} delay={idx * 0.04}>
                   <Tilt3DCard intensity={6} className="h-full">
                     <div className="h-full p-7 rounded-3xl bg-white border border-purple-100/80 shadow-md shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex flex-col justify-between gap-5 group">
-                      
+
                       <div className="flex flex-col gap-4">
                         <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center border p-3", feat.color)}>
                           <Icon className="w-6 h-6" />
@@ -523,7 +523,7 @@ export default function ExpenseManagementPage() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section id="how-it-works" className="py-12 md:py-16 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-12">
-          
+
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
             <ScrollReveal>
               <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
@@ -611,7 +611,7 @@ export default function ExpenseManagementPage() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section id="roles" className="py-12 md:py-16 bg-slate-50/60 border-t border-purple-100 relative">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-12">
-          
+
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
             <ScrollReveal>
               <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
@@ -638,7 +638,7 @@ export default function ExpenseManagementPage() {
                 <ScrollReveal key={r.role} delay={idx * 0.08}>
                   <div className="h-full p-7 rounded-3xl bg-white border border-purple-100 shadow-lg shadow-purple-900/5 hover:border-purple-300 transition-all flex flex-col justify-between gap-6">
                     <div className="flex flex-col gap-4">
-                      
+
                       <div className="flex items-center justify-between">
                         <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 border border-purple-100 flex items-center justify-center">
                           <Icon className="w-6 h-6" />
@@ -685,7 +685,7 @@ export default function ExpenseManagementPage() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section id="pricing" className="py-12 md:py-16 bg-white relative border-t border-purple-100">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-12">
-          
+
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
             <ScrollReveal>
               <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
@@ -787,7 +787,7 @@ export default function ExpenseManagementPage() {
           8. BOTTOM CTA BANNER (Standardized across website)
       ═══════════════════════════════════════════════════════════════════ */}
       <CTABanner
-        badge="Ready to Build Your Win?"
+        badge=""
         title={
           <>
             Ready to streamline your company{" "}

@@ -124,7 +124,7 @@ export const teamMembers: TeamMember[] = [
     specialty: "Full-Stack Architecture & Growth Strategy"
   },
   {
-    name: "Sanjay Kumar",
+    name: "",
     role: "Lead Solutions Architect",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
     linkedin: "https://linkedin.com/in/sanjay-arch",

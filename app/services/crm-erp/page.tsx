@@ -485,7 +485,7 @@ export default function CrmErpService() {
 
       {/* ── 6. CTA BANNER ── */}
       <CTABanner
-        badge="Ready to Build Your Win?"
+        badge=""
         title={
           <>
             Get a Blueprint for Your{" "}

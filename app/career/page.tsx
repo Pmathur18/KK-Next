@@ -132,7 +132,7 @@ export default function Career() {
     <div className="relative overflow-hidden w-full bg-white py-8 md:py-12 animate-fadeIn">
       <ParticleField count={30} color="124, 58, 237" opacity={0.12} />
       <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={400} opacity={0.08} blur={100} />
-      
+
       {/* Hero */}
       <section className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pb-10 border-b border-purple-100 relative z-10">
         <div className="lg:col-span-7 flex flex-col gap-6">
@@ -141,7 +141,7 @@ export default function Career() {
               Careers
             </Badge>
           </ScrollReveal>
-          
+
           <ScrollReveal delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-900 font-display">
               Join the tech solution{" "}
@@ -209,7 +209,7 @@ export default function Career() {
       {/* Open Positions Accordion */}
       <section className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto border-b border-zinc-200/50">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-          
+
           <div className="lg:col-span-4 flex flex-col gap-6">
             <SectionHeading
               eyebrow="Openings"
@@ -309,7 +309,7 @@ export default function Career() {
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                
+
                 {/* Name */}
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-zinc-400">
@@ -353,7 +353,7 @@ export default function Career() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                
+
                 {/* Role selection */}
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="role" className="text-xs font-bold uppercase tracking-wider text-zinc-400">
@@ -404,7 +404,7 @@ export default function Career() {
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="coverLetter" className="text-xs font-bold uppercase tracking-wider text-zinc-400">
                   Introduce yourself (Short Cover Letter)
-                  </label>
+                </label>
                 <textarea
                   id="coverLetter"
                   rows={4}
@@ -454,7 +454,7 @@ export default function Career() {
 
       {/* CTA Banner */}
       <CTABanner
-        badge="Ready to Build Your Win?"
+        badge=""
         title={
           <>
             Have a project in mind rather than{" "}

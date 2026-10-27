@@ -21,7 +21,7 @@ export interface CTABannerProps {
 }
 
 export default function CTABanner({
-  badge = "Ready to Build Your Win?",
+  badge = "",
   title,
   description = "Book a free 30-minute discovery call to discuss your web application, mobile product, or CRM automation goals.",
   buttonText = "Schedule Free Discovery Call →",

@@ -695,7 +695,7 @@ export default function SocialMediaPage() {
 
       {/* ══ 6. CTA BANNER ═════════════════════════════════════════════════ */}
       <CTABanner
-        badge="Ready to Build Your Win?"
+        badge=""
         title={
           <>
             Start Scaling Your Social Presence &amp;{" "}
