@@ -19,7 +19,7 @@ const footerLinks = {
   ],
   Services: [
     { label: "Expense Management", href: "/services/expense-management" },
-    { label: "Websites & Web Apps", href: "/services/websites" },
+    { label: "Websites & Web Apps", href: "/services/web-development" },
     { label: "Mobile Applications", href: "/services/mobile-apps" },
     { label: "Social Management", href: "/services/social-media-management" },
     { label: "CRM & ERP", href: "/services/crm-erp" },

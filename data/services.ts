@@ -15,9 +15,9 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: "websites",
-    title: "Websites (Shopify & Custom)",
-    slug: "websites",
+    id: "web-development",
+    title: "Web Development (Shopify & Custom)",
+    slug: "web-development",
     badge: "Web Development",
     description: "High-conversion Shopify stores and bespoke Next.js web applications tailored to scale your brand.",
     longDescription: "We design and develop modern, blazing-fast web platforms that transform your digital presence. Whether you need a highly optimized Shopify store or a complex custom web application, we use the latest technology stacks to ensure scalability, robust security, and seamless user experiences.",

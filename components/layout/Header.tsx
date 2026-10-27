@@ -54,7 +54,7 @@ export default function Header() {
     {
       title: "Websites & Web Apps",
       desc: "Shopify headless & bespoke Next.js apps.",
-      href: "/services/websites",
+      href: "/services/web-development",
       icon: Laptop,
       color: "bg-purple-50 text-purple-600",
     },

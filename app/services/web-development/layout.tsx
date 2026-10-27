@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     "Bespoke web applications",
     "Tailwind CSS web development",
     "High performance web engineering",
-    "KK Next Tech Solutions web services",
+    "KK Next Tech Solutions web development",
   ],
   alternates: {
-    canonical: "https://www.kknexttech.com/services/websites",
+    canonical: "https://www.kknexttech.com/services/web-development",
   },
   openGraph: {
     title: "Shopify & Custom Next.js Web Development | KK Next Tech Solutions",
     description:
       "High-conversion Shopify stores and bespoke Next.js web applications engineered for speed, scalability, and revenue growth.",
-    url: "https://www.kknexttech.com/services/websites",
+    url: "https://www.kknexttech.com/services/web-development",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function WebsitesLayout({
+export default function WebDevelopmentLayout({
   children,
 }: {
   children: React.ReactNode;

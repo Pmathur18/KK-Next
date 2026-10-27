@@ -162,21 +162,30 @@ export default function ServicesPage() {
           </p>
         </ScrollReveal>
 
-        {/* Quick Nav Pills */}
+        {/* Quick Nav Pills - Direct Clean URLs (No # Hash Fragments) */}
         <ScrollReveal delay={0.3}>
           <div className="flex flex-wrap items-center gap-3 pt-4">
-            <a
-              href="#websites"
+            <Link
+              href="/services/web-development"
               className="group px-5 py-2.5 rounded-full bg-purple-50 hover:bg-purple-600 text-purple-700 hover:text-white text-xs font-bold transition-all border border-purple-200 hover:border-purple-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-purple-500/20 hover:-translate-y-0.5"
             >
               <Laptop className="w-3.5 h-3.5" /> Web Development
-            </a>
-            <a
-              href="#social-media"
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <Link
+              href="/services/mobile-apps"
+              className="group px-5 py-2.5 rounded-full bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white text-xs font-bold transition-all border border-blue-200 hover:border-blue-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-blue-500/20 hover:-translate-y-0.5"
+            >
+              <Smartphone className="w-3.5 h-3.5" /> Mobile Applications
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <Link
+              href="/services/social-media-management"
               className="group px-5 py-2.5 rounded-full bg-fuchsia-50 hover:bg-fuchsia-600 text-fuchsia-700 hover:text-white text-xs font-bold transition-all border border-fuchsia-200 hover:border-fuchsia-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-fuchsia-500/20 hover:-translate-y-0.5"
             >
               <Share2 className="w-3.5 h-3.5" /> Socials &amp; Growth
-            </a>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
             <Link
               href="/services/crm-erp"
               className="group px-5 py-2.5 rounded-full bg-slate-900 hover:bg-purple-700 text-white text-xs font-bold transition-all border border-slate-800 hover:border-purple-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-purple-500/30 hover:-translate-y-0.5"
@@ -196,7 +205,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 2. SERVICE 1: WEBSITES & E-COMMERCE ── */}
-      <section id="websites" className="py-12 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200 scroll-mt-24">
+      <section className="py-12 max-w-7xl px-6 md:px-8 mx-auto border-b border-slate-200">
         <div className="flex flex-col gap-12">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -209,10 +218,10 @@ export default function ServicesPage() {
                 High-conversion Shopify stores and bespoke Next.js web applications tailored to scale your brand. We prioritize blazingly fast load times, pixel-perfect UX, and robust backend integrations.
               </p>
               <Link
-                href="/services/websites"
+                href="/services/web-development"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-900 w-fit pt-1 transition-colors"
               >
-                <span>Explore Dedicated Websites &amp; Storefronts Platform</span>
+                <span>Explore Dedicated Web Development Platform</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
