@@ -1,21 +1,25 @@
 "use client";
 
-import React from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
   Sparkles,
   CheckCircle2,
+  AlertTriangle,
+  Wrench,
   Zap,
   TrendingUp,
   Shield,
   Clock,
   Layers,
   ChevronRight,
-  RotateCcw,
-  MousePointerClick,
+  Globe,
+  Laptop,
+  Layers3,
+  Cpu,
 } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
@@ -28,60 +32,68 @@ import SpotlightSection from "@/components/ui/SpotlightSection";
 import GlowingOrb from "@/components/ui/GlowingOrb";
 import ParticleField from "@/components/ui/ParticleField";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import BeamBorder from "@/components/ui/BeamBorder";
 import CTABanner from "@/components/ui/CTABanner";
-import NumberTicker from "@/components/ui/NumberTicker";
-import ScrollStack, { ScrollStackItem } from "@/components/ui/ScrollStack";
 import { projects, Project } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
+
+/* ─── Filter Categories ─────────────────────────────────────────────────────── */
+const FILTER_TABS = [
+  "All",
+  "E-Commerce & Shopify",
+  "Custom Web Apps",
+  "ERP & Automation",
+  "Performance Marketing",
+] as const;
+
+type FilterType = (typeof FILTER_TABS)[number];
 
 /* ─── FAQ Data ──────────────────────────────────────────────────────────────── */
 const portfolioFAQs: FAQItem[] = [
   {
-    q: "Do all projects include a live URL I can visit?",
-    a: "Most projects include a live demo or production URL. Some enterprise projects are under NDA and show only screenshots and metrics by client permission. Every case study includes the challenge, our approach, the tech stack used, and the measurable results delivered."
+    q: "Do all projects include a live URL or demo I can explore?",
+    a: "Yes. Every project includes an in-depth case study detailing architecture, pain points, and results. Where client confidentiality permits, we provide live production links or interactive walkthroughs. For enterprise systems under NDA, we show sanitized workflows and verified metrics."
   },
   {
-    q: "Are these results real or fabricated for the portfolio?",
-    a: "Every metric shown (conversion rates, organic reach numbers, revenue lifts) is real and pulled from client analytics dashboards with explicit permission. We never inflate or fabricate numbers. Clients can verify the data during a discovery call if needed."
+    q: "Are the performance and revenue metrics real?",
+    a: "Every metric shown (e.g. +315% ROAS, 1.2s page speeds, +38% conversion lift) is verified through client analytics platforms (Google Analytics 4, Shopify Dashboard, Stripe, or Meta Ads Manager). We never use fabricated numbers."
   },
   {
-    q: "Do you only show full-scale projects, or do you also take smaller builds?",
-    a: "Our portfolio showcases a range of scopes — from fast MVPs and landing pages to full enterprise systems. We work on projects of all sizes, provided they meet our minimum engagement thresholds. The complexity of execution matters more than the budget size."
+    q: "Can you build a similar custom solution for my brand?",
+    a: "Absolutely. When you book a technical consultation, you can reference any case study (e.g., 'I want a headless Shopify build like Aurora Boutique'). We will assess your existing architecture and provide a tailored engineering and marketing roadmap."
   },
   {
-    q: "Can I request a project similar to one I see in the portfolio?",
-    a: "Absolutely. If a specific case study resonates with your business, mention it when you contact us and say 'I want something like [Project Name].' We'll use it as a reference point during the discovery call to scope your project accurately and share relevant process insights."
+    q: "Do you offer full-stack delivery (Design + Dev + Growth) or modular work?",
+    a: "Both. While many clients hire us for complete end-to-end execution—from UX wireframes to Next.js development and ad scaling—we also accept modular engagements such as headless rebuilds, API integrations, or CRO audits."
   },
   {
-    q: "Do you work on the full project (design + dev + marketing) or just parts?",
-    a: "Both. Many clients engage us for the full stack — design, development, and growth marketing. Others come to us for a specific layer, like redesigning an existing site or running ads for an already-built product. We can plug in at any stage of your digital journey."
+    q: "What SLAs and post-launch maintenance do you provide?",
+    a: "All production deployments include 30-90 days of hyper-care warranty, real-time monitoring, security patches, and 99.9% uptime SLAs with dedicated engineering support."
   },
 ];
 
-/* ─── Value Props (Upload Digital Why-Us Style) ─────────────────────────────── */
+/* ─── Value Props ───────────────────────────────────────────────────────────── */
 const whyUsBlocks = [
   {
-    title: "We are B2B & Enterprise domain experts",
-    desc: "We take the time to understand your commercial goals & operational challenges, deploying tailored engineering patterns that guarantee return on investment.",
+    title: "B2B & Enterprise Domain Experts",
+    desc: "We understand commercial objectives and operational bottlenecks, designing software architecture that guarantees measurable return on investment.",
     icon: Shield,
     color: "from-purple-500/10 via-purple-500/5 to-transparent",
   },
   {
-    title: "We believe in collaboration & agile delivery",
-    desc: "We get creative to solve complex bottlenecks. We believe in providing real-time data & rapid feedback cycles to optimize your targets continuously.",
+    title: "Agile Sprints & Rapid Turnaround",
+    desc: "Direct communication with senior engineers and sprint-based bi-weekly deployments with real-time feedback loops.",
     icon: Clock,
     color: "from-blue-500/10 via-blue-500/5 to-transparent",
   },
   {
-    title: "We always hit our conversion KPIs",
-    desc: "Our engineering impact is directly measurable. We build long-term commercial partnerships, cheering your team on at every stage of scale.",
+    title: "Guaranteed Commercial KPIs",
+    desc: "Our engineering impact is directly tied to business results—faster load times, higher checkout conversion, and scalable backend infrastructure.",
     icon: TrendingUp,
     color: "from-fuchsia-500/10 via-fuchsia-500/5 to-transparent",
   },
   {
-    title: "We've got your back post-launch",
-    desc: "Even after we deploy your application or campaign, our engineering team provides 24/7 SLAs, security patches, and continuous feature updates.",
+    title: "24/7 Post-Launch Hyper-Care",
+    desc: "After deployment, our engineering team manages 24/7 uptime monitoring, Core Web Vitals maintenance, and continuous optimization.",
     icon: Zap,
     color: "from-cyan-500/10 via-cyan-500/5 to-transparent",
   },
@@ -92,87 +104,88 @@ const flipCardsData = [
   {
     no: "01",
     frontTitle: "Outbound & Performance Media",
-    frontSub: "meta.ads / google.search",
+    frontSub: "Meta Ads · Google Search",
     backTitle: "High-Ticket Lead Generation",
-    backSub: "3.5x ROAS Guarantee",
+    backSub: "3.5x+ ROAS Scaling",
     frontIcon: Zap,
   },
   {
     no: "02",
-    frontTitle: "Brand System & Identity",
-    frontSub: "www.kknexttech.com/branding",
-    backTitle: "Global Market Recognition",
-    backSub: "Distinctive Visual Edge",
-    frontIcon: Sparkles,
+    frontTitle: "Headless E-Commerce",
+    frontSub: "Shopify API · Next.js 15",
+    backTitle: "Sub-Second Page Loads",
+    backSub: "+38% Mobile Checkout Lift",
+    frontIcon: Globe,
   },
   {
     no: "03",
-    frontTitle: "Social Media Growth",
-    frontSub: "instagram / linkedin / x",
-    backTitle: "Massive Audience Engagement",
-    backSub: "+180% Avg Organic CTR",
-    frontIcon: TrendingUp,
+    frontTitle: "Custom Web Applications",
+    frontSub: "React · TypeScript · Cloud",
+    backTitle: "Interactive 3D / SaaS",
+    backSub: "High-Converting UX Systems",
+    frontIcon: Laptop,
   },
   {
     no: "04",
-    frontTitle: "Web & Mobile Engineering",
-    frontSub: "nextjs / react native / shopify",
-    backTitle: "Sub-Second Speed & UX",
-    backSub: "Zero Mobile Friction",
-    frontIcon: Layers,
+    frontTitle: "ERP & Workflow Automation",
+    frontSub: "Microservices · Webhooks",
+    backTitle: "Operational Efficiency",
+    backSub: "120+ Hours Saved Weekly",
+    frontIcon: Cpu,
   },
   {
     no: "05",
-    frontTitle: "CRM & ERP Automation",
-    frontSub: "hubspot / salesforce / odoo",
-    backTitle: "Autonomous Ops Pipelines",
-    backSub: "100+ Hours Saved/Mo",
-    frontIcon: CheckCircle2,
-  },
-];
-
-/* ─── Testimonials Data (Upload Digital Style Switcher) ──────────────────────── */
-const clientTestimonials = [
-  {
-    role: "Co-Founder",
-    quote: "Working with KK Next Tech Solutions has been a transformative experience. Over the past three years, they have played a pivotal role in shaping our brand identity and ecommerce tech. Their speed, strategic approach, and attention to detail ensured our brand resonates strongly with our audience.",
-    metric: "+315% Ecommerce Growth",
-  },
-  {
-    role: "Founder",
-    quote: "The team went above and beyond to build a custom CRM and tracking dashboard that is visually striking and user-friendly. Their use of modern templates and automated webhooks brought our ops to life. Highly recommended!",
-    metric: "120+ Hrs Saved Weekly",
-  },
-  {
-    role: "Founder",
-    quote: "KK Next Tech Solutions has truly delivered. The platform they built for us is visually appealing and highly functional, catering specifically to climate tech. Every element is designed to engage visitors and drive our mission forward.",
-    metric: "58% Completion Lift",
-  },
-  {
-    role: "CEO & Founder",
-    quote: "We started working with KK Next Tech Solutions right from the pre-launch days. They helped us set up our digital presence and conceptualized communication narratives for our audiences. Execution was flawlessly executed.",
-    metric: "1,200+ Qualified Leads",
-  },
-  {
-    role: "Head of Marketing",
-    quote: "Their work has significantly reduced my stress in having to imagine, design, and implement a new design language. Having worked with them for over two years, we greatly value their dedication and consistent performance.",
-    metric: "3.1x Return on Ad Spend",
+    frontTitle: "Growth CRO & SEO Strategy",
+    frontSub: "Technical SEO · Core Vitals",
+    backTitle: "Dominant Search Visibility",
+    backSub: "+180% Organic Inbound Traffic",
+    frontIcon: TrendingUp,
   },
 ];
 
 export default function PortfolioPage() {
+  const [activeFilter, setActiveFilter] = useState<FilterType>("All");
+
+  // Calculate counts for each filter category
+  const counts = useMemo(() => {
+    const res: Record<FilterType, number> = {
+      All: projects.length,
+      "E-Commerce & Shopify": 0,
+      "Custom Web Apps": 0,
+      "ERP & Automation": 0,
+      "Performance Marketing": 0,
+    };
+    projects.forEach((p) => {
+      if (p.filterCategory in res) {
+        res[p.filterCategory as FilterType] += 1;
+      }
+    });
+    return res;
+  }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "All") return projects;
+    return projects.filter((p) => p.filterCategory === activeFilter);
+  }, [activeFilter]);
+
   return (
     <div className="relative w-full bg-white text-slate-900 min-h-screen overflow-x-clip font-sans">
-      <ParticleField count={45} color="124, 58, 237" opacity={0.15} />
-      <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={450} opacity={0.1} blur={120} />
-      <GlowingOrb className="top-[40%] left-[-10%]" color="#38bdf8" size={380} opacity={0.08} blur={100} />
+      <ParticleField count={40} color="124, 58, 237" opacity={0.12} />
+      <GlowingOrb className="top-[-8%] right-[-5%]" color="#7C3AED" size={450} opacity={0.1} blur={120} />
+      <GlowingOrb className="top-[35%] left-[-10%]" color="#38bdf8" size={380} opacity={0.08} blur={100} />
 
       {/* ════════════════════════════════════════════════════════════════════
           1. HERO HEADER
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="pt-12 pb-8 md:pt-16 md:pb-10 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <div className="flex flex-col items-center text-center gap-6 max-w-4xl mx-auto">
+      <section className="pt-12 pb-6 md:pt-16 md:pb-10 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <div className="flex flex-col items-center text-center gap-5 max-w-4xl mx-auto">
           <ScrollReveal delay={0.1}>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs font-bold uppercase tracking-wider font-mono">
+              <Sparkles className="w-3.5 h-3.5 text-purple-600" /> Proven B2B Engineering &amp; Growth Results
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase">
               Proven Projects. <br />
               <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
@@ -182,143 +195,274 @@ export default function PortfolioPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-              We empower companies with high-performance software, 3D web applications, and data-driven marketing strategies that dominate search and drive revenue.
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl">
+              We engineer high-performance web applications, headless e-commerce storefronts, and automated enterprise software designed to eliminate bottlenecks and scale revenue.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          2. ALL CASE STUDIES - INTERACTIVE SCROLL STACK (React Bits)
+          2. STICKY LOW-FRICTION CATEGORY FILTER BAR
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-10 md:py-14 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <div className="flex flex-col gap-8 md:gap-10">
-          <SectionHeading
-            eyebrow="Commercial Implementations"
-            title="Recent Client Case Studies"
-            description="Explore our high-impact engineering builds across ecommerce, logistics, SaaS, and operations automation."
-          />
-
-          {/* Full Page Flow ScrollStack */}
-          <div className="w-full relative">
-            <ScrollStack
-              useWindowScroll={true}
-              stackPosition="95px"
-              itemDistance={90}
-              itemStackDistance={24}
-              itemScale={0.035}
-              baseScale={0.88}
-              dimAmount={0.12}
-              blurAmount={0.4}
-              tiltAmount={1}
-              rotationAmount={0.6}
-              holdDistance={160}
-              smoothScroll={false}
-              snap={false}
-            >
-              {projects.map((project: Project, idx: number) => (
-                <ScrollStackItem
-                  key={project.slug}
-                  itemClassName="!h-auto min-h-[380px] md:!h-[24rem] lg:!h-[22rem] !p-6 sm:!p-8 !bg-white !text-slate-900 border border-purple-100/90 shadow-2xl shadow-purple-950/10 rounded-3xl"
+      <section className="sticky top-[64px] z-30 bg-white/85 backdrop-blur-xl border-y border-purple-100 py-3 px-6 md:px-8 shadow-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-2 shrink-0">
+            {FILTER_TABS.map((tab) => {
+              const isActive = activeFilter === tab;
+              const count = counts[tab];
+              return (
+                <button
+                  key={tab}
+                  type="button"
+                  onClick={() => setActiveFilter(tab)}
+                  className={cn(
+                    "relative px-4 py-2 rounded-full text-xs sm:text-sm font-bold tracking-tight transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2",
+                    isActive
+                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/30 font-extrabold"
+                      : "bg-slate-100/80 hover:bg-purple-50 text-slate-600 hover:text-purple-700 border border-slate-200/70"
+                  )}
                 >
-                  <div className="flex flex-col md:flex-row items-stretch gap-6 h-full">
-                    {/* Left Column: Case Study Details */}
-                    <div className="flex-1 flex flex-col justify-between gap-4">
-                      <div className="flex flex-col gap-3">
-                        <div className="flex flex-wrap items-center justify-between gap-2">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200/80 px-2.5 py-1 rounded-full font-display">
-                              {project.category}
-                            </span>
-                            <span className="text-xs font-bold text-slate-400 font-mono">
-                              {project.client}
-                            </span>
-                          </div>
-                          <span className="inline-flex items-center gap-1.5 text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full font-mono">
-                            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-                            {project.resultMetric}
+                  <span>{tab}</span>
+                  <span
+                    className={cn(
+                      "text-[11px] px-2 py-0.5 rounded-full font-mono font-bold",
+                      isActive
+                        ? "bg-white/20 text-white"
+                        : "bg-slate-200/70 text-slate-600"
+                    )}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="hidden lg:flex items-center gap-2 text-xs font-semibold text-slate-400 font-mono shrink-0">
+            Showing <span className="text-purple-700 font-bold">{filteredProjects.length}</span> of {projects.length} Case Studies
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          3. PORTFOLIO SHOWCASE: INTERACTIVE DEVICE FRAMES & STAR FRAMEWORK
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="py-10 md:py-16 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <div className="flex flex-col gap-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <SectionHeading
+              eyebrow="Engineered For Growth"
+              title="Technical Case Studies & Client ROI"
+              description="Detailed breakdowns of client bottlenecks, architecture deliverables, and verified commercial impact."
+            />
+          </div>
+
+          {/* Grid of Case Studies */}
+          <div className="grid grid-cols-1 gap-12">
+            <AnimatePresence mode="wait">
+              {filteredProjects.map((project: Project, idx: number) => (
+                <motion.div
+                  key={project.slug}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.35, delay: idx * 0.05 }}
+                  className="rounded-3xl bg-white border border-purple-100 shadow-xl shadow-purple-950/5 hover:border-purple-300 transition-all duration-300 overflow-hidden flex flex-col lg:flex-row group"
+                >
+                  {/* Left Column: Details, Industry, STAR Framework, CTAs */}
+                  <div className="flex-1 p-6 sm:p-8 lg:p-10 flex flex-col justify-between gap-6 order-2 lg:order-1">
+                    <div className="flex flex-col gap-4">
+                      {/* Top Badges */}
+                      <div className="flex flex-wrap items-center justify-between gap-2.5">
+                        <div className="flex flex-wrap items-center gap-2">
+                          {/* Industry Badge */}
+                          <span className="text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200/80 px-3 py-1 rounded-full font-mono">
+                            {project.industry}
+                          </span>
+                          {/* Client / Category */}
+                          <span className="text-xs font-bold text-slate-500 font-mono">
+                            {project.client} · {project.filterCategory}
                           </span>
                         </div>
 
-                        <div>
-                          <h3 className="font-black text-xl sm:text-2xl text-slate-900 font-display leading-tight group-hover:text-purple-700 transition-colors">
-                            {project.title}
-                          </h3>
-                        </div>
-
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2 md:line-clamp-3">
-                          {project.description}
-                        </p>
-
-                        <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-purple-50 text-[11px] font-semibold text-purple-700">
-                          {project.tags.slice(0, 4).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2.5 py-1 rounded-lg bg-purple-50 border border-purple-100/80 text-[11px] font-medium"
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                        {/* Prominent Key Metric Badge */}
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300/80 text-emerald-800 text-xs font-black font-mono shadow-xs">
+                          <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+                          <span>{project.resultMetric}</span>
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-purple-100/70 flex flex-wrap items-center justify-between gap-3">
-                        <Link
-                          href={`/portfolio/${project.slug}`}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-extrabold transition-all shadow-md shadow-purple-600/25 hover:shadow-lg hover:shadow-purple-600/35 group cursor-pointer"
-                        >
-                          View Full Case Study <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                        <Link
-                          href="/contact"
-                          className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-purple-600 transition-colors"
-                        >
-                          Start Similar Project <ArrowUpRight className="w-3.5 h-3.5" />
-                        </Link>
+                      {/* Title */}
+                      <Link href={`/portfolio/${project.slug}`}>
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-display leading-tight group-hover:text-purple-700 transition-colors cursor-pointer">
+                          {project.title}
+                        </h2>
+                      </Link>
+
+                      {/* Brief description */}
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      {/* STAR / PDR Framework Box */}
+                      <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col gap-3 my-1">
+                        <div className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 font-mono">
+                          STAR / PDR Executive Snapshot
+                        </div>
+
+                        <div className="flex flex-col gap-2.5 text-xs sm:text-[13px] leading-relaxed">
+                          <div className="flex items-start gap-2.5">
+                            <span className="shrink-0 px-2 py-0.5 rounded-md bg-rose-100 text-rose-800 font-extrabold text-[10px] tracking-wide uppercase font-mono mt-0.5">
+                              Problem
+                            </span>
+                            <span className="text-slate-700 font-medium">
+                              {project.starFramework.problem}
+                            </span>
+                          </div>
+
+                          <div className="flex items-start gap-2.5">
+                            <span className="shrink-0 px-2 py-0.5 rounded-md bg-indigo-100 text-indigo-800 font-extrabold text-[10px] tracking-wide uppercase font-mono mt-0.5">
+                              Deliverable
+                            </span>
+                            <span className="text-slate-700 font-medium">
+                              {project.starFramework.deliverable}
+                            </span>
+                          </div>
+
+                          <div className="flex items-start gap-2.5">
+                            <span className="shrink-0 px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-extrabold text-[10px] tracking-wide uppercase font-mono mt-0.5">
+                              Result
+                            </span>
+                            <span className="text-slate-900 font-bold">
+                              {project.starFramework.result}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Tech Badges */}
+                      <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                        <span className="text-[11px] font-bold text-slate-400 mr-1 uppercase font-mono">
+                          Core Stack:
+                        </span>
+                        {project.techStack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-1 rounded-lg bg-purple-50/70 border border-purple-100 text-[11px] font-semibold text-purple-700 font-mono"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                       </div>
                     </div>
 
-                    {/* Right Column: High-Fidelity Project Graphic Preview */}
-                    <div className="w-full md:w-[42%] lg:w-[40%] shrink-0">
+                    {/* Dual Action CTAs */}
+                    <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
                       <Link
                         href={`/portfolio/${project.slug}`}
-                        className="group/img block relative w-full h-48 md:h-full rounded-2xl overflow-hidden bg-slate-900 border border-purple-100/80 shadow-inner"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm font-black transition-all shadow-md shadow-purple-600/25 hover:shadow-lg hover:shadow-purple-600/35 cursor-pointer group/btn"
+                      >
+                        Read Full Case Study
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                      </Link>
+
+                      <Link
+                        href={`/contact?service=${encodeURIComponent(project.filterCategory)}`}
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-500 hover:text-purple-700 transition-colors cursor-pointer"
+                      >
+                        <span>Start Similar Project</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-purple-500" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Interactive Device Mockup Frame (MacBook/Browser Frame with Hover Effects) */}
+                  <div className="w-full lg:w-[48%] xl:w-[46%] bg-slate-900 p-4 sm:p-6 lg:p-8 flex flex-col justify-center order-1 lg:order-2 border-b lg:border-b-0 lg:border-l border-slate-800">
+                    <div className="w-full rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl overflow-hidden flex flex-col">
+                      {/* Browser / Laptop Frame Header */}
+                      <div className="px-4 py-2.5 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+                        {/* 3 Window Dots */}
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
+                          <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
+                          <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+                        </div>
+
+                        {/* Simulated Browser Address Pill */}
+                        <div className="px-3 py-1 rounded-md bg-slate-950 border border-slate-800 text-[11px] font-mono text-slate-400 truncate max-w-[220px] sm:max-w-[280px]">
+                          kknexttech.com/portfolio/{project.slug}
+                        </div>
+
+                        <div className="w-10 flex justify-end">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        </div>
+                      </div>
+
+                      {/* Device Screen with Hover Tech Badges Overlay */}
+                      <Link
+                        href={`/portfolio/${project.slug}`}
+                        className="relative block w-full h-[220px] sm:h-[280px] lg:h-[320px] overflow-hidden group/screen cursor-pointer bg-slate-950"
                       >
                         <img
                           src={project.imageUrl}
                           alt={project.title}
                           loading="lazy"
                           decoding="async"
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/screen:scale-108 group-hover/screen:-translate-y-2"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-70 group-hover/img:opacity-50 transition-opacity" />
-                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                          <span className="text-[11px] font-mono font-bold text-white/90 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
-                            Case #{String(idx + 1).padStart(2, "0")}
+
+                        {/* Permanent Gradient Shadow */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent opacity-80 group-hover/screen:opacity-40 transition-opacity" />
+
+                        {/* Hover Overlay: Tech Stack Floating Badges */}
+                        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-center items-center text-center gap-3">
+                          <span className="text-xs font-mono font-bold text-purple-300 uppercase tracking-wider">
+                            Interactive Architecture Preview
                           </span>
-                          <span className="text-[11px] font-bold text-white bg-purple-600/90 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 border border-purple-400/40">
-                            Read Study <ArrowRight className="w-3 h-3" />
+                          <div className="flex flex-wrap justify-center gap-1.5 max-w-xs">
+                            {project.techStack.map((tech) => (
+                              <span
+                                key={tech}
+                                className="px-2.5 py-1 rounded-md bg-purple-900/60 border border-purple-500/40 text-purple-200 text-xs font-mono font-medium"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-purple-600 text-white text-xs font-bold mt-2 shadow-lg shadow-purple-600/40">
+                            Explore Case Architecture <ArrowRight className="w-3.5 h-3.5" />
+                          </span>
+                        </div>
+
+                        {/* Fixed bottom badges when not hovered */}
+                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none group-hover/screen:opacity-0 transition-opacity">
+                          <span className="text-[11px] font-mono font-bold text-white/90 bg-slate-900/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                            {project.client}
+                          </span>
+                          <span className="text-[11px] font-bold text-white bg-purple-600/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 border border-purple-400/40">
+                            {project.resultMetric}
                           </span>
                         </div>
                       </Link>
                     </div>
                   </div>
-                </ScrollStackItem>
+                </motion.div>
               ))}
-            </ScrollStack>
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          5. WHY WORK WITH US / VALUE PROPS (Upload Digital why-us Section)
+          4. WHY WORK WITH US / VALUE PROPS
       ════════════════════════════════════════════════════════════════════ */}
       <section className="py-12 md:py-16 bg-slate-950 text-white border-y border-purple-500/20 relative overflow-hidden">
         <ParticleField count={30} color="147, 51, 234" opacity={0.2} />
         <GlowingOrb className="top-[-20%] left-[-10%]" color="#7C3AED" size={500} opacity={0.15} blur={140} />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 flex flex-col gap-16">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 flex flex-col gap-14">
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
             <Badge colorTheme="navy" className="!bg-purple-900/60 !text-purple-300 !border-purple-700">
               Why Partner With Us
@@ -330,7 +474,7 @@ export default function PortfolioPage() {
               </AnimatedGradientText>
             </h2>
             <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-              We take the time to deeply understand your commercial goals before writing code, ensuring every sprint yields measurable ROI.
+              We take the time to understand your commercial goals before writing code, ensuring every sprint yields measurable ROI.
             </p>
           </div>
 
@@ -362,17 +506,17 @@ export default function PortfolioPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          6. INTERACTIVE 3D SERVICE FLIP CARDS (Upload Digital Flipping Cards Section)
+          5. INTERACTIVE 3D SERVICE FLIP CARDS
       ════════════════════════════════════════════════════════════════════ */}
       <section className="py-12 md:py-16 bg-gradient-to-b from-purple-50/50 via-white to-purple-50/30 border-b border-purple-100 relative">
         <SpotlightSection spotlightColor="rgba(124, 58, 237, 0.08)" size={700}>
-          <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-16">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-14">
             <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
               <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
                 Core Capabilities
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-slate-900">
-                Imagine What Being Digitally Active Could Do For Your Business?
+                What Can Scaled Digital Engineering Do For Your Brand?
               </h2>
               <p className="text-slate-500 text-sm md:text-base leading-relaxed">
                 Hover or tap any card below to flip and see the business outcomes we deliver for each engineering pillar.
@@ -445,11 +589,15 @@ export default function PortfolioPage() {
         </SpotlightSection>
       </section>
 
-
       {/* ════════════════════════════════════════════════════════════════════
-          8. CTA BANNER & FAQS
+          6. CTA BANNER & FAQS
       ════════════════════════════════════════════════════════════════════ */}
-      <CTABanner />
+      <CTABanner
+        title="Facing a Similar Tech or Growth Bottleneck?"
+        description="Schedule a technical discovery call with our engineering and growth specialists. We'll audit your current stack and present a verified roadmap."
+        buttonText="Book Technical Consultation →"
+        buttonLink="/contact"
+      />
 
       {/* FAQs */}
       <div className="border-t border-purple-100">
