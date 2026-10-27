@@ -87,7 +87,10 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   metadataBase: new URL("https://kknextech.com"),
   verification: {
-    google: "google25616471298278e8",
+    google: [
+      "MwAhtfrqoY7T-gr01WyjaglpcR6fp1hlwRHx8HEEKd0",
+      "google25616471298278e8",
+    ],
   },
 };
 
