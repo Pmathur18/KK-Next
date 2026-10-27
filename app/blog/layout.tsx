@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions blog",
   ],
   alternates: {
-    canonical: "https://kknextech.com/blog",
+    canonical: "https://www.kknexttech.com/blog",
   },
   openGraph: {
     title: "Engineering & Growth Insights Blog | KK Next Tech Solutions",
     description:
       "Expert insights on modern web development, headless e-commerce, AI business automation, CRM architecture, and data-backed performance marketing strategies.",
-    url: "https://kknextech.com/blog",
+    url: "https://www.kknexttech.com/blog",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [

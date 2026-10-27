@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     };
   }
 
-  const pageUrl = `https://kknextech.com/blog/${post.slug}`;
+  const pageUrl = `https://www.kknexttech.com/blog/${post.slug}`;
   const title = `${post.metaTitle || post.title} | KK Next Tech Solutions`;
   const description = post.metaDescription || post.summary;
 
@@ -91,10 +91,10 @@ export default async function PostPage({ params }: PostPageProps) {
       "name": "KK Next Tech Solutions",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://kknextech.com/logo.png"
+        "url": "https://www.kknexttech.com/logo.png"
       }
     },
-    "mainEntityOfPage": `https://kknextech.com/blog/${post.slug}`
+    "mainEntityOfPage": `https://www.kknexttech.com/blog/${post.slug}`
   };
 
   return (

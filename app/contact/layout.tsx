@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions contact",
   ],
   alternates: {
-    canonical: "https://kknextech.com/contact",
+    canonical: "https://www.kknexttech.com/contact",
   },
   openGraph: {
     title: "Get in Touch & Request a Tech Audit | KK Next Tech Solutions",
     description:
       "Ready to scale your digital presence? Book a strategic technical consultation or growth audit with our engineering leads. Fast 4-hour response time.",
-    url: "https://kknextech.com/contact",
+    url: "https://www.kknexttech.com/contact",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [

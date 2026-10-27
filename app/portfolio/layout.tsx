@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions portfolio",
   ],
   alternates: {
-    canonical: "https://kknextech.com/portfolio",
+    canonical: "https://www.kknexttech.com/portfolio",
   },
   openGraph: {
     title: "Client Case Studies & Realized ROI | KK Next Tech Solutions",
     description:
       "Explore our proven track record: 315% e-commerce revenue growth, custom logistics CRMs saving 120+ weekly hours, and full-funnel B2B lead generation engines.",
-    url: "https://kknextech.com/portfolio",
+    url: "https://www.kknexttech.com/portfolio",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [

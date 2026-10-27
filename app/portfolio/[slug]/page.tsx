@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: CaseStudyProps): Promise<Meta
     };
   }
 
-  const pageUrl = `https://kknextech.com/portfolio/${project.slug}`;
+  const pageUrl = `https://www.kknexttech.com/portfolio/${project.slug}`;
   const title = `${project.metaTitle || project.title} | KK Next Tech Solutions`;
   const description = project.metaDescription || project.description;
 
@@ -82,21 +82,21 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
     "name": project.title,
     "headline": project.title,
     "description": project.metaDescription || project.description,
-    "image": `https://kknextech.com${project.imageUrl}`,
+    "image": `https://www.kknexttech.com${project.imageUrl}`,
     "author": {
       "@type": "Organization",
       "name": "KK Next Tech Solutions",
-      "url": "https://kknextech.com"
+      "url": "https://www.kknexttech.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "KK Next Tech Solutions",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://kknextech.com/logo.png"
+        "url": "https://www.kknexttech.com/logo.png"
       }
     },
-    "mainEntityOfPage": `https://kknextech.com/portfolio/${project.slug}`
+    "mainEntityOfPage": `https://www.kknexttech.com/portfolio/${project.slug}`
   };
 
   return (

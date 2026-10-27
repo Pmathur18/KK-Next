@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions expenses",
   ],
   alternates: {
-    canonical: "https://kknextech.com/services/expense-management",
+    canonical: "https://www.kknexttech.com/services/expense-management",
   },
   openGraph: {
     title: "Automated Expense Management Solutions | KK Next Tech Solutions",
     description:
       "Automate corporate expense tracking, multi-tier approvals, policy compliance, and ERP ledger sync with custom expense management workflows.",
-    url: "https://kknextech.com/services/expense-management",
+    url: "https://www.kknexttech.com/services/expense-management",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [

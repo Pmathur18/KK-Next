@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Review the official Privacy Policy of KK Next Tech Solutions regarding data privacy, user logs, security encryption, and cookie management.",
   alternates: {
-    canonical: "https://kknextech.com/privacy-policy",
+    canonical: "https://www.kknexttech.com/privacy-policy",
   },
   robots: {
     index: true,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy | KK Next Tech Solutions",
     description:
       "Review the official Privacy Policy of KK Next Tech Solutions regarding data privacy and user security.",
-    url: "https://kknextech.com/privacy-policy",
+    url: "https://www.kknexttech.com/privacy-policy",
     siteName: "KK Next Tech Solutions",
     type: "website",
   },

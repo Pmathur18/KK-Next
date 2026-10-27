@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions careers",
   ],
   alternates: {
-    canonical: "https://kknextech.com/career",
+    canonical: "https://www.kknexttech.com/career",
   },
   openGraph: {
     title: "Careers & Open Engineering Roles | KK Next Tech Solutions",
     description:
       "Join the high-performing engineering and growth team at KK Next Tech Solutions. Explore remote and hybrid job openings.",
-    url: "https://kknextech.com/career",
+    url: "https://www.kknexttech.com/career",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [

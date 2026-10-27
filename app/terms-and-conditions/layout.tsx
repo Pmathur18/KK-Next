@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Review the Terms & Conditions governing website usage, project engagement terms, intellectual property ownership, and service guidelines for KK Next Tech Solutions.",
   alternates: {
-    canonical: "https://kknextech.com/terms-and-conditions",
+    canonical: "https://www.kknexttech.com/terms-and-conditions",
   },
   robots: {
     index: true,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Terms & Conditions | KK Next Tech Solutions",
     description:
       "Review the Terms & Conditions governing website usage and service engagements with KK Next Tech Solutions.",
-    url: "https://kknextech.com/terms-and-conditions",
+    url: "https://www.kknexttech.com/terms-and-conditions",
     siteName: "KK Next Tech Solutions",
     type: "website",
   },

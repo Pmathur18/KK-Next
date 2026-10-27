@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions",
   ],
   alternates: {
-    canonical: "https://kknextech.com",
+    canonical: "https://www.kknexttech.com",
   },
   robots: {
     index: true,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kknextech.com",
+    url: "https://www.kknexttech.com",
     siteName: "KK Next Tech Solutions",
     title: "KK Next Tech Solutions | Custom Web Development & Digital Growth Agency",
     description:
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
-  metadataBase: new URL("https://kknextech.com"),
+  metadataBase: new URL("https://www.kknexttech.com"),
   verification: {
     google: [
       "MwAhtfrqoY7T-gr01WyjaglpcR6fp1hlwRHx8HEEKd0",
@@ -143,19 +143,19 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Organization",
-                  "@id": "https://kknextech.com/#organization",
+                  "@id": "https://www.kknexttech.com/#organization",
                   "name": "KK Next Tech Solutions",
                   "legalName": "KK Next Tech Solutions",
-                  "url": "https://kknextech.com",
+                  "url": "https://www.kknexttech.com",
                   "logo": {
                     "@type": "ImageObject",
-                    "@id": "https://kknextech.com/#logo",
-                    "url": "https://kknextech.com/logo.png",
+                    "@id": "https://www.kknexttech.com/#logo",
+                    "url": "https://www.kknexttech.com/logo.png",
                     "caption": "KK Next Tech Solutions Logo"
                   },
-                  "image": "https://kknextech.com/logo.png",
+                  "image": "https://www.kknexttech.com/logo.png",
                   "description": "Premium full-service web development, digital marketing, and business automation agency.",
-                  "email": "contact@kknextech.com",
+                  "email": "contact@kknexttech.com",
                   "telephone": "+91-9876543210",
                   "address": {
                     "@type": "PostalAddress",
@@ -164,23 +164,23 @@ export default function RootLayout({
                   },
                   "sameAs": [
                     "https://www.linkedin.com/company/kk-next-tech",
-                    "https://www.instagram.com/kknextech"
+                    "https://www.instagram.com/kknexttechsolution"
                   ]
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://kknextech.com/#website",
-                  "url": "https://kknextech.com",
+                  "@id": "https://www.kknexttech.com/#website",
+                  "url": "https://www.kknexttech.com",
                   "name": "KK Next Tech Solutions",
                   "description": "Custom Web Development, Digital Marketing & Business Automation",
                   "publisher": {
-                    "@id": "https://kknextech.com/#organization"
+                    "@id": "https://www.kknexttech.com/#organization"
                   },
                   "potentialAction": {
                     "@type": "SearchAction",
                     "target": {
                       "@type": "EntryPoint",
-                      "urlTemplate": "https://kknextech.com/blog?q={search_term_string}"
+                      "urlTemplate": "https://www.kknexttech.com/blog?q={search_term_string}"
                     },
                     "query-input": "required name=search_term_string"
                   }

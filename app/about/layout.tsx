@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     "Software Engineering India",
   ],
   alternates: {
-    canonical: "https://kknextech.com/about",
+    canonical: "https://www.kknexttech.com/about",
   },
   openGraph: {
     title: "About KK Next Tech Solutions | Tech & Growth Agency in Delhi",
     description:
       "We fuse software engineering with data-driven marketing. Meet the KK Next Tech team — 100+ projects delivered, 98% client retention. Zero fluff, all ROI.",
-    url: "https://kknextech.com/about",
+    url: "https://www.kknexttech.com/about",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [

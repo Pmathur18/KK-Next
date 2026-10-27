@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions",
   ],
   alternates: {
-    canonical: "https://kknextech.com",
+    canonical: "https://www.kknexttech.com",
   },
   openGraph: {
     title: "KK Next Tech Solutions | Custom Web Development & Digital Growth Agency",
     description:
       "Scale your brand with high-performance web development, high-converting Shopify stores, ROI-focused performance marketing, and enterprise CRM/ERP consultations. Schedule your free tech audit today!",
-    url: "https://kknextech.com",
+    url: "https://www.kknexttech.com",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [

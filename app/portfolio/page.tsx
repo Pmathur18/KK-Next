@@ -100,7 +100,7 @@ const flipCardsData = [
   {
     no: "02",
     frontTitle: "Brand System & Identity",
-    frontSub: "kknextech.com/branding",
+    frontSub: "www.kknexttech.com/branding",
     backTitle: "Global Market Recognition",
     backSub: "Distinctive Visual Edge",
     frontIcon: Sparkles,

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions CRM",
   ],
   alternates: {
-    canonical: "https://kknextech.com/services/crm-erp",
+    canonical: "https://www.kknexttech.com/services/crm-erp",
   },
   openGraph: {
     title: "Enterprise CRM & ERP Consultation & Integration | KK Next Tech Solutions",
     description:
       "Eliminate operational bottlenecks and sync workflows with custom CRM and ERP integrations. Salesforce, HubSpot, and bespoke ERP architecture tailored to your business.",
-    url: "https://kknextech.com/services/crm-erp",
+    url: "https://www.kknexttech.com/services/crm-erp",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [

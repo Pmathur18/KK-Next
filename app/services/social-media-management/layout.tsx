@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "KK Next Tech Solutions marketing",
   ],
   alternates: {
-    canonical: "https://kknextech.com/services/social-media-management",
+    canonical: "https://www.kknexttech.com/services/social-media-management",
   },
   openGraph: {
     title: "Performance Marketing & Social Media Management | KK Next Tech Solutions",
     description:
       "Data-driven social media management, organic community growth, and high-ROAS paid advertising on Meta, LinkedIn, and Google Ads designed to scale high-intent inbound leads.",
-    url: "https://kknextech.com/services/social-media-management",
+    url: "https://www.kknexttech.com/services/social-media-management",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [
