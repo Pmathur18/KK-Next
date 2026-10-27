@@ -37,8 +37,17 @@ import { projects } from "@/data/portfolio";
 import { testimonials } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
 
-// Lazy load GlobeOrb (heavy Three.js)
-const GlobeOrb = React.lazy(() => import("@/components/ui/GlobeOrb"));
+import dynamic from "next/dynamic";
+
+// Next.js dynamic client-side only import for GlobeOrb (heavy Three.js bundle)
+const GlobeOrb = dynamic(() => import("@/components/ui/GlobeOrb"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] rounded-full border-2 border-purple-200/40 flex items-center justify-center">
+      <div className="w-24 sm:w-32 h-24 sm:h-32 rounded-full border-2 border-purple-300/60 animate-ping" />
+    </div>
+  ),
+});
 
 // Section 7: FAQs from user spec
 const homeFAQs: FAQItem[] = [
@@ -464,6 +473,8 @@ export default function HomeClient() {
                     <img
                       src="/images/hero_dashboard.jpg"
                       alt="KK Next Tech Architecture & Growth Dashboard"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />

@@ -9,13 +9,17 @@ import BackgroundBase from "@/components/layout/BackgroundBase";
 const outfit = Outfit({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  preload: true,
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -101,13 +105,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.onesignal.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.onesignal.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
       <body className="flex flex-col min-h-screen bg-white text-ink antialiased relative">
-        {/* Google Analytics */}
+        {/* Google Analytics - deferred via lazyOnload */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-24Y8Z31Q9X"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -117,12 +129,12 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* OneSignal Web Push SDK */}
+        {/* OneSignal Web Push SDK - deferred via lazyOnload */}
         <Script
           src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="onesignal-init" strategy="afterInteractive">
+        <Script id="onesignal-init" strategy="lazyOnload">
           {`
             window.OneSignalDeferred = window.OneSignalDeferred || [];
             OneSignalDeferred.push(async function(OneSignal) {
