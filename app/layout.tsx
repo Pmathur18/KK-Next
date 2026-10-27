@@ -154,7 +154,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "Organization",
+                  "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
                   "@id": "https://www.kknexttech.com/#organization",
                   "name": "KK Next Tech Solutions",
                   "legalName": "KK Next Tech Solutions",
@@ -166,16 +166,19 @@ export default function RootLayout({
                     "caption": "KK Next Tech Solutions Logo"
                   },
                   "image": "https://www.kknexttech.com/logo.png",
-                  "description": "Premium full-service web development, digital marketing, and business automation agency.",
-                  "email": "contact@kknexttech.com",
+                  "description": "Premium full-service web development, headless Shopify commerce, ROI-focused performance marketing, and enterprise CRM/ERP automation agency.",
+                  "email": "info@kknexttech.com",
                   "telephone": "+91 9001360054",
+                  "priceRange": "$$$",
+                  "openingHours": "Mo-Sa 09:00-19:00",
                   "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Delhi NCR",
+                    "addressRegion": "Delhi",
                     "addressCountry": "IN"
                   },
                   "sameAs": [
-                    "https://www.linkedin.com/company/kk-next-tech",
+                    "https://www.linkedin.com/company/kknexttechsolution",
                     "https://www.instagram.com/kknexttechsolution"
                   ]
                 },

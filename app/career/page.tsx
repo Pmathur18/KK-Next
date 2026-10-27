@@ -178,7 +178,7 @@ export default function Career() {
         <div className="flex flex-col gap-12 md:gap-16">
           <SectionHeading
             eyebrow="Benefits"
-            title="Perks of working at KK NEX TECH"
+            title="Perks of working at KK Next Tech Solutions"
             description="We structure incentives to support long-term engineering growth, family stability, and work-life balance."
             align="center"
           />

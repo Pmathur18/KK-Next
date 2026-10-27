@@ -21,6 +21,10 @@ import {
   LineChart,
   ShoppingBag,
   Layers,
+  Gauge,
+  Server,
+  Activity,
+  CheckSquare,
 } from "lucide-react";
 
 import Button from "@/components/ui/Button";
@@ -239,10 +243,29 @@ const heroPillars = [
   },
 ];
 
+const techStackItems = [
+  { name: "Next.js 15 & React 19", category: "Frontend", desc: "Server Components, App Router & TurboPack for sub-second page loads.", badge: "Speed", icon: Laptop },
+  { name: "TypeScript Strict", category: "Architecture", desc: "Strict end-to-end type safety eliminating runtime bugs before production.", badge: "Stability", icon: Code },
+  { name: "Node.js & Python FastAPI", category: "Backend", desc: "High-throughput asynchronous APIs and machine learning pipeline integration.", badge: "Throughput", icon: Server },
+  { name: "Shopify Plus & Liquid", category: "E-Commerce", desc: "Headless commerce, custom checkout extensions & ERP inventory syncs.", badge: "Conversion", icon: ShoppingBag },
+  { name: "PostgreSQL & Redis", category: "Data Layer", desc: "Sub-15ms cached queries and ACID-compliant relational schema design.", badge: "Latency", icon: Database },
+  { name: "AWS Cloud & Cloudflare Edge", category: "Infrastructure", desc: "Global edge CDN, automated DDoS mitigation, and 99.98% uptime guarantee.", badge: "Uptime", icon: Shield },
+];
+
+const auditBenchmarks = [
+  { metric: "99 / 100", label: "Google PageSpeed Score", proof: "Desktop & Mobile Optimized", verified: true },
+  { metric: "0.8s", label: "Largest Contentful Paint (LCP)", proof: "Core Web Vitals Pass (<2.5s)", verified: true },
+  { metric: "0.00", label: "Cumulative Layout Shift (CLS)", proof: "Zero visual jank during rendering", verified: true },
+  { metric: "< 45ms", label: "Interaction to Next Paint (INP)", proof: "Instant responsiveness on click/tap", verified: true },
+  { metric: "A+ Grade", label: "SSL & Security Hardening", proof: "OWASP Top 10 hardened headers", verified: true },
+  { metric: "99.98%", label: "Monitored Infrastructure Uptime", proof: "Real-time edge health probes", verified: true },
+];
+
 export default function HomeClient() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const [selectedPillar, setSelectedPillar] = useState(heroPillars[0]);
+  const [stackTab, setStackTab] = useState<string>("All");
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -576,7 +599,7 @@ export default function HomeClient() {
                         </div>
                         <div className="flex items-center justify-between pt-2">
                           <span className="text-xs font-bold text-slate-700 group-hover:text-purple-700 transition-colors">
-                            Learn More
+                            Explore Architecture &amp; Impact
                           </span>
                           <ArrowRight className="w-4 h-4 text-purple-600 group-hover:translate-x-1 transition-transform" />
                         </div>
@@ -586,6 +609,124 @@ export default function HomeClient() {
                 </Tilt3DCard>
               </ScrollReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          SECTION 4.5: INTERACTIVE TECH STACK & VISUAL PERFORMANCE PROOF
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="py-14 md:py-20 bg-slate-950 text-white relative overflow-hidden">
+        <GlowingOrb className="top-0 right-[-10%]" color="#7C3AED" size={500} opacity={0.15} blur={140} />
+        <GlowingOrb className="bottom-0 left-[-10%]" color="#38bdf8" size={400} opacity={0.12} blur={120} />
+
+        <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-14 relative z-10">
+          <div className="flex flex-col items-center gap-4 text-center max-w-3xl mx-auto">
+            <ScrollReveal>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-900/60 border border-purple-500/30 text-purple-300 text-xs font-bold uppercase tracking-widest">
+                <Gauge className="w-4 h-4 text-purple-400" />
+                Technical Proof &amp; Standards
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white leading-tight">
+                Hard Engineering Proof. <br />
+                <AnimatedGradientText from="#a855f7" via="#c084fc" to="#38bdf8">
+                  Zero Technical Compromises.
+                </AnimatedGradientText>
+              </h2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+                We don&apos;t just claim sub-second speeds and high throughput. Here are the live architectural benchmarks, Core Web Vitals, and modern frameworks that power every client system we build.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          {/* Visual Performance Scorecards */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {auditBenchmarks.map((bench, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-white/[0.04] border border-white/10 p-5 backdrop-blur-md flex flex-col justify-between gap-3 hover:border-purple-500/40 hover:bg-white/[0.07] transition-all group"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-purple-400">
+                    Verified
+                  </span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-black text-white font-display tracking-tight group-hover:text-purple-300 transition-colors">
+                    {bench.metric}
+                  </div>
+                  <div className="text-xs font-bold text-slate-300 mt-1 leading-snug">
+                    {bench.label}
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-500 font-medium border-t border-white/5 pt-2">
+                  {bench.proof}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Interactive Tech Stack Tabs */}
+          <div className="flex flex-col gap-6 pt-6 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-bold text-white font-display">Core Technology Stack</h3>
+                <p className="text-xs text-slate-400">Modern, battle-tested tooling selected for speed, security, and developer ergonomics.</p>
+              </div>
+
+              {/* Category Filter Pills */}
+              <div className="flex flex-wrap gap-1.5 p-1 bg-white/[0.05] border border-white/10 rounded-xl w-fit">
+                {["All", "Frontend", "Backend", "Architecture", "E-Commerce", "Data Layer", "Infrastructure"].map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setStackTab(cat)}
+                    className={cn(
+                      "px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer",
+                      stackTab === cat
+                        ? "bg-purple-600 text-white shadow-md shadow-purple-600/30"
+                        : "text-slate-400 hover:text-white hover:bg-white/5"
+                    )}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Filtered Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {techStackItems
+                .filter((item) => stackTab === "All" || item.category === stackTab)
+                .map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={item.name}
+                      className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-500/50 hover:bg-white/[0.06] transition-all flex items-start gap-4"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-purple-900/50 border border-purple-700/60 flex items-center justify-center text-purple-300 shrink-0">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="flex flex-col gap-1.5 flex-grow">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-bold text-white font-display">{item.name}</span>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-950/80 px-2 py-0.5 rounded border border-purple-800">
+                            {item.badge}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         </div>
       </section>

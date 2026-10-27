@@ -758,12 +758,12 @@ export default function ExpenseManagementPage() {
                 <Phone className="w-4 h-4" /> Call +91 9001360054
               </Button>
             </a>
-            <a href="mailto:kknexttechsolution@gmail.com">
+            <a href="mailto:sales@kknexttech.com">
               <Button
                 variant="outline"
                 className="!py-4 !px-8 text-sm sm:text-base border-purple-300 hover:bg-purple-50 flex items-center gap-2 cursor-pointer"
               >
-                <Mail className="w-4 h-4 text-purple-600" /> Email: kknexttechsolution@gmail.com
+                <Mail className="w-4 h-4 text-purple-600" /> Email: sales@kknexttech.com
               </Button>
             </a>
           </div>

@@ -145,12 +145,12 @@ const clientTestimonials = [
   },
   {
     role: "Founder",
-    quote: "KK NEX TECH has truly delivered. The platform they built for us is visually appealing and highly functional, catering specifically to climate tech. Every element is designed to engage visitors and drive our mission forward.",
+    quote: "KK Next Tech Solutions has truly delivered. The platform they built for us is visually appealing and highly functional, catering specifically to climate tech. Every element is designed to engage visitors and drive our mission forward.",
     metric: "58% Completion Lift",
   },
   {
     role: "CEO & Founder",
-    quote: "We started working with KK NEX TECH right from the pre-launch days. They helped us set up our digital presence and conceptualized communication narratives for our audiences. Execution was flawlesly executed.",
+    quote: "We started working with KK Next Tech Solutions right from the pre-launch days. They helped us set up our digital presence and conceptualized communication narratives for our audiences. Execution was flawlessly executed.",
     metric: "1,200+ Qualified Leads",
   },
   {

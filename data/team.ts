@@ -17,6 +17,8 @@ export interface TeamMember {
   role: string;
   avatar: string;
   linkedin: string;
+  bio: string;
+  specialty: string;
 }
 
 export const milestones: Milestone[] = [
@@ -93,29 +95,56 @@ export const values: Value[] = [
   }
 ];
 
+export const technicalStandards = [
+  {
+    title: "100% In-House Architecture",
+    description: "We don't outsource critical code to anonymous freelancers; everything is architected and built in-house by our full-time engineers."
+  },
+  {
+    title: "Multi-Tier Peer Code Review",
+    description: "Every pull request undergoes linting, regression testing, and two mandatory senior engineer reviews before staging deployment."
+  },
+  {
+    title: "Zero Vendor Lock-In",
+    description: "You own 100% of your Git repository, cloud infrastructure, and databases. We write modular, well-documented code that any team can inherit."
+  },
+  {
+    title: "Strict Commercial SLAs",
+    description: "We enforce guaranteed 99.9% uptime SLAs, sub-100ms API response benchmarks, and rapid emergency rollback protocols."
+  }
+];
+
 export const teamMembers: TeamMember[] = [
   {
     name: "Kartik Krishnan",
     role: "Founder & CEO",
     avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop",
-    linkedin: "https://linkedin.com/in/kknexttech"
+    linkedin: "https://linkedin.com/in/kknexttech",
+    bio: "Full-stack engineer and digital growth architect. Founded KK Next Tech Solutions to unite deep software engineering rigor with ruthless performance marketing.",
+    specialty: "Full-Stack Architecture & Growth Strategy"
   },
   {
     name: "Sanjay Kumar",
     role: "Lead Solutions Architect",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
-    linkedin: "https://linkedin.com/in/sanjay-arch"
+    linkedin: "https://linkedin.com/in/sanjay-arch",
+    bio: "Specializes in high-throughput Next.js systems, headless Shopify engines, distributed databases, and enterprise CRM/ERP data synchronization.",
+    specialty: "Cloud Architecture, Microservices & Databases"
   },
   {
     name: "Priyanka Sharma",
     role: "Head of Digital Growth",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop",
-    linkedin: "https://linkedin.com/in/priyanka-growth"
+    linkedin: "https://linkedin.com/in/priyanka-growth",
+    bio: "Performance marketing leader overseeing full-funnel acquisition, conversion rate optimization (CRO), and ROAS-focused paid media strategies.",
+    specialty: "Performance Marketing, Meta/Google ROAS & CRO"
   },
   {
     name: "Vikram Malhotra",
-    role: "Lead Mobile Developer",
+    role: "Lead Mobile & Systems Engineer",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop",
-    linkedin: "https://linkedin.com/in/vikram-mobile"
+    linkedin: "https://linkedin.com/in/vikram-mobile",
+    bio: "React Native and Flutter specialist crafting fluid, zero-latency mobile apps with custom offline-first caching and real-time backend syncs.",
+    specialty: "Cross-Platform Mobile Apps & GraphQL Integrations"
   }
 ];

@@ -4,19 +4,35 @@ import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 
-function ContactSearchParamsSync({ setValue }: { setValue: (name: "services", val: string[]) => void }) {
+function ContactSearchParamsSync({
+  setValue,
+  setAuditGoal,
+}: {
+  setValue: (name: "services", val: string[]) => void;
+  setAuditGoal: (goal: string) => void;
+}) {
   const searchParams = useSearchParams();
   useEffect(() => {
     const serviceParam = searchParams.get("service");
     if (serviceParam) {
       setValue("services", [serviceParam]);
+      const lower = serviceParam.toLowerCase();
+      if (lower.includes("web") || lower.includes("app")) {
+        setAuditGoal("Build / Modernize Web App");
+      } else if (lower.includes("crm") || lower.includes("erp")) {
+        setAuditGoal("Automate Workflows with CRM / ERP");
+      } else if (lower.includes("ecom") || lower.includes("shopify") || lower.includes("e-com")) {
+        setAuditGoal("Boost E-Commerce ROAS & Conversion");
+      } else {
+        setAuditGoal("Full-Funnel Paid Marketing & SEO");
+      }
     }
-  }, [searchParams, setValue]);
+  }, [searchParams, setValue, setAuditGoal]);
   return null;
 }
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { CheckCircle2, Mail, Phone, MapPin, Clock, Send, Link as LinkIcon, Building2, Globe, Sparkles, MessageSquare } from "lucide-react";
+import { CheckCircle2, Mail, Phone, MapPin, Clock, Send, Link as LinkIcon, Building2, Globe, Sparkles, MessageSquare, ArrowRight, ArrowLeft, Video, FileText, Layers } from "lucide-react";
 import { Linkedin, Instagram } from "@/components/ui/BrandIcons";
 
 import Button from "@/components/ui/Button";
@@ -77,6 +93,26 @@ type FormValues = z.infer<typeof schema>;
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formMode, setFormMode] = useState<"audit" | "detailed">("audit");
+  const [auditStep, setAuditStep] = useState<number>(1);
+  const [auditGoal, setAuditGoal] = useState<string>("Build / Modernize Web App");
+  const [auditRevenue, setAuditRevenue] = useState<string>("$10k - $50k / ₹8L - ₹40L Monthly");
+  const [auditName, setAuditName] = useState<string>("");
+  const [auditEmail, setAuditEmail] = useState<string>("");
+  const [auditPhone, setAuditPhone] = useState<string>("");
+  const [auditUrl, setAuditUrl] = useState<string>("");
+  const [auditSubmitting, setAuditSubmitting] = useState<boolean>(false);
+  const [auditSubmitted, setAuditSubmitted] = useState<boolean>(false);
+
+  const handleAuditSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!auditName || !auditEmail) return;
+    setAuditSubmitting(true);
+    setTimeout(() => {
+      setAuditSubmitting(false);
+      setAuditSubmitted(true);
+    }, 1200);
+  };
 
   const {
     register,
@@ -153,7 +189,7 @@ export default function Contact() {
   return (
     <div className="relative overflow-hidden w-full bg-white py-8 md:py-12">
       <Suspense fallback={null}>
-        <ContactSearchParamsSync setValue={setValue} />
+        <ContactSearchParamsSync setValue={setValue} setAuditGoal={setAuditGoal} />
       </Suspense>
       <ParticleField count={40} color="124, 58, 237" opacity={0.15} />
       <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={450} opacity={0.1} blur={120} />
@@ -191,21 +227,268 @@ export default function Contact() {
           <ScrollReveal direction="left">
             <SpotlightSection spotlightColor="rgba(124, 58, 237, 0.08)" size={600} className="rounded-[36px]">
               <div className="bg-white/90 backdrop-blur-2xl border border-purple-200/80 p-6 md:p-10 rounded-[36px] shadow-xl shadow-purple-900/5">
-                {formSubmitted ? (
-                  <div className="flex flex-col items-center justify-center text-center gap-4 py-16">
-                    <div className="w-16 h-16 rounded-full bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 mb-2 shadow-lg">
-                      <CheckCircle2 className="w-8 h-8" />
+                {/* Mode Selector Tabs */}
+                <div className="flex p-1 bg-purple-50/80 border border-purple-100 rounded-2xl mb-8 gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setFormMode("audit")}
+                    className={cn(
+                      "flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center justify-center gap-2 cursor-pointer",
+                      formMode === "audit"
+                        ? "bg-purple-600 text-white shadow-md shadow-purple-500/25"
+                        : "text-slate-600 hover:text-purple-700 hover:bg-white/50"
+                    )}
+                  >
+                    <Video className="w-4 h-4" />
+                    <span>24h Video &amp; Tech Audit</span>
+                    <span className="hidden sm:inline-block text-[10px] bg-white/20 px-2 py-0.5 rounded-full uppercase tracking-wider font-bold">Fast</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setFormMode("detailed")}
+                    className={cn(
+                      "flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center justify-center gap-2 cursor-pointer",
+                      formMode === "detailed"
+                        ? "bg-purple-600 text-white shadow-md shadow-purple-500/25"
+                        : "text-slate-600 hover:text-purple-700 hover:bg-white/50"
+                    )}
+                  >
+                    <FileText className="w-4 h-4" />
+                    <span>Detailed Brief</span>
+                  </button>
+                </div>
+
+                {formMode === "audit" ? (
+                  auditSubmitted ? (
+                    <div className="flex flex-col items-center justify-center text-center gap-4 py-16">
+                      <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-2 shadow-lg">
+                        <CheckCircle2 className="w-8 h-8" />
+                      </div>
+                      <h2 className="text-2xl font-black text-slate-900 font-display">24-Hour Video Audit Request Confirmed!</h2>
+                      <p className="text-sm text-slate-600 max-w-md leading-relaxed">
+                        Our lead solutions architect will analyze your site speed, checkout/conversion funnels, and infrastructure. We will email your custom 10-minute video breakdown to <strong className="text-purple-700">{auditEmail}</strong> within 24 business hours.
+                      </p>
+                      <Button variant="secondary" onClick={() => { setAuditSubmitted(false); setAuditStep(1); }} className="mt-2">
+                        Submit Another Request
+                      </Button>
                     </div>
-                    <h2 className="text-2xl font-black text-slate-900 font-display">Inquiry Sent Successfully!</h2>
-                    <p className="text-sm text-slate-500 max-w-sm">
-                      Thank you for reaching out. A partner from our team will get back to you within 4 business hours.
-                    </p>
-                    <Button variant="secondary" onClick={() => setFormSubmitted(false)} className="mt-2">
-                      Send Another Message
-                    </Button>
-                  </div>
+                  ) : (
+                    <form onSubmit={handleAuditSubmit} className="flex flex-col gap-6">
+                      {/* Step Progress Bar */}
+                      <div className="flex items-center justify-between pb-4 border-b border-purple-100">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 h-6 rounded-full bg-purple-600 text-white text-xs font-bold flex items-center justify-center">
+                            {auditStep}
+                          </span>
+                          <span className="text-xs font-bold uppercase tracking-wider text-purple-700">
+                            {auditStep === 1 && "Step 1: Select Your Strategic Goal"}
+                            {auditStep === 2 && "Step 2: Select Monthly Revenue / Stage"}
+                            {auditStep === 3 && "Step 3: Where to Send Your Video Teardown"}
+                          </span>
+                        </div>
+                        <span className="text-xs font-semibold text-slate-400">Step {auditStep} of 3</span>
+                      </div>
+
+                      {/* Step 1: Goals */}
+                      {auditStep === 1 && (
+                        <div className="flex flex-col gap-3">
+                          <p className="text-xs text-slate-500 font-medium">What is your primary commercial or technical objective?</p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {[
+                              { id: "Build / Modernize Web App", desc: "Next.js 15, React 19, TypeScript, cloud microservices & sub-100ms APIs." },
+                              { id: "Boost E-Commerce ROAS & Conversion", desc: "Headless Shopify, frictionless checkout, speed & inventory sync." },
+                              { id: "Automate Workflows with CRM / ERP", desc: "Salesforce, Odoo, custom database integrations & dispatch automation." },
+                              { id: "Full-Funnel Paid Marketing & SEO", desc: "High-intent Meta/Google ads, programmatic campaigns & technical SEO." },
+                            ].map((g) => {
+                              const active = auditGoal === g.id;
+                              return (
+                                <button
+                                  key={g.id}
+                                  type="button"
+                                  onClick={() => setAuditGoal(g.id)}
+                                  className={cn(
+                                    "p-4 rounded-2xl border text-left transition-all flex flex-col gap-1.5 cursor-pointer",
+                                    active
+                                      ? "border-purple-600 bg-purple-50/70 shadow-md ring-2 ring-purple-600/20"
+                                      : "border-purple-100 bg-white hover:border-purple-300 hover:bg-purple-50/30"
+                                  )}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <span className="text-sm font-bold text-slate-900 font-display">{g.id}</span>
+                                    {active && <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />}
+                                  </div>
+                                  <p className="text-[11px] text-slate-500 leading-relaxed">{g.desc}</p>
+                                </button>
+                              );
+                            })}
+                          </div>
+                          <div className="pt-4 flex justify-end">
+                            <Button
+                              type="button"
+                              onClick={() => setAuditStep(2)}
+                              variant="primary"
+                              colorTheme="violet"
+                              className="!py-3 !px-6 text-sm"
+                            >
+                              Next: Select Business Stage <ArrowRight className="w-4 h-4 ml-1 inline" />
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Step 2: Revenue / Budget Stage */}
+                      {auditStep === 2 && (
+                        <div className="flex flex-col gap-3">
+                          <p className="text-xs text-slate-500 font-medium">What is your current monthly revenue or project budget tier?</p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {[
+                              { tier: "< $10k / ₹8L Monthly", desc: "Early Growth / Lean MVP Launch / Initial Product Architecture" },
+                              { tier: "$10k - $50k / ₹8L - ₹40L Monthly", desc: "Scaling Brand / Store Migration / Performance Funnel Scaling" },
+                              { tier: "$50k - $250k / ₹40L - ₹2Cr Monthly", desc: "Established Business / Multi-System ERP & CRM Automation" },
+                              { tier: "$250k+ / ₹2Cr+ Monthly", desc: "Enterprise Infrastructure / Custom High-Throughput APIs & SLAs" },
+                            ].map((b) => {
+                              const active = auditRevenue === b.tier;
+                              return (
+                                <button
+                                  key={b.tier}
+                                  type="button"
+                                  onClick={() => setAuditRevenue(b.tier)}
+                                  className={cn(
+                                    "p-4 rounded-2xl border text-left transition-all flex flex-col gap-1.5 cursor-pointer",
+                                    active
+                                      ? "border-purple-600 bg-purple-50/70 shadow-md ring-2 ring-purple-600/20"
+                                      : "border-purple-100 bg-white hover:border-purple-300 hover:bg-purple-50/30"
+                                  )}
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <span className="text-sm font-bold text-slate-900 font-display">{b.tier}</span>
+                                    {active && <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />}
+                                  </div>
+                                  <p className="text-[11px] text-slate-500 leading-relaxed">{b.desc}</p>
+                                </button>
+                              );
+                            })}
+                          </div>
+                          <div className="pt-4 flex items-center justify-between">
+                            <Button
+                              type="button"
+                              onClick={() => setAuditStep(1)}
+                              variant="outline"
+                              className="!py-3 !px-5 text-sm"
+                            >
+                              <ArrowLeft className="w-4 h-4 mr-1 inline" /> Back
+                            </Button>
+                            <Button
+                              type="button"
+                              onClick={() => setAuditStep(3)}
+                              variant="primary"
+                              colorTheme="violet"
+                              className="!py-3 !px-6 text-sm"
+                            >
+                              Next: Final Details <ArrowRight className="w-4 h-4 ml-1 inline" />
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Step 3: Contact Details */}
+                      {auditStep === 3 && (
+                        <div className="flex flex-col gap-4">
+                          <p className="text-xs text-slate-500 font-medium">Where should our solutions team email your personalized 24-hour video audit breakdown?</p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="flex flex-col gap-1.5">
+                              <label className="text-xs font-bold uppercase tracking-wider text-slate-600">Your Full Name *</label>
+                              <input
+                                required
+                                type="text"
+                                value={auditName}
+                                onChange={(e) => setAuditName(e.target.value)}
+                                placeholder="e.g. Alex Morgan"
+                                className="bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium"
+                              />
+                            </div>
+                            <div className="flex flex-col gap-1.5">
+                              <label className="text-xs font-bold uppercase tracking-wider text-slate-600">Work Email *</label>
+                              <input
+                                required
+                                type="email"
+                                value={auditEmail}
+                                onChange={(e) => setAuditEmail(e.target.value)}
+                                placeholder="alex@company.com"
+                                className="bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="flex flex-col gap-1.5">
+                              <label className="text-xs font-bold uppercase tracking-wider text-slate-600">Phone / WhatsApp *</label>
+                              <input
+                                required
+                                type="tel"
+                                value={auditPhone}
+                                onChange={(e) => setAuditPhone(e.target.value)}
+                                placeholder="+91 98765 43210"
+                                className="bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium"
+                              />
+                            </div>
+                            <div className="flex flex-col gap-1.5">
+                              <label className="text-xs font-bold uppercase tracking-wider text-slate-600">Website or Store URL</label>
+                              <input
+                                type="url"
+                                value={auditUrl}
+                                onChange={(e) => setAuditUrl(e.target.value)}
+                                placeholder="https://yourbrand.com"
+                                className="bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="p-3.5 rounded-xl bg-purple-50 border border-purple-100 text-[11px] text-purple-800 flex items-center gap-2.5">
+                            <Sparkles className="w-4 h-4 text-purple-600 shrink-0" />
+                            <span><strong>What happens next:</strong> A partner will record a custom 10-minute screencast detailing your speed metrics, conversion leaks, and recommended roadmap. No pitch, 100% technical insights.</span>
+                          </div>
+
+                          <div className="pt-2 flex items-center justify-between">
+                            <Button
+                              type="button"
+                              onClick={() => setAuditStep(2)}
+                              variant="outline"
+                              className="!py-3 !px-5 text-sm"
+                            >
+                              <ArrowLeft className="w-4 h-4 mr-1 inline" /> Back
+                            </Button>
+                            <Button
+                              type="submit"
+                              variant="primary"
+                              colorTheme="violet"
+                              disabled={auditSubmitting}
+                              className="!py-3.5 !px-8 text-sm shadow-xl shadow-purple-500/25"
+                            >
+                              {auditSubmitting ? "Generating Audit Ticket..." : "Get 24-Hour Video Audit Teardown →"}
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                    </form>
+                  )
                 ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+                  <div>
+                    {formSubmitted ? (
+                      <div className="flex flex-col items-center justify-center text-center gap-4 py-16">
+                        <div className="w-16 h-16 rounded-full bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 mb-2 shadow-lg">
+                          <CheckCircle2 className="w-8 h-8" />
+                        </div>
+                        <h2 className="text-2xl font-black text-slate-900 font-display">Inquiry Sent Successfully!</h2>
+                        <p className="text-sm text-slate-500 max-w-sm">
+                          Thank you for reaching out. A partner from our team will get back to you within 4 business hours.
+                        </p>
+                        <Button variant="secondary" onClick={() => setFormSubmitted(false)} className="mt-2">
+                          Send Another Message
+                        </Button>
+                      </div>
+                    ) : (
+                      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {/* Name */}
@@ -433,6 +716,8 @@ export default function Contact() {
                   </form>
                 )}
               </div>
+            )}
+              </div>
             </SpotlightSection>
           </ScrollReveal>
         </div>
@@ -464,11 +749,11 @@ export default function Contact() {
                     </div>
                     <span>info@kknexttech.com</span>
                   </a>
-                  <a href="mailto:kknexttechsolution@gmail.com" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
+                  <a href="mailto:sales@kknexttech.com" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
                     <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">
                       <Mail className="w-4 h-4" />
                     </div>
-                    <span>kknexttechsolution@gmail.com</span>
+                    <span>sales@kknexttech.com</span>
                   </a>
                   <a href="tel:+919001360054" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
                     <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">

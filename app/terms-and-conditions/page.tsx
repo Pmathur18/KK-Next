@@ -88,7 +88,7 @@ export default function TermsAndConditions() {
             <div id="accounts" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">4. Account Guidelines</h2>
               <p>
-                If you establish service account credentials during custom ERP setups, you are responsible for securing passwords and access tokens. KK NEX TECH is not liable for data loss arising from negligent credential sharing.
+                If you establish service account credentials during custom ERP setups, you are responsible for securing passwords and access tokens. KK Next Tech Solutions is not liable for data loss arising from negligent credential sharing.
               </p>
             </div>
 
@@ -112,7 +112,7 @@ export default function TermsAndConditions() {
             <div id="contact" className="flex flex-col gap-3 scroll-mt-24">
               <h2 className="text-xl font-bold text-ink">7. Contact Legal Team</h2>
               <p>
-                For legal inquiries, terms reviews, or clarification requests, please write to info@kknexttech.com or kknexttechsolution@gmail.com with the subject line &ldquo;Terms Query.&rdquo;
+                For legal inquiries, terms reviews, or clarification requests, please write to info@kknexttech.com or legal@kknexttech.com with the subject line &ldquo;Terms Query.&rdquo;
               </p>
             </div>
 
