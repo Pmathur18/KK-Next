@@ -3,7 +3,7 @@ import { projects } from "@/data/portfolio";
 import { blogPosts } from "@/data/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://kknextech.com";
+  const baseUrl = "https://www.kknexttech.com";
   const now = new Date();
 
   // Static core routes
@@ -18,6 +18,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/services`,
       lastModified: now,
       changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/websites`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/mobile-apps`,
+      lastModified: now,
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
