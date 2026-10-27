@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, Suspense } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
@@ -200,9 +200,49 @@ const partnerLogos = [
   { name: "Stripe", type: "Payments Engine" },
 ];
 
+const heroPillars = [
+  {
+    id: "shopify",
+    label: "Scale Shopify / E-Commerce",
+    icon: ShoppingBag,
+    highlight: "+315% Revenue Lift",
+    description: "Headless Shopify builds, 1-page checkout flows, and sub-1.2s load speeds to eradicate cart abandonment.",
+    serviceQuery: "Web Development",
+    ctaLabel: "Audit My E-Commerce Store",
+  },
+  {
+    id: "crm-erp",
+    label: "Automate Ops with CRM/ERP",
+    icon: Database,
+    highlight: "Cut 40%+ Manual Hours",
+    description: "Centralized inventory, automated dispatch sync, and custom Salesforce / Odoo integrations.",
+    serviceQuery: "CRM & ERP Integrations",
+    ctaLabel: "Audit My Operations & Systems",
+  },
+  {
+    id: "performance",
+    label: "Boost Ad ROAS & Funnels",
+    icon: LineChart,
+    highlight: "3.4x Average ROAS",
+    description: "Eliminate wasted spend with high-intent Meta/Google acquisition and technical SEO funnels.",
+    serviceQuery: "Performance Media",
+    ctaLabel: "Audit My Ad ROAS & Growth",
+  },
+  {
+    id: "custom-web",
+    label: "Custom Web & Mobile App",
+    icon: Laptop,
+    highlight: "99.9% Uptime & Sub-100ms",
+    description: "Full-stack React, Next.js, and Flutter engineering tailored to your proprietary business logic.",
+    serviceQuery: "Web Development",
+    ctaLabel: "Audit My Web Architecture",
+  },
+];
+
 export default function HomeClient() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
+  const [selectedPillar, setSelectedPillar] = useState(heroPillars[0]);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -260,30 +300,72 @@ export default function HomeClient() {
               We help businesses build websites and web applications, reach more customers through digital marketing, and simplify everyday work with CRM and ERP solutions. Our team works with you to understand your goals and find the right solution for your business.
             </motion.p>
 
-            {/* Primary & Secondary CTAs */}
+            {/* Interactive 2-Step Micro-Conversion Audit Selector */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mt-2"
+              className="w-full max-w-3xl mt-4 p-4 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-xl border border-purple-200 shadow-2xl shadow-purple-900/10 flex flex-col gap-4 text-left"
             >
-              <Link href="/contact">
-                <Button
-                  variant="primary"
-                  colorTheme="violet"
-                  className="!py-4 !px-8 !text-base shadow-xl shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto text-center"
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-purple-100 pb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-purple-700 flex items-center gap-1.5 font-display">
+                  <Zap className="w-4 h-4 text-amber-500 fill-amber-500" /> Choose Your Primary Growth Objective:
+                </span>
+                <span className="text-[11px] font-semibold text-slate-500">
+                  Step 1 of 2 • Customized Strategy Scope
+                </span>
+              </div>
+
+              {/* Pill Selectors */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {heroPillars.map((p) => {
+                  const Icon = p.icon;
+                  const isActive = selectedPillar.id === p.id;
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={() => setSelectedPillar(p)}
+                      className={cn(
+                        "p-3 rounded-2xl border text-xs font-bold flex flex-col items-start gap-2 transition-all text-left cursor-pointer",
+                        isActive
+                          ? "bg-purple-600 text-white border-purple-600 shadow-md shadow-purple-600/30 scale-[1.02]"
+                          : "bg-slate-50/70 hover:bg-purple-50/80 text-slate-700 border-slate-200/80 hover:border-purple-200"
+                      )}
+                    >
+                      <Icon className={cn("w-4 h-4", isActive ? "text-white" : "text-purple-600")} />
+                      <span className="leading-tight font-display">{p.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Dynamic Focus Details & CTA */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1 bg-purple-50/40 -mx-4 -mb-4 sm:-mx-6 sm:-mb-6 p-4 sm:p-5 rounded-b-3xl border-t border-purple-100/60">
+                <div className="flex flex-col gap-1 max-w-md">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-extrabold text-emerald-700 bg-emerald-100/80 border border-emerald-300/80 px-2.5 py-0.5 rounded-full">
+                      {selectedPillar.highlight}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                    {selectedPillar.description}
+                  </p>
+                </div>
+
+                <Link
+                  href={`/contact?service=${encodeURIComponent(selectedPillar.serviceQuery)}`}
+                  className="shrink-0"
                 >
-                  Get a Free Tech &amp; Growth Audit <ArrowRight className="inline-block w-4 h-4 ml-1.5" />
-                </Button>
-              </Link>
-              <Link href="#services">
-                <Button
-                  variant="outline"
-                  className="!py-4 !px-8 !text-base hover:bg-purple-50/80 transition-all duration-300 w-full sm:w-auto text-center"
-                >
-                  Explore Our Solutions
-                </Button>
-              </Link>
+                  <Button
+                    variant="primary"
+                    colorTheme="violet"
+                    className="!py-3.5 !px-6 !text-xs sm:!text-sm shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 w-full sm:w-auto"
+                  >
+                    {selectedPillar.ctaLabel} <ArrowRight className="inline-block w-4 h-4 ml-1.5" />
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -770,24 +852,38 @@ export default function HomeClient() {
                 <Tilt3DCard intensity={6} className="h-full">
                   <div className="h-full p-6 rounded-3xl bg-white border border-purple-100/80 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex flex-col justify-between gap-6 group">
                     <div className="flex flex-col gap-4">
-                      {/* Star Rating */}
-                      <div className="flex items-center gap-1 text-amber-400">
-                        {[...Array(t.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-current" />
-                        ))}
+                      {/* Metric Badge & Stars */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[11px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
+                          {t.metric}
+                        </span>
+                        <div className="flex items-center gap-0.5 text-amber-400">
+                          {[...Array(t.rating)].map((_, i) => (
+                            <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                          ))}
+                        </div>
                       </div>
+
                       <p className="text-slate-700 text-sm leading-relaxed italic">
                         &ldquo;{t.quote}&rdquo;
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-purple-50 flex items-center justify-between">
-                      <span className="text-xs text-purple-700 font-bold uppercase tracking-wider font-display">
-                        {t.role}
-                      </span>
-                      <span className="text-[11px] font-semibold text-emerald-600 bg-emerald-50 border border-emerald-200/60 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-500" /> Verified Client
-                      </span>
+                    <div className="pt-4 border-t border-purple-50 flex flex-col gap-3">
+                      <div>
+                        <p className="text-sm font-extrabold text-slate-900 font-display leading-tight">{t.clientName}</p>
+                        <p className="text-xs text-purple-700 font-bold">{t.role}</p>
+                        <p className="text-[11px] text-slate-500 font-semibold">{t.company}</p>
+                      </div>
+
+                      {t.caseStudySlug && (
+                        <Link
+                          href={`/portfolio/${t.caseStudySlug}`}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-900 group-hover:translate-x-0.5 transition-all"
+                        >
+                          Read Verified Case Study <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </Tilt3DCard>

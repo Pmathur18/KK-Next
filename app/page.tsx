@@ -2,28 +2,27 @@ import type { Metadata } from "next";
 import HomeClient from "@/components/home/HomeClient";
 
 export const metadata: Metadata = {
-  title: "KK Next Tech Solutions | Custom Web Development & Digital Growth Agency",
+  title: "KK Next Tech Solutions | Custom Web & App Development, Enterprise CRM/ERP & Growth Agency",
   description:
-    "Scale your brand with high-performance web development, high-converting Shopify stores, ROI-focused performance marketing, and enterprise CRM/ERP consultations. Schedule your free tech audit today!",
+    "Empowering businesses across India, UK & globally with custom web and mobile app development, headless Shopify architecture, enterprise CRM/ERP implementations, and high-ROAS performance marketing. Request your free tech audit today!",
   keywords: [
-    "Custom Web Development & Performance Marketing Agency",
-    "Shopify e-commerce solutions",
-    "enterprise CRM consultation",
-    "scalable web application architecture",
-    "data-driven digital growth",
-    "enterprise web development",
-    "full-funnel digital marketing",
-    "scalable CRM integration",
-    "custom WordPress solutions",
+    "Custom Software Development Agency India",
+    "Enterprise Web Development Delhi NCR",
+    "Headless Shopify E-commerce Solutions",
+    "Enterprise CRM ERP Consultation",
+    "Full-Funnel Performance Marketing Agency",
+    "Scalable Web Application Architecture",
+    "Data-Driven Digital Growth Agency",
+    "Custom Mobile App Development Flutter",
     "KK Next Tech Solutions",
   ],
   alternates: {
     canonical: "https://www.kknexttech.com",
   },
   openGraph: {
-    title: "KK Next Tech Solutions | Custom Web Development & Digital Growth Agency",
+    title: "KK Next Tech Solutions | Custom Web & App Development, Enterprise CRM/ERP & Growth Agency",
     description:
-      "Scale your brand with high-performance web development, high-converting Shopify stores, ROI-focused performance marketing, and enterprise CRM/ERP consultations. Schedule your free tech audit today!",
+      "Empowering businesses across India, UK & globally with custom web and mobile app development, headless Shopify architecture, enterprise CRM/ERP implementations, and high-ROAS performance marketing. Request your free tech audit today!",
     url: "https://www.kknexttech.com",
     siteName: "KK Next Tech Solutions",
     type: "website",

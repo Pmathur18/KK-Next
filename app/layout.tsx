@@ -168,7 +168,7 @@ export default function RootLayout({
                   "image": "https://www.kknexttech.com/logo.png",
                   "description": "Premium full-service web development, digital marketing, and business automation agency.",
                   "email": "contact@kknexttech.com",
-                  "telephone": "+91-9876543210",
+                  "telephone": "+91 9001360054",
                   "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Delhi NCR",

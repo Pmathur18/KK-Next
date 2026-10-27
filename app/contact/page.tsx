@@ -1,7 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
+
+function ContactSearchParamsSync({ setValue }: { setValue: (name: "services", val: string[]) => void }) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const serviceParam = searchParams.get("service");
+    if (serviceParam) {
+      setValue("services", [serviceParam]);
+    }
+  }, [searchParams, setValue]);
+  return null;
+}
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CheckCircle2, Mail, Phone, MapPin, Clock, Send, Link as LinkIcon, Building2, Globe, Sparkles, MessageSquare } from "lucide-react";
@@ -131,15 +143,18 @@ export default function Contact() {
   ];
 
   const officesList = [
-    { city: "Mumbai (HQ)", address: "402, Creative Hub, Lower Parel, Mumbai, MH, India", phone: "+91 22 4567 8910" },
-    { city: "Bangalore", address: "139, Oxford Tower, Kodihalli, Bangalore, KA, India", phone: "+91 80 4321 0987" },
-    { city: "Gurugram (NCR)", address: "6th Floor, Platina Tower, M.G. Road, Gurugram, HR, India", phone: "+91 124 555 1234" },
-    { city: "London, UK", address: "71-75 Shelton Street, Covent Garden, London, WC2H 9JQ", phone: "+44 20 7946 0958" },
-    { city: "Amsterdam", address: "Weesperstraat 388, 1018 DN Amsterdam, Netherlands", phone: "+31 20 794 8472" }
+    { city: "Mumbai (HQ)", address: "402, Creative Hub, Lower Parel, Mumbai, MH, India", phone: "+91 9001360054" },
+    { city: "Bangalore", address: "139, Oxford Tower, Kodihalli, Bangalore, KA, India", phone: "+91 9001360054" },
+    { city: "Gurugram (NCR)", address: "6th Floor, Platina Tower, M.G. Road, Gurugram, HR, India", phone: "+91 9001360054" },
+    { city: "London, UK", address: "71-75 Shelton Street, Covent Garden, London, WC2H 9JQ", phone: "+91 9001360054" },
+    { city: "Amsterdam", address: "Weesperstraat 388, 1018 DN Amsterdam, Netherlands", phone: "+91 9001360054" }
   ];
 
   return (
     <div className="relative overflow-hidden w-full bg-white py-8 md:py-12">
+      <Suspense fallback={null}>
+        <ContactSearchParamsSync setValue={setValue} />
+      </Suspense>
       <ParticleField count={40} color="124, 58, 237" opacity={0.15} />
       <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={450} opacity={0.1} blur={120} />
       <GlowingOrb className="bottom-[10%] left-[-5%]" color="#38bdf8" size={350} opacity={0.08} blur={100} />
