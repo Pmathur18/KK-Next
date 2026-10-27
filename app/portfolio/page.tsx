@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -35,17 +35,6 @@ import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
 import CTABanner from "@/components/ui/CTABanner";
 import { projects, Project } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
-
-/* ─── Filter Categories ─────────────────────────────────────────────────────── */
-const FILTER_TABS = [
-  "All",
-  "E-Commerce & Shopify",
-  "Custom Web Apps",
-  "ERP & Automation",
-  "Performance Marketing",
-] as const;
-
-type FilterType = (typeof FILTER_TABS)[number];
 
 /* ─── FAQ Data ──────────────────────────────────────────────────────────────── */
 const portfolioFAQs: FAQItem[] = [
@@ -144,30 +133,6 @@ const flipCardsData = [
 ];
 
 export default function PortfolioPage() {
-  const [activeFilter, setActiveFilter] = useState<FilterType>("All");
-
-  // Calculate counts for each filter category
-  const counts = useMemo(() => {
-    const res: Record<FilterType, number> = {
-      All: projects.length,
-      "E-Commerce & Shopify": 0,
-      "Custom Web Apps": 0,
-      "ERP & Automation": 0,
-      "Performance Marketing": 0,
-    };
-    projects.forEach((p) => {
-      if (p.filterCategory in res) {
-        res[p.filterCategory as FilterType] += 1;
-      }
-    });
-    return res;
-  }, []);
-
-  const filteredProjects = useMemo(() => {
-    if (activeFilter === "All") return projects;
-    return projects.filter((p) => p.filterCategory === activeFilter);
-  }, [activeFilter]);
-
   return (
     <div className="relative w-full bg-white text-slate-900 min-h-screen overflow-x-clip font-sans">
       <ParticleField count={40} color="124, 58, 237" opacity={0.12} />
@@ -179,7 +144,7 @@ export default function PortfolioPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section className="pt-12 pb-6 md:pt-16 md:pb-10 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center gap-5 max-w-4xl mx-auto">
-                  <ScrollReveal delay={0.15}>
+          <ScrollReveal delay={0.15}>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase">
               Proven Projects. <br />
               <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
@@ -197,50 +162,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════
-          2. STICKY LOW-FRICTION CATEGORY FILTER BAR
-      ════════════════════════════════════════════════════════════════════ */}
-      <section className="sticky top-[64px] z-30 bg-white/85 backdrop-blur-xl border-y border-purple-100 py-3 px-6 md:px-8 shadow-xs">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-2 shrink-0">
-            {FILTER_TABS.map((tab) => {
-              const isActive = activeFilter === tab;
-              const count = counts[tab];
-              return (
-                <button
-                  key={tab}
-                  type="button"
-                  onClick={() => setActiveFilter(tab)}
-                  className={cn(
-                    "relative px-4 py-2 rounded-full text-xs sm:text-sm font-bold tracking-tight transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2",
-                    isActive
-                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/30 font-extrabold"
-                      : "bg-slate-100/80 hover:bg-purple-50 text-slate-600 hover:text-purple-700 border border-slate-200/70"
-                  )}
-                >
-                  <span>{tab}</span>
-                  <span
-                    className={cn(
-                      "text-[11px] px-2 py-0.5 rounded-full font-mono font-bold",
-                      isActive
-                        ? "bg-white/20 text-white"
-                        : "bg-slate-200/70 text-slate-600"
-                    )}
-                  >
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="hidden lg:flex items-center gap-2 text-xs font-semibold text-slate-400 font-mono shrink-0">
-            Showing <span className="text-purple-700 font-bold">{filteredProjects.length}</span> of {projects.length} Case Studies
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════════
-          3. PORTFOLIO SHOWCASE: INTERACTIVE DEVICE FRAMES & STAR FRAMEWORK
+          2. PORTFOLIO SHOWCASE: INTERACTIVE DEVICE FRAMES & STAR FRAMEWORK
       ════════════════════════════════════════════════════════════════════ */}
       <section className="py-10 md:py-16 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="flex flex-col gap-10">
@@ -255,7 +177,7 @@ export default function PortfolioPage() {
           {/* Grid of Case Studies */}
           <div className="grid grid-cols-1 gap-12">
             <AnimatePresence mode="wait">
-              {filteredProjects.map((project: Project, idx: number) => (
+              {projects.map((project: Project, idx: number) => (
                 <motion.div
                   key={project.slug}
                   layout
@@ -495,10 +417,7 @@ export default function PortfolioPage() {
         <SpotlightSection spotlightColor="rgba(124, 58, 237, 0.08)" size={700}>
           <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-14">
             <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Core Capabilities
-              </Badge>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-slate-900">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-slate-900">
                 What Can Scaled Digital Engineering Do For Your Brand?
               </h2>
               <p className="text-slate-500 text-sm md:text-base leading-relaxed">

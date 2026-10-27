@@ -141,11 +141,6 @@ export default function MobileAppsPage() {
       {/* ── 1. HERO SECTION ── */}
       <section className="pt-12 pb-8 md:pt-16 md:pb-12 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center gap-6 max-w-4xl mx-auto">
-          <ScrollReveal delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-bold uppercase tracking-wider font-mono">
-              <Smartphone className="w-3.5 h-3.5 text-blue-600" /> Cross-Platform Mobile Engineering
-            </div>
-          </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase">
@@ -179,7 +174,6 @@ export default function MobileAppsPage() {
 
           {/* Tech Stack Ribbon */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-6 text-xs font-mono font-bold text-slate-500">
-            <span className="text-slate-400 mr-2 uppercase text-[11px]">Core Stack:</span>
             {["React Native", "Flutter", "TypeScript", "iOS / Swift", "Android / Kotlin", "Firebase", "PostgreSQL", "Fastlane CI"].map((tech) => (
               <span key={tech} className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700">
                 {tech}
@@ -219,9 +213,7 @@ export default function MobileAppsPage() {
 
           <div className="lg:col-span-6 flex flex-col gap-6">
             <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 flex flex-col gap-4">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600">
-                Commercial Impact
-              </span>
+              
               <h3 className="text-2xl font-black text-slate-900 font-display">
                 Why Industry Leaders Deploy With Us
               </h3>
@@ -287,58 +279,6 @@ export default function MobileAppsPage() {
         </div>
       </section>
 
-      {/* ── 4. PACKAGES & CAPABILITIES ── */}
-      <section className="py-16 max-w-7xl mx-auto px-6 md:px-8">
-        <div className="flex flex-col gap-12">
-          <SectionHeading
-            eyebrow="Transparent Delivery"
-            title="Mobile Application Packages & Tiers"
-            description="Fixed-scope sprint models with bi-weekly TestFlight / internal track builds for your stakeholders."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {mobilePackages.map((pkg, idx) => (
-              <ScrollReveal key={pkg.name} delay={idx * 0.1}>
-                <Tilt3DCard intensity={8} className="h-full">
-                  <div className={cn("h-full p-8 flex flex-col justify-between rounded-3xl transition-all relative overflow-hidden", pkg.color)}>
-                    {pkg.highlight && (
-                      <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-blue-600 text-white text-[10px] font-black uppercase tracking-wider font-mono">
-                        Most Popular
-                      </div>
-                    )}
-                    <div className="flex flex-col gap-6">
-                      <div className="flex flex-col gap-2">
-                        <h3 className="text-xl font-bold text-slate-900 font-display">{pkg.name}</h3>
-                        <p className="text-xs text-slate-500 min-h-[32px] leading-relaxed">{pkg.desc}</p>
-                      </div>
-                      <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display">
-                        {pkg.price}
-                      </div>
-                      <ul className="flex flex-col gap-3 text-xs sm:text-sm text-slate-600 border-t border-slate-200/70 pt-4">
-                        {pkg.features.map((feat) => (
-                          <li key={feat} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Link href={`/contact?service=mobile-apps&tier=${encodeURIComponent(pkg.name)}`} className="mt-8">
-                      <Button
-                        variant={pkg.highlight ? "primary" : "outline"}
-                        colorTheme="sky"
-                        className="w-full !text-xs !py-3 font-bold"
-                      >
-                        Choose {pkg.name} →
-                      </Button>
-                    </Link>
-                  </div>
-                </Tilt3DCard>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── 5. BOTTOM CTA ── */}
       <CTABanner

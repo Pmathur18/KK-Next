@@ -140,11 +140,7 @@ export default function WebDevelopmentPage() {
       {/* ── 1. HERO SECTION ── */}
       <section className="pt-12 pb-8 md:pt-16 md:pb-12 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center gap-6 max-w-4xl mx-auto">
-          <ScrollReveal delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs font-bold uppercase tracking-wider font-mono">
-              <Laptop className="w-3.5 h-3.5 text-purple-600" /> High-Performance Web Engineering
-            </div>
-          </ScrollReveal>
+         
 
           <ScrollReveal delay={0.15}>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase">
@@ -199,14 +195,7 @@ export default function WebDevelopmentPage() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                <span className="text-xs font-mono font-bold bg-purple-900/80 px-3 py-1 rounded-full border border-purple-400/30">
-                  Next.js App Router
-                </span>
-                <span className="text-xs font-mono text-emerald-300 font-bold">
-                  99/100 Lighthouse Speed
-                </span>
-              </div>
+              
             </div>
             <div className="p-8 flex flex-col gap-3">
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-600">
@@ -229,14 +218,7 @@ export default function WebDevelopmentPage() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                <span className="text-xs font-mono font-bold bg-purple-900/80 px-3 py-1 rounded-full border border-purple-400/30">
-                  Headless Shopify API
-                </span>
-                <span className="text-xs font-mono text-emerald-300 font-bold">
-                  +38% Mobile Conversion
-                </span>
-              </div>
+             
             </div>
             <div className="p-8 flex flex-col gap-3">
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-600">
@@ -284,59 +266,6 @@ export default function WebDevelopmentPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. PACKAGES & CAPABILITIES ── */}
-      <section className="py-16 max-w-7xl mx-auto px-6 md:px-8">
-        <div className="flex flex-col gap-12">
-          <SectionHeading
-            eyebrow="Transparent Engagements"
-            title="Web Development Packages & Architecture Tiers"
-            description="Every sprint is managed by senior full-stack engineers with bi-weekly staging reviews and continuous QA."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {webPackages.map((pkg, idx) => (
-              <ScrollReveal key={pkg.name} delay={idx * 0.1}>
-                <Tilt3DCard intensity={8} className="h-full">
-                  <div className={cn("h-full p-8 flex flex-col justify-between rounded-3xl transition-all relative overflow-hidden", pkg.color)}>
-                    {pkg.highlight && (
-                      <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-purple-600 text-white text-[10px] font-black uppercase tracking-wider font-mono">
-                        Most Popular
-                      </div>
-                    )}
-                    <div className="flex flex-col gap-6">
-                      <div className="flex flex-col gap-2">
-                        <h3 className="text-xl font-bold text-slate-900 font-display">{pkg.name}</h3>
-                        <p className="text-xs text-slate-500 min-h-[32px] leading-relaxed">{pkg.desc}</p>
-                      </div>
-                      <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display">
-                        {pkg.price}
-                      </div>
-                      <ul className="flex flex-col gap-3 text-xs sm:text-sm text-slate-600 border-t border-slate-200/70 pt-4">
-                        {pkg.features.map((feat) => (
-                          <li key={feat} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Link href={`/contact?service=web-development&tier=${encodeURIComponent(pkg.name)}`} className="mt-8">
-                      <Button
-                        variant={pkg.highlight ? "primary" : "outline"}
-                        colorTheme="violet"
-                        className="w-full !text-xs !py-3 font-bold"
-                      >
-                        Choose {pkg.name} →
-                      </Button>
-                    </Link>
-                  </div>
-                </Tilt3DCard>
-              </ScrollReveal>
-            ))}
           </div>
         </div>
       </section>

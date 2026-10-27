@@ -270,11 +270,7 @@ export default function ExpenseManagementPage() {
 
           {/* Left Hero Content */}
           <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                KK Next Tech · Expense Management &amp; Reimbursement
-              </Badge>
-            </ScrollReveal>
+         
 
             <ScrollReveal delay={0.1}>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.1] font-display">
@@ -464,11 +460,7 @@ export default function ExpenseManagementPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-12">
 
           <div className="text-center flex flex-col items-center gap-4 max-w-3xl mx-auto">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                12 Core Capabilities
-              </Badge>
-            </ScrollReveal>
+            
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight font-display">
                 Engineered for Complete{" "}
@@ -525,11 +517,7 @@ export default function ExpenseManagementPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-12">
 
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Streamlined Workflow
-              </Badge>
-            </ScrollReveal>
+            
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight font-display">
                 How It Works
@@ -613,11 +601,7 @@ export default function ExpenseManagementPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-12">
 
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Permission Matrix
-              </Badge>
-            </ScrollReveal>
+          
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight font-display">
                 Tailored Access for Every Role
@@ -687,11 +671,7 @@ export default function ExpenseManagementPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-12">
 
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
-            <ScrollReveal>
-              <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-                Custom Team Pricing
-              </Badge>
-            </ScrollReveal>
+            
             <ScrollReveal delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight font-display">
                 No fixed plans. A quote built around your team.

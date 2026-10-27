@@ -90,16 +90,7 @@ export default function SocialMediaPage() {
       <section className="relative pt-12 pb-14 md:pt-16 md:pb-16 overflow-hidden flex flex-col items-center justify-center text-center">
         <div className="relative z-10 max-w-6xl px-6 md:px-8 w-full flex flex-col items-center gap-8">
 
-          {/* Top Pill Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200/80 shadow-xs">
-              ✨ AI-Ready Social Media Management &amp; Scaling
-            </Badge>
-          </motion.div>
+       
 
           {/* Hero Headline */}
           <motion.h1
@@ -145,9 +136,7 @@ export default function SocialMediaPage() {
                 </Button>
               </Link>
             </div>
-            <span className="text-xs text-slate-400 mt-2 block font-medium">
-              ⚡ Free discovery consultation · Customized content calendar preview
-            </span>
+          
           </motion.div>
 
           {/* Floating Platform Mockups Animation Bar */}
@@ -303,7 +292,6 @@ export default function SocialMediaPage() {
         <div className="flex flex-col gap-12 text-center">
 
           <div className="flex flex-col items-center gap-3">
-            <Badge colorTheme="navy">Core Platform Capabilities</Badge>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 font-display tracking-tight">
               Everything You Need to Scale Social Commerce &amp; Brand Authority
             </h2>
@@ -636,7 +624,6 @@ export default function SocialMediaPage() {
       <section className="py-10 md:py-14 bg-white relative z-10">
         <div className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-12">
           <SectionHeading
-            eyebrow="Growth Services"
             title="End-to-End Social Operations"
             description="Our specialized engineering and creative teams manage every layer of your digital marketing stack."
             align="center"
@@ -674,7 +661,6 @@ export default function SocialMediaPage() {
         <div className="rounded-3xl bg-gradient-to-r from-[#1E1B4B] via-[#2E1065] to-[#0F172A] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden text-center md:text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 flex flex-col gap-4">
-              <Badge colorTheme="white">Validated Social Outcome</Badge>
               <h2 className="text-3xl md:text-4xl font-extrabold font-display leading-tight">
                 1,200+ High-Ticket B2B Leads Generated with a 55% Lower Cost-Per-Acquisition
               </h2>

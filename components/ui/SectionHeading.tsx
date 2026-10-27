@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
@@ -29,14 +29,16 @@ export default function SectionHeading({
         className
       )}
     >
-      <span
-        className={cn(
-          "text-xs md:text-sm font-bold tracking-[0.15em] uppercase",
-          isDark ? "text-purple-300" : "text-accent-primary font-semibold"
-        )}
-      >
-        {eyebrow}
-      </span>
+      {eyebrow && (
+        <span
+          className={cn(
+            "text-xs md:text-sm font-bold tracking-[0.15em] uppercase",
+            isDark ? "text-purple-300" : "text-accent-primary font-semibold"
+          )}
+        >
+          {eyebrow}
+        </span>
+      )}
       <h2
         className={cn(
           "text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight",

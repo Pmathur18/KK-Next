@@ -197,12 +197,6 @@ export default function Contact() {
 
       {/* 1. HEADER SECTION */}
       <section className="max-w-7xl px-6 md:px-8 mx-auto text-center pb-8 border-b border-purple-100 flex flex-col items-center gap-4 relative z-10">
-        <ScrollReveal>
-          <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-            Get In Touch
-          </Badge>
-        </ScrollReveal>
-
         <ScrollReveal delay={0.1}>
           <h1 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight font-display uppercase">
             GOT AN IDEA? <br />
@@ -794,25 +788,7 @@ export default function Contact() {
             </Tilt3DCard>
           </ScrollReveal>
 
-          {/* Visual Engineering Hub Card */}
-          <ScrollReveal direction="right" delay={0.1}>
-            <div className="rounded-[32px] overflow-hidden border border-purple-100 shadow-xl group bg-slate-900 relative">
-              <img
-                src="/images/tech_team_workspace.jpg"
-                alt="KK Next Tech Solutions Client Success & Engineering Hub"
-                className="w-full h-[220px] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-5 left-6 right-6 text-white">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-300 block mb-1">
-                  Global Engineering Hub
-                </span>
-                <p className="text-sm font-extrabold font-display">
-                  Serving Startups &amp; Enterprises Globally · 24/7 Deployment Coverage
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
+              
 
         </div>
 
