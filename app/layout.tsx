@@ -86,6 +86,9 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   metadataBase: new URL("https://kknextech.com"),
+  verification: {
+    google: "google25616471298278e8",
+  },
 };
 
 export default function RootLayout({
