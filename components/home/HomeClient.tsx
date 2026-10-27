@@ -191,17 +191,111 @@ const growthProcessSteps = [
 
 // Section 2: Trust Marquee Logos & Partner Badges
 const partnerLogos = [
-  { name: "Shopify Plus", type: "E-Commerce Partner" },
-  { name: "Salesforce", type: "Enterprise CRM" },
-  { name: "HubSpot", type: "Growth CRM" },
-  { name: "WordPress Headless", type: "CMS Platform" },
-  { name: "Next.js", type: "Web Architecture" },
-  { name: "AWS Cloud", type: "Infrastructure" },
-  { name: "Meta Business", type: "Paid Media" },
-  { name: "Google Cloud", type: "Enterprise Cloud" },
-  { name: "PostgreSQL", type: "Data Layer" },
-  { name: "Node.js", type: "API Backend" },
-  { name: "Stripe", type: "Payments Engine" },
+  {
+    name: "Shopify Plus",
+    type: "E-Commerce Partner",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none">
+        <path d="M19.5 5.5l-2.2.7c-1-3.2-3.2-5.4-5.9-5.4-.3 0-.6 0-.9.1-.4-1.1-1.3-1.9-2.5-2.2-1.9-.4-3.7.5-4.6 2.2-1.4 2.5-.7 6.7.1 10.1L1 12.1c-.4.1-.6.7-.2 1 .4.4 1.1 1.1 1.2 1.2 1.2 1.1 1.4 3 1.7 4.9.4 3 1.2 6.2 3.8 8.1.4.3.8.4 1.2.5l9.5-2.8c.4-.1.6-.5.5-.9l-2.3-18.2c-.1-.2-.3-.4-.5-.5zm-8 3l-3.3 1c-.5-2.6-1-5.5.1-7.1.7-1 2-1 3-.8.2 0 .4.1.6.4.8 1.5 1.5 3.9 1.8 6.5h-2.2zm-2.7 7.7l3.5-1c-.5-2.4-1-3.1-1.8-3.5-.3-.2-.7-.1-1 0l-3.5 2.4c-.2.2-.4.5-.3.8.2.6.6 1.1 1.1 1.3h2z" fill="#95BF47" />
+      </svg>
+    ),
+  },
+  {
+    name: "Salesforce",
+    type: "Enterprise CRM",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="#00A1E0">
+        <path d="M10.1 3.5c1.1-1.2 2.6-1.9 4.3-1.9 2.6 0 4.8 1.7 5.5 4.1.8.3 1.5.8 2 1.4.9 1 1.4 2.3 1.4 3.7 0 2.9-2.3 5.3-5.2 5.4h-.6c-.6 2.4-2.7 4.2-5.3 4.2-2.2 0-4.1-1.3-4.9-3.2-.6.3-1.3.4-2 .4-2.7 0-4.9-2.2-4.9-4.9 0-1.6.8-3.1 2.1-4 .1-.9.5-1.7 1.1-2.4 1.4-1.5 3.4-2.4 5.5-2.4.3 0 .7 0 1 .1z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "HubSpot",
+    type: "Growth CRM",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="#FF7A59">
+        <path d="M18.8 7.3V4.4c.8-.4 1.4-1.2 1.4-2.2C20.2 1 19.2 0 18 0s-2.2 1-2.2 2.2c0 1 .6 1.8 1.4 2.2v2.9c-1.3.3-2.3 1.2-2.8 2.3L8.6 6.1c.1-.3.2-.7.2-1.1 0-1.8-1.5-3.3-3.3-3.3S2.2 3.2 2.2 5s1.5 3.3 3.3 3.3c.7 0 1.3-.2 1.8-.6l5.7 3.4c-.2.6-.4 1.2-.4 1.9s.1 1.3.4 1.9l-5.7 3.4c-.5-.4-1.1-.6-1.8-.6-1.8 0-3.3 1.5-3.3 3.3s1.5 3.3 3.3 3.3 3.3-1.5 3.3-3.3c0-.4-.1-.7-.2-1.1l5.8-3.5c.5 1.1 1.5 2 2.8 2.3v2.9c-.8.4-1.4 1.2-1.4 2.2 0 1.2 1 2.2 2.2 2.2s2.2-1 2.2-2.2c0-1-.6-1.8-1.4-2.2v-2.9c1.9-.5 3.3-2.2 3.3-4.3 0-2-1.4-3.8-3.3-4.3zm-.8 6.7c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4-1.1 2.4-2.4 2.4z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "WordPress",
+    type: "CMS Platform",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="#21759B">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 1.2c5.964 0 10.8 4.836 10.8 10.8 0 2.21-.667 4.267-1.812 5.976l-5.69-15.588c.004-.01.008-.02.012-.03-.004-.002-.007-.004-.012-.006C14.417 1.684 13.237 1.2 12 1.2zm-7.697 4.14a9.553 9.553 0 0 1 5.07-3.99L4.475 14.54A9.556 9.556 0 0 1 4.303 5.34zm7.697 17.46c-2.09 0-4.045-.598-5.702-1.635l5.51-16.01 5.642 16.096A10.748 10.748 0 0 1 12 22.8zm8.79-4.83a9.544 9.544 0 0 1-3.666 3.618l5.228-15.093A9.556 9.556 0 0 1 20.79 17.97z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Next.js",
+    type: "Web Architecture",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="12" fill="#000000" />
+        <path d="M18.8 19.8L10.3 8.7H8.5V15.3H9.9V10.6L17.7 20.7C18.1 20.4 18.5 20.1 18.8 19.8Z" fill="white" />
+        <rect x="14.2" y="8.7" width="1.4" height="6.6" fill="white" />
+      </svg>
+    ),
+  },
+  {
+    name: "AWS Cloud",
+    type: "Infrastructure",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none">
+        <path d="M7.05 10.42c-.5 0-.96.06-1.39.18-.42.12-.76.32-1.02.58-.26.27-.44.6-.54 1-.1.4-.1.85-.01 1.36.09.52.28.98.57 1.38.29.4.67.7 1.13.9.46.2.98.3 1.57.3.74 0 1.4-.18 1.97-.53.58-.35 1.01-.84 1.28-1.46v1.73h1.86V9.45h-1.86v1.44c-.28-.53-.7-.94-1.25-1.22-.55-.28-1.2-.42-1.95-.42l-.36.17zm.25 1.76c.4 0 .75.09 1.05.26.3.17.54.41.71.72.17.31.26.68.26 1.1s-.09.79-.26 1.1a1.9 1.9 0 0 1-.71.72c-.3.17-.65.26-1.05.26-.4 0-.75-.09-1.05-.26a1.9 1.9 0 0 1-.71-.72 2.37 2.37 0 0 1-.26-1.1c0-.42.09-.79.26-1.1.17-.31.41-.55.71-.72.3-.17.65-.26 1.05-.26z" fill="#232F3E"/>
+        <path d="M18.83 6.94l-1.86.34v7.35c0 .35.08.62.24.8.16.19.43.28.81.28h.81v1.54h-1.3c-.93 0-1.63-.25-2.09-.76-.46-.51-.69-1.24-.69-2.18V7.33l-1.87.34V5.8h1.87V3.53h1.86V5.8h2.22v1.14z" fill="#232F3E"/>
+        <path d="M21.92 16.96c-2.47 1.82-5.71 2.79-8.81 2.79-4.36 0-8.29-1.62-11.25-4.32-.23-.21-.03-.5.25-.34 3.19 1.85 7.14 2.96 11.2 2.96 2.76 0 5.8-.68 8.44-2.1.39-.21.72.23.17.51v.5z" fill="#FF9900"/>
+        <path d="M22.84 15.65c-.31-.4-.88-.58-1.95-.44-1.07.13-2.31.75-2.46.96-.15.21.05.46.2.35.48-.35 1.58-.45 2.15-.38.58.07 1.34.43 1.48.71.14.28.4.13.58-.15.18-.28.31-.65 0-1.05z" fill="#FF9900"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Meta",
+    type: "Paid Media",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none">
+        <path d="M12 7.07C9.36 2.5 4.88 2.06 2.19 4.75-.49 7.43-.2 12.06 2.76 15.15c2.4 2.5 5.25 2.22 8.04-1.57l1.2-1.63 1.2 1.63c2.79 3.79 5.64 4.07 8.04 1.57 2.96-3.09 3.25-7.72.57-10.4-2.69-2.69-7.17-2.25-9.81 2.32zm-6.27 7c-1.89 0-3.23-1.47-3.23-3.52 0-2.34 1.7-3.87 3.59-3.87 1.83 0 3.26 1.41 4.54 3.7-1.39 2.38-2.95 3.69-4.9 3.69zm12.54 0c-1.95 0-3.51-1.31-4.9-3.69 1.28-2.29 2.71-3.7 4.54-3.7 1.89 0 3.59 1.53 3.59 3.87 0 2.05-1.34 3.52-3.23 3.52z" fill="#0668E1"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Google Cloud",
+    type: "Enterprise Cloud",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none">
+        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#4285F4"/>
+        <path d="M19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.61.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z" fill="#FFFFFF" fillOpacity="0.3"/>
+      </svg>
+    ),
+  },
+  {
+    name: "PostgreSQL",
+    type: "Data Layer",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="#336791">
+        <path d="M11.967 0C7.29 0 4.673 2.95 4.382 6.096c-.34 3.666 1.488 6.744 1.488 6.744-.33.15-.71.28-1.12.38-1.52.37-2.67 1.25-2.67 2.71 0 1.76 1.63 2.77 3.69 2.77 1.42 0 2.53-.48 3.14-1.28.32.22.68.42 1.08.58-1.42 1.34-1.24 3.12-.13 4.29 1.15 1.22 3.11 1.71 5.31 1.71 2.45 0 4.54-.61 5.76-2.01 1.09-1.25 1.18-2.92.51-4.43 1.27-.61 2.19-1.8 2.48-3.23.36-1.78-.32-3.8-1.85-5.11-.2-.17-.42-.32-.65-.45.03-.4.04-.79.02-1.18C21.14 3.32 17.53 0 11.967 0zm.06 2.12c4.32 0 6.94 2.53 6.69 6.22-.05.77-.24 1.5-.54 2.16-1.15-.73-2.62-1.13-4.24-1.13-1.1 0-2.12.18-3.01.52-.7-1.71-1.06-3.81-.88-5.32.19-1.61 1.69-2.45 1.98-2.45zm-1.8 9.53c1.07-.35 2.27-.54 3.52-.54 1.63 0 3.12.33 4.24 1.01.27.76.24 1.59-.09 2.29-.44.93-1.39 1.55-2.58 1.68-.42-1.34-1.29-2.38-2.43-2.94-.87-.43-1.82-.62-2.66-.5zm-4.4 3.66c1.17 0 2.14.47 2.44 1.16-.62.48-1.46.77-2.44.77-1.16 0-1.83-.54-1.83-1.13 0-.49.62-.8 1.83-.8z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Node.js",
+    type: "API Backend",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="#339933">
+        <path d="M12 2l9 5.2v10.4L12 22.8 3 17.6V7.2L12 2zm0 2.3L5 8.3v7.4l7 4 7-4V8.3l-7-4zm0 2.7l4.5 2.6v5.2L12 17.4l-4.5-2.6v-5.2L12 7z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Stripe",
+    type: "Payments Engine",
+    logo: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="#635BFF">
+        <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.97 16.14.47 13.976.47 8.077.47 4.093 3.486 4.093 8.375c0 5.488 4.704 6.647 8.28 7.975 2.502.934 3.356 1.642 3.356 2.664 0 .984-.874 1.545-2.312 1.545-2.696 0-5.597-1.135-7.464-2.155L5.05 23.9c1.996.866 4.67 1.34 7.214 1.34 6.223 0 10.395-3.037 10.395-8.109 0-5.637-4.48-6.936-8.683-7.981z"/>
+      </svg>
+    ),
+  },
 ];
 
 
@@ -336,12 +430,14 @@ export default function HomeClient() {
             {[...partnerLogos, ...partnerLogos].map((partner, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-3 px-5 py-3 rounded-2xl border border-purple-100/90 bg-white/90 backdrop-blur-sm shadow-sm hover:border-purple-300 transition-all shrink-0"
+                className="flex items-center gap-3.5 px-5 py-3 rounded-2xl border border-purple-100/90 bg-white/95 backdrop-blur-sm shadow-sm hover:border-purple-300 hover:shadow-md transition-all shrink-0 group"
               >
-                <div className="w-2.5 h-2.5 rounded-full bg-purple-500" />
+                <div className="w-8 h-8 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5 shrink-0 group-hover:scale-110 transition-transform">
+                  {partner.logo}
+                </div>
                 <div className="flex flex-col text-left">
-                  <span className="text-sm font-extrabold text-slate-800 leading-tight">{partner.name}</span>
-                  <span className="text-[10px] text-purple-600 font-semibold uppercase tracking-wider">{partner.type}</span>
+                  <span className="text-sm font-black text-slate-900 leading-tight font-display">{partner.name}</span>
+                  <span className="text-[10px] text-purple-600 font-bold uppercase tracking-wider font-mono">{partner.type}</span>
                 </div>
               </div>
             ))}
