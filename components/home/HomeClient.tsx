@@ -430,14 +430,11 @@ export default function HomeClient() {
             {[...partnerLogos, ...partnerLogos].map((partner, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-3.5 px-5 py-3 rounded-2xl border border-purple-100/90 bg-white/95 backdrop-blur-sm shadow-sm hover:border-purple-300 hover:shadow-md transition-all shrink-0 group"
+                title={partner.name}
+                className="w-18 h-14 sm:w-22 sm:h-16 rounded-2xl border border-purple-100/80 bg-white/95 backdrop-blur-sm shadow-sm hover:border-purple-300 hover:shadow-md transition-all shrink-0 flex items-center justify-center p-3 group cursor-pointer"
               >
-                <div className="w-8 h-8 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5 shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center transition-transform duration-300 group-hover:scale-115 shrink-0">
                   {partner.logo}
-                </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-sm font-black text-slate-900 leading-tight font-display">{partner.name}</span>
-                  <span className="text-[10px] text-purple-600 font-bold uppercase tracking-wider font-mono">{partner.type}</span>
                 </div>
               </div>
             ))}
