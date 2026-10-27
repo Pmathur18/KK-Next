@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Performance Marketing & Social Media Management | KK Next Tech Solutions",
+  title: "Performance Marketing & Social Media Growth | KK Next Tech Solutions",
   description:
     "Data-driven social media management, organic community growth, and high-ROAS paid advertising on Meta, LinkedIn, and Google Ads designed to scale high-intent inbound leads.",
   keywords: [
@@ -10,16 +10,16 @@ export const metadata: Metadata = {
     "Performance marketing services",
     "Full-funnel digital marketing",
     "ROAS optimization agency",
-    "KK Next Tech Solutions marketing",
+    "KK Next Tech Solutions socials",
   ],
   alternates: {
-    canonical: "https://www.kknexttech.com/services/social-media-management",
+    canonical: "https://www.kknexttech.com/services/socials",
   },
   openGraph: {
-    title: "Performance Marketing & Social Media Management | KK Next Tech Solutions",
+    title: "Performance Marketing & Social Media Growth | KK Next Tech Solutions",
     description:
       "Data-driven social media management, organic community growth, and high-ROAS paid advertising on Meta, LinkedIn, and Google Ads designed to scale high-intent inbound leads.",
-    url: "https://www.kknexttech.com/services/social-media-management",
+    url: "https://www.kknexttech.com/services/socials",
     siteName: "KK Next Tech Solutions",
     type: "website",
     images: [
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Performance Marketing & Social Media Management | KK Next Tech Solutions",
+    title: "Performance Marketing & Social Media Growth | KK Next Tech Solutions",
     description:
       "Data-driven social media management and high-ROAS paid advertising designed to scale revenue.",
     images: ["/images/social_marketing_showcase.jpg"],
   },
 };
 
-export default function SocialMediaLayout({
+export default function SocialsLayout({
   children,
 }: {
   children: React.ReactNode;

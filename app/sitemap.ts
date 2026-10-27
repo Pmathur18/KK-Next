@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/services/social-media-management`,
+      url: `${baseUrl}/services/socials`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,

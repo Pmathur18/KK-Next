@@ -68,7 +68,7 @@ export default function Header() {
     {
       title: "Social Media & Ads",
       desc: "Data-driven creative scaling & paid advertising.",
-      href: "/services/social-media-management",
+      href: "/services/socials",
       icon: Share2,
       color: "bg-fuchsia-50 text-fuchsia-600",
     },

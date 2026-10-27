@@ -75,9 +75,9 @@ export const services: Service[] = [
     ]
   },
   {
-    id: "social-media",
-    title: "Social Media Management",
-    slug: "social-media-management",
+    id: "socials",
+    title: "Social Media & Performance Ads",
+    slug: "socials",
     badge: "Digital Growth",
     description: "Data-driven creative campaigns, content creation, paid advertising, and real-time community scaling.",
     longDescription: "Accelerate your social growth and multiply digital engagement. We craft bespoke content calendars, manage targeted paid search/social advertising accounts, run community conversations, and compile analytical reports to ensure positive return on your marketing spend.",

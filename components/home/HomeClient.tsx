@@ -111,7 +111,7 @@ const coreSolutions = [
     desc: "No vanity metrics or empty clicks. We position your brand directly in front of high-intent buyers through precision Meta/Google acquisition and technical SEO that delivers predictable revenue.",
     color: "from-fuchsia-500/15 via-pink-500/10 to-rose-500/5",
     iconColor: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-200",
-    link: "/services/social-media-management",
+    link: "/services/socials",
     highlights: ["Technical & On-Page SEO", "Paid Social & SEM", "ROAS Optimization"],
     stat: "340% Avg ROAS Impact",
   },

@@ -180,7 +180,7 @@ export default function ServicesPage() {
               <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link
-              href="/services/social-media-management"
+              href="/services/socials"
               className="group px-5 py-2.5 rounded-full bg-fuchsia-50 hover:bg-fuchsia-600 text-fuchsia-700 hover:text-white text-xs font-bold transition-all border border-fuchsia-200 hover:border-fuchsia-600 flex items-center gap-1.5 shadow-sm hover:shadow-md hover:shadow-fuchsia-500/20 hover:-translate-y-0.5"
             >
               <Share2 className="w-3.5 h-3.5" /> Socials &amp; Growth
@@ -420,7 +420,7 @@ export default function ServicesPage() {
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-slate-200">
                 <span className="text-sm font-semibold text-slate-600">Want to see our interactive content scheduler &amp; analytics suite?</span>
-                <Link href="/services/social-media-management" className="shrink-0">
+                <Link href="/services/socials" className="shrink-0">
                   <Button variant="primary" colorTheme="violet" className="w-full sm:w-auto !py-2.5 !px-6 !text-sm">
                     Explore Dedicated Social Platform →
                   </Button>
