@@ -179,13 +179,7 @@ export default function PortfolioPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section className="pt-12 pb-6 md:pt-16 md:pb-10 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center gap-5 max-w-4xl mx-auto">
-          <ScrollReveal delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs font-bold uppercase tracking-wider font-mono">
-              <Sparkles className="w-3.5 h-3.5 text-purple-600" /> Proven B2B Engineering &amp; Growth Results
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
+                  <ScrollReveal delay={0.15}>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase">
               Proven Projects. <br />
               <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
@@ -287,11 +281,6 @@ export default function PortfolioPage() {
                           </span>
                         </div>
 
-                        {/* Prominent Key Metric Badge */}
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300/80 text-emerald-800 text-xs font-black font-mono shadow-xs">
-                          <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-                          <span>{project.resultMetric}</span>
-                        </div>
                       </div>
 
                       {/* Title */}
@@ -437,12 +426,9 @@ export default function PortfolioPage() {
                         </div>
 
                         {/* Fixed bottom badges when not hovered */}
-                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none group-hover/screen:opacity-0 transition-opacity">
+                        <div className="absolute bottom-3 left-3 pointer-events-none group-hover/screen:opacity-0 transition-opacity">
                           <span className="text-[11px] font-mono font-bold text-white/90 bg-slate-900/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
                             {project.client}
-                          </span>
-                          <span className="text-[11px] font-bold text-white bg-purple-600/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 border border-purple-400/40">
-                            {project.resultMetric}
                           </span>
                         </div>
                       </Link>
@@ -464,10 +450,7 @@ export default function PortfolioPage() {
 
         <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 flex flex-col gap-14">
           <div className="text-center flex flex-col items-center gap-4 max-w-2xl mx-auto">
-            <Badge colorTheme="navy" className="!bg-purple-900/60 !text-purple-300 !border-purple-700">
-              Why Partner With Us
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white">
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white">
               Domain Expertise &amp;{" "}
               <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
                 Execution Guarantee

@@ -797,9 +797,6 @@ export default function HomeClient() {
                   <div className="h-full rounded-3xl p-8 border border-purple-100 bg-white shadow-xl shadow-purple-900/5 hover:shadow-2xl hover:border-purple-300 transition-all duration-300 group flex flex-col gap-6">
                     <div className="flex items-center justify-between">
                       <Badge colorTheme="navy">{project.category}</Badge>
-                      <span className="text-xs font-extrabold bg-gradient-to-r from-purple-100 to-fuchsia-100 text-purple-700 px-3 py-1.5 rounded-full border border-purple-200">
-                        {project.resultMetric}
-                      </span>
                     </div>
                     <div>
                       <h3 className="text-2xl font-extrabold text-slate-900 group-hover:text-purple-700 transition-colors leading-tight font-display mb-2">
@@ -869,18 +866,11 @@ export default function HomeClient() {
                 <Tilt3DCard intensity={6} className="h-full">
                   <div className="h-full p-6 rounded-3xl bg-white border border-purple-100/80 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex flex-col justify-between gap-6 group">
                     <div className="flex flex-col gap-4">
-                      {/* Rating Stars & Metric */}
-                      <div className="flex items-center justify-between gap-2">
-                        {t.metric ? (
-                          <span className="text-[11px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
-                            {t.metric}
-                          </span>
-                        ) : null}
-                        <div className="flex items-center gap-0.5 text-amber-400">
-                          {[...Array(t.rating)].map((_, i) => (
-                            <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                          ))}
-                        </div>
+                      {/* Rating Stars */}
+                      <div className="flex items-center gap-0.5 text-amber-400">
+                        {[...Array(t.rating)].map((_, i) => (
+                          <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                        ))}
                       </div>
 
                       <p className="text-slate-700 text-sm leading-relaxed italic">

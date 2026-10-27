@@ -461,9 +461,6 @@ export default function CrmErpService() {
                       <div className="flex flex-col gap-4">
                         <div className="flex items-center justify-between">
                           <Badge colorTheme="navy">{p.category}</Badge>
-                          <span className="text-xs font-bold text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-100">
-                            {p.resultMetric}
-                          </span>
                         </div>
                         <h3 className="text-2xl font-black text-slate-900 font-display mt-2">{p.title}</h3>
                         <p className="text-sm text-slate-600 leading-relaxed">{p.description}</p>

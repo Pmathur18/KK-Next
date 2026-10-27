@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: CaseStudyProps): Promise<Meta
     : `Case Study: ${project.title} | KK Next Tech Solutions`;
   const description =
     project.metaDescription ||
-    `Discover how KK Next Tech Solutions solved critical bottlenecks for ${project.client} (${project.industry}), resulting in ${project.resultMetric}.`;
+    `Discover how KK Next Tech Solutions solved critical bottlenecks for ${project.client} (${project.industry}).`;
 
   return {
     title,
@@ -198,8 +198,8 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
               <span className="font-bold text-slate-900">{project.filterCategory}</span>
             </div>
             <div>
-              <span className="block text-[11px] font-mono uppercase text-slate-400 font-bold">Primary Outcome</span>
-              <span className="font-extrabold text-emerald-700">{project.resultMetric}</span>
+              <span className="block text-[11px] font-mono uppercase text-slate-400 font-bold">Status</span>
+              <span className="font-extrabold text-emerald-700">● Live &amp; Verified</span>
             </div>
           </div>
 
@@ -251,12 +251,6 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
               <div className="flex items-center gap-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-purple-200 bg-purple-950/85 px-4 py-1.5 rounded-full border border-purple-400/30 backdrop-blur-md font-mono">
                   {project.client} · {project.industry}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold text-white bg-slate-900/80 px-4 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
-                  Outcome: {project.resultMetric}
                 </span>
               </div>
             </div>

@@ -7,7 +7,7 @@ export interface Project {
   filterCategory: "E-Commerce & Shopify" | "Custom Web Apps" | "ERP & Automation" | "Performance Marketing";
   description: string;
   longDescription: string;
-  resultMetric: string;
+  resultMetric?: string;
   tags: string[];
   color: string;
   painPoints: string[];

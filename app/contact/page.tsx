@@ -490,233 +490,233 @@ export default function Contact() {
                     ) : (
                       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      {/* Name */}
-                      <div className="flex flex-col gap-1.5">
-                        <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                          Your Name
-                        </label>
-                        <input
-                          id="name"
-                          type="text"
-                          {...register("name")}
-                          className={cn(
-                            "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
-                            errors.name ? "border-red-500" : ""
-                          )}
-                        />
-                        {errors.name && (
-                          <span className="text-xs font-semibold text-red-500">{errors.name.message}</span>
-                        )}
-                      </div>
-
-                      {/* Organization Name */}
-                      <div className="flex flex-col gap-1.5">
-                        <label htmlFor="orgName" className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                          Your Organization
-                        </label>
-                        <input
-                          id="orgName"
-                          type="text"
-                          {...register("orgName")}
-                          className={cn(
-                            "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
-                            errors.orgName ? "border-red-500" : ""
-                          )}
-                        />
-                        {errors.orgName && (
-                          <span className="text-xs font-semibold text-red-500">{errors.orgName.message}</span>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      {/* Email */}
-                      <div className="flex flex-col gap-1.5">
-                        <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                          Email Address
-                        </label>
-                        <input
-                          id="email"
-                          type="email"
-                          {...register("email")}
-                          className={cn(
-                            "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
-                            errors.email ? "border-red-500" : ""
-                          )}
-                        />
-                        {errors.email && (
-                          <span className="text-xs font-semibold text-red-500">{errors.email.message}</span>
-                        )}
-                      </div>
-
-                      {/* Phone */}
-                      <div className="flex flex-col gap-1.5">
-                        <label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                          Phone Number
-                        </label>
-                        <input
-                          id="phone"
-                          type="tel"
-                          {...register("phone")}
-                          className={cn(
-                            "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
-                            errors.phone ? "border-red-500" : ""
-                          )}
-                        />
-                        {errors.phone && (
-                          <span className="text-xs font-semibold text-red-500">{errors.phone.message}</span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Social/Website Link */}
-                    <div className="flex flex-col gap-1.5">
-                      <label htmlFor="socialLink" className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center justify-between">
-                        <span>Website or LinkedIn (Optional)</span>
-                        <LinkIcon className="w-3.5 h-3.5 text-slate-400" />
-                      </label>
-                      <input
-                        id="socialLink"
-                        type="url"
-                        {...register("socialLink")}
-                        className="bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium"
-                      />
-                    </div>
-
-                    {/* Services Multi-Select */}
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                        Services You Need
-                      </label>
-                      <div className="flex flex-wrap gap-2">
-                        {serviceOptions.map((svc) => {
-                          const active = selectedServices.includes(svc);
-                          return (
-                            <button
-                              key={svc}
-                              type="button"
-                              onClick={() => handleServiceToggle(svc)}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                          {/* Name */}
+                          <div className="flex flex-col gap-1.5">
+                            <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                              Your Name
+                            </label>
+                            <input
+                              id="name"
+                              type="text"
+                              {...register("name")}
                               className={cn(
-                                "text-xs font-bold px-3.5 py-2 rounded-xl transition-all border cursor-pointer",
-                                active
-                                  ? "bg-purple-600 text-white border-purple-600 shadow-md shadow-purple-500/20 scale-105"
-                                  : "bg-white text-slate-600 border-purple-100 hover:border-purple-300 hover:bg-purple-50"
+                                "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
+                                errors.name ? "border-red-500" : ""
                               )}
-                            >
-                              {svc}
-                            </button>
-                          );
-                        })}
-                      </div>
-                      {errors.services && (
-                        <span className="text-xs font-semibold text-red-500">{errors.services.message}</span>
-                      )}
-                    </div>
+                            />
+                            {errors.name && (
+                              <span className="text-xs font-semibold text-red-500">{errors.name.message}</span>
+                            )}
+                          </div>
 
-                    {/* Preferred Office */}
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                        Preferred Location Hub
-                      </label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                        {officeOptions.map((off) => {
-                          const active = selectedOffice === off.id;
-                          return (
-                            <button
-                              key={off.id}
-                              type="button"
-                              onClick={() => setValue("office", off.id, { shouldValidate: true })}
+                          {/* Organization Name */}
+                          <div className="flex flex-col gap-1.5">
+                            <label htmlFor="orgName" className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                              Your Organization
+                            </label>
+                            <input
+                              id="orgName"
+                              type="text"
+                              {...register("orgName")}
                               className={cn(
-                                "text-xs font-bold p-2.5 rounded-xl border text-center transition-all cursor-pointer",
-                                active
-                                  ? "bg-slate-900 text-white border-slate-900 shadow-md scale-102"
-                                  : "bg-white text-slate-600 border-purple-100 hover:border-purple-300"
+                                "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
+                                errors.orgName ? "border-red-500" : ""
                               )}
-                            >
-                              {off.name}
-                            </button>
-                          );
-                        })}
-                      </div>
-                      {errors.office && (
-                        <span className="text-xs font-semibold text-red-500">{errors.office.message}</span>
-                      )}
-                    </div>
+                            />
+                            {errors.orgName && (
+                              <span className="text-xs font-semibold text-red-500">{errors.orgName.message}</span>
+                            )}
+                          </div>
+                        </div>
 
-                    {/* Message Details */}
-                    <div className="flex flex-col gap-1.5">
-                      <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                        What&apos;s on your mind?
-                      </label>
-                      <textarea
-                        id="message"
-                        rows={4}
-                        {...register("message")}
-                        className={cn(
-                          "bg-purple-50/30 border border-purple-100 rounded-2xl p-4 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium resize-none",
-                          errors.message ? "border-red-500" : ""
-                        )}
-                      />
-                      {errors.message && (
-                        <span className="text-xs font-semibold text-red-500">{errors.message.message}</span>
-                      )}
-                    </div>
-
-                    {/* Source Multi-Select */}
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                        How Did You Hear About Us?
-                      </label>
-                      <div className="flex flex-wrap gap-2">
-                        {sourceOptions.map((src) => {
-                          const active = selectedSource.includes(src);
-                          return (
-                            <button
-                              key={src}
-                              type="button"
-                              onClick={() => handleSourceToggle(src)}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                          {/* Email */}
+                          <div className="flex flex-col gap-1.5">
+                            <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                              Email Address
+                            </label>
+                            <input
+                              id="email"
+                              type="email"
+                              {...register("email")}
                               className={cn(
-                                "text-xs font-bold px-3 py-1.5 rounded-xl transition-all border cursor-pointer",
-                                active
-                                  ? "bg-purple-100 text-purple-800 border-purple-300"
-                                  : "bg-white text-slate-500 border-purple-100 hover:border-purple-200"
+                                "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
+                                errors.email ? "border-red-500" : ""
                               )}
-                            >
-                              {src}
-                            </button>
-                          );
-                        })}
-                      </div>
-                      {errors.source && (
-                        <span className="text-xs font-semibold text-red-500">{errors.source.message}</span>
-                      )}
-                    </div>
+                            />
+                            {errors.email && (
+                              <span className="text-xs font-semibold text-red-500">{errors.email.message}</span>
+                            )}
+                          </div>
 
-                    {/* Submit Button */}
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      colorTheme="violet"
-                      disabled={isSubmitting}
-                      className="w-full !py-4 shadow-xl shadow-purple-500/25 mt-2"
-                    >
-                      {isSubmitting ? (
-                        <span className="flex items-center justify-center gap-2">
-                          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                          Sending Inquiry...
-                        </span>
-                      ) : (
-                        <span className="flex items-center justify-center gap-2">
-                          <Send className="w-4 h-4" /> Send Inquiry &amp; Book Discovery Call
-                        </span>
-                      )}
-                    </Button>
+                          {/* Phone */}
+                          <div className="flex flex-col gap-1.5">
+                            <label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                              Phone Number
+                            </label>
+                            <input
+                              id="phone"
+                              type="tel"
+                              {...register("phone")}
+                              className={cn(
+                                "bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium",
+                                errors.phone ? "border-red-500" : ""
+                              )}
+                            />
+                            {errors.phone && (
+                              <span className="text-xs font-semibold text-red-500">{errors.phone.message}</span>
+                            )}
+                          </div>
+                        </div>
 
-                  </form>
+                        {/* Social/Website Link */}
+                        <div className="flex flex-col gap-1.5">
+                          <label htmlFor="socialLink" className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center justify-between">
+                            <span>Website or LinkedIn (Optional)</span>
+                            <LinkIcon className="w-3.5 h-3.5 text-slate-400" />
+                          </label>
+                          <input
+                            id="socialLink"
+                            type="url"
+                            {...register("socialLink")}
+                            className="bg-purple-50/30 border border-purple-100 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium"
+                          />
+                        </div>
+
+                        {/* Services Multi-Select */}
+                        <div className="flex flex-col gap-2">
+                          <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                            Services You Need
+                          </label>
+                          <div className="flex flex-wrap gap-2">
+                            {serviceOptions.map((svc) => {
+                              const active = selectedServices.includes(svc);
+                              return (
+                                <button
+                                  key={svc}
+                                  type="button"
+                                  onClick={() => handleServiceToggle(svc)}
+                                  className={cn(
+                                    "text-xs font-bold px-3.5 py-2 rounded-xl transition-all border cursor-pointer",
+                                    active
+                                      ? "bg-purple-600 text-white border-purple-600 shadow-md shadow-purple-500/20 scale-105"
+                                      : "bg-white text-slate-600 border-purple-100 hover:border-purple-300 hover:bg-purple-50"
+                                  )}
+                                >
+                                  {svc}
+                                </button>
+                              );
+                            })}
+                          </div>
+                          {errors.services && (
+                            <span className="text-xs font-semibold text-red-500">{errors.services.message}</span>
+                          )}
+                        </div>
+
+                        {/* Preferred Office */}
+                        <div className="flex flex-col gap-2">
+                          <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                            Preferred Location Hub
+                          </label>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            {officeOptions.map((off) => {
+                              const active = selectedOffice === off.id;
+                              return (
+                                <button
+                                  key={off.id}
+                                  type="button"
+                                  onClick={() => setValue("office", off.id, { shouldValidate: true })}
+                                  className={cn(
+                                    "text-xs font-bold p-2.5 rounded-xl border text-center transition-all cursor-pointer",
+                                    active
+                                      ? "bg-slate-900 text-white border-slate-900 shadow-md scale-102"
+                                      : "bg-white text-slate-600 border-purple-100 hover:border-purple-300"
+                                  )}
+                                >
+                                  {off.name}
+                                </button>
+                              );
+                            })}
+                          </div>
+                          {errors.office && (
+                            <span className="text-xs font-semibold text-red-500">{errors.office.message}</span>
+                          )}
+                        </div>
+
+                        {/* Message Details */}
+                        <div className="flex flex-col gap-1.5">
+                          <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                            What&apos;s on your mind?
+                          </label>
+                          <textarea
+                            id="message"
+                            rows={4}
+                            {...register("message")}
+                            className={cn(
+                              "bg-purple-50/30 border border-purple-100 rounded-2xl p-4 text-sm focus:outline-none focus:border-purple-500 focus:bg-white text-slate-900 transition-all font-medium resize-none",
+                              errors.message ? "border-red-500" : ""
+                            )}
+                          />
+                          {errors.message && (
+                            <span className="text-xs font-semibold text-red-500">{errors.message.message}</span>
+                          )}
+                        </div>
+
+                        {/* Source Multi-Select */}
+                        <div className="flex flex-col gap-2">
+                          <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                            How Did You Hear About Us?
+                          </label>
+                          <div className="flex flex-wrap gap-2">
+                            {sourceOptions.map((src) => {
+                              const active = selectedSource.includes(src);
+                              return (
+                                <button
+                                  key={src}
+                                  type="button"
+                                  onClick={() => handleSourceToggle(src)}
+                                  className={cn(
+                                    "text-xs font-bold px-3 py-1.5 rounded-xl transition-all border cursor-pointer",
+                                    active
+                                      ? "bg-purple-100 text-purple-800 border-purple-300"
+                                      : "bg-white text-slate-500 border-purple-100 hover:border-purple-200"
+                                  )}
+                                >
+                                  {src}
+                                </button>
+                              );
+                            })}
+                          </div>
+                          {errors.source && (
+                            <span className="text-xs font-semibold text-red-500">{errors.source.message}</span>
+                          )}
+                        </div>
+
+                        {/* Submit Button */}
+                        <Button
+                          type="submit"
+                          variant="primary"
+                          colorTheme="violet"
+                          disabled={isSubmitting}
+                          className="w-full !py-4 shadow-xl shadow-purple-500/25 mt-2"
+                        >
+                          {isSubmitting ? (
+                            <span className="flex items-center justify-center gap-2">
+                              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                              Sending Inquiry...
+                            </span>
+                          ) : (
+                            <span className="flex items-center justify-center gap-2">
+                              <Send className="w-4 h-4" /> Send Inquiry &amp; Book Discovery Call
+                            </span>
+                          )}
+                        </Button>
+
+                      </form>
+                    )}
+                  </div>
                 )}
-              </div>
-            )}
               </div>
             </SpotlightSection>
           </ScrollReveal>
@@ -749,11 +749,11 @@ export default function Contact() {
                     </div>
                     <span>info@kknexttech.com</span>
                   </a>
-                  <a href="mailto:sales@kknexttech.com" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
+                  <a href="mailto:kknexttechsolution@gmail.com" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
                     <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">
                       <Mail className="w-4 h-4" />
                     </div>
-                    <span>sales@kknexttech.com</span>
+                    <span>kknexttechsolution@gmail.com</span>
                   </a>
                   <a href="tel:+919001360054" className="flex items-center gap-3 text-purple-200 hover:text-white transition-colors">
                     <div className="w-9 h-9 rounded-xl bg-purple-900/60 border border-purple-700 flex items-center justify-center text-purple-300">

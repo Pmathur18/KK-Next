@@ -115,11 +115,11 @@ export default function Footer() {
                   </div>
                   info@kknexttech.com
                 </a>
-                <a href="mailto:sales@kknexttech.com" className="flex items-center gap-2 text-sm text-slate-500 hover:text-purple-600 transition-colors group font-medium">
+                <a href="mailto:kknexttechsolution@gmail.com" className="flex items-center gap-2 text-sm text-slate-500 hover:text-purple-600 transition-colors group font-medium">
                   <div className="w-7 h-7 rounded-lg bg-purple-100/80 flex items-center justify-center shrink-0 group-hover:bg-purple-200/80 transition-colors">
                     <Mail className="w-3.5 h-3.5 text-purple-600" />
                   </div>
-                  sales@kknexttech.com
+                  kknexttechsolution@gmail.com
                 </a>
                 <a href="tel:+919001360054" className="flex items-center gap-2 text-sm text-slate-500 hover:text-purple-600 transition-colors group font-medium">
                   <div className="w-7 h-7 rounded-lg bg-purple-100/80 flex items-center justify-center shrink-0 group-hover:bg-purple-200/80 transition-colors">
@@ -131,7 +131,7 @@ export default function Footer() {
                   <div className="w-7 h-7 rounded-lg bg-purple-100/80 flex items-center justify-center shrink-0">
                     <MapPin className="w-3.5 h-3.5 text-purple-600" />
                   </div>
-                  Delhi NCR &amp; Rajasthan, India
+                  Jodhpur, Rajasthan, India
                 </div>
               </div>
             </div>

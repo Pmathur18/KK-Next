@@ -121,12 +121,7 @@ export default function About() {
               animate="visible"
               variants={staggerContainer(0.12, 0.1)}
             >
-              <motion.span
-                variants={fadeUp(0)}
-                className="text-xs md:text-sm font-bold tracking-[0.18em] uppercase text-purple-700 bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-200 w-fit"
-              >
-                Our Identity &amp; Philosophy
-              </motion.span>
+
 
               <motion.h1
                 variants={fadeUp(0.05)}
@@ -144,7 +139,7 @@ export default function About() {
                 variants={fadeUp(0.1)}
                 className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-2xl font-normal"
               >
-                Most agencies are either good at writing code or good at running ads—rarely both. <strong className="text-slate-900 font-bold">KK Next Tech Solutions</strong> was built to bridge that gap. We engineer high-performance web applications and scale them with data-driven performance marketing under one accountable roof.
+                Most agencies are either good at writing code or good at running ads rarely both. <strong className="text-slate-900 font-bold">KK Next Tech Solutions</strong> was built to bridge that gap. We engineer high-performance web applications and scale them with data-driven performance marketing under one accountable roof.
               </motion.p>
 
               <motion.div variants={fadeUp(0.15)} className="flex flex-wrap gap-4 mt-2">
@@ -268,7 +263,7 @@ export default function About() {
                     Dev agencies build code with zero marketing sense. Marketing agencies run ads to crashing sites.
                   </p>
                   <p className="text-xs text-purple-700 font-semibold italic">
-                    — We built KK Next Tech Solutions to bridge that exact gap.
+                    We built KK Next Tech Solutions to bridge that exact gap.
                   </p>
                 </div>
               </div>
@@ -304,7 +299,7 @@ export default function About() {
                 <p>
                   We built KK Next Tech Solutions to{" "}
                   <span className="font-semibold text-accent-primary">bridge that exact gap.</span> We
-                  are a hybrid powerhouse — fusing{" "}
+                  are a hybrid powerhouse fusing{" "}
                   <strong className="text-ink">bleeding-edge software engineering</strong> with{" "}
                   <strong className="text-ink">ruthless, data-driven marketing</strong> to make sure your
                   brand not only functions flawlessly but{" "}
@@ -330,12 +325,12 @@ export default function About() {
         </section>
 
         {/* ════════════════════════════════════════════════════════════════════
-            4. CORE VALUES — The KK Next DNA
+            4. CORE VALUES — 
         ════════════════════════════════════════════════════════════════════ */}
         <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
           <div className="flex flex-col gap-16">
             <SectionHeading
-              eyebrow="The KK Next DNA"
+              eyebrow=""
               title="Our Core Values"
               description="These aren't values we wrote for a pitch deck. They're how we actually operate — every sprint, every campaign, every client call."
               align="center"
@@ -430,103 +425,13 @@ export default function About() {
           </div>
         </section>
 
-
-
-        {/* ════════════════════════════════════════════════════════════════════
-            6. LEADERSHIP & CORE ENGINEERING TEAM
-        ════════════════════════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
-          <div className="flex flex-col gap-12">
-            <SectionHeading
-              eyebrow="The People Behind the Code"
-              title="Leadership &amp; Technical Architects"
-              description="No anonymous freelancers or offshore middlemen. Your project is architected and steered by senior engineers and growth leaders with a stake in your success."
-              align="center"
-            />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {teamMembers.map((member) => (
-                <div
-                  key={member.name}
-                  className="rounded-3xl border border-purple-100 bg-white p-6 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all flex flex-col justify-between gap-6 group"
-                >
-                  <div className="flex flex-col gap-4">
-                    <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-100 border border-purple-100">
-                      <img
-                        src={member.avatar}
-                        alt={member.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} LinkedIn Profile`}
-                        className="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-white/90 backdrop-blur-md border border-purple-200 flex items-center justify-center text-purple-700 hover:bg-purple-600 hover:text-white transition-all shadow-md"
-                      >
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                    </div>
-
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-900 font-display leading-snug">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs font-bold text-purple-700 uppercase tracking-wider mt-0.5">
-                        {member.role}
-                      </p>
-                    </div>
-
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                      {member.bio}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-purple-50 text-[11px] font-semibold text-slate-500">
-                    <span className="text-purple-600 font-bold block mb-0.5">Core Focus:</span>
-                    {member.specialty}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* In-House Engineering & Standards Banner */}
-            <div className="rounded-3xl bg-slate-950 text-white p-8 md:p-12 border border-purple-500/20 relative overflow-hidden">
-              <div className="relative z-10 flex flex-col gap-6 max-w-3xl">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-purple-400">
-                  <ShieldCheck className="w-4 h-4" />
-                  Our In-House Technical Guarantee
-                </div>
-                <h3 className="text-2xl md:text-3xl font-black font-display text-white tracking-tight">
-                  We Don&apos;t Outsource Critical Code to Anonymous Freelancers.
-                </h3>
-                <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                  Every software architecture, checkout flow, API sync, and ad campaign is managed in-house by our salaried team. You get direct Slack channels, version-controlled git ownership, and zero agency markups on outsourced labor.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
-                  {technicalStandards.map((std) => (
-                    <div key={std.title} className="flex flex-col gap-1">
-                      <span className="text-xs font-bold text-purple-300 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                        {std.title}
-                      </span>
-                      <p className="text-xs text-slate-400 leading-relaxed">{std.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* ════════════════════════════════════════════════════════════════════
             7. HOW WE OPERATE: THE ACCOUNTABILITY FRAMEWORK
         ════════════════════════════════════════════════════════════════════ */}
         <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
           <div className="flex flex-col gap-12">
             <SectionHeading
-              eyebrow="The Execution Model"
+              eyebrow=""
               title="Our Engineering &amp; Communication Promises"
               description="Clients are terrified of hiring an agency that ghosts them, misses deadlines, or leaves them with unmaintainable code. Here is how our culture protects your investment:"
               align="center"
@@ -579,7 +484,7 @@ export default function About() {
             8. FINAL CTA TAILORED FOR ABOUT AUDIENCE
         ════════════════════════════════════════════════════════════════════ */}
         <CTABanner
-          badge="Zero Friction Partnership"
+          badge=""
           title={
             <>
               Ready to work with a tech partner who{" "}

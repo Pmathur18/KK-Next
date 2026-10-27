@@ -402,10 +402,6 @@ export default function ServicesPage() {
                           <span className="text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full font-mono">
                             {service.badge}
                           </span>
-                          <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-3 py-1 rounded-full">
-                            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-                            {service.metric}
-                          </span>
                         </div>
 
                         <div>
@@ -534,10 +530,6 @@ export default function ServicesPage() {
                         <div className="flex flex-wrap items-center justify-between gap-3">
                           <span className="text-[11px] font-extrabold uppercase tracking-wider text-fuchsia-700 bg-fuchsia-50 border border-fuchsia-200 px-3 py-1 rounded-full font-mono">
                             {service.badge}
-                          </span>
-                          <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-3 py-1 rounded-full">
-                            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-                            {service.metric}
                           </span>
                         </div>
 
