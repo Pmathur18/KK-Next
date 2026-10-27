@@ -22,7 +22,6 @@ import {
   Cpu,
 } from "lucide-react";
 
-import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";

@@ -20,7 +20,6 @@ import {
   Check,
 } from "lucide-react";
 
-import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
@@ -53,54 +52,6 @@ const mobileFAQs: FAQItem[] = [
   {
     q: "What security measures do you implement for user data and payments?",
     a: "All network traffic is encrypted via TLS 1.3 with SSL certificate pinning. Local sensitive tokens are stored inside hardware keystores (iOS Keychain and Android Keystore). Payment processing is handled via PCI-DSS compliant SDKs (Stripe, Razorpay, or Apple/Google Pay).",
-  },
-];
-
-const mobilePackages = [
-  {
-    name: "Mobile MVP",
-    price: "₹3.5L",
-    desc: "Rapid deployment for startups validating product-market fit on iOS & Android.",
-    features: [
-      "Cross-Platform Codebase (React Native / Flutter)",
-      "iOS & Android Simultaneous Build",
-      "Authentication (Social / OTP / Email)",
-      "Push Notification Setup (OneSignal / FCM)",
-      "App Store & Google Play Submission",
-      "1 Month Post-Launch Warranty Support",
-    ],
-    highlight: false,
-    color: "bg-white border border-slate-200",
-  },
-  {
-    name: "Growth Native App",
-    price: "₹7.5L",
-    desc: "Full-featured consumer or B2B application designed for high user retention.",
-    features: [
-      "Offline-First Database Synchronization",
-      "In-App Purchases & Payment Gateway SDKs",
-      "Interactive 60fps Custom Micro-Interactions",
-      "Automated CI/CD Delivery Pipeline (Fastlane)",
-      "Real-Time Crashlytics & Analytics Dashboard",
-      "3 Months Dedicated Engineering Support",
-    ],
-    highlight: true,
-    color: "bg-blue-50/70 border-2 border-blue-500/50 shadow-xl shadow-blue-950/5",
-  },
-  {
-    name: "Enterprise Custom Suite",
-    price: "Custom Quote",
-    desc: "Heavy industrial, logistics, or healthcare mobile applications with custom hardware.",
-    features: [
-      "Hardware Integrations (BLE, GPS Geofencing, RFID)",
-      "End-to-End Enterprise Encryption & Keystore",
-      "Microservice Backend with PostgreSQL Cluster",
-      "Role-Based Access Control (RBAC) & Single Sign-On (SSO)",
-      "Dedicated Engineering Pod & 24/7 SLAs",
-      "Quarterly Security Audits & OS Update Patches",
-    ],
-    highlight: false,
-    color: "bg-white border border-slate-200",
   },
 ];
 

@@ -37,7 +37,6 @@ import {
 } from "lucide-react";
 
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import GlowingOrb from "@/components/ui/GlowingOrb";

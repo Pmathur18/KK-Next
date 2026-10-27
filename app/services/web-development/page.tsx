@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import {
-  Laptop,
   ArrowRight,
   ArrowUpRight,
   CheckCircle2,
@@ -19,7 +18,6 @@ import {
   Code2,
 } from "lucide-react";
 
-import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
@@ -48,58 +46,6 @@ const webFAQs: FAQItem[] = [
   {
     q: "Will our team be able to manage products, blogs, and content after launch?",
     a: "Yes. For Shopify builds, you continue managing inventory, orders, and customer accounts inside the familiar Shopify Admin. For custom web platforms, we integrate user-friendly headless CMS solutions (Sanity, Contentful, or Strapi) with full editor permissions.",
-  },
-  {
-    q: "What post-launch support and warranty do you provide?",
-    a: "Every deployment includes 30 to 90 days of dedicated post-launch hyper-care covering bug fixes, performance monitoring, Core Web Vitals maintenance, and staff handover training. We also offer ongoing monthly maintenance retainers.",
-  },
-];
-
-const webPackages = [
-  {
-    name: "Starter Web",
-    price: "₹2.5L",
-    desc: "Perfect for emerging brands validating product ideas with high-converting UI.",
-    features: [
-      "Modern Next.js or Shopify Setup",
-      "5 Bespoke UI Design Templates",
-      "100% Mobile & Tablet Responsive",
-      "Core Web Vitals & SEO Setup",
-      "1 Month Maintenance Support",
-      "Payment Gateway & Analytics Integration",
-    ],
-    highlight: false,
-    color: "bg-white border border-slate-200",
-  },
-  {
-    name: "Growth Engine (Headless)",
-    price: "₹5.5L",
-    desc: "Our most popular build for scaling e-commerce & high-traffic modern brands.",
-    features: [
-      "Headless Commerce / Next.js App Router",
-      "Custom Checkout & Inventory APIs",
-      "Framer Motion Micro-Interactions",
-      "Sub-Second Page Load Optimization (<1s)",
-      "Automated Webhooks & Klaviyo/CRM Sync",
-      "3 Months Dedicated Engineering Support",
-    ],
-    highlight: true,
-    color: "bg-purple-50/70 border-2 border-purple-500/50 shadow-xl shadow-purple-950/5",
-  },
-  {
-    name: "Enterprise Custom",
-    price: "Custom Quote",
-    desc: "Tailored code architectures for heavy industrial scale and complex workflows.",
-    features: [
-      "Custom Microservices & Database Schema",
-      "Multi-Region Edge CDN Optimization",
-      "Penetration Testing & Hardened Security",
-      "Dedicated Technical Lead & 24/7 SLAs",
-      "CRM & ERP Deep Integration (Odoo/Salesforce)",
-      "Continuous CI/CD Automated Pipelines",
-    ],
-    highlight: false,
-    color: "bg-white border border-slate-200",
   },
 ];
 
@@ -140,7 +86,6 @@ export default function WebDevelopmentPage() {
       {/* ── 1. HERO SECTION ── */}
       <section className="pt-12 pb-8 md:pt-16 md:pb-12 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center gap-6 max-w-4xl mx-auto">
-         
 
           <ScrollReveal delay={0.15}>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase">

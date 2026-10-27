@@ -18,9 +18,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: [
       "lucide-react",
       "framer-motion",
-      "three",
-      "@react-three/fiber",
-      "@react-three/drei",
     ],
   },
   async headers() {

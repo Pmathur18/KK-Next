@@ -20,7 +20,7 @@ import {
   Shield,
   Server,
   Activity,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
@@ -30,10 +30,8 @@ import FAQSection, { FAQItem } from "@/components/ui/FAQSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import GlowingOrb from "@/components/ui/GlowingOrb";
-import BentoCard from "@/components/ui/BentoCard";
 import SpotlightSection from "@/components/ui/SpotlightSection";
 import AnimatedGradientText from "@/components/ui/AnimatedGradientText";
-import GlassCard from "@/components/ui/GlassCard";
 import BeamBorder from "@/components/ui/BeamBorder";
 import CTABanner from "@/components/ui/CTABanner";
 import FloatingBadge from "@/components/ui/FloatingBadge";
