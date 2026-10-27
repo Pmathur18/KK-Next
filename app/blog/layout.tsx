@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Engineering & Growth Insights Blog | KK Next Tech Solutions",
+  title: "Tech Insights, Engineering Guides & Growth Strategies | KK Next Tech Solutions",
   description:
-    "Expert insights on modern web development, headless e-commerce, AI business automation, CRM architecture, and data-backed performance marketing strategies.",
+    "Read expert articles on custom web development, Headless Shopify optimization, ERP automation, and high-ROAS performance marketing by KK Next Tech Solutions.",
   keywords: [
-    "Web development insights",
-    "Shopify e-commerce blog",
-    "CRM automation articles",
-    "Performance marketing strategies",
-    "Tech agency blog India",
+    "Custom web development insights",
+    "Headless Shopify optimization guide",
+    "ERP CRM integration trends",
+    "Performance marketing ROAS strategy",
+    "B2B tech insights India",
     "KK Next Tech Solutions blog",
   ],
   alternates: {
     canonical: "https://www.kknexttech.com/blog",
   },
   openGraph: {
-    title: "Engineering & Growth Insights Blog | KK Next Tech Solutions",
+    title: "Tech Insights, Engineering Guides & Growth Strategies | KK Next Tech Solutions",
     description:
-      "Expert insights on modern web development, headless e-commerce, AI business automation, CRM architecture, and data-backed performance marketing strategies.",
+      "Read expert articles on custom web development, Headless Shopify optimization, ERP automation, and high-ROAS performance marketing by KK Next Tech Solutions.",
     url: "https://www.kknexttech.com/blog",
     siteName: "KK Next Tech Solutions",
     type: "website",
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
         url: "/images/hero_dashboard.jpg",
         width: 1200,
         height: 630,
-        alt: "KK Next Tech Solutions Blog",
+        alt: "KK Next Tech Solutions Insights and Engineering Guides",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Engineering & Growth Insights Blog | KK Next Tech Solutions",
+    title: "Tech Insights, Engineering Guides & Growth Strategies | KK Next Tech Solutions",
     description:
-      "Expert insights on web development, headless e-commerce, CRM systems, and performance marketing.",
+      "Read expert articles on custom web development, Headless Shopify optimization, ERP automation, and high-ROAS performance marketing.",
     images: ["/images/hero_dashboard.jpg"],
   },
 };

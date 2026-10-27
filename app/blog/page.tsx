@@ -1,13 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowRight,
+  Clock,
+  Sparkles,
+  BookOpen,
+  Laptop,
+  ShoppingBag,
+  TrendingUp,
+  Database,
+  Layers,
+  ChevronRight,
+  Mail,
+  User,
+} from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
-import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
-import SectionHeading from "@/components/ui/SectionHeading";
 import Avatar from "@/components/ui/Avatar";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
@@ -18,12 +30,91 @@ import CTABanner from "@/components/ui/CTABanner";
 import { blogPosts, BlogPost } from "@/data/blog";
 import { cn } from "@/lib/utils";
 
-export default function Blog() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+/* ─── Filter Categories ─────────────────────────────────────────────────────── */
+const FILTER_CATEGORIES = [
+  "All",
+  "Engineering & Code",
+  "E-Commerce & Shopify",
+  "Growth & Performance Marketing",
+  "ERP & Automation",
+  "Case Studies",
+] as const;
+
+type FilterCategory = (typeof FILTER_CATEGORIES)[number];
+
+// Helper to normalize blog post categories to the 5 requested B2B pillars
+export function getFilterCategory(post: BlogPost): FilterCategory {
+  if (post.category === "Case Studies" || post.slug.includes("case-studies")) {
+    return "Case Studies";
+  }
+  if (
+    post.category === "Ecommerce & AI" ||
+    post.category === "Ecommerce" ||
+    post.slug.includes("ecommerce") ||
+    post.slug.includes("shopify")
+  ) {
+    return "E-Commerce & Shopify";
+  }
+  if (
+    post.category === "Web Design" ||
+    post.category === "Tech Stack" ||
+    post.slug.includes("tech-stack") ||
+    post.slug.includes("web-vs-shopify")
+  ) {
+    return "Engineering & Code";
+  }
+  if (
+    post.category === "Digital Growth" ||
+    post.category === "B2B & Strategy" ||
+    post.slug.includes("performance-marketing") ||
+    post.slug.includes("first-party-data")
+  ) {
+    return "Growth & Performance Marketing";
+  }
+  if (
+    post.category === "B2B & ERP" ||
+    post.category === "CRM & ERP" ||
+    post.category === "Operations & AI" ||
+    post.slug.includes("crm-erp") ||
+    post.slug.includes("inventory-management")
+  ) {
+    return "ERP & Automation";
+  }
+  return "Engineering & Code";
+}
+
+export default function BlogPage() {
+  const [selectedFilter, setSelectedFilter] = useState<FilterCategory>("All");
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
-  const categories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
+  // Categorize and count posts
+  const postCounts = useMemo(() => {
+    const counts: Record<FilterCategory, number> = {
+      All: blogPosts.length,
+      "Engineering & Code": 0,
+      "E-Commerce & Shopify": 0,
+      "Growth & Performance Marketing": 0,
+      "ERP & Automation": 0,
+      "Case Studies": 0,
+    };
+    blogPosts.forEach((p) => {
+      const cat = getFilterCategory(p);
+      counts[cat] += 1;
+    });
+    return counts;
+  }, []);
+
+  const featuredPost = useMemo(() => {
+    return blogPosts.find((p) => p.featured) || blogPosts[0];
+  }, []);
+
+  const filteredPosts = useMemo(() => {
+    if (selectedFilter === "All") {
+      return blogPosts.filter((p) => p.slug !== featuredPost.slug);
+    }
+    return blogPosts.filter((p) => getFilterCategory(p) === selectedFilter);
+  }, [selectedFilter, featuredPost]);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,88 +125,105 @@ export default function Blog() {
     }
   };
 
-  const featuredPost = blogPosts.find((p) => p.featured) || blogPosts[0];
-  const regularPosts = blogPosts.filter((p) => p.slug !== featuredPost.slug);
-
-  const filteredPosts = regularPosts.filter((p) => {
-    if (selectedCategory === "All") return true;
-    return p.category === selectedCategory;
-  });
-
   return (
-    <div className="relative overflow-hidden w-full bg-white py-8 md:py-12">
+    <div className="relative overflow-hidden w-full bg-white text-slate-900 min-h-screen py-8 md:py-14 font-sans">
       <ParticleField count={30} color="124, 58, 237" opacity={0.12} />
-      <GlowingOrb className="top-[-10%] right-[-5%]" color="#7C3AED" size={400} opacity={0.08} blur={100} />
-      
-      {/* Header */}
-      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col gap-6 pb-8 border-b border-purple-100 relative z-10">
+      <GlowingOrb className="top-[-8%] right-[-5%]" color="#7C3AED" size={450} opacity={0.09} blur={110} />
+      <GlowingOrb className="top-[35%] left-[-10%]" color="#38bdf8" size={380} opacity={0.08} blur={100} />
+
+      {/* ════════════════════════════════════════════════════════════════════
+          1. HERO HEADER
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col items-center text-center gap-6 pb-10 relative z-10">
         <ScrollReveal>
-          <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-            Our Insights
-          </Badge>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs font-bold uppercase tracking-wider font-mono">
+            <BookOpen className="w-3.5 h-3.5 text-purple-600" /> B2B Engineering &amp; Growth Insights
+          </div>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-900 max-w-3xl font-display">
-            KK Insights &amp;{" "}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase max-w-4xl">
+            Tech Insights, Engineering Guides &amp;{" "}
             <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
-              Engineering Guides
+              Growth Strategies.
             </AnimatedGradientText>
           </h1>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.2}>
-          <p className="text-lg text-slate-500 leading-relaxed max-w-2xl">
-            We share research summaries, design systems tips, and automated script snippets to keep product engineering teams ahead of the curve.
+        <ScrollReveal delay={0.15}>
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
+            Actionable breakdowns on modern web development, headless Shopify architectures, enterprise ERP automation, and high-ROAS performance marketing for scaling brands.
           </p>
         </ScrollReveal>
       </section>
 
-      {/* Featured Post Card */}
-      {featuredPost && (
-        <section className="py-12 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
+      {/* ════════════════════════════════════════════════════════════════════
+          2. FEATURED / PILLAR ARTICLE HERO CARD
+      ════════════════════════════════════════════════════════════════════ */}
+      {featuredPost && selectedFilter === "All" && (
+        <section className="pb-12 max-w-7xl px-6 md:px-8 mx-auto relative z-10">
           <ScrollReveal>
-            <Tilt3DCard intensity={5}>
-              <div className="rounded-[32px] overflow-hidden border border-purple-200/80 bg-white grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-8 shadow-xl shadow-purple-900/5 hover:shadow-2xl hover:border-purple-300 transition-all">
-                <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto w-full rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/featured min-h-[260px]">
+            <Tilt3DCard intensity={4}>
+              <div className="rounded-[32px] overflow-hidden border border-purple-200/90 bg-white grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 md:p-10 shadow-2xl shadow-purple-950/5 hover:border-purple-300 transition-all">
+                {/* Left Preview Image */}
+                <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto w-full rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/featured min-h-[300px]">
                   <img
                     src={featuredPost.imageUrl}
                     alt={featuredPost.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/featured:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/20 to-transparent pointer-events-none" />
+                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-purple-600 text-white text-[11px] font-black uppercase tracking-wider font-mono shadow-md">
+                      Featured Pillar Guide
+                    </span>
+                  </div>
                 </div>
 
-                <div className="lg:col-span-5 flex flex-col justify-between py-2">
+                {/* Right Content Column */}
+                <div className="lg:col-span-5 flex flex-col justify-between py-2 gap-6">
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-3">
-                      <Badge colorTheme="violet">Featured Post</Badge>
-                      <span className="text-xs text-slate-400 font-medium">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full">
+                        {getFilterCategory(featuredPost)}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-xs text-slate-400 font-mono font-semibold">
+                        <Clock className="w-3.5 h-3.5" />
                         {featuredPost.readTime}
                       </span>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-display leading-snug hover:text-purple-700 transition-colors">
-                      <Link href={`/blog/${featuredPost.slug}`}>{featuredPost.title}</Link>
-                    </h2>
-                    <p className="text-xs md:text-sm text-slate-500 leading-relaxed">
+
+                    <Link href={`/blog/${featuredPost.slug}`}>
+                      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-display leading-tight hover:text-purple-700 transition-colors cursor-pointer">
+                        {featuredPost.title}
+                      </h2>
+                    </Link>
+
+                    <p className="text-sm text-slate-600 leading-relaxed font-normal">
                       {featuredPost.summary}
                     </p>
                   </div>
 
-                  {/* Author Meta */}
-                  <div className="mt-8 pt-6 border-t border-purple-50 flex items-center justify-between">
+                  {/* Author Meta & Action */}
+                  <div className="pt-6 border-t border-purple-100 flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <Avatar name={featuredPost.author.name} className="w-10 h-10 text-xs shrink-0" />
                       <div className="flex flex-col">
-                        <span className="text-xs font-bold text-slate-900">{featuredPost.author.name}</span>
-                        <span className="text-[10px] text-slate-400 font-medium">{featuredPost.author.role}</span>
+                        <span className="text-xs font-bold text-slate-900">
+                          By {featuredPost.author.name}
+                        </span>
+                        <span className="text-[11px] text-slate-400 font-mono">
+                          {featuredPost.author.role} @ KK Next Tech
+                        </span>
                       </div>
                     </div>
+
                     <Link
                       href={`/blog/${featuredPost.slug}`}
-                      className="flex items-center gap-1 text-xs font-bold text-purple-600 hover:text-purple-800 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-black shadow-md shadow-purple-600/25 transition-all group/btn"
                     >
-                      Read Post <ArrowRight className="w-4 h-4" />
+                      <span>Read Guide</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                     </Link>
                   </div>
                 </div>
@@ -125,83 +233,157 @@ export default function Blog() {
         </section>
       )}
 
-      {/* Categories Filter */}
-      <section className="py-6 max-w-7xl px-6 md:px-8 mx-auto flex flex-wrap gap-2.5 relative z-10">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={cn(
-              "px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold border transition-all cursor-pointer",
-              selectedCategory === cat
-                ? "bg-purple-600 text-white border-purple-600 shadow-md shadow-purple-500/20 scale-105"
-                : "bg-white text-slate-600 border-purple-100 hover:bg-purple-50 hover:border-purple-200"
-            )}
-          >
-            {cat}
-          </button>
-        ))}
+      {/* ════════════════════════════════════════════════════════════════════
+          3. STICKY LOW-FRICTION CATEGORY FILTER BAR
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="sticky top-[64px] z-30 bg-white/85 backdrop-blur-xl border-y border-purple-100 py-3 px-6 md:px-8 shadow-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-2 shrink-0">
+            {FILTER_CATEGORIES.map((cat) => {
+              const isActive = selectedFilter === cat;
+              const count = postCounts[cat];
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedFilter(cat)}
+                  className={cn(
+                    "px-4 py-2 rounded-full text-xs sm:text-sm font-bold tracking-tight transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2",
+                    isActive
+                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/30 font-extrabold"
+                      : "bg-slate-100/80 hover:bg-purple-50 text-slate-600 hover:text-purple-700 border border-slate-200/70"
+                  )}
+                >
+                  <span>{cat}</span>
+                  <span
+                    className={cn(
+                      "text-[11px] px-2 py-0.5 rounded-full font-mono font-bold",
+                      isActive
+                        ? "bg-white/20 text-white"
+                        : "bg-slate-200/70 text-slate-600"
+                    )}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="hidden lg:flex items-center gap-2 text-xs font-semibold text-slate-400 font-mono shrink-0">
+            Showing <span className="text-purple-700 font-bold">{filteredPosts.length}</span> Articles
+          </div>
+        </div>
       </section>
 
-      {/* Regular Posts Grid */}
-      <section className="py-12 max-w-7xl px-6 md:px-8 mx-auto min-h-[300px] relative z-10">
+      {/* ════════════════════════════════════════════════════════════════════
+          4. ARTICLES GRID (WITH READ TIME, CATEGORY, & AUTHOR BADGE)
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto min-h-[400px] relative z-10">
         {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {filteredPosts.map((post, idx) => (
-              <ScrollReveal key={post.slug} delay={idx * 0.08}>
-                <Tilt3DCard intensity={6} className="h-full">
-                  <div className="flex flex-col justify-between group bg-white border border-purple-100/80 p-6 rounded-3xl shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all h-full">
-                    <div className="flex flex-col gap-4">
-                      <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/card">
-                        <img
-                          src={post.imageUrl}
-                          alt={post.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <Badge colorTheme={post.category === "Websites" ? "sky" : (post.category === "Mobile Apps" ? "peach" : (post.category === "Social Media" ? "mint" : "yellow"))}>
-                          {post.category}
-                        </Badge>
-                        <span className="text-[10px] text-slate-400 font-semibold">{post.readTime}</span>
-                      </div>
-                      <h3 className="font-black text-base md:text-lg text-slate-900 font-display group-hover:text-purple-700 transition-colors line-clamp-2 leading-snug">
-                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                      </h3>
-                      <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
-                        {post.summary}
-                      </p>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence mode="popLayout">
+              {filteredPosts.map((post, idx) => {
+                const categoryTheme = getFilterCategory(post);
+                return (
+                  <motion.div
+                    key={post.slug}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3, delay: idx * 0.04 }}
+                  >
+                    <Tilt3DCard intensity={6} className="h-full">
+                      <div className="flex flex-col justify-between group bg-white border border-purple-100 p-6 rounded-3xl shadow-xl shadow-purple-950/5 hover:shadow-2xl hover:border-purple-300 transition-all h-full">
+                        <div className="flex flex-col gap-4">
+                          {/* Image Box */}
+                          <Link
+                            href={`/blog/${post.slug}`}
+                            className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-purple-100 bg-slate-900 group/card block cursor-pointer"
+                          >
+                            <img
+                              src={post.imageUrl}
+                              alt={post.title}
+                              loading="lazy"
+                              decoding="async"
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                          </Link>
 
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="flex items-center gap-1 text-xs font-bold text-purple-600 hover:text-purple-800 transition-colors mt-6 pt-4 border-t border-purple-50"
-                    >
-                      Read Post <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </Tilt3DCard>
-              </ScrollReveal>
-            ))}
+                          {/* Category and Read Time */}
+                          <div className="flex items-center justify-between gap-2 pt-1">
+                            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full">
+                              {categoryTheme}
+                            </span>
+                            <span className="inline-flex items-center gap-1 text-[11px] text-slate-400 font-mono font-semibold">
+                              <Clock className="w-3.5 h-3.5" />
+                              {post.readTime}
+                            </span>
+                          </div>
+
+                          {/* Post Title */}
+                          <h3 className="font-black text-lg text-slate-900 font-display group-hover:text-purple-700 transition-colors line-clamp-2 leading-snug">
+                            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                          </h3>
+
+                          {/* Summary */}
+                          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
+                            {post.summary}
+                          </p>
+                        </div>
+
+                        {/* Author Info & Read Link */}
+                        <div className="mt-6 pt-4 border-t border-purple-100 flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2.5">
+                            <Avatar name={post.author.name} className="w-8 h-8 text-[10px] shrink-0" />
+                            <div className="flex flex-col">
+                              <span className="text-xs font-bold text-slate-900 truncate max-w-[120px]">
+                                {post.author.name}
+                              </span>
+                              <span className="text-[10px] text-slate-400 font-mono truncate max-w-[120px]">
+                                {post.author.role}
+                              </span>
+                            </div>
+                          </div>
+
+                          <Link
+                            href={`/blog/${post.slug}`}
+                            className="inline-flex items-center gap-1 text-xs font-extrabold text-purple-600 hover:text-purple-800 transition-colors shrink-0 group/link"
+                          >
+                            <span>Read</span>
+                            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" />
+                          </Link>
+                        </div>
+                      </div>
+                    </Tilt3DCard>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
           </div>
         ) : (
-          <div className="text-center py-16 text-slate-400 text-sm">
+          <div className="text-center py-20 text-slate-400 text-sm">
             No articles found inside this category.
           </div>
         )}
       </section>
 
-      {/* Newsletter Block */}
+      {/* ════════════════════════════════════════════════════════════════════
+          5. NEWSLETTER & INBOUND CTA BANNER
+      ════════════════════════════════════════════════════════════════════ */}
       <CTABanner
-        badge="Ready to Build Your Win?"
+        badge="Direct to Your Inbox"
         title={
           <>
-            Get technical insights straight to your{" "}
-            <AnimatedGradientText>inbox</AnimatedGradientText>
+            Engineering &amp; Growth Breakdowns for{" "}
+            <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
+              Founders &amp; CTOs
+            </AnimatedGradientText>
           </>
         }
-        description="We compile solutions updates, design tokens, and automation advice. Sent once a month. No spam."
+        description="We summarize production-tested code architectures, headless Shopify benchmarks, and ROAS scaling frameworks. Sent once a month. Zero spam."
         buttonText=""
         buttonLink=""
       >
@@ -209,18 +391,23 @@ export default function Blog() {
           <input
             type="email"
             required
-            placeholder="Your email address"
+            placeholder="Enter your work email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="bg-white border border-purple-200 rounded-full px-5 py-3 text-sm focus:outline-none focus:border-purple-600 placeholder-slate-400 text-slate-800 w-full shadow-sm"
           />
-          <Button type="submit" variant="primary" colorTheme="violet" className="flex items-center justify-center gap-2 whitespace-nowrap !py-3 !px-7 shadow-lg shadow-purple-500/25">
-            <Mail className="w-4 h-4 shrink-0" /> Subscribe
+          <Button
+            type="submit"
+            variant="primary"
+            colorTheme="violet"
+            className="flex items-center justify-center gap-2 whitespace-nowrap !py-3 !px-7 shadow-lg shadow-purple-500/25 cursor-pointer font-bold"
+          >
+            <Mail className="w-4 h-4 shrink-0" /> Subscribe Free
           </Button>
         </form>
         {subscribed && (
-          <span className="text-xs text-emerald-600 font-bold block">
-            Thank you for subscribing!
+          <span className="text-xs text-emerald-600 font-bold block pt-1">
+            ✓ You&apos;re subscribed to KK Next Tech engineering insights!
           </span>
         )}
       </CTABanner>
