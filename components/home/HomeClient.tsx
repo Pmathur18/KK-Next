@@ -905,11 +905,13 @@ export default function HomeClient() {
                 <Tilt3DCard intensity={6} className="h-full">
                   <div className="h-full p-6 rounded-3xl bg-white border border-purple-100/80 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex flex-col justify-between gap-6 group">
                     <div className="flex flex-col gap-4">
-                      {/* Metric Badge & Stars */}
+                      {/* Rating Stars & Metric */}
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-[11px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
-                          {t.metric}
-                        </span>
+                        {t.metric ? (
+                          <span className="text-[11px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
+                            {t.metric}
+                          </span>
+                        ) : null}
                         <div className="flex items-center gap-0.5 text-amber-400">
                           {[...Array(t.rating)].map((_, i) => (
                             <Star key={i} className="w-3.5 h-3.5 fill-current" />
