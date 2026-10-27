@@ -208,6 +208,13 @@ export default function ServicesPage() {
               <p className="text-base text-slate-600 leading-relaxed">
                 High-conversion Shopify stores and bespoke Next.js web applications tailored to scale your brand. We prioritize blazingly fast load times, pixel-perfect UX, and robust backend integrations.
               </p>
+              <Link
+                href="/services/websites"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-900 w-fit pt-1 transition-colors"
+              >
+                <span>Explore Dedicated Websites &amp; Storefronts Platform</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
             <div className="flex flex-wrap items-center gap-2">
               {["Next.js", "React", "Shopify Headless", "Tailwind CSS", "TypeScript", "Node.js"].map((tech) => (
@@ -311,6 +318,13 @@ export default function ServicesPage() {
               <p className="text-base text-slate-600 leading-relaxed">
                 Stunning cross-platform mobile apps built with React Native and Flutter for flawless native performance. One shared codebase with seamless App Store &amp; Google Play deployments.
               </p>
+              <Link
+                href="/services/mobile-apps"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-900 w-fit pt-1 transition-colors"
+              >
+                <span>Explore Dedicated Mobile Apps Platform</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
             <div className="flex flex-wrap items-center gap-2">
               {["React Native", "Flutter", "TypeScript", "iOS / Swift", "Android / Kotlin", "Firebase"].map((tech) => (

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Menu, X, Laptop, Share2, Database, ArrowRight, Receipt } from "lucide-react";
+import { ChevronDown, Menu, X, Laptop, Smartphone, Share2, Database, ArrowRight, Receipt, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 
@@ -52,21 +52,28 @@ export default function Header() {
 
   const servicesDropdownItems = [
     {
-      title: "Web Development",
-      desc: "Shopify headless & Next.js customization.",
-      href: "/services#websites",
+      title: "Websites & Web Apps",
+      desc: "Shopify headless & bespoke Next.js apps.",
+      href: "/services/websites",
       icon: Laptop,
       color: "bg-purple-50 text-purple-600",
     },
     {
-      title: "Socials",
-      desc: "Data-driven creative scaling campaigns.",
+      title: "Mobile Applications",
+      desc: "iOS & Android apps built with React Native & Flutter.",
+      href: "/services/mobile-apps",
+      icon: Smartphone,
+      color: "bg-blue-50 text-blue-600",
+    },
+    {
+      title: "Social Media & Ads",
+      desc: "Data-driven creative scaling & paid advertising.",
       href: "/services/social-media-management",
       icon: Share2,
       color: "bg-fuchsia-50 text-fuchsia-600",
     },
     {
-      title: "CRM / ERP Automation",
+      title: "CRM & ERP Solutions",
       desc: "Custom database & enterprise workflow automation.",
       href: "/services/crm-erp",
       icon: Database,
