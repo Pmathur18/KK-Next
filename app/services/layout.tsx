@@ -1,25 +1,25 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "End-to-End Digital Services & Tech Solutions | KK Next Tech Solutions",
+  title: "Custom Software & Growth Marketing Services | KK Next Tech Solutions",
   description:
-    "Explore our full suite of digital services: custom web applications, e-commerce storefronts, cross-platform mobile apps, enterprise CRM/ERP consultations, and ROI-driven digital marketing.",
+    "Explore KK Next Tech Solutions' core services: custom web app development, headless Shopify solutions, cross-platform mobile apps, ERP automation, and high-ROAS performance marketing.",
   keywords: [
-    "Web development services",
-    "Shopify e-commerce development",
-    "CRM ERP consulting",
-    "Mobile app development React Native",
-    "Performance marketing services",
-    "B2B growth agency",
+    "Custom software development agency",
+    "Headless Shopify development partner",
+    "Cross-platform mobile app development",
+    "Enterprise CRM ERP consulting",
+    "Performance marketing agency",
+    "B2B growth engineering",
     "KK Next Tech Solutions services",
   ],
   alternates: {
     canonical: "https://www.kknexttech.com/services",
   },
   openGraph: {
-    title: "End-to-End Digital Services & Tech Solutions | KK Next Tech Solutions",
+    title: "Custom Software & Growth Marketing Services | KK Next Tech Solutions",
     description:
-      "Explore our full suite of digital services: custom web applications, e-commerce storefronts, cross-platform mobile apps, enterprise CRM/ERP consultations, and ROI-driven digital marketing.",
+      "Engineering high-performance web applications, enterprise software, and scaling them with data-driven performance marketing.",
     url: "https://www.kknexttech.com/services",
     siteName: "KK Next Tech Solutions",
     type: "website",
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
         url: "/images/hero_dashboard.jpg",
         width: 1200,
         height: 630,
-        alt: "KK Next Tech Solutions Digital Services",
+        alt: "KK Next Tech Solutions Services - Engineering and Growth",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "End-to-End Digital Services & Tech Solutions | KK Next Tech Solutions",
+    title: "Custom Software & Growth Marketing Services | KK Next Tech Solutions",
     description:
-      "Explore our full suite of digital services: custom web applications, e-commerce storefronts, cross-platform mobile apps, enterprise CRM/ERP consultations, and ROI-driven digital marketing.",
+      "Explore KK Next Tech Solutions' core services: custom web app development, headless Shopify solutions, ERP automation, and high-ROAS performance marketing.",
     images: ["/images/hero_dashboard.jpg"],
   },
 };
