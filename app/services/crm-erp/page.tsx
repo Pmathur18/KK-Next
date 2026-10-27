@@ -119,7 +119,6 @@ const erpFeatures = [
     title: "End-to-End Sales Pipelines",
     desc: "Connect lead capture scripts to customer profiles, tracking deal velocity, communication trails, and rep performance.",
     icon: BarChart3,
-    stat: "42% faster cycle",
     color: "from-purple-500/10 to-violet-500/5",
     border: "border-purple-200/80",
     iconColor: "text-purple-600 bg-purple-50",
@@ -128,7 +127,6 @@ const erpFeatures = [
     title: "Real-time Inventory & ERP Core",
     desc: "Synchronize raw material stocks, warehouse dispatch, supplier purchase orders, and double-entry accounting ledgers.",
     icon: Database,
-    stat: "Zero stock drift",
     color: "from-blue-500/10 to-cyan-500/5",
     border: "border-blue-200/80",
     iconColor: "text-blue-600 bg-blue-50",
@@ -137,7 +135,6 @@ const erpFeatures = [
     title: "Autonomous Workflow Engine",
     desc: "Eliminate manual data re-entry with asynchronous webhook relays, validation rules, and smart escalation alerts.",
     icon: Workflow,
-    stat: "60+ hrs saved/mo",
     color: "from-fuchsia-500/10 to-pink-500/5",
     border: "border-fuchsia-200/80",
     iconColor: "text-fuchsia-600 bg-fuchsia-50",
@@ -146,7 +143,6 @@ const erpFeatures = [
     title: "Executive Intelligence Portals",
     desc: "Role-based dashboards delivering instant drill-downs on gross margins, churn risk, and live pipeline health.",
     icon: ShieldCheck,
-    stat: "Sub-second load",
     color: "from-emerald-500/10 to-teal-500/5",
     border: "border-emerald-200/80",
     iconColor: "text-emerald-600 bg-emerald-50",
@@ -394,9 +390,6 @@ export default function CrmErpService() {
                         <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center border shadow-xs", feat.iconColor)}>
                           <Icon className="w-7 h-7" />
                         </div>
-                        <span className="text-xs font-bold text-purple-800 bg-white/90 px-3 py-1.5 rounded-full border border-purple-100 shadow-xs">
-                          {feat.stat}
-                        </span>
                       </div>
 
                       <div className="flex flex-col gap-2">

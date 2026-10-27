@@ -77,7 +77,6 @@ const coreSolutions = [
     iconColor: "text-violet-600 bg-violet-50 border-violet-200",
     link: "/services/web-development",
     highlights: ["React / Next.js Stack", "Sub-100ms API Response", "Zero-Downtime Scaling"],
-    stat: "Sub-100ms API Response",
   },
   {
     id: "shopify-ecom",
@@ -89,7 +88,6 @@ const coreSolutions = [
     iconColor: "text-emerald-600 bg-emerald-50 border-emerald-200",
     link: "/services/web-development",
     highlights: ["Custom Theme Dev", "Conversion Rate Optimization", "Checkout API Flow"],
-    stat: "+45% Avg Conversion",
   },
   {
     id: "wordpress-eng",
@@ -101,7 +99,6 @@ const coreSolutions = [
     iconColor: "text-blue-600 bg-blue-50 border-blue-200",
     link: "/services/web-development",
     highlights: ["Headless WordPress", "100/100 PageSpeed", "Zero Bloat Codebase"],
-    stat: "99+ Performance Score",
   },
   {
     id: "perf-marketing",
@@ -113,7 +110,6 @@ const coreSolutions = [
     iconColor: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-200",
     link: "/services/socials",
     highlights: ["Technical & On-Page SEO", "Paid Social & SEM", "ROAS Optimization"],
-    stat: "340% Avg ROAS Impact",
   },
   {
     id: "crm-erp-integration",
@@ -125,7 +121,6 @@ const coreSolutions = [
     iconColor: "text-amber-600 bg-amber-50 border-amber-200",
     link: "/services/crm-erp",
     highlights: ["Salesforce & HubSpot", "Workflow Automation", "Bi-directional Sync"],
-    stat: "60% Ops Time Saved",
   },
 ];
 
@@ -570,9 +565,6 @@ export default function HomeClient() {
                           <div className={cn("w-13 h-13 rounded-2xl flex items-center justify-center border p-3.5", sol.iconColor)}>
                             <sol.icon className="w-6 h-6" />
                           </div>
-                          <span className="text-xs font-extrabold text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
-                            {sol.stat}
-                          </span>
                         </div>
 
                         <div className="flex flex-col gap-3">
