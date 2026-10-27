@@ -226,15 +226,15 @@ export default async function PostPage({ params }: PostPageProps) {
             {post.summary}
           </p>
 
-          {/* Author Byline */}
+          {/* Editorial Byline */}
           <div className="flex items-center gap-3.5 pt-4 border-t border-purple-100">
-            <Avatar name={post.author.name} className="w-11 h-11 text-xs shrink-0" />
+            <Avatar name="KK Next Tech" className="w-11 h-11 text-xs shrink-0" />
             <div className="flex flex-col">
               <span className="text-sm font-bold text-slate-900">
-                {post.author.name}
+                KK Next Tech Editorial Team
               </span>
               <span className="text-xs text-slate-500 font-mono">
-                {post.author.role} @ KK Next Tech Solutions
+                Engineering &amp; Growth Practice @ KK Next Tech Solutions
               </span>
             </div>
           </div>

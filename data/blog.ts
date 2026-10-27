@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Discover how AI automation, from predictive behavioral triggers to agentic commerce, is transforming D2C ecommerce and eliminating manual supply chain chaos.",
     keywords: ["AI inventory management automation", "ecommerce trends 2026", "AI automation for ecommerce", "D2C automation", "smart inventory management ecosystem"],
     author: {
-      name: "Sanjay Kumar",
+      name: "KK Next Tech Solutions",
       role: "Lead Solutions Architect",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
     },
@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Disconnected systems throttle B2B growth. Learn why integrating CRM and ERP with your ecommerce front-end is critical for manufacturing success in 2026.",
     keywords: ["B2B ecommerce trends for manufacturers", "CRM ERP integration business growth", "manufacturing digital transformation", "B2B purchasing", "headless B2B storefronts"],
     author: {
-      name: "Vikram Malhotra",
+      name: "KK Next Tech Solutions",
       role: "Lead Systems Engineer",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
     },
@@ -92,7 +92,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "B2B buyers expect consumer-level experiences. Explore top 2026 manufacturing website trends, including 3D configurators, digital showrooms, and AI search.",
     keywords: ["B2B manufacturing website features trends 2026", "manufacturing website design", "custom web development", "B2B digital commerce"],
     author: {
-      name: "Priyanka Sharma",
+      name: "KK Next Tech Solutions",
       role: "Head of Digital Growth",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
     },
@@ -121,7 +121,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Are your teams stuck in messy spreadsheets? Discover the critical signs that indicate your business needs immediate CRM/ERP integration to scale.",
     keywords: ["Signs business needs ERP automation", "CRM benefits for small business", "scale with CRM", "CRM ERP integration", "automate your operations"],
     author: {
-      name: "Sanjay Kumar",
+      name: "KK Next Tech Solutions",
       role: "Lead Solutions Architect",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
     },
@@ -157,7 +157,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Compare Shopify, WooCommerce, and custom web development. Find out which ecommerce platform offers the best scalability, SEO, and ROI for your business.",
     keywords: ["Custom web vs Shopify vs WordPress comparison", "best ecommerce platform for scaling", "Shopify theme development", "custom web development"],
     author: {
-      name: "Vikram Malhotra",
+      name: "KK Next Tech Solutions",
       role: "Lead Systems Engineer",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
     },
@@ -187,7 +187,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Stop managing inventory on spreadsheets. Learn how AI-powered demand forecasting and real-time tracking optimize the supply chain for D2C brands and 3PLs.",
     keywords: ["AI inventory management automation", "smart inventory management ecosystem", "real-time stock tracking", "automated reordering"],
     author: {
-      name: "Sanjay Kumar",
+      name: "KK Next Tech Solutions",
       role: "Lead Solutions Architect",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
     },
@@ -217,7 +217,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "A beautiful website needs targeted traffic. Discover ROI-focused digital marketing strategies, from technical SEO to aggressive Meta and Google ads.",
     keywords: ["Performance marketing strategies", "SEO for organic traffic", "B2B lead generation", "conversion rate optimization", "ROI-focused social media campaigns"],
     author: {
-      name: "Priyanka Sharma",
+      name: "KK Next Tech Solutions",
       role: "Head of Digital Growth",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
     },
@@ -247,7 +247,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "A crashed site on Black Friday costs thousands. Learn how to stress-test servers, optimize mobile load times, and prepare inventory for holiday traffic spikes.",
     keywords: ["Ecommerce holiday preparation", "scale Shopify store for traffic", "optimize ecommerce speed", "high-converting store"],
     author: {
-      name: "Vikram Malhotra",
+      name: "KK Next Tech Solutions",
       role: "Lead Systems Engineer",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
     },
@@ -277,7 +277,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Explore how agentic AI is transforming ecommerce in 2026 through predictive hyper-personalization, automated workflows, and dynamic buyer experiences.",
     keywords: ["AI trends transforming eCommerce", "AI automation for ecommerce", "agentic AI in ecommerce", "personalized B2B experiences"],
     author: {
-      name: "Sanjay Kumar",
+      name: "KK Next Tech Solutions",
       role: "Lead Solutions Architect",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
     },
@@ -306,7 +306,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "As privacy regulations tighten, learn how B2B manufacturers can leverage first-party data, interactive tools, and CRM overhauls to drive predictable growth.",
     keywords: ["B2B manufacturing marketing trends", "first-party data strategies", "B2B lead generation", "CRM automation", "digital transformation"],
     author: {
-      name: "Priyanka Sharma",
+      name: "KK Next Tech Solutions",
       role: "Head of Digital Growth",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
     },
@@ -335,7 +335,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "See how KK Next Tech Solutions has transformed D2C brands, B2B SaaS startups, and global logistics companies with custom web architecture and targeted marketing.",
     keywords: ["Custom software CRM integration", "performance marketing case study", "Shopify headless rebuild", "D2C e-commerce scaling", "B2B lead generation"],
     author: {
-      name: "Sanjay Kumar",
+      name: "KK Next Tech Solutions",
       role: "Lead Solutions Architect",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
     },
@@ -365,7 +365,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Avoid bloated templates. Learn how robust frontend and backend engineering, alongside secure cloud databases, ensures your enterprise tech stack scales without breaking.",
     keywords: ["Custom web development", "backend architecture", "scalable tech stack", "enterprise technology solutions", "API integrations"],
     author: {
-      name: "Vikram Malhotra",
+      name: "KK Next Tech Solutions",
       role: "Lead Systems Engineer",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
     },

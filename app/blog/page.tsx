@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   Clock,
+  Calendar,
   Sparkles,
   BookOpen,
   Laptop,
@@ -20,7 +21,6 @@ import {
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import Avatar from "@/components/ui/Avatar";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Tilt3DCard from "@/components/ui/Tilt3DCard";
 import ParticleField from "@/components/ui/ParticleField";
@@ -135,13 +135,7 @@ export default function BlogPage() {
           1. HERO HEADER
       ════════════════════════════════════════════════════════════════════ */}
       <section className="max-w-7xl px-6 md:px-8 mx-auto flex flex-col items-center text-center gap-6 pb-10 relative z-10">
-        <ScrollReveal>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs font-bold uppercase tracking-wider font-mono">
-            <BookOpen className="w-3.5 h-3.5 text-purple-600" /> B2B Engineering &amp; Growth Insights
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.1}>
+              <ScrollReveal delay={0.1}>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase max-w-4xl">
             Tech Insights, Engineering Guides &amp;{" "}
             <AnimatedGradientText from="#7C3AED" via="#9333EA" to="#38bdf8">
@@ -204,17 +198,17 @@ export default function BlogPage() {
                     </p>
                   </div>
 
-                  {/* Author Meta & Action */}
+                  {/* Meta & Action */}
                   <div className="pt-6 border-t border-purple-100 flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <Avatar name={featuredPost.author.name} className="w-10 h-10 text-xs shrink-0" />
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-slate-900">
-                          By {featuredPost.author.name}
-                        </span>
-                        <span className="text-[11px] text-slate-400 font-mono">
-                          {featuredPost.author.role} @ KK Next Tech
-                        </span>
+                    <div className="flex items-center gap-3 text-xs text-slate-500 font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <Calendar className="w-4 h-4 text-purple-600" />
+                        <span>{featuredPost.date}</span>
+                      </div>
+                      <span className="text-slate-300">•</span>
+                      <div className="flex items-center gap-1.5 font-mono">
+                        <Clock className="w-4 h-4 text-purple-600" />
+                        <span>{featuredPost.readTime}</span>
                       </div>
                     </div>
 
@@ -334,25 +328,18 @@ export default function BlogPage() {
                           </p>
                         </div>
 
-                        {/* Author Info & Read Link */}
+                        {/* Card Footer: Date & Read Link */}
                         <div className="mt-6 pt-4 border-t border-purple-100 flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2.5">
-                            <Avatar name={post.author.name} className="w-8 h-8 text-[10px] shrink-0" />
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-slate-900 truncate max-w-[120px]">
-                                {post.author.name}
-                              </span>
-                              <span className="text-[10px] text-slate-400 font-mono truncate max-w-[120px]">
-                                {post.author.role}
-                              </span>
-                            </div>
+                          <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
+                            <Calendar className="w-3.5 h-3.5 text-purple-500" />
+                            <span>{post.date}</span>
                           </div>
 
                           <Link
                             href={`/blog/${post.slug}`}
                             className="inline-flex items-center gap-1 text-xs font-extrabold text-purple-600 hover:text-purple-800 transition-colors shrink-0 group/link"
                           >
-                            <span>Read</span>
+                            <span>Read Article</span>
                             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" />
                           </Link>
                         </div>
@@ -374,7 +361,7 @@ export default function BlogPage() {
           5. NEWSLETTER & INBOUND CTA BANNER
       ════════════════════════════════════════════════════════════════════ */}
       <CTABanner
-        badge="Direct to Your Inbox"
+       
         title={
           <>
             Engineering &amp; Growth Breakdowns for{" "}
