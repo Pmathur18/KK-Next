@@ -516,7 +516,7 @@ export default function ServicesPage() {
           </>
         }
         description="Our solutions architects are available to run a full operations and technical code audit."
-        buttonText="Schedule Free 30-Min Discovery Call →"
+        buttonText="Book a Free Technical Architecture Review →"
         buttonLink="/contact"
       />
 

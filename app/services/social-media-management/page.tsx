@@ -702,8 +702,8 @@ export default function SocialMediaPage() {
             <AnimatedGradientText>Lead Engine Today</AnimatedGradientText>
           </>
         }
-        description="Get in touch for a custom social media strategy audit and content calendar preview."
-        buttonText="Book a Strategy Call →"
+        description="Get in touch for a comprehensive ad account audit, ROAS benchmark, and custom full-funnel acquisition playbook."
+        buttonText="Audit My Paid Ads &amp; ROAS →"
         buttonLink="/contact"
       />
 

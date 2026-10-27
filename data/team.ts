@@ -98,7 +98,7 @@ export const teamMembers: TeamMember[] = [
     name: "Kartik Krishnan",
     role: "Founder & CEO",
     avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop",
-    linkedin: "https://linkedin.com/in/kknextech"
+    linkedin: "https://linkedin.com/in/kknexttech"
   },
   {
     name: "Sanjay Kumar",

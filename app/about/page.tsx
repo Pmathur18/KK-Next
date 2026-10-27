@@ -432,6 +432,61 @@ export default function About() {
 
 
         {/* ════════════════════════════════════════════════════════════════════
+            6. HOW WE OPERATE: THE ACCOUNTABILITY FRAMEWORK
+        ════════════════════════════════════════════════════════════════════ */}
+        <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-8 border-b border-zinc-200/50">
+          <div className="flex flex-col gap-12">
+            <SectionHeading
+              eyebrow="The Accountability Framework"
+              title="How We Deliver: Sprints, Code Rigor &amp; Guaranteed SLAs"
+              description="B2B buyers don't hire agencies for vague promises. You hire us for predictability, velocity, and flawless technical execution."
+              align="center"
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-8 rounded-3xl bg-white border border-purple-100 shadow-lg shadow-purple-900/5 flex flex-col gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-200 text-purple-700 flex items-center justify-center font-bold text-lg">
+                  01
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 font-display">2-Week Agile Sprints</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  No 6-month black boxes. We ship demoable code every 14 days, complete with user story acceptance criteria, staging URL reviews, and direct Slack/Teams access to your engineers.
+                </p>
+                <div className="pt-3 border-t border-purple-50 text-xs font-semibold text-purple-700">
+                  ✓ Continuous Staging Demos
+                </div>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white border border-purple-100 shadow-lg shadow-purple-900/5 flex flex-col gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center font-bold text-lg">
+                  02
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 font-display">Rigorous QA &amp; Clean Code</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Every PR undergoes multi-tier peer code review, automated regression tests, and security scans. We deliver documented, linted codebases that your in-house team can easily inherit.
+                </p>
+                <div className="pt-3 border-t border-purple-50 text-xs font-semibold text-blue-700">
+                  ✓ 100% Code Ownership
+                </div>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white border border-purple-100 shadow-lg shadow-purple-900/5 flex flex-col gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center font-bold text-lg">
+                  03
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 font-display">Post-Launch Support &amp; SLA</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Deployment is only day one. We provide 24/7 infrastructure uptime monitoring, instant security patches, and continuous conversion rate optimization sprints to keep you growing.
+                </p>
+                <div className="pt-3 border-t border-purple-50 text-xs font-semibold text-emerald-700">
+                  ✓ 99.9% Uptime Guarantee
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════════════════════
             7. FINAL CTA
         ════════════════════════════════════════════════════════════════════ */}
         <CTABanner

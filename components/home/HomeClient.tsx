@@ -67,23 +67,23 @@ const coreSolutions = [
     id: "web-arch",
     icon: Laptop,
     badge: "Custom Web",
-    title: "Custom Web Architecture & Application Development",
-    desc: "Robust, secure, and scalable custom web applications engineered to handle high-concurrency traffic without performance latency. Built on modern tech stacks tailored to your proprietary business logic.",
+    title: "Custom Web Architecture & High-Concurrency Systems",
+    desc: "Sub-100ms response times and zero-downtime reliability. We build web applications that maintain blazing speeds during 50,000+ user traffic spikes, ensuring your customers never hit a slow screen or broken flow.",
     color: "from-violet-500/15 via-purple-500/10 to-indigo-500/5",
     iconColor: "text-violet-600 bg-violet-50 border-violet-200",
-    link: "/services#websites",
-    highlights: ["React / Next.js Stack", "High Concurrency", "Zero Latency Architecture"],
+    link: "/services/websites",
+    highlights: ["React / Next.js Stack", "Sub-100ms API Response", "Zero-Downtime Scaling"],
     stat: "Sub-100ms API Response",
   },
   {
     id: "shopify-ecom",
     icon: ShoppingBag,
     badge: "E-Commerce",
-    title: "High-Converting Shopify & E-Commerce Infrastructure",
-    desc: "Custom-built, conversion-optimized Shopify storefronts designed to minimize cart abandonment, reduce bounce rates, and turn top-of-funnel traffic into repeat revenue.",
+    title: "High-Converting Shopify & Headless Commerce Infrastructure",
+    desc: "Frictionless one-page checkouts and custom backend syncs that eliminate inventory overselling, slash cart abandonment by 40%, and turn first-time visitors into repeat buyers.",
     color: "from-emerald-500/15 via-teal-500/10 to-cyan-500/5",
     iconColor: "text-emerald-600 bg-emerald-50 border-emerald-200",
-    link: "/services#websites",
+    link: "/services/websites",
     highlights: ["Custom Theme Dev", "Conversion Rate Optimization", "Checkout API Flow"],
     stat: "+45% Avg Conversion",
   },
@@ -91,11 +91,11 @@ const coreSolutions = [
     id: "wordpress-eng",
     icon: Code,
     badge: "Headless CMS",
-    title: "High-Speed WordPress Engineering",
-    desc: "Flexible, headless, and SEO-fortified WordPress websites built for lightning-fast page speed scores, zero-bloat functionality, and effortless content management.",
+    title: "High-Speed Headless WordPress Engineering",
+    desc: "Sub-second page speeds, enterprise-grade security, and zero plugin bloat. Empower your marketing team to publish effortlessly while keeping Google Core Web Vitals at a perfect 100/100.",
     color: "from-blue-500/15 via-sky-500/10 to-indigo-500/5",
     iconColor: "text-blue-600 bg-blue-50 border-blue-200",
-    link: "/services#websites",
+    link: "/services/websites",
     highlights: ["Headless WordPress", "100/100 PageSpeed", "Zero Bloat Codebase"],
     stat: "99+ Performance Score",
   },
@@ -103,8 +103,8 @@ const coreSolutions = [
     id: "perf-marketing",
     icon: LineChart,
     badge: "Growth Engine",
-    title: "Data-Driven Performance Marketing & Full-Funnel Growth",
-    desc: "From technical SEO and search engine marketing (SEM) to hyper-targeted paid social campaigns, we position your brand directly in front of high-intent buyers to maximize ROAS.",
+    title: "Data-Driven Performance Marketing & Full-Funnel ROAS",
+    desc: "No vanity metrics or empty clicks. We position your brand directly in front of high-intent buyers through precision Meta/Google acquisition and technical SEO that delivers predictable revenue.",
     color: "from-fuchsia-500/15 via-pink-500/10 to-rose-500/5",
     iconColor: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-200",
     link: "/services/social-media-management",
@@ -115,8 +115,8 @@ const coreSolutions = [
     id: "crm-erp-integration",
     icon: Database,
     badge: "Enterprise Tech",
-    title: "Enterprise CRM & ERP Consultation & Integration",
-    desc: "Eliminate operational friction, automate manual workflows, and unlock actionable business intelligence through custom Salesforce, HubSpot, and ERP implementations.",
+    title: "Enterprise CRM & ERP Workflow Automation",
+    desc: "Eliminate manual data entry, spreadsheets, and departmental silos. We connect inventory, customer records, and financial accounting into one automated dashboard, saving 40%+ in weekly operational hours.",
     color: "from-amber-500/15 via-orange-500/10 to-yellow-500/5",
     iconColor: "text-amber-600 bg-amber-50 border-amber-200",
     link: "/services/crm-erp",
@@ -128,30 +128,30 @@ const coreSolutions = [
 // Section 5: Why Partner With Us?
 const differentiators = [
   {
-    capability: "One Team for Your Projects",
-    badge: "Coordinated Delivery",
-    impact: "Manage your website, software development and digital marketing with one team, making communication and coordination easier.",
+    capability: "Single Point of Accountability",
+    badge: "Zero Finger-Pointing",
+    impact: "Dev agencies build code with zero marketing sense; ad agencies send traffic to slow websites. We fuse both under one accountable senior team responsible for your revenue.",
     icon: Layers,
     color: "border-purple-200 bg-purple-50/50 text-purple-700",
   },
   {
-    capability: "Solutions Built Around Your Needs",
-    badge: "Custom Development",
-    impact: "We develop solutions based on your business requirements, without adding unnecessary features or generic templates.",
+    capability: "Engineered for Commercial Outcomes",
+    badge: "ROI-First Architecture",
+    impact: "We don't build tech for tech's sake. Every line of code, database query, and conversion sprint is directly tied to customer acquisition and operational efficiency.",
     icon: Cpu,
     color: "border-blue-200 bg-blue-50/50 text-blue-700",
   },
   {
-    capability: "Decisions Guided by Data",
-    badge: "Data-Informed Strategy",
-    impact: "We use performance data to understand what's working and identify areas for improvement.",
+    capability: "Decisions Guided by Hard Data",
+    badge: "Zero Guesswork",
+    impact: "We analyze real visitor heatmaps, session drop-offs, and checkout funnels before writing a line of code or adjusting ad bids—eliminating guesswork completely.",
     icon: BarChart3,
     color: "border-emerald-200 bg-emerald-50/50 text-emerald-700",
   },
   {
-    capability: "Solutions That Can Grow With You",
-    badge: "Scalable Technology",
-    impact: "We plan and build technology that can adapt as your business needs change.",
+    capability: "Built to Scale 10x Without Rewrites",
+    badge: "Future-Proof Tech",
+    impact: "Clean, documented architectures engineered to absorb massive order surges and international expansion without needing expensive rebuilds 12 months later.",
     icon: Shield,
     color: "border-amber-200 bg-amber-50/50 text-amber-700",
   },
@@ -284,9 +284,9 @@ export default function HomeClient() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] text-slate-900 font-display"
             >
-              Web Development, Digital Marketing &amp;{" "}
+              We Build High-Performance Web Applications &amp;{" "}
               <AnimatedGradientText from="#6D28D9" via="#9333EA" to="#38bdf8">
-                Business Automation for Growing Businesses
+                Scale Them with Performance Marketing That Drives Actual Revenue
               </AnimatedGradientText>
             </motion.h1>
 
@@ -295,9 +295,9 @@ export default function HomeClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl font-normal mx-auto"
+              className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl font-normal mx-auto"
             >
-              We help businesses build websites and web applications, reach more customers through digital marketing, and simplify everyday work with CRM and ERP solutions. Our team works with you to understand your goals and find the right solution for your business.
+              Stop losing shoppers to sluggish load times and burning ad spend on unoptimized funnels. We unite full-stack web engineering, custom headless e-commerce, and automated CRM/ERP workflows with ruthless, data-driven acquisition.
             </motion.p>
 
             {/* Interactive 2-Step Micro-Conversion Audit Selector */}
@@ -909,15 +909,15 @@ export default function HomeClient() {
           SECTION 8: CONVERSION FOOTER (FINAL CALL-TO-ACTION)
       ═══════════════════════════════════════════════════════════════════ */}
       <CTABanner
-        badge="Ready to Build Your Win?"
+        badge="Zero Commitment Strategy Review"
         title={
           <>
-            Let&apos;s Build Your Next{" "}
-            <AnimatedGradientText>Digital Project.</AnimatedGradientText>
+            Stop Guessing. Build Scalable{" "}
+            <AnimatedGradientText>Software &amp; Growth Systems.</AnimatedGradientText>
           </>
         }
-        description="Let's discuss your business goals and explore how our team can help with your website, software or digital marketing needs."
-        buttonText="Schedule Your Strategy Call →"
+        description="Book a 30-minute technical roadmap call. We will audit your current architecture or ad stack and outline an actionable execution plan."
+        buttonText="Book Free Technical Roadmap Call →"
         buttonLink="/contact"
       />
     </div>
