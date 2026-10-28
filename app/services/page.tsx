@@ -248,12 +248,6 @@ export default function ServicesPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section className="pt-12 pb-8 md:pt-16 md:pb-12 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center text-center gap-6 max-w-4xl mx-auto">
-          <ScrollReveal delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs font-bold uppercase tracking-wider font-mono">
-              <Sparkles className="w-3.5 h-3.5 text-purple-600" /> Engineering + Growth Agency
-            </div>
-          </ScrollReveal>
-
           <ScrollReveal delay={0.15}>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-display text-slate-900 uppercase">
               Engineering &amp; Growth Services <br />

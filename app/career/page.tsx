@@ -136,12 +136,6 @@ export default function Career() {
       {/* Hero */}
       <section className="max-w-7xl px-6 md:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pb-10 border-b border-purple-100 relative z-10">
         <div className="lg:col-span-7 flex flex-col gap-6">
-          <ScrollReveal>
-            <Badge colorTheme="navy" className="!bg-purple-100 !text-purple-700 !border-purple-200">
-              Careers
-            </Badge>
-          </ScrollReveal>
-
           <ScrollReveal delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-900 font-display">
               Join the tech solution{" "}
@@ -176,13 +170,6 @@ export default function Career() {
       {/* Perks Grid */}
       <section className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto border-b border-purple-100">
         <div className="flex flex-col gap-12 md:gap-16">
-          <SectionHeading
-            eyebrow="Benefits"
-            title="Perks of working at KK Next Tech Solutions"
-            description="We structure incentives to support long-term engineering growth, family stability, and work-life balance."
-            align="center"
-          />
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {perks.map((p, idx) => {
               const Icon = p.icon;
@@ -212,8 +199,7 @@ export default function Career() {
 
           <div className="lg:col-span-4 flex flex-col gap-6">
             <SectionHeading
-              eyebrow="Openings"
-              title="Find your role"
+               title="Find your role"
               description="Click on any listing below to view requirements and capabilities."
             />
           </div>
@@ -286,8 +272,7 @@ export default function Career() {
       <section id="apply-form" className="py-12 md:py-16 max-w-7xl px-6 md:px-8 mx-auto">
         <div className="max-w-3xl mx-auto bg-white/50 backdrop-blur-2xl border border-white/60 p-8 md:p-12 rounded-[36px] shadow-[0_12px_40px_rgba(0,0,0,0.05),inset_0_1px_1px_rgba(255,255,255,0.6)] flex flex-col gap-8">
           <div className="flex flex-col gap-2 text-center items-center">
-            <Badge colorTheme="violet" className="w-fit">Submission</Badge>
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink mt-2">
+                      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink mt-2">
               Send us your profile
             </h2>
             <p className="text-xs md:text-sm text-zinc-550 leading-relaxed max-w-md">

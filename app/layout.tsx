@@ -108,10 +108,16 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://cdn.onesignal.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdn.onesignal.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://cdn.pushalert.co" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.pushalert.co" />
+        {/* PushAlert */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(d, t) { var g = d.createElement(t), s = d.getElementsByTagName(t)[0]; g.src = "https://cdn.pushalert.co/integrate_fcd118782f126c41fcdfc8f628f445db.js"; s.parentNode.insertBefore(g, s); }(document, "script"));`,
+          }}
+        />
       </head>
       <body className="flex flex-col min-h-screen bg-white text-ink antialiased relative">
         {/* Google Analytics - deferred via lazyOnload */}
@@ -126,23 +132,6 @@ export default function RootLayout({
             gtag('js', new Date());
 
             gtag('config', 'G-24Y8Z31Q9X');
-          `}
-        </Script>
-
-        {/* OneSignal Web Push SDK - deferred via lazyOnload */}
-        <Script
-          src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
-          strategy="lazyOnload"
-        />
-        <Script id="onesignal-init" strategy="lazyOnload">
-          {`
-            window.OneSignalDeferred = window.OneSignalDeferred || [];
-            OneSignalDeferred.push(async function(OneSignal) {
-              await OneSignal.init({
-                appId: "f9ffb707-6b81-4b77-ba2a-e06d10d21767",
-                allowLocalhostAsSecureOrigin: true,
-              });
-            });
           `}
         </Script>
 

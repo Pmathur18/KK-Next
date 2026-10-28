@@ -20,6 +20,21 @@ const nextConfig: NextConfig = {
       "framer-motion",
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "kknexttech.com",
+          },
+        ],
+        destination: "https://www.kknexttech.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
